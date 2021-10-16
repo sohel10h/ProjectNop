@@ -1,0 +1,35 @@
+﻿@using Nop.Core.Domain.Customers
+@inject Nop.Core.IWebHelper webHelper
+
+<div class="header">
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderBefore })
+    <div class="header-upper">
+        <div class="header-selectors-wrapper">
+            @*@await Component.InvokeAsync("TaxTypeSelector")
+            @await Component.InvokeAsync("CurrencySelector")
+            @await Component.InvokeAsync("LanguageSelector")*@
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderSelectors })
+        </div>
+        <div class="header-links-wrapper">
+            @await Component.InvokeAsync("HeaderLinks")
+            @*@await Component.InvokeAsync("FlyoutShoppingCart")*@
+        </div>
+    </div>
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMiddle })
+    <div class="header-lower">
+        <div class="header-logo">
+            @await Component.InvokeAsync("Logo")
+        </div>
+        <div class="search-box store-search-box">
+            @await Component.InvokeAsync("SearchBox")
+            <div id="Tracking" class="header_menu_itm">
+                <a href="@Url.RouteUrl("Login")" class="ico-login">@T("Order.Tracking")</a>
+            </div>
+            <div id="login" class="header_menu_itm">
+                <a href="@Url.RouteUrl("Login")" class="ico-login">@T("Account.Login")</a>
+            </div>
+            @await Component.InvokeAsync("LanguageSelector")
+        </div>
+    </div>
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderAfter })
+</div>
