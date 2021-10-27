@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k236o59Cpjd0yWAzhJd5/9LRZnvwglfjPJaPEDLQ+ov2zqnU29EmIfTrUYvCtYBz/TQQqyUOonQ6NAuiOl62qg==",
+  "dgSpecHash": "uNjMcsggmFE3aEcry1AUHCCHYDjNP7IwMbZDS4bB6NAOYjYSRO4dEbtaqw2jcCCq6KAgflfhlW5bX7s5J4Wqbw==",
   "success": true,
-  "projectFilePath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Plugins\\Nop.Plugin.Payments.Manual\\Nop.Plugin.Payments.Manual.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Payments.Manual\\Nop.Plugin.Payments.Manual.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

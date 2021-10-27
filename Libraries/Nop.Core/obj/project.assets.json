@@ -10093,11 +10093,11 @@
   "project": {
     "version": "4.4.0",
     "restore": {
-      "projectUniqueName": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Libraries\\Nop.Core\\Nop.Core.csproj",
+      "projectUniqueName": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
       "projectName": "Nop.Core",
-      "projectPath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Libraries\\Nop.Core\\Nop.Core.csproj",
+      "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Libraries\\Nop.Core\\obj\\",
+      "outputPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

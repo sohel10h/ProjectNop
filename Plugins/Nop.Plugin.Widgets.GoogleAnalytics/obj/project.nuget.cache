@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CLDppTG7VtlU7kmrfxfVAly7akjUQUSXLJ2hjJOfNEIEZNMO8YYpsS+0hUVh8YqfX+SzPlUIabh2Mf3POg0c4g==",
+  "dgSpecHash": "Ed6Ce6YWvewjghphfv2JAYIoCjpxqFr5v2WE0DbRp8zpJhZ7XNs8cw59umirWUG1S1I9tXpKeNDWogdIHgxe5g==",
   "success": true,
-  "projectFilePath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Plugins\\Nop.Plugin.Widgets.GoogleAnalytics\\Nop.Plugin.Widgets.GoogleAnalytics.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Widgets.GoogleAnalytics\\Nop.Plugin.Widgets.GoogleAnalytics.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

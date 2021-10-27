@@ -43,8 +43,8 @@
     .see_more {
         width: 20%;
         min-height: 100px;
-        background-color: aquamarine;
-        height: 250px;
+        /*background-color: aquamarine;*/
+        height: 195px;
     }
     .category-grid.home-page-category-grid.slider, .see_more {
         display: inline-block;
@@ -56,9 +56,24 @@
         overflow: hidden;
     }
 
+    .show_all {
+        font-size: 15px;
+        text-align: center;
+        vertical-align: middle;
+        height: 195px;
+        line-height: 200px;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        border: 1px solid #eee;
+        margin-left: 30px;
+        box-shadow: 4px 4px 5px 2px #eee;
+    }
+
 </style>
 
 
+<div class="home_page_content">
     <div class="category-grid home-page-category-grid slider">
         <div class="item-grid slide-track">
             @foreach (var item in Model)
@@ -75,8 +90,12 @@
             }
         </div>
     </div>
+    <div class="see_more">
+        <a href="#"><div class="show_all">SHOW ALL</div></a>     
+    </div>
+</div>
 
-    <div class="see_more"></div>
+
 }
 
 

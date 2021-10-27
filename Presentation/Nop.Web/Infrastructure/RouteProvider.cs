@@ -95,6 +95,11 @@ namespace Nop.Web.Infrastructure
                 pattern: $"catalog/searchtermautocomplete",
                 defaults: new { controller = "Catalog", action = "SearchTermAutoComplete" });
 
+
+            endpointRouteBuilder.MapControllerRoute(name: "SearchTermAutoCompleteForOrder",
+                pattern: $"catalog/SearchTermAutoCompleteForOrder",
+                defaults: new { controller = "Catalog", action = "SearchTermAutoCompleteForOrder" });
+
             //change currency
             endpointRouteBuilder.MapControllerRoute(name: "ChangeCurrency",
                 pattern: $"{lang}/changecurrency/{{customercurrency:min(0)}}",
@@ -394,6 +399,12 @@ namespace Nop.Web.Infrastructure
             endpointRouteBuilder.MapControllerRoute(name: "GetOrderPdfInvoice",
                 pattern: $"orderdetails/pdf/{{orderId}}",
                 defaults: new { controller = "Order", action = "GetPdfInvoice" });
+
+
+
+            endpointRouteBuilder.MapControllerRoute(name: "MakeAnOrder",
+                pattern: $"MakeAnOrder",
+                defaults: new { controller = "Order", action = "MakeAnOrder" });
 
             endpointRouteBuilder.MapControllerRoute(name: "PrintOrderDetails",
                 pattern: $"{lang}/orderdetails/print/{{orderId}}",

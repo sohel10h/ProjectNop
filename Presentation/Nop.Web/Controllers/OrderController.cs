@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
@@ -10,12 +12,14 @@ using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Orders;
 using Nop.Services.Common;
 using Nop.Services.Customers;
+using Nop.Services.Media;
 using Nop.Services.Orders;
 using Nop.Services.Payments;
 using Nop.Services.Shipping;
 using Nop.Web.Factories;
 using Nop.Web.Framework.Controllers;
 using Nop.Web.Framework.Mvc.Filters;
+using Nop.Web.Models.Order;
 
 namespace Nop.Web.Controllers
 {
@@ -33,10 +37,10 @@ namespace Nop.Web.Controllers
         private readonly IWebHelper _webHelper;
         private readonly IWorkContext _workContext;
         private readonly RewardPointsSettings _rewardPointsSettings;
-
+        private readonly IPictureService _pictureService;
         #endregion
 
-		#region Ctor
+        #region Ctor
 
         public OrderController(ICustomerService customerService,
             IOrderModelFactory orderModelFactory,
@@ -47,6 +51,7 @@ namespace Nop.Web.Controllers
             IShipmentService shipmentService, 
             IWebHelper webHelper,
             IWorkContext workContext,
+            IPictureService pictureService,
             RewardPointsSettings rewardPointsSettings)
         {
             _customerService = customerService;
@@ -59,6 +64,7 @@ namespace Nop.Web.Controllers
             _webHelper = webHelper;
             _workContext = workContext;
             _rewardPointsSettings = rewardPointsSettings;
+            _pictureService = pictureService;
         }
 
         #endregion
@@ -262,7 +268,75 @@ namespace Nop.Web.Controllers
             var model = await _orderModelFactory.PrepareShipmentDetailsModelAsync(shipment);
             return View(model);
         }
-        
+
+
+        public virtual async Task<IActionResult> MakeAnOrder()
+        {
+
+            return View();
+        }
+
+
+        [HttpPost]
+        public virtual async Task<IActionResult> MakeAnOrder(IFormCollection colletion)
+        {
+            var orders = new List<MakeAnOrder>();
+            for (int i = 0; i <= 9; i++) 
+            {
+                var namekey = "name" + i;
+                var name = colletion[namekey].ToString();
+                if ( !string.IsNullOrEmpty(name)) 
+                { 
+                    var quantity = Convert.ToInt32(colletion["quantity" + i]);
+                    var image = colletion.Files.GetFile("image"+i);
+                    string fileName=string.Empty;
+                    if (image != null) 
+                    {
+                        byte[] fileBytes;
+                         fileName = Guid.NewGuid().ToString() + image.FileName;
+                        using (var ms = new MemoryStream())
+                        {
+                            image.CopyTo(ms);
+                            fileBytes = ms.ToArray();
+                        }
+                        await _pictureService.SaveMakeAnOrderThumbAsync(fileName, image.ContentType, fileBytes);
+                    }
+                    orders.Add(new Models.Order.MakeAnOrder
+                    {
+                        Id = Convert.ToInt32(colletion["id" + i]),
+                        Name= name,
+                        Quantity= quantity,
+                        FileName= fileName
+                    });
+                }
+            }
+
+            string xmlString = null;
+            XmlSerializer xmlSerializer = new XmlSerializer(orders.GetType());
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                xmlSerializer.Serialize(memoryStream, orders);
+                memoryStream.Position = 0;
+                xmlString = new StreamReader(memoryStream).ReadToEnd();
+            }
+            var customer = await _workContext.GetCurrentCustomerAsync();
+            var order = new Order();
+            var BillingAddressId = customer.BillingAddressId.HasValue ? customer.BillingAddressId.Value : 1;
+            order.BillingAddressId = BillingAddressId;
+            order.ShippingAddressId = BillingAddressId;
+            order.ShippingStatus = Core.Domain.Shipping.ShippingStatus.NotYetShipped;
+            order.PaymentStatus = Core.Domain.Payments.PaymentStatus.Pending;
+            order.OrderStatus = OrderStatus.Pending;
+            order.CustomerId = customer.Id;
+            order.OrderGuid = Guid.NewGuid();
+            order.CustomValuesXml = xmlString;
+            order.CustomOrderNumber = "";
+            await _orderService.InsertOrderAsync(order);
+            return View();
+        }
+
+
+
         #endregion
     }
 }

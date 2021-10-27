@@ -11652,11 +11652,11 @@
   "project": {
     "version": "4.4.0",
     "restore": {
-      "projectUniqueName": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Libraries\\Nop.Data\\Nop.Data.csproj",
+      "projectUniqueName": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
       "projectName": "Nop.Data",
-      "projectPath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Libraries\\Nop.Data\\Nop.Data.csproj",
+      "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Libraries\\Nop.Data\\obj\\",
+      "outputPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11676,8 +11676,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Personal works\\nopCommerce_4.40.4_Source\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-              "projectPath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Libraries\\Nop.Core\\Nop.Core.csproj"
+            "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+              "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
             }
           }
         }

@@ -93,6 +93,10 @@ namespace Nop.Services.Media
             string storeLocation = null,
             PictureType defaultPictureType = PictureType.Entity);
 
+
+
+        Task SaveMakeAnOrderThumbAsync(string thumbFileName, string mimeType, byte[] binary);
+
         /// <summary>
         /// Get a picture local path
         /// </summary>

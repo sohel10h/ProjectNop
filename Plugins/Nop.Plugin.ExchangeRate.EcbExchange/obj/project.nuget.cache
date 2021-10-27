@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BThJ/pskmE2HdBHRUAcV4zMuaDmq1YuCliGk0tioDnU5zreoE4DT+y1Gtzq+7ZYRX/XvVlxoDbThq4DuP9dCEg==",
+  "dgSpecHash": "2lENDiCHmUogK9jAsLppnt//CoYgvWjzFX2hs98GzppLl3QROeq7Py7bVl44cG0jvm3aH8qGovqjTFIf6V0JbQ==",
   "success": true,
-  "projectFilePath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Plugins\\Nop.Plugin.ExchangeRate.EcbExchange\\Nop.Plugin.ExchangeRate.EcbExchange.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.ExchangeRate.EcbExchange\\Nop.Plugin.ExchangeRate.EcbExchange.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",

@@ -292,6 +292,20 @@ namespace Nop.Services.Media
             await _fileProvider.WriteAllBytesAsync(thumbFilePath, binary);
         }
 
+
+        public virtual async Task SaveMakeAnOrderThumbAsync( string thumbFileName, string mimeType, byte[] binary)
+        {
+            var thumbFilePath = await GetThumbLocalPathAsync(thumbFileName);
+            //ensure \thumb directory exists
+            var thumbsDirectoryPath = _fileProvider.GetAbsolutePath(NopMediaDefaults.ImageThumbsPath);
+            _fileProvider.CreateDirectory(thumbsDirectoryPath);
+
+            //save
+            await _fileProvider.WriteAllBytesAsync(thumbFilePath, binary);
+        }
+
+
+
         /// <summary>
         /// Updates the picture binary data
         /// </summary>
@@ -1194,6 +1208,8 @@ namespace Nop.Services.Media
                 // ignored
             }
         }
+
+
 
         #endregion
     }

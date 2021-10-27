@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ULKoYkUYMM3W+H2zn//fFeyhk5WsLbwqgciybT3DgQDCllT9ybtKfzI4RQabQe7ELT79ee0/vle7InG4jV5Shg==",
+  "dgSpecHash": "7aYftNWR3wem7GwxjVm9NXLCqNxJYMFi8/bdPR93V89288oFmHvh6H67YSJU4dZDVj/lGU5/Q8W2CLlLSMKehA==",
   "success": true,
-  "projectFilePath": "D:\\Personal works\\nopCommerce_4.40.4_Source\\Plugins\\Nop.Plugin.Widgets.AccessiBe\\Nop.Plugin.Widgets.AccessiBe.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Widgets.AccessiBe\\Nop.Plugin.Widgets.AccessiBe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

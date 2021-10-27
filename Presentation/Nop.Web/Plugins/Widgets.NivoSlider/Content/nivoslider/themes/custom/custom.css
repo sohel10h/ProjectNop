@@ -40,6 +40,7 @@
 	box-shadow: 0 0 1px 0 rgba(0,0,0,0.2);
 	background-color: #fff;
 	font-size: 0;
+	border-radius:100%;
 }
 .theme-custom .nivo-controlNav a.active {
 	background-color: #4ab2f1;
@@ -118,7 +119,7 @@
 
 @media all and (min-width: 1001px) {
 .theme-custom {
-	margin: -30px 0 60px;
+	margin: 0;
 }
 .theme-custom .nivo-directionNav {
 	display: none; /* remove to use directional navigation */
