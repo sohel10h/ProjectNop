@@ -1,33 +1,39 @@
 ﻿@model TopMenuModel
-
 @functions {
     async Task CategoryLine(TopMenuModel.CategoryLineModel lineModel)
     {
-        <li>
-            <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })">
-                @lineModel.Category.Name
-            @if (lineModel.Category.NumberOfProducts.HasValue)
-            {
-                <text> </text>@T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
-            }
-        </a>
-        @{
-            //subcategories
-            var subCategories = lineModel.ResponsiveMobileMenu ?
-                //responsive (all categories)
-                lineModel.Category.SubCategories :
-                //standard design (only categories with "IncludeInTopMenu")
-                lineModel.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+        <div class="sidenavRow">
+            <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })" style="margin: 10px; width: 100% !important;">
+                <div>
 
-            var levelClass = "";
-            if (lineModel.Level == 0)
-            {
-                levelClass = "first-level";
-            }
-            if (subCategories.Count > 0)
-            {
-                <div class="sublist-toggle"></div>
-                <ul class="sublist @levelClass">
+                    @lineModel.Category.Name
+                    @if (lineModel.Category.NumberOfProducts.HasValue)
+                    {
+
+                        @T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
+
+                    }
+
+                </div>
+            </a>
+            <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+        </div>
+        //subcategories
+        var subCategories = lineModel.ResponsiveMobileMenu ?
+        //responsive (all categories)
+        lineModel.Category.SubCategories :
+        //standard design (only categories with "IncludeInTopMenu")
+        lineModel.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+
+        var levelClass = "";
+        if (lineModel.Level == 0)
+        {
+            levelClass = "first-level";
+        }
+        if (subCategories.Count > 0)
+        {
+            <ul class="d-none sublist @levelClass">
+                <li class="sublist-item">
                     @foreach (var subCategory in subCategories)
                     {
                         var categoryLineModel = new TopMenuModel.CategoryLineModel
@@ -38,224 +44,543 @@
                         };
                         await CategoryLine(categoryLineModel);
                     }
-                </ul>
-            }
+                </li>
+            </ul>
         }
-    </li>
-}
+        
+    }
 }
 
 
-@{ 
+@{
     var rootCategoriesResponsive = Model.Categories.ToList();
     //name it "Categories" if we have only categories. Otherwise, "Menu"
     var responsiveMenuTitle = Model.HasOnlyCategories ? T("Categories") : T("Menu");
 }
-
 <style>
-body {
-  font-family: "Lato", sans-serif;
-}
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Arial";
+    }
 
-.sidenav {
-  display: none;
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 60px;
-}
+    body {
+        overflow-x: hidden;
+    }
 
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
+    #whole-flex {
+        position: absolute;
+        flex-direction: column;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -10;
+    }
 
-.sidenav a:hover {
-  color: #f1f1f1;
-}
+    /* NavBar */
+    .sidenav {
+        max-width: 380px;
+        width: 85%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        height: 100%;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        background-color: white;
+        transform-origin: left center;
+        transform: translateX(-380px);
+    }
 
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
+    .sidenavHeader {
+        color: white;
+        font-weight: bold;
+        background-color: rgb(35, 47, 62);
+        padding: 10px 0px 10px 30px;
+        font-size: 23px;
+    }
 
-@@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+    .sidenavContentHeader {
+        margin-top: 5px;
+        padding: 15px 0px 15px 25px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .sidenavContent {
+        padding: 15px 0px 15px 25px;
+    }
+
+        .sidenavContent:hover {
+            background-color: #eaeded;
+        }
+
+    hr {
+        height: 1px;
+        border: 0;
+        color: gray;
+        background-color: gray;
+        margin: 0px auto;
+    }
+
+    .sidenavRow {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0px 20px;
+    }
+
+        .sidenavRow:hover {
+            background-color: #eaeded;
+        }
+
+            .sidenavRow:hover i {
+                color: #111111 !important;
+            }
+
+    #closeBtn {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-left: 390px;
+        color: white;
+        font-size: 50px;
+        cursor: pointer;
+        z-index: 75;
+        transform: translateY(-5px);
+        transition: visibility 0.5s;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        text-decoration: none;
+        color: black;
+    }
+
+    /* animation */
+    @@keyframes collapse {
+        0% {
+            z-index: 100;
+            transform: translateX(0px);
+        }
+
+        100% {
+            transform: translateX(-380px);
+        }
+    }
+
+    @@keyframes expand {
+        0% {
+            z-index: 100;
+            transform: translateX(-380px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
+
+    @@keyframes show {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @@keyframes hide {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    /* Overlay */
+    #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Dropdown */
+    .sidenavContainer hr {
+        width: 85%;
+    }
+
+    .sidenavRowDropdown {
+        display: flex;
+        width: 100%;
+        justify-content: start;
+        align-items: center;
+        padding: 15px 25px 15px 25px;
+        cursor: pointer;
+    }
+
+        .sidenavRowDropdown:hover {
+            background-color: #eaeded;
+        }
+
+            .sidenavRowDropdown:hover i {
+                color: #111111 !important;
+            }
+
+    .sidenavContainer {
+        display: none;
+        height: 0px;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: center top;
+    }
+
+    @@keyframes expandDropDown {
+        0% {
+            transform: scaleY(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scaleY(1);
+            opacity: 1;
+        }
+    }
+
+    @@keyframes collapseDropDown {
+        0% {
+            transform: scaleY(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scaleY(0);
+            opacity: 0;
+        }
+    }
+
+    /* Container part */
+    #main-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    @@keyframes mainAway {
+        0% {
+            transform: translateX(0px);
+        }
+
+        100% {
+            transform: translateX(-380px);
+        }
+    }
+
+    @@keyframes mainBack {
+        0% {
+            transform: translateX(-380px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
+
+    #sub-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        background-color: white;
+        transform: translateX(380px);
+    }
+
+    @@keyframes subBack {
+        0% {
+            transform: translateX(380px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
+
+    @@keyframes subPush {
+        0% {
+            transform: translateX(0px);
+        }
+
+        100% {
+            transform: translateX(380px);
+        }
+    }
+
+    #mainMenu {
+        padding: 0px 10px;
+        font-weight: bold;
+    }
+
+        #mainMenu:hover {
+            background-color: #eaeded;
+            cursor: pointer;
+        }
+
+    i.fa, i.fab, i.fas {
+        font-size: 15px !important;
+        padding: 0px 20px;
+    }
 </style>
+<!-- partial:index.partial.html -->
+<div id="overlay" onclick="closeNav()"></div>
 
-
-
-
-
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-    <ul class="top-menu mobile">
+<div id="closeBtn" onclick="closeNav()">&times;</div>
+<div class="sidenav" id="mySidenav">
+    <div class="sidenavHeader">
+        <i class="fas fa-user-circle"></i> Hello, Sign In
+    </div>
+    <!--Below SideNavHeader-->
+    <div id="main-container">
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuBefore })
         @if (Model.DisplayHomepageMenuItem)
         {
-            <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
+            <a href="@Url.RouteUrl("Homepage")" style="margin: 10px; width: 100% !important;">
+                <div class="sidenavRow">
+                    <div>@T("Homepage")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"  ></i>
+                </div>
+            </a>
         }
         @if (!Model.UseAjaxMenu)
         {
             @foreach (var category in rootCategoriesResponsive)
             {
-                var categoryLineModel = new TopMenuModel.CategoryLineModel
-                {
-                    Category = category,
-                    ResponsiveMobileMenu = true
-                };
-                await CategoryLine(categoryLineModel);
+                <div class="main-cat">
+                    @{
+                        var categoryLineModel = new TopMenuModel.CategoryLineModel
+                        {
+                            Category = category,
+                            ResponsiveMobileMenu = true
+                        };
+                        await CategoryLine(categoryLineModel);
+                    }
+                </div>
             }
 
         }
+
         @foreach (var topic in Model.Topics)
         {
-            <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+            <a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })" >
+                <div class="sidenavRow">
+                    <div>@topic.Name</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
         }
+
         @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
         {
-            <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+            <a href="@Url.RouteUrl("NewProducts")">
+                <div class="sidenavRow">
+                    <div>@T("Products.NewProducts")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
         }
         @if (Model.DisplayProductSearchMenuItem)
         {
-            <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+            <a href="@Url.RouteUrl("ProductSearch")">
+                <div class="sidenavRow">
+                    <div>@T("Search")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
         }
         @if (Model.DisplayCustomerInfoMenuItem)
         {
-            <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+            <a href="@Url.RouteUrl("CustomerInfo")">
+                <div class="sidenavRow">
+                    <div>@T("Account.MyAccount")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
         }
         @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
         {
-            <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+            <a href="@Url.RouteUrl("Blog")">
+                <div class="sidenavRow">
+                    <div>@T("Blog")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
         }
         @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
         {
-            <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+            <a href="@Url.RouteUrl("Boards")">
+                <div class="sidenavRow">
+                    <div>@T("Forum.Forums")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
         }
         @if (Model.DisplayContactUsMenuItem)
         {
-            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+            <a href="@Url.RouteUrl("ContactUs")">
+                <div class="sidenavRow">
+                    <div>@T("ContactUs")</div>
+                    <i class="fas fa-chevron-right click-icon click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
         }
         @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuAfter })
-    </ul>
 
+    </div>
+    <!--End of first container-->
 
+    <div id="sub-container">
+        <div id="mainMenu">
+            <i class="fas fa-chevron-left" style="color: #8e9090"></i> MAIN MENU
+        </div>
+        <hr />
+        <div id="sub-container-content">
+            <!-- <div class="sidenavContentHeader">Prime Video</div>
+            <a href="#"><div class="sidenavContent">All Videos</div></a> -->
+        </div>
+    </div>
 </div>
 
+
 <script>
+
     function openNav() {
-        document.getElementById("mySidenav").style.display = "block";
+        document.getElementById("mySidenav").style.animation = "expand 0.3s forwards";
+        //closeBtn
+        document.getElementById("closeBtn").style.display = "block";
+        document.getElementById("closeBtn").style.animation = "show 0.3s";
+        //Overlay
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("overlay").style.animation = "show 0.3s";
+
     }
+
     function closeNav() {
-        document.getElementById("mySidenav").style.display = "none";
+        document.getElementById("mySidenav").style.animation = "collapse 0.3s forwards";
+        //closeBtn
+        document.getElementById("closeBtn").style.animation = "hide 0.3s";
+        //Overlay
+        document.getElementById("overlay").style.animation = "hide 0.3s";
+
+        setTimeout(() => {
+            document.getElementById("closeBtn").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            //Reset Menus
+            document.getElementById("main-container").style.animation = "";
+            document.getElementById("main-container").style.transform = "translateX(0px)";
+            document.getElementById("sub-container").style.animation = "";
+            document.getElementById("sub-container").style.transform = "translateX(380px)";
+        }, 300)
     }
-</script>
 
+    let firstDropdownOpen = false;
 
+    function firstDropDown() {
+        firstDropdownOpen = !firstDropdownOpen;
+        if (firstDropdownOpen) {
+            document.querySelector("#firstDropDown i").setAttribute("class", "fas fa-chevron-up");
+            document.querySelector("#firstDropDown div").innerHTML = "See Less";
+            //Handle Container
+            document.getElementById("firstContainer").style.display = "block";
+            document.getElementById("firstContainer").style.animation = "expandDropDown 0.3s forwards";
+            document.getElementById("firstContainer").style.transition = "height 0.3s";
+            document.getElementById("firstContainer").style.height = "410px";
+        } else {
+            document.querySelector("#firstDropDown i").setAttribute("class", "fas fa-chevron-down");
+            document.querySelector("#firstDropDown div").innerHTML = "See More";
+            //Handle Container
+            document.getElementById("firstContainer").style.animation = "collapseDropDown 0.2s forwards";
+            document.getElementById("firstContainer").style.transition = "height 0.2s";
+            document.getElementById("firstContainer").style.height = "0px";
+            setTimeout(() => {
+                document.getElementById("firstContainer").style.display = "none";
+            }, 200)
 
-
-
-
-<ul class="top-menu notmobile" style="display:none !important">
-    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore })
-    @if (Model.DisplayHomepageMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
-    }
-    @if (!Model.UseAjaxMenu)
-    {
-        var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();
-        @foreach (var category in rootCategories)
-        {
-            var categoryLineModel = new TopMenuModel.CategoryLineModel
-            {
-                Category = category
-            };
-            await CategoryLine(categoryLineModel);
         }
+    }
 
-    }
-    @foreach (var topic in Model.Topics)
-    {
-        <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
-    }
-    @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
-    }
-    @if (Model.DisplayProductSearchMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
-    }
-    @if (Model.DisplayCustomerInfoMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
-    }
-    @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
-    }
-    @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
-    }
-    @if (Model.DisplayContactUsMenuItem)
-    {
-        <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
-    }
-    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter })
-</ul>
-@{
+    let secondDropDownOpen = false;
 
-    <div class="menu-toggle">@responsiveMenuTitle</div>
-    
+    function secondDropDown() {
+        secondDropDownOpen = !secondDropDownOpen;
 
-    @if (Model.UseAjaxMenu)
-    {
-        <script asp-location="Footer">
-        $(document).ready(function () {
-            $('.menu-toggle').on('click', function () {
-                $(this).siblings('.top-menu.mobile').slideToggle('slow');
-            });
-            var localized_data = {
-                AjaxFailure: "@T("MainMenu.AjaxFailure")"
-            };
-            mainMenu.init('@Url.RouteUrl("GetCatalogRoot")', '@Url.RouteUrl("GetCatalogSubCategories")', 'ul.top-menu.notmobile', 'ul.top-menu.mobile', localized_data);
+        if (secondDropDownOpen) {
+            document.querySelector("#secondDropDown i").setAttribute("class", "fas fa-chevron-up");
+            document.querySelector("#secondDropDown div").innerHTML = "See Less";
+            //Handle Container
+            document.getElementById("secondContainer").style.display = "block";
+            document.getElementById("secondContainer").style.animation = "expandDropDown 0.3s forwards";
+            document.getElementById("secondContainer").style.transition = "height 0.3s";
+            document.getElementById("secondContainer").style.height = "260px";
+        } else {
+            document.querySelector("#secondDropDown i").setAttribute("class", "fas fa-chevron-down");
+            document.querySelector("#secondDropDown div").innerHTML = "See More";
+            //Handle Container
+            document.getElementById("secondContainer").style.animation = "collapseDropDown 0.2s forwards";
+            document.getElementById("secondContainer").style.transition = "height 0.2s";
+            document.getElementById("secondContainer").style.height = "0px";
+            setTimeout(() => {
+                document.getElementById("secondContainer").style.display = "none";
+            }, 200)
+
+        }
+    }
+
+
+    //subNavContent
+    $(document).ready(function () {
+        $(".sublist-item").each(function (index) {
+            if ($(this).children("ul").length === 0) {
+                $(this).children(".sidenavRow").children(".click-icon").addClass("d-none");
+            }
         });
-        </script>
-
-        Html.AppendScriptParts(ResourceLocation.Footer, "~/js/public.menu.js");
-
-    }
-    else
-    {
-        <script asp-location="Footer">
-            $(document).ready(function () {
-                $('.menu-toggle').on('click', function () {
-                    $(this).siblings('.top-menu.mobile').slideToggle('slow');
-                });
-                $('.top-menu.mobile .sublist-toggle').on('click', function () {
-                    $(this).siblings('.sublist').slideToggle('slow');
-                });
-            });
-        </script>
-
-    }
-
-}
-
-
+        $(".main-cat").each(function (index) {
+            if ($(this).children("ul").length === 0) {
+                $(this).children(".sidenavRow").children(".click-icon").addClass("d-none");
+            }
+        });
+        $(".click-icon").click(function () {
+            if ($(this).parent().parent().children('ul').length) {
+                document.getElementById("main-container").style.animation = "mainAway 0.1s forwards";
+                document.getElementById("sub-container").style.animation = "subBack 0.1s forwards";
+                var x = $(this).parent().parent().children('ul').html();
+                $("#sub-container-content").append(x);
+                $(".sublist").toggleClass("d-none");
+            }
+        });
+        $("#mainMenu").click(function () {
+            document.getElementById("main-container").style.animation = "mainBack 0.3s forwards";
+            document.getElementById("sub-container").style.animation = "subPush 0.3s forwards";
+            $("#sub-container-content").html("");
+            $(".sublist").toggleClass("d-none");
+        });
+    });
+</script>
+<!-- partial -->
