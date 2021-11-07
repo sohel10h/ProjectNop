@@ -1218,7 +1218,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 ?? throw new ArgumentException("No customer found with the specified id", nameof(customerId));
 
             //try to get an address with the specified id
-            var address = await _customerService.GetCustomerAddressAsync(customer.Id, id);            
+            var address = await _customerService.GetCustomerAddressAsync(customer.Id, id);
 
             if (address == null)
                 return Content("No address found with the specified id");

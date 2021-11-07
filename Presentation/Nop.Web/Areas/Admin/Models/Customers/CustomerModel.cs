@@ -141,6 +141,10 @@ namespace Nop.Web.Areas.Admin.Models.Customers
         [NopResourceDisplayName("Admin.Customers.Customers.Fields.Fax")]
         public string Fax { get; set; }
 
+
+        [NopResourceDisplayName("Admin.Customers.Customers.Fields.CustomerStatusId")]
+        public int CustomerStatusId { get; set; }
+
         public List<CustomerAttributeModel> CustomerAttributes { get; set; }
 
         [NopResourceDisplayName("Admin.Customers.Customers.Fields.RegisteredInStore")]
@@ -237,7 +241,7 @@ namespace Nop.Web.Areas.Admin.Models.Customers
 
         //GDPR enabled
         public bool GdprEnabled { get; set; }
-        
+
         public string AvatarUrl { get; internal set; }
 
         public CustomerAddressSearchModel CustomerAddressSearchModel { get; set; }

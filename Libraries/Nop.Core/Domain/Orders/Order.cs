@@ -167,6 +167,8 @@ namespace Nop.Core.Domain.Orders
         /// Gets or sets the checkout attributes in XML format
         /// </summary>
         public string CheckoutAttributesXml { get; set; }
+        public string MakeAnOrderJson { get; set; }
+
 
         /// <summary>
         /// Gets or sets the customer language identifier

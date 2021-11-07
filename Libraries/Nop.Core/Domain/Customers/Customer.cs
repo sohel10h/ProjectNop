@@ -53,6 +53,15 @@ namespace Nop.Core.Domain.Customers
         /// </summary>
         public int VendorId { get; set; }
 
+
+        public int CustomerStatusId { get; set; }
+
+        public CustomerStatus CustomerStatus
+        {
+            get => (CustomerStatus)CustomerStatusId;
+            set => CustomerStatusId = (int)value;
+        }
+
         /// <summary>
         /// Gets or sets a value indicating whether this customer has some products in the shopping cart
         /// <remarks>The same as if we run ShoppingCartItems.Count > 0
