@@ -45,9 +45,7 @@ namespace Nop.Services.Contacts
         /// A task that represents the asynchronous operation
         /// The task result contains the contact posts
         /// </returns>
-        Task<IPagedList<Contact>> GetAllContactsAsync(int storeId = 0, int languageId = 0,
-            DateTime? dateFrom = null, DateTime? dateTo = null, 
-            int pageIndex = 0, int pageSize = int.MaxValue, bool showHidden = false, string title = null);
+        Task<IPagedList<Contact>> GetAllContactsAsync(int pageIndex = 0, int pageSize = int.MaxValue);
 
 
         /// <summary>
