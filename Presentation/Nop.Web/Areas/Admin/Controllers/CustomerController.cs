@@ -626,7 +626,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
                     //vendor
                     customer.VendorId = model.VendorId;
-
+                    customer.CustomerStatusId = model.CustomerStatusId;
                     //form fields
                     if (_dateTimeSettings.AllowCustomersToSetTimeZone)
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.TimeZoneIdAttribute, model.TimeZoneId);

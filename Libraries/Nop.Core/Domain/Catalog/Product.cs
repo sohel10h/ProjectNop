@@ -541,6 +541,9 @@ namespace Nop.Core.Domain.Catalog
         /// </summary>
         public DateTime UpdatedOnUtc { get; set; }
 
+
+        public decimal WholesalePrice { get; set; }
+
         /// <summary>
         /// Gets or sets the product type
         /// </summary>
