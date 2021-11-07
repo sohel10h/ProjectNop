@@ -910,4 +910,3 @@ D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightBy
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\ref\Nop.Plugin.Shipping.FixedByWeightByTotal.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.pdb
-D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj.AssemblyReference.cache

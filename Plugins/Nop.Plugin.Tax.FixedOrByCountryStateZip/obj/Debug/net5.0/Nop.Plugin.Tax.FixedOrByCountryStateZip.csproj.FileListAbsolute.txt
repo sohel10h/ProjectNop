@@ -901,4 +901,3 @@ D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Tax.FixedOrByCountryStat
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\net5.0\ref\Nop.Plugin.Tax.FixedOrByCountryStateZip.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.pdb
-D:\Projects\ProjectNop\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj.AssemblyReference.cache
