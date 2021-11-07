@@ -5072,3 +5072,4 @@ D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\ref\N
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.pdb
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\MakeAnOrder.cshtml.g.cs
+D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\MakeAnOrder.cshtml.g.cs
