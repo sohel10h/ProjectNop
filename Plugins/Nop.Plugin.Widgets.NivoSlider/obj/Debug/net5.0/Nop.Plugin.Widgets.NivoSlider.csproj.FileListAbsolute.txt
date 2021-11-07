@@ -980,4 +980,8 @@ D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\D
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\ref\Nop.Plugin.Widgets.NivoSlider.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.pdb
+<<<<<<< HEAD
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.csproj.AssemblyReference.cache
+=======
+D:\Projects\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.csproj.AssemblyReference.cache
+>>>>>>> aac5ea0e2d96b8f08113331589c25859fa29fe32

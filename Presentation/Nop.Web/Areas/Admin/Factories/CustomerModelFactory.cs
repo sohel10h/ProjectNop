@@ -681,6 +681,7 @@ namespace Nop.Web.Areas.Admin.Factories
                     model.VendorId = customer.VendorId;
                     model.AdminComment = customer.AdminComment;
                     model.IsTaxExempt = customer.IsTaxExempt;
+                    model.CustomerStatusId = customer.CustomerStatusId;
                     model.Active = customer.Active;
                     model.FirstName = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.FirstNameAttribute);
                     model.LastName = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.LastNameAttribute);
@@ -709,7 +710,7 @@ namespace Nop.Web.Areas.Admin.Factories
                         .FirstOrDefault(store => store.Id == customer.RegisteredInStoreId)?.Name ?? string.Empty;
                     model.DisplayRegisteredInStore = model.Id > 0 && !string.IsNullOrEmpty(model.RegisteredInStore) &&
                         (await _storeService.GetAllStoresAsync()).Select(x => x.Id).Count() > 1;
-
+                    
                     //prepare model affiliate
                     var affiliate = await _affiliateService.GetAffiliateByIdAsync(customer.AffiliateId);
                     if (affiliate != null)

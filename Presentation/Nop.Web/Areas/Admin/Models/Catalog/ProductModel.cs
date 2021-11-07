@@ -11,7 +11,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
     /// <summary>
     /// Represents a product model
     /// </summary>
-    public partial record ProductModel : BaseNopEntityModel, 
+    public partial record ProductModel : BaseNopEntityModel,
         IAclSupportedModel, IDiscountSupportedModel, ILocalizedModel<ProductLocalizedModel>, IStoreMappingSupportedModel
     {
         #region Ctor
@@ -67,7 +67,7 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
         #endregion
 
         #region Properties
-        
+
         //picture thumbnail
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.PictureThumbnailUrl")]
         public string PictureThumbnailUrl { get; set; }
@@ -313,6 +313,10 @@ namespace Nop.Web.Areas.Admin.Models.Catalog
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.Price")]
         public decimal Price { get; set; }
+
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.WholesalePrice")]
+        public decimal WholesalePrice { get; set; }
+
 
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.OldPrice")]
         public decimal OldPrice { get; set; }
