@@ -3790,3 +3790,4 @@ D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.dll
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\ref\Nop.Web.dll
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.pdb
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
+D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs

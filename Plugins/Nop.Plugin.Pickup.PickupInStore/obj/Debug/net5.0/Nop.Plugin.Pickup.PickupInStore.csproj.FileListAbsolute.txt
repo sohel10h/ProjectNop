@@ -594,7 +594,6 @@ D:\Projects\ProjectNop\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\refs\Sy
 D:\Projects\ProjectNop\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\refs\System.Xml.XPath.dll
 D:\Projects\ProjectNop\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\refs\System.Xml.XPath.XDocument.dll
 D:\Projects\ProjectNop\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\refs\WindowsBase.dll
-D:\Projects\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.csproj.AssemblyReference.cache
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.GeneratedMSBuildEditorConfig.editorconfig
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.AssemblyInfoInputs.cache
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.AssemblyInfo.cs

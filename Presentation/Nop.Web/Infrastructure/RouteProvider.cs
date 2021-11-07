@@ -84,6 +84,10 @@ namespace Nop.Web.Infrastructure
             endpointRouteBuilder.MapControllerRoute(name: "ContactUs",
                 pattern: $"{lang}/contactus",
                 defaults: new { controller = "Common", action = "ContactUs" });
+            ////Contact druvo
+            //endpointRouteBuilder.MapControllerRoute(name: "Contact",
+            //    pattern: $"{lang}/Contact",
+            //    defaults: new { controller = "Contact", action = "Index" });
 
             //product search
             endpointRouteBuilder.MapControllerRoute(name: "ProductSearch",
@@ -702,6 +706,8 @@ namespace Nop.Web.Infrastructure
             endpointRouteBuilder.MapControllerRoute(name: "PageNotFound",
                 pattern: $"{lang}/page-not-found",
                 defaults: new { controller = "Common", action = "PageNotFound" });
+
+
         }
 
         #endregion

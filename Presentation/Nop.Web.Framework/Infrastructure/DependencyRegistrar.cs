@@ -18,6 +18,7 @@ using Nop.Services.Catalog;
 using Nop.Services.Cms;
 using Nop.Services.Common;
 using Nop.Services.Configuration;
+using Nop.Services.Contacts;
 using Nop.Services.Customers;
 using Nop.Services.Directory;
 using Nop.Services.Discounts;
@@ -213,6 +214,7 @@ namespace Nop.Web.Framework.Infrastructure
             services.AddScoped<IReviewTypeService, ReviewTypeService>();
             services.AddSingleton<IEventPublisher, EventPublisher>();
             services.AddScoped<ISettingService, SettingService>();
+            services.AddScoped<IContactService,ContactService>();
 
             //plugin managers
             services.AddScoped(typeof(IPluginManager<>), typeof(PluginManager<>));

@@ -598,7 +598,6 @@ D:\Projects\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.FixedByWeightByTota
 D:\Projects\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.FixedByWeightByTotal\refs\System.Xml.XPath.dll
 D:\Projects\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.FixedByWeightByTotal\refs\System.Xml.XPath.XDocument.dll
 D:\Projects\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.FixedByWeightByTotal\refs\WindowsBase.dll
-D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj.AssemblyReference.cache
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.GeneratedMSBuildEditorConfig.editorconfig
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.AssemblyInfoInputs.cache
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.AssemblyInfo.cs
