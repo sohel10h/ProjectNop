@@ -904,4 +904,3 @@ D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\ref\Nop.Plugin.Pickup.PickupInStore.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.pdb
-D:\Projects\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.csproj.AssemblyReference.cache

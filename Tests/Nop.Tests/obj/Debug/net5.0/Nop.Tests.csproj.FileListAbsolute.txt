@@ -1304,20 +1304,20 @@ D:\Projects\ProjectNop\Tests\Nop.Tests\obj\Debug\net5.0\Nop.Tests.dll
 D:\Projects\ProjectNop\Tests\Nop.Tests\obj\Debug\net5.0\ref\Nop.Tests.dll
 D:\Projects\ProjectNop\Tests\Nop.Tests\obj\Debug\net5.0\Nop.Tests.pdb
 D:\Projects\ProjectNop\Tests\Nop.Tests\obj\Debug\net5.0\Nop.Tests.genruntimeconfig.cache
-D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\testhost.exe
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\testhost.dll
-D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\NUnit3.TestAdapter.dll
-D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\NUnit3.TestAdapter.pdb
-D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.dll
-D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.api.dll
-D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.core.dll
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.Views.dll
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.Views.pdb
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.deps.json
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.runtimeconfig.json
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.runtimeconfig.dev.json
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.exe
+D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\testhost.exe
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.PlatformAbstractions.dll
+D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\NUnit3.TestAdapter.dll
+D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\NUnit3.TestAdapter.pdb
+D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.dll
+D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.api.dll
+D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.core.dll
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Tests.deps.json
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Tests.runtimeconfig.json
 D:\Personal works\Scripts\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Tests.runtimeconfig.dev.json

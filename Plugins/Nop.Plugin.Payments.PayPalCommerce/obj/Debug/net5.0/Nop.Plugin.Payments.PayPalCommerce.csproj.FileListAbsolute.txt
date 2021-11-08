@@ -614,18 +614,18 @@ D:\Projects\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.dll
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\ref\Nop.Plugin.Payments.PayPalCommerce.dll
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.pdb
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\logo.png
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\plugin.json
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Views\Configure.cshtml
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Views\Buttons.cshtml
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Views\PaymentInfo.cshtml
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Views\_ViewImports.cshtml
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.Views.dll
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.Views.pdb
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.deps.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.runtimeconfig.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.runtimeconfig.dev.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.exe
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\logo.png
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\plugin.json
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Views\Configure.cshtml
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Views\Buttons.cshtml
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Views\PaymentInfo.cshtml
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Views\_ViewImports.cshtml
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Plugin.Payments.PayPalCommerce.deps.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Plugin.Payments.PayPalCommerce.dll
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\ref\Nop.Plugin.Payments.PayPalCommerce.dll

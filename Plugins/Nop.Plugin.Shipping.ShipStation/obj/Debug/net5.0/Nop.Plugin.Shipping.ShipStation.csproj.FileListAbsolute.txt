@@ -610,16 +610,16 @@ D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.dll
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\ref\Nop.Plugin.Shipping.ShipStation.dll
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.pdb
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\logo.png
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\plugin.json
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Views\Configure.cshtml
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Views\_ViewImports.cshtml
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.Views.dll
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.Views.pdb
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.deps.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.runtimeconfig.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.runtimeconfig.dev.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.exe
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\logo.png
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\plugin.json
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Views\Configure.cshtml
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Views\_ViewImports.cshtml
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Plugin.Shipping.ShipStation.deps.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Plugin.Shipping.ShipStation.dll
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\ref\Nop.Plugin.Shipping.ShipStation.dll

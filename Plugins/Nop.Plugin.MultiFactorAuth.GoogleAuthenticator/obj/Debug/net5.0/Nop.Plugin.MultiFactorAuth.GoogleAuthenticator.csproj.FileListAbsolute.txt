@@ -895,6 +895,7 @@ D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\MultiFactorAut
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\refs\System.Xml.XPath.dll
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\refs\WindowsBase.dll
+D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Debug\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj.AssemblyReference.cache
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Debug\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Debug\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.AssemblyInfoInputs.cache
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Debug\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.AssemblyInfo.cs
@@ -903,4 +904,3 @@ D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAu
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Debug\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Debug\net5.0\ref\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.dll
 D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Debug\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.pdb
-D:\Personal works\Scripts\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Debug\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj.AssemblyReference.cache

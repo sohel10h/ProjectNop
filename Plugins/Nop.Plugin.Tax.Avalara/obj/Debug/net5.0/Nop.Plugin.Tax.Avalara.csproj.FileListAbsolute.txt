@@ -630,6 +630,12 @@ D:\Projects\ProjectNop\Plugins\Nop.Plugin.Tax.Avalara\obj\Debug\net5.0\Nop.Plugi
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Tax.Avalara\obj\Debug\net5.0\Nop.Plugin.Tax.Avalara.dll
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Tax.Avalara\obj\Debug\net5.0\ref\Nop.Plugin.Tax.Avalara.dll
 D:\Projects\ProjectNop\Plugins\Nop.Plugin.Tax.Avalara\obj\Debug\net5.0\Nop.Plugin.Tax.Avalara.pdb
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.Views.dll
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.Views.pdb
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.deps.json
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.runtimeconfig.json
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.runtimeconfig.dev.json
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.exe
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\logo.png
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\plugin.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Views\Checkout\AddressValidation.cshtml
@@ -644,12 +650,6 @@ D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Vi
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Views\Product\_ExportItemsForm.cshtml
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Views\Tax\Categories.cshtml
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Views\_ViewImports.cshtml
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.Views.dll
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.Views.pdb
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.deps.json
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.runtimeconfig.json
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.runtimeconfig.dev.json
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Web.exe
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Plugin.Tax.Avalara.deps.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\Nop.Plugin.Tax.Avalara.dll
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\Plugins\Tax.Avalara\ref\Nop.Plugin.Tax.Avalara.dll

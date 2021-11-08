@@ -47,17 +47,23 @@ namespace Nop.Services.Contacts
             throw new NotImplementedException();
         }
 
-        public async Task<IPagedList<Contact>> GetAllContactsAsync(int storeId = 0, int languageId = 0, DateTime? dateFrom = null, DateTime? dateTo = null, int pageIndex = 0, int pageSize = int.MaxValue, bool showHidden = false, string title = null)
+        public async Task<IPagedList<Contact>> GetAllContactsAsync(int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            return await _contactRepository.GetAllPagedAsync(async query =>
-            {
-                if (!showHidden)
-                {
-                    query = query.Where(b => b.CreatedOnUtc <= DateTime.UtcNow);
-                }
-                return query;
-            }, pageIndex, pageSize);
+            return await _contactRepository.GetAllPagedAsync(async query => {return query;}, pageIndex, pageSize);
         }
+
+        //public async Task<IList<Contact>> GetAllContactsAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        //{
+        //    //return await _contactRepository.GetAllPagedAsync(async query => {return query;}, pageIndex, pageSize);
+        //    return await _contactRepository.GetAllAsync(query =>
+        //    {
+        //        return from p in query
+        //               where
+        //                     !p.Deleted
+        //               select p;
+        //    });
+        //}
+
 
         public Task<Contact> GetContactByIdAsync(int contactId)
         {

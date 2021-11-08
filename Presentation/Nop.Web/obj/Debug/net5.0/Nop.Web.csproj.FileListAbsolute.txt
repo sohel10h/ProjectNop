@@ -3791,6 +3791,7 @@ D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\ref\Nop.Web.dll
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.pdb
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs
+D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\MakeAnOrder.cshtml.g.cs
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Web.exe
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Web.deps.json
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Web.runtimeconfig.json
@@ -4525,6 +4526,7 @@ D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\AddShipment.cshtml.g.cs
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Edit.cshtml.g.cs
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\List.cshtml.g.cs
+D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\MakeAnOrder.cshtml.g.cs
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\PartiallyRefundOrderPopup.cshtml.g.cs
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\ShipmentDetails.cshtml.g.cs
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\ShipmentList.cshtml.g.cs
@@ -5071,5 +5073,3 @@ D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.W
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\ref\Nop.Web.dll
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.pdb
 D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
-D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\MakeAnOrder.cshtml.g.cs
-D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\MakeAnOrder.cshtml.g.cs

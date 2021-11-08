@@ -1,12 +1,12 @@
 ﻿using Nop.Web.Framework.Models;
 using System.Collections.Generic;
 
-namespace Nop.Web.Models.Contact
+namespace Nop.Web.Models
 {
     /// <summary>
     /// Represents a blog comment list model
     /// </summary>
-    public partial record ContactListModel : BaseNopEntityModel
+    public partial record ContactListModel : BaseNopModel
     {
         public ContactListModel()
         {
