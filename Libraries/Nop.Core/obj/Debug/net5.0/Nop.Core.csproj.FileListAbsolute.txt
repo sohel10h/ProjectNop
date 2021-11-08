@@ -1177,3 +1177,4 @@ D:\Personal works\Scripts\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Cor
 D:\Personal works\Scripts\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.dll
 D:\Personal works\Scripts\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\ref\Nop.Core.dll
 D:\Personal works\Scripts\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.pdb
+D:\Personal works\Scripts\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.AssemblyReference.cache
