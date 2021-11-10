@@ -30,7 +30,7 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
-
+Presentation/Nop.Web/obj/*
 # Visual Studio 2015
 .vs/
 .vs/*
