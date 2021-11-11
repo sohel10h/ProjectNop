@@ -70,9 +70,9 @@ namespace Nop.Services.Contacts
             throw new NotImplementedException();
         }
 
-        public Task InsertContactAsync(Contact contact)
+        public virtual async Task InsertContactAsync(Contact contact)
         {
-            throw new NotImplementedException();
+            await _contactRepository.InsertAsync(contact);
         }
 
         public Task UpdateContactAsync(Contact contact)
