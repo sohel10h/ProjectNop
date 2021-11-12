@@ -1,6 +1,11 @@
 ﻿@using Nop.Core.Domain.Customers
 @inject Nop.Core.IWebHelper webHelper
 <style>
+    select {
+        min-width: 50px;
+        height: 45px;
+        padding: 6px;
+    }
     .header {
         margin: 0px auto;
         width: 92.5%;
@@ -36,6 +41,14 @@
         text-align: left;
         vertical-align: middle;
         margin: 20px;
+    }
+    .header-links-wrapper {
+        position: relative;
+        padding: 0;
+    }
+    .header-selectors-wrapper {
+        border-bottom: 0px;
+        padding: 0px;
     }
 </style>
 <div class="header">
