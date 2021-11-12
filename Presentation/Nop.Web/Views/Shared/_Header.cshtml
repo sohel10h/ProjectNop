@@ -1,41 +1,75 @@
 ﻿@using Nop.Core.Domain.Customers
 @inject Nop.Core.IWebHelper webHelper
-@{
-    Html.AddCssFileParts("~/css/bootstrap-grid.css");
-}
 <style>
-    .search-box input.search-box-text,
-    .search-box .search-box-button {
-        height: 40px;
+    .header {
+        margin: 0px auto;
+        width: 92.5%;
+    }
+    .header-lower {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header-upper {
+
+        border-bottom: none;
+    }
+    .master-wrapper-content {
+        width: 92.5% !important;
+        margin: auto;
+        padding: 0 20px;
+    }
+    .master-column-wrapper {
+        width: auto !important;
+        margin: auto;
+    }
+    .header-logo {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        font-size: 0;
+        padding-right: 0px;
+    }
+    .search-box {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        margin: 20px;
     }
 </style>
-@await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderBefore })
-<div class="row topbarnew" style=" margin: 20px 50px;">
-    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderSelectors })
-    <div class="col-12 col-md-2">
-        <div class="header-logo">
-            @await Component.InvokeAsync("Logo")
+<div class="header">
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderBefore })
+    <div class="header-upper">
+        <div class="header-selectors-wrapper">
+            @*@await Component.InvokeAsync("TaxTypeSelector")
+                @await Component.InvokeAsync("CurrencySelector")
+                @await Component.InvokeAsync("LanguageSelector")*@
+            @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderSelectors })
         </div>
-    </div>
-    <div class="col-12 col-md-4">
-        <div class="search-box store-search-box">
-            @await Component.InvokeAsync("SearchBox")
+        <div class="header-links-wrapper">
+            @*@await Component.InvokeAsync("HeaderLinks")*@
+            @*@await Component.InvokeAsync("FlyoutShoppingCart")*@
         </div>
     </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMiddle })
-<div class="col-12 col-md-6">
-        <div class="row">
-            <div class="col-3">
+    <div class="header-lower">
+        <div class="header-logo">
+            @await Component.InvokeAsync("Logo")
+        </div>
+        <div class="search-box store-search-box">
+            @await Component.InvokeAsync("SearchBox")
+            <div id="Tracking" class="header_menu_itm">
                 <a href="@Url.RouteUrl("Login")" class="ico-login">@T("Order.Tracking")</a>
             </div>
-            <div class="col-3">
-                @await Component.InvokeAsync("HeaderLinks")
-            </div>
-            <div class="col-3">
-                @await Component.InvokeAsync("LanguageSelector")
-            </div>
+            @*<div id="login" class="header_menu_itm">
+                    <a href="@Url.RouteUrl("Login")" class="ico-login">@T("Account.Login")</a>
+                </div>*@
+            @await Component.InvokeAsync("HeaderLinks")
+            @await Component.InvokeAsync("LanguageSelector")
+
+
         </div>
     </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderAfter })
 </div>
-

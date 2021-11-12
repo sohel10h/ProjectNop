@@ -1,62 +1,4 @@
 ﻿@model TopMenuModel
-@functions {
-    async Task CategoryLine(TopMenuModel.CategoryLineModel lineModel)
-    {
-        <div class="sidenavRow">
-            <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })" style="margin: 10px; width: 100% !important;">
-                <div>
-
-                    @lineModel.Category.Name
-                    @if (lineModel.Category.NumberOfProducts.HasValue)
-                    {
-
-                        @T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
-
-                    }
-
-                </div>
-            </a>
-            <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
-        </div>
-        //subcategories
-        var subCategories = lineModel.ResponsiveMobileMenu ?
-        //responsive (all categories)
-        lineModel.Category.SubCategories :
-        //standard design (only categories with "IncludeInTopMenu")
-        lineModel.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
-
-        var levelClass = "";
-        if (lineModel.Level == 0)
-        {
-            levelClass = "first-level";
-        }
-        if (subCategories.Count > 0)
-        {
-            <ul class="d-none sublist @levelClass">
-                <li class="sublist-item">
-                    @foreach (var subCategory in subCategories)
-                    {
-                        var categoryLineModel = new TopMenuModel.CategoryLineModel
-                        {
-                            Category = subCategory,
-                            Level = lineModel.Level + 1,
-                            ResponsiveMobileMenu = lineModel.ResponsiveMobileMenu
-                        };
-                        await CategoryLine(categoryLineModel);
-                    }
-                </li>
-            </ul>
-        }
-        
-    }
-}
-
-
-@{
-    var rootCategoriesResponsive = Model.Categories.ToList();
-    //name it "Categories" if we have only categories. Otherwise, "Menu"
-    var responsiveMenuTitle = Model.HasOnlyCategories ? T("Categories") : T("Menu");
-}
 <style>
     .d-none{
         display:none !important;
@@ -352,6 +294,65 @@
         padding: 0px 20px;
     }
 </style>
+
+@functions {
+    async Task CategoryLine(TopMenuModel.CategoryLineModel lineModel)
+    {
+        <div class="sidenavRow">
+            <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })" style="margin: 10px; width: 100% !important;">
+                <div>
+
+                    @lineModel.Category.Name
+                    @if (lineModel.Category.NumberOfProducts.HasValue)
+                    {
+
+                        @T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
+
+                    }
+
+                </div>
+            </a>
+            <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+        </div>
+        //subcategories
+        var subCategories = lineModel.ResponsiveMobileMenu ?
+        //responsive (all categories)
+        lineModel.Category.SubCategories :
+        //standard design (only categories with "IncludeInTopMenu")
+        lineModel.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+
+        var levelClass = "";
+        if (lineModel.Level == 0)
+        {
+            levelClass = "first-level";
+        }
+        if (subCategories.Count > 0)
+        {
+            <ul class="d-none sublist @levelClass">
+                <li class="sublist-item">
+                    @foreach (var subCategory in subCategories)
+                    {
+                        var categoryLineModel = new TopMenuModel.CategoryLineModel
+                        {
+                            Category = subCategory,
+                            Level = lineModel.Level + 1,
+                            ResponsiveMobileMenu = lineModel.ResponsiveMobileMenu
+                        };
+                        await CategoryLine(categoryLineModel);
+                    }
+                </li>
+            </ul>
+        }
+        
+    }
+}
+
+
+@{
+    var rootCategoriesResponsive = Model.Categories.ToList();
+    //name it "Categories" if we have only categories. Otherwise, "Menu"
+    var responsiveMenuTitle = Model.HasOnlyCategories ? T("Categories") : T("Menu");
+}
 <!-- partial:index.partial.html -->
 <div id="overlay" onclick="closeNav()"></div>
 
