@@ -4,6 +4,7 @@ using Nop.Services.Contacts;
 using Nop.Web.Areas.Admin.Controllers;
 using Nop.Web.Factories;
 using Nop.Web.Framework.Mvc.Filters;
+using Nop.Web.Models.Contact;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,10 @@ namespace Nop.Web.Controllers
         }
 
         #endregion
+        //Contacts
         public async Task<IActionResult> Index()
         {
-            var model = await _contactService.GetAllContactsAsync();
+            var model = await _contactService.GetAllContactsAsync((int)ContactType.Contact);
             return View("Index", model);
 
         }
@@ -48,21 +50,30 @@ namespace Nop.Web.Controllers
         [ValidateCaptcha]
         public virtual async Task<IActionResult> Add(Contact model, bool captchaValid)
         {
-            model.ID = 7;
+            model.Type = (int)ContactType.Contact;
             await _contactService.InsertContactAsync(model);
             return View(model);
         }
-        //public virtual async Task<IActionResult> Edit(int blogPostId)
-        //{
-        //    var model = await _contactService.GetAllContactsAsync();
-        //    return View(model);
-        //}
+        //Appoinments
+        public async Task<IActionResult> Appoinments()
+        {
+            var model = await _contactService.GetAllContactsAsync((int)ContactType.Appoinment);
+            return View("Appoinments", model);
 
-        //[HttpPost]
-        //[ValidateCaptcha]
-        //public virtual async Task<IActionResult> Edit(int blogPostId, Contact model, bool captchaValid)
-        //{
-        //    return View(model);
-        //}
+        }
+        public virtual async Task<IActionResult> AddAppoinment()
+        {
+            var model = new Contact();
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateCaptcha]
+        public virtual async Task<IActionResult> AddAppoinment(Contact model, bool captchaValid)
+        {
+            model.Type = (int)ContactType.Appoinment;
+            await _contactService.InsertContactAsync(model);
+            return View(model);
+        }
+
     }
 }

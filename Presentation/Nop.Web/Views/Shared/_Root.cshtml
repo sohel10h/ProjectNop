@@ -26,7 +26,8 @@
             <li><a href="@Url.RouteUrl("Homepage")">@T("Be.A.Saller")</a></li>
 
             <li><a href="@Url.RouteUrl("Homepage")">@T("About.Us")</a></li>
-            <li><a href="@Url.RouteUrl("Homepage")">@T("Contract.or.Complaints")</a></li>
+            <li><a asp-controller="Contact" asp-action="Index">@T("Contract.or.Complaints")</a></li>
+            <li><a asp-controller="Contact" asp-action="Appoinments">@T("Contract.or.Appoinments")</a></li>
             <li><a href="@Url.RouteUrl("Homepage")">@T("Career")</a></li>
             <li><a href="@Url.RouteUrl("Homepage")">@T("For.A.Life")</a></li>
 

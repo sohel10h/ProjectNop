@@ -91,7 +91,7 @@ namespace Nop.Web.Controllers
         #region Methods
 
         /// <returns>A task that represents the asynchronous operation</returns>
-        public virtual async Task<IActionResult> List(BlogPagingFilteringModel command)
+        public virtual async Task<IActionResult> List(BlogPagingFilteringModel command) 
         {
             if (!_blogSettings.Enabled)
                 return RedirectToRoute("Homepage");

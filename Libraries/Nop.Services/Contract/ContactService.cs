@@ -47,9 +47,17 @@ namespace Nop.Services.Contacts
             throw new NotImplementedException();
         }
 
-        public async Task<IPagedList<Contact>> GetAllContactsAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        public async Task<IPagedList<Contact>> GetAllContactsAsync(int type = 0,int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            return await _contactRepository.GetAllPagedAsync(async query => {return query;}, pageIndex, pageSize);
+            if (type>0)
+            {
+                return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c=>c.Type.Equals(type)); }, pageIndex, pageSize);
+            }
+            else
+            {
+                return await _contactRepository.GetAllPagedAsync(async query => { return query; }, pageIndex, pageSize);
+            }
+            
         }
 
         //public async Task<IList<Contact>> GetAllContactsAsync(int pageIndex = 0, int pageSize = int.MaxValue)
