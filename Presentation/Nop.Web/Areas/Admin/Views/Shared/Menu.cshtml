@@ -26,8 +26,8 @@
         var pluginNode = rootNode.ChildNodes.FirstOrDefault(x => x.SystemName == "Third party plugins");
         if (pluginNode?.Visible ?? false)
         {
-            pluginNode.Visible = pluginNode.ChildNodes.Any(x => x.Visible) 
-                &&  await permissionService.AuthorizeAsync(StandardPermissionProvider.ManagePlugins, customer);
+            pluginNode.Visible = pluginNode.ChildNodes.Any(x => x.Visible)
+                && await permissionService.AuthorizeAsync(StandardPermissionProvider.ManagePlugins, customer);
         }
 
         //display menu items
@@ -35,5 +35,52 @@
         {
             @await Html.PartialAsync("_MenuItem", item)
         }
+
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-mail-bulk"></i>
+                <p>Contract <i class="right fas fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+                <li class="nav-item">
+                    <a href="/Admin/Contract/" class="nav-link">
+                        <i class="nav-icon far fa-dot-circle"></i>
+                        <p>contract.or.complaints</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Admin/Contract/Appoinments" class="nav-link active">
+                        <i class="nav-icon far fa-dot-circle"></i>
+                        <p>contract.or.appoinments</p>
+                    </a>
+                </li>
+                @*<li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-dot-circle"></i>
+                            <p>Attributes <i class="right fas fa-angle-left"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/Admin/ProductAttribute/List" class="nav-link">
+                                    <i class="nav-icon far fa-circle"></i>
+                                    <p>Product attributes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Admin/SpecificationAttribute/List" class="nav-link">
+                                    <i class="nav-icon far fa-circle"></i>
+                                    <p>Specification attributes</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Admin/CheckoutAttribute/List" class="nav-link">
+                                    <i class="nav-icon far fa-circle"></i>
+                                    <p>Checkout attributes</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>*@
+            </ul>
+        </li>
     }
 </ul>

@@ -34,4 +34,5 @@ Presentation/Nop.Web/obj/*
 # Visual Studio 2015
 .vs/
 .vs/*
+*.vs
 .Tests/*

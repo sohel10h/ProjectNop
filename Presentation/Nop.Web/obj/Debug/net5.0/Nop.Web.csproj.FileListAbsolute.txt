@@ -5076,3 +5076,5 @@ D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.W
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Contact\Add.cshtml.g.cs
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Contact\AddAppoinment.cshtml.g.cs
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Contact\Appoinments.cshtml.g.cs
+D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Contract\Index.cshtml.g.cs
+D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Contract\Appoinments.cshtml.g.cs
