@@ -5076,6 +5076,7 @@ D:\Personal works\Scripts\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.W
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Contact\Add.cshtml.g.cs
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Contact\AddAppoinment.cshtml.g.cs
 D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Contact\Appoinments.cshtml.g.cs
+<<<<<<< HEAD
 D:\Personal works\new clone\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Web.exe
 D:\Personal works\new clone\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Web.deps.json
 D:\Personal works\new clone\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Web.runtimeconfig.json
@@ -6362,3 +6363,9 @@ D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.pdb
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Customer\Career.cshtml.g.cs
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Customer\Sales.cshtml.g.cs
+=======
+D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Contract\Index.cshtml.g.cs
+D:\Projects\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Contract\Appoinments.cshtml.g.cs
+>>>>>>> 0e638c8a959c0c9064fcf44041cd915f81af1af4
+D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Contract\Appoinments.cshtml.g.cs
+D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Contract\Index.cshtml.g.cs

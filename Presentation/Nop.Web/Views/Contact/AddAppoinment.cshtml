@@ -29,31 +29,37 @@
                 <div class="form-fields">
                     <div class="inputs">
                         <label asp-for="Name" asp-postfix=":"></label>
-                        <input asp-for="Name" placeholder="@T("Appoinment.Name.Hint")" class="email" />
+                        <input asp-for="Name" placeholder="@T("Appoinment.Name.Hint")" class="input-default" />
                         <nop-required />
                         <span asp-validation-for="Name"></span>
                     </div>
                     <div class="inputs">
                         <label asp-for="Email" asp-postfix=":"></label>
-                        <input asp-for="Email" placeholder="@T("Appoinment.Email.Hint")" class="email" />
+                        <input asp-for="Email" placeholder="@T("Appoinment.Email.Hint")" class="input-default" />
                         <nop-required />
                         <span asp-validation-for="Email"></span>
                     </div>
                     <div class="inputs">
                         <label asp-for="Address" asp-postfix=":"></label>
-                        <input asp-for="Address" placeholder="@T("Appoinment.Address.Hint")" class="email" />
+                        <input asp-for="Address" placeholder="@T("Appoinment.Address.Hint")" class="input-default" />
                         <nop-required />
                         <span asp-validation-for="Address"></span>
                     </div>
                     <div class="inputs">
                         <label asp-for="Phone" asp-postfix=":"></label>
-                        <input asp-for="Phone" placeholder="@T("Appoinment.Phone.Hint")" class="email" />
+                        <input asp-for="Phone" placeholder="@T("Appoinment.Phone.Hint")" class="input-default" />
                         <nop-required />
                         <span asp-validation-for="Phone"></span>
                     </div>
                     <div class="inputs">
+                        <label asp-for="VisitDate" asp-postfix=":"></label>
+                        <input asp-for="VisitDate" placeholder="@T("Appoinment.VisitDate.Hint")" class="input-default" style="width: 40% !important;padding: 10px 5px;border: 1px solid #e1e1e1;"/>
+                        <nop-required />
+                        <span asp-validation-for="VisitDate"></span>
+                    </div>
+                    <div class="inputs">
                         <label asp-for="Subject" asp-postfix=":"></label>
-                        <input asp-for="Subject" placeholder="@T("Appoinment.Subject.Hint")" class="email" />
+                        <input asp-for="Subject" placeholder="@T("Appoinment.Subject.Hint")" class="input-default" />
                         <nop-required />
                         <span asp-validation-for="Subject"></span>
                     </div>
@@ -64,24 +70,24 @@
                         <span asp-validation-for="Message"></span>
                     </div>
                     @*@if (Model.SubjectEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="Subject" asp-postfix=":"></label>
-                                <input asp-for="Subject" placeholder="@T("ContactUs.Subject.Hint")" class="subject" />
-                                <nop-required />
-                                <span asp-validation-for="Subject"></span>
-                            </div>
-                        }
-                        <div class="inputs">
-                            <label asp-for="Enquiry" asp-postfix=":"></label>
-                            <textarea asp-for="Enquiry" placeholder="@T("ContactUs.Enquiry.Hint")" class="enquiry"></textarea>
-                            <nop-required />
-                            <span asp-validation-for="Enquiry"></span>
-                        </div>
-                        @if (Model.DisplayCaptcha)
-                        {
-                            <nop-captcha />
-                        }*@
+        {
+            <div class="inputs">
+                <label asp-for="Subject" asp-postfix=":"></label>
+                <input asp-for="Subject" placeholder="@T("ContactUs.Subject.Hint")" class="subject" />
+                <nop-required />
+                <span asp-validation-for="Subject"></span>
+            </div>
+        }
+        <div class="inputs">
+            <label asp-for="Enquiry" asp-postfix=":"></label>
+            <textarea asp-for="Enquiry" placeholder="@T("ContactUs.Enquiry.Hint")" class="enquiry"></textarea>
+            <nop-required />
+            <span asp-validation-for="Enquiry"></span>
+        </div>
+        @if (Model.DisplayCaptcha)
+        {
+            <nop-captcha />
+        }*@
                 </div>
             </div>
             <div class="buttons">
