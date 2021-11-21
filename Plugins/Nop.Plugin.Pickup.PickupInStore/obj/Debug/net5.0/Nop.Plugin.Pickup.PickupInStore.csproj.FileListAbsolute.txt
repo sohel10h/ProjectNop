@@ -1207,3 +1207,4 @@ D:\Personal works\new clone\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\ne
 D:\Personal works\new clone\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.dll
 D:\Personal works\new clone\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\ref\Nop.Plugin.Pickup.PickupInStore.dll
 D:\Personal works\new clone\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.pdb
+D:\Personal works\new clone\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\net5.0\Nop.Plugin.Pickup.PickupInStore.csproj.AssemblyReference.cache

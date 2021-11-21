@@ -88,6 +88,11 @@ namespace Nop.Web.Areas.Admin.Models.Settings
         public bool GroupTierPricesForDistinctShoppingCartItems { get; set; }
         public bool GroupTierPricesForDistinctShoppingCartItems_OverrideForStore { get; set; }
 
+
+        [NopResourceDisplayName("Admin.Configuration.Settings.ShoppingCart.CarrerSelePdfLocation")]
+        public string CarrerSelePdfLocation { get; set; }
+        public bool CarrerSelePdfLocation_OverrideForStore { get; set; }
+
         #endregion
     }
 }

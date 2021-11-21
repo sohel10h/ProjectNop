@@ -51,3 +51,20 @@
         </div>
     </section>
 </form>
+
+
+
+<form asp-controller="Setting" asp-action="uploadExcell"  enctype="multipart/form-data" method="post">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+                <div asp-validation-summary="All"></div>
+
+                <nop-cards id="shoppingcartsettings-cards">
+                    <nop-card asp-name="shoppingcartsettings-common" asp-icon="fas fa-info" asp-title="@T("Admin.Configuration.Settings.ShoppingCart.BlockTitle.Excel")" asp-hide-block-attribute-name="@hideCommonBlockAttributeName" asp-hide="@hideCommonBlock" asp-advanced="false">@await Html.PartialAsync("_ShoppingCart.excel", Model)</nop-card>
+
+                </nop-cards>
+            </div>
+        </div>
+    </section>
+</form>
