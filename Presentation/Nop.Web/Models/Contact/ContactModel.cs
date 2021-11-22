@@ -21,31 +21,31 @@ namespace Nop.Web.Models.Contact
         }
 
         #endregion
-        [NopResourceDisplayName("Admin.Contact.Fields.Name")]
+        [NopResourceDisplayName("Contact.Fields.Name")]
         public string Name { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.Deleted")]
+        [NopResourceDisplayName("Contact.Fields.Deleted")]
         public bool Deleted { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.Address")]
+        [NopResourceDisplayName("Contact.Fields.Address")]
         public string Address { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.CreatedOnUtc")]
+        [NopResourceDisplayName("Contact.Fields.CreatedOnUtc")]
         public DateTime CreatedOnUtc { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.ID")]
+        [NopResourceDisplayName("Contact.Fields.ID")]
         public int ID { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.Phone")]
+        [NopResourceDisplayName("Contact.Fields.Phone")]
         public string Phone { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.Email")]
+        [NopResourceDisplayName("Contact.Fields.Email")]
         public string Email { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.Subject")]
+        [NopResourceDisplayName("Contact.Fields.Subject")]
         public string Subject { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.Message")]
+        [NopResourceDisplayName("Contact.Fields.Message")]
         public string Message { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.Type")]
+        [NopResourceDisplayName("Contact.Fields.Type")]
         public int Type { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.StoreId")]
+        [NopResourceDisplayName("Contact.Fields.StoreId")]
         public int StoreId { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.VisitDate")]
+        [NopResourceDisplayName("Contact.Fields.VisitDate")]
         public DateTime VisitDate { get; set; }
-        [NopResourceDisplayName("Admin.Contact.Fields.Status")]
+        [NopResourceDisplayName("Contact.Fields.Status")]
         public int Status { get; set; }
         public IList<int> SelectedStoreIds { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public IList<SelectListItem> AvailableStores { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
