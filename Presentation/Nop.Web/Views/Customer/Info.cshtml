@@ -2,7 +2,7 @@
 @model CustomerInfoModel
 @inject Nop.Core.IWebHelper webHelper
 @{
-    Layout = "_ColumnsTwo";
+    Layout = "_ColumnsOne";
 
     //title
     Html.AddTitleParts(T("PageTitle.Account").Text);
@@ -11,10 +11,10 @@
     Html.AppendPageCssClassParts("html-customer-info-page");
 }
 
-@section left
+@*@section left
     {
     @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.Info })
-}
+}*@
 
 <div class="page account-page customer-info-page">
     <div class="page-title">
@@ -303,7 +303,7 @@
             }
             @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0)
             {
-                <div class="fieldset">
+                @*<div class="fieldset">
                     <div class="title">
                         <strong>@T("Account.Options")</strong>
                     </div>
@@ -321,7 +321,7 @@
                             @await Html.PartialAsync("_CustomerAttributes", Model.CustomerAttributes)
                         }
                     </div>
-                </div>
+                </div>*@
             }
             @if (Model.AllowCustomersToSetTimeZone || Model.SignatureEnabled)
             {

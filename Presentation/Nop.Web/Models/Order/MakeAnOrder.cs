@@ -15,5 +15,7 @@ namespace Nop.Web.Models.Order
         [XmlIgnore]
         public IFormFile Image { get; set; }
         public string FileName { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

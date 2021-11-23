@@ -1250,6 +1250,64 @@ namespace Nop.Web.Factories
             return models;
         }
 
+
+
+        public virtual async Task<IEnumerable<ProductOverviewModel>> PrepareProductOverviewModelsForCarrerAsync(IEnumerable<Product> products,
+            bool preparePriceModel = true, bool preparePictureModel = true,
+            int? productThumbPictureSize = null, bool prepareSpecificationAttributes = false,
+            bool forceRedirectionAfterAddingToCart = false)
+        {
+            if (products == null)
+                throw new ArgumentNullException(nameof(products));
+
+            var models = new List<ProductOverviewModel>();
+            foreach (var product in products)
+            {
+                var model = new ProductOverviewModel
+                {
+                    Id = product.Id,
+                    Name = await _localizationService.GetLocalizedAsync(product, x => x.Name),
+                    ShortDescription = await _localizationService.GetLocalizedAsync(product, x => x.ShortDescription),
+                    FullDescription = await _localizationService.GetLocalizedAsync(product, x => x.FullDescription),
+                    SeName = await _urlRecordService.GetSeNameAsync(product),
+                    Sku = product.Sku,
+                    ProductType = product.ProductType,
+                    WholesalePrice=product.WholesalePrice,                    
+                    MarkAsNew = product.MarkAsNew &&
+                        (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow) &&
+                        (!product.MarkAsNewEndDateTimeUtc.HasValue || product.MarkAsNewEndDateTimeUtc.Value > DateTime.UtcNow)
+                };
+
+                //price
+                if (preparePriceModel)
+                {
+                    model.ProductPrice = await PrepareProductOverviewPriceModelAsync(product, forceRedirectionAfterAddingToCart);
+                }
+
+                //picture
+                if (preparePictureModel)
+                {
+                    model.DefaultPictureModel = await PrepareProductOverviewPictureModelAsync(product, productThumbPictureSize);
+                }
+
+                //specs
+                if (prepareSpecificationAttributes)
+                {
+                    model.ProductSpecificationModel = await PrepareProductSpecificationModelAsync(product);
+                }
+
+                //reviews
+                model.ReviewOverviewModel = await PrepareProductReviewOverviewModelAsync(product);
+
+                models.Add(model);
+            }
+
+            return models;
+        }
+
+
+
+
         /// <summary>
         /// Prepare the product combination models
         /// </summary>

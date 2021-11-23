@@ -1193,6 +1193,8 @@ namespace Nop.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     //username 
+                    customer.CustomerStatusId = model.CustomerStatusId = 10;
+                    await _customerService.UpdateCustomerAsync(customer);
                     if (_customerSettings.UsernamesEnabled && _customerSettings.AllowUsersToChangeUsernames)
                     {
                         var userName = model.Username.Trim();
@@ -1280,6 +1282,8 @@ namespace Nop.Web.Controllers
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.PhoneAttribute, model.Phone);
                     if (_customerSettings.FaxEnabled)
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FaxAttribute, model.Fax);
+
+                    //await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CustomerStatusId, model.CustomerStatusId);
 
                     //newsletter
                     if (_customerSettings.NewsletterEnabled)
@@ -1963,6 +1967,25 @@ namespace Nop.Web.Controllers
 
             return View(model);
         }
+
+        #endregion
+
+
+        #region career
+
+        public virtual async Task<IActionResult> Career()
+        {
+
+            return View();
+        }
+
+
+        public virtual async Task<IActionResult> Sales()
+        {
+
+            return View();
+        }
+
 
         #endregion
 

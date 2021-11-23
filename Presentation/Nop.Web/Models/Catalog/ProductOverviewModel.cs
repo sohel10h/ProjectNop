@@ -28,6 +28,8 @@ namespace Nop.Web.Models.Catalog
 
         //price
         public ProductPriceModel ProductPrice { get; set; }
+        public decimal WholesalePrice { get; set; }
+
         //picture
         public PictureModel DefaultPictureModel { get; set; }
         //specification attributes
@@ -43,6 +45,7 @@ namespace Nop.Web.Models.Catalog
             public string OldPrice { get; set; }
             public string Price { get; set; }
             public decimal PriceValue { get; set; }
+
             /// <summary>
             /// PAngV baseprice (used in Germany)
             /// </summary>

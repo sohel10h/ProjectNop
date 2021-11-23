@@ -195,6 +195,9 @@ namespace Nop.Web.Areas.Admin.Controllers
             return View(model);
         }
 
+
+
+
         [HttpPost]
         /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task<IActionResult> AppSettings(AppSettingsModel model)
@@ -999,7 +1002,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
             //prepare model
             var model = await _settingModelFactory.PrepareShoppingCartSettingsModelAsync();
-
+            ViewBag.CarrerSelePdfLocation = model.CarrerSelePdfLocation;
             return View(model);
         }
 
@@ -1057,6 +1060,49 @@ namespace Nop.Web.Areas.Admin.Controllers
             //if we got this far, something failed, redisplay form
             return View(model);
         }
+
+
+
+        [HttpPost]
+        public virtual async Task<IActionResult> uploadExcell(IFormFile priceList)
+        {
+
+            if (priceList != null && priceList.Length > 0) 
+            {
+                if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageSettings))
+                    return AccessDeniedView();
+
+                var storeScope = await _storeContext.GetActiveStoreScopeConfigurationAsync();
+                var shoppingCartSettings = await _settingService.LoadSettingAsync<ShoppingCartSettings>(storeScope);
+                //shoppingCartSettings = model.ToSettings(shoppingCartSettings);
+
+                byte[] fileBytes;
+                var fileName = Guid.NewGuid().ToString() + priceList.FileName;
+                using (var ms = new MemoryStream())
+                {
+                    priceList.CopyTo(ms);
+                    fileBytes = ms.ToArray();
+                }
+                await _pictureService.SaveMakeAnOrderThumbAsync(fileName, priceList.ContentType, fileBytes);
+
+                shoppingCartSettings.CarrerSelePdfLocation = fileName;
+                await _settingService.SaveSettingOverridablePerStoreAsync(shoppingCartSettings, x => x.CarrerSelePdfLocation, false, storeScope, false);
+            }
+            return Redirect("ShoppingCart");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task<IActionResult> Media()

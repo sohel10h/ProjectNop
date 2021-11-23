@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Career").Text);
+    //page class
+}
+
+<div id="career">
+    <div class="carrer_div">
+        <a href="/news">
+            @T("New.Circular")
+        </a>
+    </div>
+    <div class="carrer_div">
+        <a href="/customer/info">
+            @T("Assistant.Option")
+        </a>
+    </div>
+</div>
+<style>
+
+    .carrer_div {
+        DISPLAY: inline-block;
+        width: 45%;
+        height: 100px;
+        font-size: 30px;
+        border: 1px solid #eee;
+        text-align: center;
+        line-height: 100px;
+        box-shadow: 1px 1px 4px 4px #eee;
+        border-radius: 5px;
+        margin: 0 0 0 40px;
+    }
+
+    div#career {
+        width: 80%;
+        margin: auto;
+    }
+</style>

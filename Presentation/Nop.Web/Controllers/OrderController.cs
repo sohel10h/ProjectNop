@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
+using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Orders;
 using Nop.Services.Common;
@@ -38,6 +39,10 @@ namespace Nop.Web.Controllers
         private readonly IWorkContext _workContext;
         private readonly RewardPointsSettings _rewardPointsSettings;
         private readonly IPictureService _pictureService;
+        private readonly IAddressService _addressService;
+        private readonly ShoppingCartSettings _shoppingCartSettings;
+
+
         #endregion
 
         #region Ctor
@@ -52,6 +57,8 @@ namespace Nop.Web.Controllers
             IWebHelper webHelper,
             IWorkContext workContext,
             IPictureService pictureService,
+            IAddressService addressService,
+            ShoppingCartSettings shoppingCartSettings,
             RewardPointsSettings rewardPointsSettings)
         {
             _customerService = customerService;
@@ -65,6 +72,8 @@ namespace Nop.Web.Controllers
             _workContext = workContext;
             _rewardPointsSettings = rewardPointsSettings;
             _pictureService = pictureService;
+            _addressService = addressService;
+            _shoppingCartSettings = shoppingCartSettings;
         }
 
         #endregion
@@ -270,30 +279,92 @@ namespace Nop.Web.Controllers
         }
 
 
+
         public virtual async Task<IActionResult> MakeAnOrder()
         {
 
+            var customer = await _workContext.GetCurrentCustomerAsync();
+
+            var billingAddressId = customer.BillingAddressId;
+            var shippingAddressId = customer.ShippingAddressId;
+
+            if (billingAddressId.HasValue)
+            {
+                ViewBag.BillingAddress = await _addressService.GetAddressByIdAsync(billingAddressId.Value);
+            }
+            if (shippingAddressId.HasValue)
+            {
+                ViewBag.ShippingAddress = await _addressService.GetAddressByIdAsync(shippingAddressId.Value);
+            }
             return View();
         }
+
+
 
 
         [HttpPost]
         public virtual async Task<IActionResult> MakeAnOrder(IFormCollection colletion)
         {
+            List<MakeAnOrder> orders = await GetOrderInfos(colletion);
+            var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(orders);
+            var shippingAddress = GetAddress(colletion, "Shipping");
+            var billingAddress = GetAddress(colletion, "Billing");
+            await _addressService.InsertAddressAsync(shippingAddress);
+            await _addressService.InsertAddressAsync(billingAddress);
+
+            var customer = await _workContext.GetCurrentCustomerAsync();
+            var order = new Order();
+            order.BillingAddressId = billingAddress.Id;
+            order.ShippingAddressId = shippingAddress.Id;
+            order.ShippingStatus = Core.Domain.Shipping.ShippingStatus.NotYetShipped;
+            order.PaymentStatus = Core.Domain.Payments.PaymentStatus.Pending;
+            order.OrderStatus = OrderStatus.Pending;
+            order.CustomerId = customer.Id;
+            order.OrderGuid = Guid.NewGuid();
+            order.MakeAnOrderJson = ordersJson;
+            order.CustomOrderNumber = "";
+            await _orderService.InsertOrderAsync(order);
+            return View();
+        }
+
+
+        private Address GetAddress(IFormCollection colletion, string addressType)
+        {
+            var address = new Address();
+            address.FirstName = colletion[addressType + "NewAddress.FirstName"].ToString();
+            address.LastName = colletion[addressType + "NewAddress.LastName"].ToString();
+            address.Email = colletion[addressType + "NewAddress.Email"].ToString();
+            address.CountryId = Convert.ToInt16(colletion[addressType + "NewAddress.CountryId"]);
+            address.City = colletion[addressType + "NewAddress.City"].ToString();
+            address.Address1 = colletion[addressType + "NewAddress.Address1"].ToString();
+            address.PhoneNumber = colletion[addressType + "NewAddress.PhoneNumber"].ToString();
+            return address;
+        }
+
+
+        private async Task<List<MakeAnOrder>> GetOrderInfos(IFormCollection colletion,bool isCareer=false, int lineNumber=9)
+        {
             var orders = new List<MakeAnOrder>();
-            for (int i = 0; i <= 9; i++) 
+            for (int i = 0; i <= lineNumber; i++)
             {
                 var namekey = "name" + i;
                 var name = colletion[namekey].ToString();
-                if ( !string.IsNullOrEmpty(name)) 
-                { 
+                if (!string.IsNullOrEmpty(name))
+                {
                     var quantity = Convert.ToInt32(colletion["quantity" + i]);
-                    var image = colletion.Files.GetFile("image"+i);
-                    string fileName=string.Empty;
-                    if (image != null) 
+                    decimal price= decimal.Zero;
+                    if (isCareer) 
+                    {
+
+                        price = Convert.ToDecimal(colletion["price" + i]);
+                    }
+
+                    var image = colletion.Files.GetFile("image" + i);
+                    string fileName = string.Empty;
+                    if (image != null)
                     {
                         byte[] fileBytes;
-                         fileName = Guid.NewGuid().ToString() + image.FileName;
+                        fileName = Guid.NewGuid().ToString() + image.FileName;
                         using (var ms = new MemoryStream())
                         {
                             image.CopyTo(ms);
@@ -304,39 +375,79 @@ namespace Nop.Web.Controllers
                     orders.Add(new Models.Order.MakeAnOrder
                     {
                         Id = Convert.ToInt32(colletion["id" + i]),
-                        Name= name,
-                        Quantity= quantity,
-                        FileName= fileName
+                        Name = name,
+                        Quantity = quantity,
+                        FileName = fileName,
+                        Price = price
                     });
                 }
             }
+            return orders;
+        }
 
-            string xmlString = null;
-            XmlSerializer xmlSerializer = new XmlSerializer(orders.GetType());
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                xmlSerializer.Serialize(memoryStream, orders);
-                memoryStream.Position = 0;
-                xmlString = new StreamReader(memoryStream).ReadToEnd();
-            }
+
+
+        public virtual async Task<IActionResult> SaleFromCareer()
+        {
+            if (!await _customerService.IsRegisteredAsync(await _workContext.GetCurrentCustomerAsync()))
+                return Challenge();
+
+            ViewBag.CarrerSelePdfLocation = _shoppingCartSettings.CarrerSelePdfLocation;
+
+            return View();
+        }
+
+        [HttpPost]
+        public virtual async Task<IActionResult> SaleFromCareer(IFormCollection colletion)
+        {
+
+            var lineNumber = Convert.ToInt16(colletion["lineItem"]);
+         
+            List<MakeAnOrder> orders = await GetOrderInfos(colletion,true, lineNumber);
+            var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(orders.Where(o=>o.Id==0).ToList());
+            //var shippingAddress = GetAddress(colletion, "Shipping");
+            //var billingAddress = GetAddress(colletion, "Billing");
+
             var customer = await _workContext.GetCurrentCustomerAsync();
             var order = new Order();
-            var BillingAddressId = customer.BillingAddressId.HasValue ? customer.BillingAddressId.Value : 1;
-            order.BillingAddressId = BillingAddressId;
-            order.ShippingAddressId = BillingAddressId;
+            order.BillingAddressId = customer.BillingAddressId.Value;
+            order.ShippingAddressId = customer.ShippingAddressId;
             order.ShippingStatus = Core.Domain.Shipping.ShippingStatus.NotYetShipped;
             order.PaymentStatus = Core.Domain.Payments.PaymentStatus.Pending;
             order.OrderStatus = OrderStatus.Pending;
             order.CustomerId = customer.Id;
             order.OrderGuid = Guid.NewGuid();
-            order.CustomValuesXml = xmlString;
+            order.MakeAnOrderJson = ordersJson;
             order.CustomOrderNumber = "";
+            var orderTotal = orders.Where(c => c.Id > 0).ToList().Sum(p => p.Price);
+            order.OrderTotal = orderTotal;
+            order.OrderSubtotalExclTax = orderTotal;
+            order.OrderSubtotalInclTax = orderTotal;
+
             await _orderService.InsertOrderAsync(order);
-            return View();
+
+            var ownProducts = orders.Where(c => c.Id > 0).ToList();
+            if (ownProducts != null && ownProducts.Any())
+            {
+                foreach (var product in ownProducts) 
+                {
+                    OrderItem itm = new OrderItem();
+                    itm.OrderId = order.Id;
+                    itm.PriceExclTax = product.Price;
+                    itm.PriceInclTax = product.Price;
+                    itm.UnitPriceInclTax = product.Price;
+                    itm.UnitPriceExclTax = product.Price;
+                    itm.Quantity = product.Quantity;
+                    itm.ProductId = product.Id;
+                    await _orderService.InsertOrderItemAsync(itm);
+                }
+            }
+            if (orders != null && orders.Any()) 
+            {
+                return Redirect("/orderdetails/"+ order.Id); 
+            }
+            return Redirect("/order/SaleFromCareer");
         }
-
-
-
         #endregion
     }
 }

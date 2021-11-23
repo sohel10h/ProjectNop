@@ -1394,7 +1394,7 @@ namespace Nop.Web.Areas.Admin.Factories
             model.MiniShoppingCartProductNumber_OverrideForStore = await _settingService.SettingExistsAsync(shoppingCartSettings, x => x.MiniShoppingCartProductNumber, storeId);
             model.AllowCartItemEditing_OverrideForStore = await _settingService.SettingExistsAsync(shoppingCartSettings, x => x.AllowCartItemEditing, storeId);
             model.GroupTierPricesForDistinctShoppingCartItems_OverrideForStore = await _settingService.SettingExistsAsync(shoppingCartSettings, x => x.GroupTierPricesForDistinctShoppingCartItems, storeId);
-
+            model.CarrerSelePdfLocation_OverrideForStore= await _settingService.SettingExistsAsync(shoppingCartSettings, x => x.CarrerSelePdfLocation, storeId);
             return model;
         }
 
