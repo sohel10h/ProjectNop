@@ -60,6 +60,21 @@ namespace Nop.Services.Contacts
             
         }
 
+        //public virtual async Task<IList<Contact>> GetAllContactsAsync(int type = 0, int pageIndex = 0, int pageSize = int.MaxValue)
+        //{
+        //    var contact = await _contactRepository.GetAllAsync();
+
+        //    return contact;
+        //}
+
+        public async Task<IList<Contact>> GetAllContactsListAsync(int type = 0, int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            return await _contactRepository.GetAllAsync(
+                async query => { 
+                    return query; 
+                });
+        }
+
         //public async Task<IList<Contact>> GetAllContactsAsync(int pageIndex = 0, int pageSize = int.MaxValue)
         //{
         //    //return await _contactRepository.GetAllPagedAsync(async query => {return query;}, pageIndex, pageSize);

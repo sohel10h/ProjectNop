@@ -19,7 +19,7 @@ namespace Nop.Web.Factories
         /// <param name="blogPost">Contact post entity</param>
         /// <param name="prepareComments">Whether to prepare blog comments</param>
         /// <returns>A task that represents the asynchronous operation</returns>
-        Task PrepareContactModelAsync(ContactModel model, Contact blogPost, bool prepareComments);
+        Task<ContactModel> PrepareContactModelAsync(ContactModel model, Contact blogPost, bool excludeProperties);
 
         /// <summary>
         /// Prepare blog post list model
@@ -29,6 +29,6 @@ namespace Nop.Web.Factories
         /// A task that represents the asynchronous operation
         /// The task result contains the blog post list model
         /// </returns>
-        Task<ContactListModel> PrepareContactListModelAsync();
+        Task<ContactListModel> PrepareContactListModelAsync(ContactSearchModel searchModel);
     }
 }

@@ -50,4 +50,28 @@ namespace Nop.Web.Areas.Admin.Models.Contact
         public IList<int> SelectedStoreIds { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public IList<SelectListItem> AvailableStores { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
+
+    public partial record ContactLocalizedModel : ILocalizedLocaleModel
+    {
+        public int LanguageId { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.Contact.Fields.Title")]
+        public string Title { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.Contact.Fields.Body")]
+        public string Body { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.Contact.Fields.MetaKeywords")]
+        public string MetaKeywords { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.Contact.Fields.MetaDescription")]
+        public string MetaDescription { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.Contact.Fields.MetaTitle")]
+        public string MetaTitle { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.Contact.Fields.SeName")]
+        public string SeName { get; set; }
+    }
+
 }

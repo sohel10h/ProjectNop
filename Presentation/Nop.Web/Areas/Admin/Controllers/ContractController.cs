@@ -20,95 +20,56 @@ using Nop.Web.Areas.Admin.Infrastructure.Mapper.Extensions;
 using Nop.Web.Areas.Admin.Models.Topics;
 using Nop.Web.Framework.Mvc.Filters;
 using Nop.Services.Contacts;
+using Nop.Web.Areas.Admin.Models.Contact;
 
 namespace Nop.Web.Areas.Admin.Controllers
 {
     public class ContractController : BaseAdminController
     {
         #region Fields
-
-        private readonly IContactService _contactService;
-        private readonly IAclService _aclService;
-        private readonly ICustomerActivityService _customerActivityService;
-        private readonly ICustomerService _customerService;
-        private readonly ILocalizationService _localizationService;
-        private readonly ILocalizedEntityService _localizedEntityService;
-        private readonly INotificationService _notificationService;
-        private readonly IPermissionService _permissionService;
-        private readonly IStoreMappingService _storeMappingService;
-        private readonly IStoreService _storeService;
-        private readonly ITopicModelFactory _topicModelFactory;
-        private readonly ITopicService _topicService;
-        private readonly IUrlRecordService _urlRecordService;
-        private readonly IGenericAttributeService _genericAttributeService;
-        private readonly IWorkContext _workContext;
-
-
-
-        //private readonly IContactModelFactory _contactModelFactory;
-
+        private readonly IContactModelFactory _contactModelFactory;
         #endregion
 
 
-        public ContractController(IContactService contactService,
-           IAclService aclService,
-            ICustomerActivityService customerActivityService,
-            ICustomerService customerService,
-            ILocalizationService localizationService,
-            ILocalizedEntityService localizedEntityService,
-            INotificationService notificationService,
-            IPermissionService permissionService,
-            IStoreMappingService storeMappingService,
-            IStoreService storeService,
-            ITopicModelFactory topicModelFactory,
-            ITopicService topicService,
-            IUrlRecordService urlRecordService,
-            IGenericAttributeService genericAttributeService,
-            IWorkContext workContext
+        public ContractController(
+            IContactModelFactory contactModelFactory
+            //IGenericAttributeService genericAttributeService,
+            //IWorkContext workContext
             )
         {
-            this._contactService = contactService;
-            _aclService = aclService;
-            _customerActivityService = customerActivityService;
-            _customerService = customerService;
-            _localizationService = localizationService;
-            _localizedEntityService = localizedEntityService;
-            _notificationService = notificationService;
-            _permissionService = permissionService;
-            _storeMappingService = storeMappingService;
-            _storeService = storeService;
-            _topicModelFactory = topicModelFactory;
-            _topicService = topicService;
-            _urlRecordService = urlRecordService;
-            _genericAttributeService = genericAttributeService;
-            _workContext = workContext;
+            this._contactModelFactory = contactModelFactory;
+            //this._genericAttributeService = genericAttributeService;
+            //this._workContext = workContext;
         }
         public async Task<IActionResult> Index(bool showtour = false)
         {
-            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageTopics))
-                return AccessDeniedView();
-
             //prepare model
-            var model = await _topicModelFactory.PrepareTopicSearchModelAsync(new TopicSearchModel());
+            var model = await _contactModelFactory.PrepareContactSearchModelAsync(new ContactSearchModel());
 
             //show configuration tour
-            if (showtour)
-            {
-                var hideCard = await _genericAttributeService.GetAttributeAsync<bool>(await _workContext.GetCurrentCustomerAsync(), NopCustomerDefaults.HideConfigurationStepsAttribute);
+            //if (showtour)
+            //{
+            //    var hideCard = await _genericAttributeService.GetAttributeAsync<bool>(await _workContext.GetCurrentCustomerAsync(), NopCustomerDefaults.HideConfigurationStepsAttribute);
 
-                var closeCard = await _genericAttributeService.GetAttributeAsync<bool>(await _workContext.GetCurrentCustomerAsync(), NopCustomerDefaults.CloseConfigurationStepsAttribute);
+            //    var closeCard = await _genericAttributeService.GetAttributeAsync<bool>(await _workContext.GetCurrentCustomerAsync(), NopCustomerDefaults.CloseConfigurationStepsAttribute);
 
-                if (!hideCard && !closeCard)
-                    ViewBag.ShowTour = true;
-            }
+            //    if (!hideCard && !closeCard)
+            //        ViewBag.ShowTour = true;
+            //}
 
             return View(model);
         }
         [HttpPost]
         /// <returns>A task that represents the asynchronous operation</returns>
-        public virtual async Task<IActionResult> List()
+        public virtual async Task<IActionResult> List(ContactSearchModel searchModel)
         {
-            var model = await _contactService.GetAllContactsAsync((int)ContactType.Contact);
+            //var model = await _contactService.GetAllContactsAsync((int)ContactType.Contact);
+            //return Json(model);
+            //if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageTopics))
+            //    return await AccessDeniedDataTablesJson();
+
+            //prepare model
+            var model = await _contactModelFactory.PrepareContactListModelAsync(searchModel);
             return Json(model);
         }
         public async Task<IActionResult> Appoinments()

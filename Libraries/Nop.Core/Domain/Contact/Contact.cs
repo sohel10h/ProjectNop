@@ -11,7 +11,7 @@ namespace Nop.Core.Domain.Contacts
     /// <summary>
     /// Represents a Contact
     /// </summary>
-    public partial class Contact : BaseEntity, ILocalizedEntity, ISlugSupported, IStoreMappingSupported, ISoftDeletedEntity
+    public partial class Contact : BaseEntity, ILocalizedEntity, ISlugSupported, IStoreMappingSupported, IAclSupported
     {
 
         public int ID { get; set; }
