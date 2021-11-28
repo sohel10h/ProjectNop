@@ -1,6 +1,0 @@
-﻿{
-  "DataConnectionString": "Data Source=DESKTOP-CVSU4IE;Initial Catalog=ncore;Integrated Security=True;Persist Security Info=False",
-  "DataProvider": "sqlserver",
-  "SQLCommandTimeout": null,
-  "RawDataSettings": {}
-}
