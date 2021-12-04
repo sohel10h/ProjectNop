@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Nop.Web.Models.Contact;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ using Nop.Web.Areas.Admin.Models.Topics;
 using Nop.Web.Framework.Mvc.Filters;
 using Nop.Services.Contacts;
 using Nop.Web.Areas.Admin.Models.Contact;
+
 
 namespace Nop.Web.Areas.Admin.Controllers
 {
@@ -69,8 +71,20 @@ namespace Nop.Web.Areas.Admin.Controllers
             //    return await AccessDeniedDataTablesJson();
 
             //prepare model
-            var model = await _contactModelFactory.PrepareContactListModelAsync(searchModel);
-            return Json(model);
+
+            try
+            {
+                var model = await _contactModelFactory.PrepareContactListModelAsync(searchModel);
+                return Json(model);
+            }
+            catch (Exception exc) 
+            { 
+            
+            
+            }
+
+            return Json("");
+
         }
         public async Task<IActionResult> Appoinments()
         {

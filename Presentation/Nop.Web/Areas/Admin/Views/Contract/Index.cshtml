@@ -101,16 +101,14 @@
                         },
                         ColumnCollection = new List<ColumnProperty>
                         {
-                            new ColumnProperty(nameof(ContactModel.Message))
+                            new ColumnProperty(nameof(ContactModel.Name))
                             {
                                 Title = T("Admin.ContentManagement.Topics.Fields.TopicName").Text
                             },
                             new ColumnProperty(nameof(ContactModel.Phone))
                             {
-                                Title = T("Admin.ContentManagement.Topics.Fields.Published").Text,
-                                Width = "150",
-                                ClassName = NopColumnClassDefaults.CenterAll,
-                                Render = new RenderBoolean()
+                                Title = T("Admin.ContentManagement.Topics.Fields.TopicName").Text
+
                             }
                         }
                     })

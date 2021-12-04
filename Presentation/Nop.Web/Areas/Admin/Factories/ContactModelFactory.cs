@@ -112,13 +112,19 @@ namespace Nop.Web.Areas.Admin.Factories
 
             var pagedContacts = Contacts.ToPagedList(searchModel);
 
-            //prepare grid model
-            var model = await new ContactListModel().PrepareToGridAsync(searchModel, pagedContacts, () =>
+
+            var model =  new ContactListModel().PrepareToGrid(searchModel, pagedContacts, () =>
             {
-                return pagedContacts.SelectAwait(async Contact =>
+                return pagedContacts.Select(topic =>
                 {
                     //fill in model values from the entity
-                    var ContactModel = Contact.ToModel<ContactModel>();
+                    var ContactModel = new ContactModel
+                    {
+                        ID = topic.ID,
+                        Name = topic.Name,
+                        Email = topic.Email,
+                        Phone = topic.Phone
+                    };
                     return ContactModel;
                 });
             });

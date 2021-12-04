@@ -47,8 +47,8 @@ namespace Nop.Web.Areas.Admin.Models.Contact
         public DateTime VisitDate { get; set; }
         [NopResourceDisplayName("Admin.Contact.Fields.Status")]
         public int Status { get; set; }
-        public IList<int> SelectedStoreIds { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IList<SelectListItem> AvailableStores { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IList<int> SelectedStoreIds { get; set; }
+        public IList<SelectListItem> AvailableStores { get; set; }
     }
 
     public partial record ContactLocalizedModel : ILocalizedLocaleModel

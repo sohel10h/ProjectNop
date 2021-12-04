@@ -518,17 +518,8 @@ namespace Nop.Web.Controllers
             {
                await _sallerService.SaveSallerItem(itm);
             }
-            return Redirect("/order/SaleFromCareer");
+            return Redirect("/order/sallerRequest");
         }
-
-
-
-
-
-
-
-
-
 
         #endregion
     }
