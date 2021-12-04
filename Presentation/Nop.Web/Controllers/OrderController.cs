@@ -11,6 +11,7 @@ using Nop.Core;
 using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Orders;
+using Nop.Core.Domain.SallerItems;
 using Nop.Services.Common;
 using Nop.Services.Customers;
 using Nop.Services.Media;
@@ -21,6 +22,7 @@ using Nop.Web.Factories;
 using Nop.Web.Framework.Controllers;
 using Nop.Web.Framework.Mvc.Filters;
 using Nop.Web.Models.Order;
+using Nop.Services.Saller;
 
 namespace Nop.Web.Controllers
 {
@@ -41,7 +43,7 @@ namespace Nop.Web.Controllers
         private readonly IPictureService _pictureService;
         private readonly IAddressService _addressService;
         private readonly ShoppingCartSettings _shoppingCartSettings;
-
+        private readonly ISallerService _sallerService;
 
         #endregion
 
@@ -59,7 +61,9 @@ namespace Nop.Web.Controllers
             IPictureService pictureService,
             IAddressService addressService,
             ShoppingCartSettings shoppingCartSettings,
-            RewardPointsSettings rewardPointsSettings)
+            RewardPointsSettings rewardPointsSettings,
+            ISallerService sallerService
+            )
         {
             _customerService = customerService;
             _orderModelFactory = orderModelFactory;
@@ -74,6 +78,7 @@ namespace Nop.Web.Controllers
             _pictureService = pictureService;
             _addressService = addressService;
             _shoppingCartSettings = shoppingCartSettings;
+            _sallerService = sallerService;
         }
 
         #endregion
@@ -386,14 +391,60 @@ namespace Nop.Web.Controllers
         }
 
 
+        private async Task<List<SallerItem>> GetSallerItems(IFormCollection colletion,int customerId, bool isCareer = false, int lineNumber = 9)
+        {
+            var orders = new List<SallerItem>();
+            for (int i = 0; i <= lineNumber; i++)
+            {
+                var namekey = "name" + i;
+                var name = colletion[namekey].ToString();
+                if (!string.IsNullOrEmpty(name))
+                {
+                    var quantity = Convert.ToInt32(colletion["quantity" + i]);
+                    var description = colletion["description" + i].ToString();
+
+                    decimal price = decimal.Zero;
+                    if (isCareer)
+                    {
+                        price = Convert.ToDecimal(colletion["price" + i]);
+                    }
+
+                    var image = colletion.Files.GetFile("image" + i);
+                    string fileName = string.Empty;
+                    if (image != null)
+                    {
+                        byte[] fileBytes;
+                        fileName = Guid.NewGuid().ToString() + image.FileName;
+                        using (var ms = new MemoryStream())
+                        {
+                            image.CopyTo(ms);
+                            fileBytes = ms.ToArray();
+                        }
+                        await _pictureService.SaveMakeAnOrderThumbAsync(fileName, image.ContentType, fileBytes);
+                    }
+                    orders.Add(new SallerItem
+                    {
+                        ProductName = name,
+                        CustomerId = customerId,
+                        ProductPrice = quantity,
+                        ProductDescription= description,
+                        ProductStatus=0,
+                        ImageString= fileName
+                    });
+                }
+            }
+            return orders;
+        }
+
+
+
+
 
         public virtual async Task<IActionResult> SaleFromCareer()
         {
             if (!await _customerService.IsRegisteredAsync(await _workContext.GetCurrentCustomerAsync()))
                 return Challenge();
-
             ViewBag.CarrerSelePdfLocation = _shoppingCartSettings.CarrerSelePdfLocation;
-
             return View();
         }
 
@@ -448,6 +499,37 @@ namespace Nop.Web.Controllers
             }
             return Redirect("/order/SaleFromCareer");
         }
+
+
+        public virtual async Task<IActionResult> sallerRequest()
+        {
+            if (!await _customerService.IsRegisteredAsync(await _workContext.GetCurrentCustomerAsync()))
+                return Challenge();
+            return View();
+        }
+
+        [HttpPost]
+        public virtual async Task<IActionResult> sallerRequest(IFormCollection colletion)
+        {
+            var lineNumber = Convert.ToInt16(colletion["lineItem"]);
+            var customer = await _workContext.GetCurrentCustomerAsync();
+            List<SallerItem> items = await GetSallerItems(colletion, customer.Id, true, lineNumber);
+            foreach (var itm in items) 
+            {
+               await _sallerService.SaveSallerItem(itm);
+            }
+            return Redirect("/order/SaleFromCareer");
+        }
+
+
+
+
+
+
+
+
+
+
         #endregion
     }
 }
