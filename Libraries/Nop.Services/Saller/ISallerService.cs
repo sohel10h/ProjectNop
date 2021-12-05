@@ -10,6 +10,6 @@ namespace Nop.Services.Saller
     public interface ISallerService
     {
          Task SaveSallerItem(SallerItem item);
-
+         Task<List<SallerItem>> GetCustomerSallerItems(int id);
     }
 }

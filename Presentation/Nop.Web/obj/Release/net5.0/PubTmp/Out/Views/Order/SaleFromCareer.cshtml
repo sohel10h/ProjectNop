@@ -1,0 +1,203 @@
+﻿@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.ShipmentDetails").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-shipment-details-page");
+}
+
+<form asp-controller="order" asp-action="SaleFromCareer" method="post" enctype="multipart/form-data" id="category-form">
+    <input type="hidden" id="lineItem" value="2"  name="lineItem"/>
+
+
+    <div class="download_link">
+        <a download="" href="/images/thumbs/@ViewBag.CarrerSelePdfLocation">@T("Download.RateSheet")</a>
+    </div>
+
+
+
+    <div id="make_an_order">
+        <div class="mnoContainer header_container">
+            <div class="product_name_dv"> Product Name</div>
+            <div class="pproduct_quantity_dv"> Quantity</div>
+            <div class="pproduct_img_dv"> Image</div>
+        </div>
+        <div class="mnoContainer">
+            <input type="hidden" value="0" class="productid" name="id0" />
+            <input type="hidden" value="0" class="price" name="price0" />
+            <div class="product_name_dv"> <input type="text" class="product_name" name="name0" /> <span class="product_price"></span></div>
+            <div class="pproduct_quantity_dv"> <input type="number" name="quantity0" min="1" value="1" class="product_qty" /></div>
+            <div class="pproduct_img_dv"> <input name="image0" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
+        </div>
+
+        <div class="mnoContainer">
+            <input type="hidden" class="productid" value="0" name="id1" />
+            <input type="hidden" value="0" class="price" name="price1" />
+            <div class="product_name_dv"> <input type="text" class="product_name" name="name1" /><span class="product_price"></span></div>
+            <div class="pproduct_quantity_dv"> <input type="number" name="quantity1" min="1" value="1" class="product_qty" /></div>
+            <div class="pproduct_img_dv"> <input name="image1" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
+        </div>
+        <div class="mnoContainer">
+            <input type="hidden" class="productid" value="0" name="id2" />
+            <input type="hidden" value="0" class="price" name="price2" />
+            <div class="product_name_dv"> <input type="text" class="product_name" name="name2" /><span class="product_price"></span></div>
+            <div class="pproduct_quantity_dv"> <input type="number" name="quantity2" min="1" value="1" class="product_qty" /></div>
+            <div class="pproduct_img_dv"> <input name="image2" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
+        </div>
+    </div>
+
+    <div class="addmoreLine">
+        <span>@T("ADD.MORE.LINE")</span>
+    </div>
+    <button id="upload_order">Make Order</button>
+
+
+</form>
+
+
+
+
+<script asp-location="Footer">
+
+    var currentLine = 2;
+
+
+
+
+    @*$("div#make_an_order .product_name").autocomplete({
+        source: '@(Url.RouteUrl("SearchTermAutoCompleteForOrder"))',
+        minLength:3,
+        select: function (event, ui)
+        {
+            debugger;
+            var id = $(this).attr("name").replace("name", '');
+            $('input.productid[name="id' + id + '"]').val(ui.item.id);
+            $(this).parents(".mnoContainer").find(".product_price").html(ui.item.price.Price);
+            $(this).val(ui.item.label);
+            $(this).parents(".mnoContainer").find("input.product_img").css("display", "none");
+            return false;
+        },
+    });*@
+
+
+    $('body').on('focus', '.product_name', function (e) {
+        $(this).autocomplete({
+        source: '/Catalog/SearchTermAutoCompleteForCarrer',
+        minLength:3,
+        select: function (event, ui)
+        {
+            debugger;
+            console.log(ui);
+            var id = $(this).attr("name").replace("name", '');
+            $('input.productid[name="id' + id + '"]').val(ui.item.id);
+            $(this).parents(".mnoContainer").find(".product_price").html(ui.item.price);
+            $(this).parents(".mnoContainer").find(".price").val(ui.item.price);
+            $(this).val(ui.item.label);
+            $(this).parents(".mnoContainer").find("input.product_img").css("display", "none");
+            return false;
+        },
+    });
+    });
+    
+
+
+    $(".addmoreLine span").click(function ()
+    {
+        currentLine++;
+        $("#lineItem").val(currentLine)
+        var html = '<div class="mnoContainer"> <input type="hidden" class="productid" value="0" name="id' + currentLine + '"> <input type="hidden" value="0" class="price" name="price' + currentLine + '" /><div class="product_name_dv"> <input type="text" class="product_name ui-autocomplete-input" name="name' + currentLine + '" autocomplete="off"><span class="product_price"></span></div> <div class="pproduct_quantity_dv"> <input type="number" name="quantity' + currentLine + '" min="1" value="1" class="product_qty"></div> <div class="pproduct_img_dv"> <input name="image' + currentLine +'" type="file" accept="image/png, image/jpeg" class="product_img"></div> </div>';
+        $("div#make_an_order").append(html);
+
+    });
+
+</script>
+
+
+
+<style>
+    .addmoreLine {
+        width: 80%;
+        margin: 30px auto 33px auto;
+        /* box-shadow: 4px 4px 10px 4px #cac6c6; */
+        padding-bottom: 10px;
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .addmoreLine span {
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: 4px 4px 10px 4px #cac6c6;
+        padding: 10px;
+    }
+
+
+    .download_link {
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .download_link a {
+        text-decoration: underline;
+        color: green;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    
+    span.product_price {
+        color: green;
+        font-weight: 700;
+    }
+
+    .mnoContainer.header_container {
+        width: 80%;
+        margin: 10px auto 35px auto;
+        border-bottom: 1px solid #beb5b5;
+        padding-bottom: 8px;
+    }
+
+    button#upload_order {
+        height: 100px;
+        width: 100px;
+        border-radius: 100%;
+        display: block;
+        margin: 30px auto;
+    }
+
+    .product_name_dv, .pproduct_quantity_dv, .pproduct_img_dv {
+        display: inline-block;
+        padding: 10px 30px 0px 10px;
+    }
+
+    input.product_name {
+        width: 500px;
+        border-radius: 5px;
+    }
+
+    input.product_qty {
+        height: 30px;
+        width: 100px;
+        border-radius: 5px;
+        border: 1px solid #d3cdcd;
+        text-align: center;
+    }
+
+    .mnoContainer:not(.header_container) {
+        width: 80%;
+        margin: 10px auto 10px auto;
+        padding-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ed18e6;
+    }
+
+    .header_container .pproduct_img_dv, .header_container .pproduct_quantity_dv {
+        width: 200px;
+        text-align: center;
+    }
+
+    .header_container .product_name_dv {
+        width: 500px;
+        text-align: center;
+    }
+</style>

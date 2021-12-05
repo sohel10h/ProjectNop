@@ -22,5 +22,12 @@ namespace Nop.Services.Saller
         {
             await _sallerRepository.InsertAsync(item);
         }
+
+        public async Task<List<SallerItem>> GetCustomerSallerItems(int id)
+        {
+            var itms = await _sallerRepository.Table.Where(c => c.CustomerId == id).ToListAsync();
+            return itms;
+        }
+
     }
 }

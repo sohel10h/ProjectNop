@@ -1,0 +1,66 @@
+﻿
+@model List<SallerItem>
+@using Nop.Core.Domain.SallerItems
+
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.ShipmentDetails").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-shipment-details-page");
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    img.itmImage {
+        max-width: 250px;
+    }
+    th.productName, th.productImage {
+        min-width: 300px;
+    }
+    td.productPrice {
+        font-weight: 700;
+        color: green;
+    }
+
+</style>
+
+
+<h2>HTML Table</h2>
+
+<table>
+    <tr>
+        <th class="productName">Name</th>
+        <th class="productPrice">Price</th>
+        <th class="productImage">Image</th>
+    </tr>
+    @{
+        foreach (var itm in Model)
+        {
+            <tr>
+                <td  class="productName">@itm.ProductName</td>
+                <td class="productPrice">@itm.ProductPrice</td>
+                <td class="productImage"> <img class="itmImage" src="/images/thumbs/@itm.ImageString" />    </td>
+            </tr>
+        }
+    }
+</table>
+
+
+

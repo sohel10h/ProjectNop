@@ -307,6 +307,16 @@ namespace Nop.Web.Controllers
 
 
 
+        public virtual async Task<IActionResult> SalerPanel()
+        {
+            var customer = await _workContext.GetCurrentCustomerAsync();
+            var oldItems =await _sallerService.GetCustomerSallerItems(customer.Id);
+            return View(oldItems);
+        }
+
+
+
+
         [HttpPost]
         public virtual async Task<IActionResult> MakeAnOrder(IFormCollection colletion)
         {
@@ -435,6 +445,8 @@ namespace Nop.Web.Controllers
             }
             return orders;
         }
+
+
 
 
 

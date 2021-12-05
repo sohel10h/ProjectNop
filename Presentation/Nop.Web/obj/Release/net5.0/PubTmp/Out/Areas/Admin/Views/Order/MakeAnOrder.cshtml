@@ -1,0 +1,67 @@
+﻿@model OrderModel
+
+@using Nop.Core.Domain.Tax;
+@using Nop.Core.Domain.Catalog;
+
+<div class="card-body">
+    <div class="form-group row">
+        <div class="col-md-12" style="overflow-x: auto;">
+
+            <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>
+                    @T("Admin.Orders.Products.Picture")
+                </th>
+                <th>
+                    @T("Admin.Orders.Products.ProductName")
+                </th>
+                <th>
+                    @T("Admin.Orders.Products.Quantity")
+                </th>                         
+            </tr>
+            </thead>
+            <tbody>
+
+                @{
+                    if (Model.makeAnOrders != null && Model.makeAnOrders.Any())
+                    {
+                        foreach (var item in Model.makeAnOrders)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @if (!string.IsNullOrWhiteSpace(item.FileName))
+                                    {
+                                        <a href="/images/thumbs/@item.FileName" target="_blank">
+                                            <img src="/images/thumbs/@item.FileName" style="max-width: 300px;" />
+                                        </a>
+                                    }
+                                </td>
+                                <td style="width: 60%;" class="text-left">
+                                    @if (item.Id > 0)
+                                    {
+                                        <em><a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">@item.Name</a></em>
+
+                                    }
+                                    else
+                                    {
+                                        <em>@item.Name</em>
+                                    }
+                                </td>
+                                <td style="width: 10%;" class="text-center">
+                                    <div>@item.Quantity</div>
+                                </td>
+                            </tr>
+                        }
+
+
+
+                    }
+                }
+
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

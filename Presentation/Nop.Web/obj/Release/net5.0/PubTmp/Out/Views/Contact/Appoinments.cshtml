@@ -1,0 +1,67 @@
+﻿@model Nop.Core.PagedList<Nop.Core.Domain.Contacts.Contact>
+
+@{
+    ViewData["Title"] = "Appoinments";
+}
+<div class="page contact-page">
+    <div class="page-title">
+        <h1>@T("PageTitle.Appoinments.list")</h1>
+    </div>
+    <div class="page-body">
+        <p>
+            <a asp-action="AddAppoinment" class="button">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Subject
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    @*<th></th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VisitDate)
+                        </td>
+                        @*<td>
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+

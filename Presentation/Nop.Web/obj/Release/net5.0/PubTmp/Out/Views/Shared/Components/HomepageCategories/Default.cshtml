@@ -1,0 +1,107 @@
+﻿@model IList<CategoryModel>
+@if (Model.Count > 0)
+{
+<style>
+        @@-webkit-keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-300px * @((Model.Count/2))));
+            }
+        }
+        @@keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-300px * @((Model.Count/2))));
+            }
+        }
+        .slider {
+            overflow: hidden;
+            position: relative;
+        }
+        .slider::after {
+            right: 0;
+            top: 0;
+            transform: rotateZ(180deg);
+        }
+        .slider::before {
+            left: 0;
+            top: 0;
+        }
+        .slider .slide-track {
+            -webkit-animation: scroll 5s linear infinite;
+            animation: scroll 5s linear infinite;
+            display: flex;
+        }
+            .slider .slide-track:hover {
+                animation-play-state: paused;
+            }
+
+    .category-grid.home-page-category-grid.slider {
+        width: 80%;
+    }
+    .see_more {
+        width: 20%;
+        min-height: 100px;
+        /*background-color: aquamarine;*/
+        height: 195px;
+    }
+    .category-grid.home-page-category-grid.slider, .see_more {
+        display: inline-block;
+        float: left;
+    }
+    .item-box.slide {
+        min-width: 300px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .show_all {
+        font-size: 15px;
+        text-align: center;
+        vertical-align: middle;
+        height: 195px;
+        line-height: 200px;
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        border: 1px solid #eee;
+        margin-left: 30px;
+        box-shadow: 4px 4px 5px 2px #eee;
+    }
+
+</style>
+
+
+<div class="home_page_content">
+    <div class="category-grid home-page-category-grid slider">
+        <div class="item-grid slide-track">
+            @foreach (var item in Model)
+            {
+                <div class="item-box slide">
+                    <div class="category-item">
+                        <div class="picture">
+                            <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                                <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl" title="@item.PictureModel.Title" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="see_more">
+        <a href="#"><div class="show_all">SHOW ALL</div></a>     
+    </div>
+</div>
+
+
+}
+
+
+
+
+
