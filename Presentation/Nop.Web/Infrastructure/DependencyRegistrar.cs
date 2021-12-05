@@ -87,6 +87,7 @@ namespace Nop.Web.Infrastructure
             services.AddScoped<IWidgetModelFactory, WidgetModelFactory>();
             //custom
             services.AddScoped<IContactModelFactory, ContactModelFactory>();
+            services.AddScoped<ISallerItemModelFactory, SallerItemModelFactory>();
 
 
             //factories
@@ -113,6 +114,7 @@ namespace Nop.Web.Infrastructure
             services.AddScoped<Factories.IWidgetModelFactory, Factories.WidgetModelFactory>();
             //custom
             services.AddScoped<Factories.IContactModelFactory, Factories.ContactModelFactory>();
+            //services.AddScoped<Factories.ISallerItemModelFactory, Factories.SallerItemModelFactory>();
         }
 
         /// <summary>

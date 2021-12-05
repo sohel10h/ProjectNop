@@ -67,7 +67,7 @@ namespace Nop.Services.Contacts
         //    return contact;
         //}
 
-        public async Task<IList<Contact>> GetAllContactsListAsync(int type = 0, int pageIndex = 0, int pageSize = int.MaxValue)
+        public async Task<IList<Contact>> GetAllContactsListAsync()
         {
             return await _contactRepository.GetAllAsync(
                 async query => { 

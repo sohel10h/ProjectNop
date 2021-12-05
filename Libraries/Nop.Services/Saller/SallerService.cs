@@ -1,4 +1,5 @@
-﻿using Nop.Core.Domain.SallerItems;
+﻿using Nop.Core;
+using Nop.Core.Domain.SallerItems;
 using Nop.Data;
 using System;
 using System.Collections.Generic;
@@ -29,5 +30,17 @@ namespace Nop.Services.Saller
             return itms;
         }
 
+        public async Task<IList<SallerItem>> GetAllSallerItemsListAsync()
+        {
+            return await _sallerRepository.GetAllAsync(
+                async query => {
+                    return query;
+                });
+        }
+
+        public async Task<IPagedList<SallerItem>> GetAllSallerItemsAsync(int type = 0, int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            return await _sallerRepository.GetAllPagedAsync(async query => { return query; }, pageIndex, pageSize);
+        }
     }
 }
