@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Nop.Web.Areas.Admin.Models.Contact
+namespace Nop.Web.Areas.Admin.Models.SallerItem
 {
     public partial record SallerItemSearchModel : BaseSearchModel
     {

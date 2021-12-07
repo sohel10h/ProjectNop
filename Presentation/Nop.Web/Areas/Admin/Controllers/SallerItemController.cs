@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nop.Web.Areas.Admin.Factories;
-using Nop.Web.Areas.Admin.Models.Contact;
+using Nop.Web.Areas.Admin.Models.SallerItem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             //prepare model
-            var model = await _sallerItemModelFactory.PrepareSallerItemListModelAsync(new SallerItemSearchModel());
+            var model = new SallerItemSearchModel();
             return View(model);
         }
         [HttpPost]
