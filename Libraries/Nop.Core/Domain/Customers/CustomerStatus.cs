@@ -8,18 +8,19 @@ namespace Nop.Core.Domain.Customers
 {
     public enum CustomerStatus
     {
-
         Customer = 0,
-
         /// <summary>
         /// Processing
         /// </summary>
-        RequestedForSaler = 10,
-
+        RequestedForCareer= 10,
         /// <summary>
         /// Complete
         /// </summary>
-        RequestedForSalerApproved = 20,
+        RequestedForCareerApproved = 20,
+
+        RequestedForSaller= 30,
+
+        RequestedForSallerApproved = 20,
 
         /// <summary>
         /// Cancelled

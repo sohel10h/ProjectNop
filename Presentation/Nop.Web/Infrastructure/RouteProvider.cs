@@ -281,6 +281,12 @@ namespace Nop.Web.Infrastructure
                 pattern: $"customer/checkusernameavailability",
                 defaults: new { controller = "Customer", action = "CheckUsernameAvailability" });
 
+
+            endpointRouteBuilder.MapControllerRoute(name: "ValidateOTP",
+                pattern: $"customer/ValidateOTP",
+                defaults: new { controller = "Customer", action = "ValidateOTP" });
+
+
             //passwordrecovery
             endpointRouteBuilder.MapControllerRoute(name: "PasswordRecovery",
                 pattern: $"{lang}/passwordrecovery",

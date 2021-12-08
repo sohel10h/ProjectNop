@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.UnApprovedCareer").Text);
+    //page class
+}
+
+<style>
+
+    .UnApprovedCareer {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        font-size: 20px;
+        color: red;
+        font-weight: 700;
+        border: 1px solid #eee;
+        min-height: 200px;
+        box-shadow: 1px 0px 7px 4px #eee;
+        border-radius: 5px;
+        padding: 10px 0px 0px 0px;
+    }
+
+
+
+
+</style>
+
+<div class="UnApprovedCareer">@T("UnApprovedCareer.Text")</div>

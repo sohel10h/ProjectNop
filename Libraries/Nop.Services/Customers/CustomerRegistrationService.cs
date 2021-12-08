@@ -223,17 +223,17 @@ namespace Nop.Services.Customers
                 return result;
             }
 
-            if (string.IsNullOrEmpty(request.Email))
-            {
-                result.AddError(await _localizationService.GetResourceAsync("Account.Register.Errors.EmailIsNotProvided"));
-                return result;
-            }
+            //if (string.IsNullOrEmpty(request.Email))
+            //{
+            //    result.AddError(await _localizationService.GetResourceAsync("Account.Register.Errors.EmailIsNotProvided"));
+            //    return result;
+            //}
 
-            if (!CommonHelper.IsValidEmail(request.Email))
-            {
-                result.AddError(await _localizationService.GetResourceAsync("Common.WrongEmail"));
-                return result;
-            }
+            //if (!CommonHelper.IsValidEmail(request.Email))
+            //{
+            //    result.AddError(await _localizationService.GetResourceAsync("Common.WrongEmail"));
+            //    return result;
+            //}
 
             if (string.IsNullOrWhiteSpace(request.Password))
             {
@@ -247,12 +247,12 @@ namespace Nop.Services.Customers
                 return result;
             }
 
-            //validate unique user
-            if (await _customerService.GetCustomerByEmailAsync(request.Email) != null)
-            {
-                result.AddError(await _localizationService.GetResourceAsync("Account.Register.Errors.EmailAlreadyExists"));
-                return result;
-            }
+            ////validate unique user
+            //if (await _customerService.GetCustomerByEmailAsync(request.Email) != null)
+            //{
+            //    result.AddError(await _localizationService.GetResourceAsync("Account.Register.Errors.EmailAlreadyExists"));
+            //    return result;
+            //}
 
             if (_customerSettings.UsernamesEnabled && await _customerService.GetCustomerByUsernameAsync(request.Username) != null)
             {
@@ -437,6 +437,26 @@ namespace Nop.Services.Customers
                 return new RedirectResult(returnUrl);
 
             return new RedirectToRouteResult("Homepage", null);
+        }
+
+
+        public virtual async Task SignInCustomerAsync(Customer customer, bool isPersist = false)
+        {
+            if ((await _workContext.GetCurrentCustomerAsync())?.Id != customer.Id)
+            {
+                //migrate shopping cart
+                await _shoppingCartService.MigrateShoppingCartAsync(await _workContext.GetCurrentCustomerAsync(), customer, true);
+
+                await _workContext.SetCurrentCustomerAsync(customer);
+            }
+            //sign in new customer
+            await _authenticationService.SignInAsync(customer, isPersist);
+            //raise event       
+            await _eventPublisher.PublishAsync(new CustomerLoggedinEvent(customer));
+            //activity log
+            await _customerActivityService.InsertActivityAsync(customer, "PublicStore.Login",
+                await _localizationService.GetResourceAsync("ActivityLog.PublicStore.Login"), customer);
+
         }
 
         /// <summary>

@@ -35,6 +35,7 @@ using Nop.Services.Media.RoxyFileman;
 using Nop.Services.Messages;
 using Nop.Services.News;
 using Nop.Services.Orders;
+using Nop.Services.OTP;
 using Nop.Services.Payments;
 using Nop.Services.Plugins;
 using Nop.Services.Plugins.Marketplace;
@@ -217,6 +218,8 @@ namespace Nop.Web.Framework.Infrastructure
             services.AddScoped<ISettingService, SettingService>();
             services.AddScoped<IContactService,ContactService>();
             services.AddScoped<ISallerService, SallerService>();
+
+            services.AddScoped<IOTPService, OTPService>();
 
             //plugin managers
             services.AddScoped(typeof(IPluginManager<>), typeof(PluginManager<>));

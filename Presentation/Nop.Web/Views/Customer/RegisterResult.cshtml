@@ -12,11 +12,83 @@
         <h1>@T("Account.Register")</h1>
     </div>
     <div class="page-body">
-        <div class="result">
-            @Model.Result
-        </div>
-        <div class="buttons">
-            <a href="@Model.ReturnUrl" class="button-1 register-continue-button">@T("Common.Continue")</a>
-        </div>
+        <form action="/customer/ValidateOTP" method="get">
+            <div class="buttons">
+                <div>
+                    <input type="hidden" name="MobileNumber" value="@Model.MobileNumber" />                    
+                    <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl" />
+                    <div class="otp_text">@T("OTP.Enter.Val")   @Model.MobileNumber</div>
+                    <div class="otp_val ">
+                        <input type="text" name="OtpString" value="@Model.OtpString" id="otp" />
+                    </div>
+                    <button type="submit" class="otp_btn">@T("OTP.Enter")</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
+
+<style>
+
+    .otp_text {
+        font-size: 20px;
+        font-weight: 700;
+        color: green;
+    }
+
+    input#otp {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        width: 300px;
+    }
+
+    button.otp_btn {
+        width: 150px;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid #8c7e7e;
+        color: green;
+    }
+</style>
+
+
+
+
+<!--<script asp-location="Footer">
+    $(document).ready(function ()
+    {
+        $(".otp_btn").click(function ()
+        {
+
+            debugger;
+            var otpVal = $("input#otp").val();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/customer/ValidateOTP",
+                data: { mobilenumber: "@Model.MobileNumber", otp: otpVal },
+                    dataType: "json",
+                success: function (data, textStatus, jqXHR) {
+                    debugger
+                        $('#availability-check-progress').hide();
+                        $('#username-availabilty').removeAttr('class').attr('class', ((data.Available) ? 'username-available-status' : 'username-not-available-status'));
+                        $('#username-availabilty').text(data.Text);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        $('#availability-check-progress').hide();
+                    },
+                    complete: function (jqXHR, textStatus) {
+                        $('#check-availability-button').prop('disabled', false);
+                    }
+                });-->
+
+
+            @*$.post('/customer/OTP', { mobilenumber: @Model.MobileNumber, otp: otpVal }, function (response)
+            {
+                console.log(response);
+            });*@
+        <!--})
+    });
+</script>-->

@@ -6,7 +6,7 @@
     Layout = "_ColumnsOne";
 
     //title
-    Html.AddTitleParts(T("PageTitle.ShipmentDetails").Text);
+    Html.AddTitleParts(T("PageTitle.Saller.Panel").Text);
     //page class
     Html.AppendPageCssClassParts("html-shipment-details-page");
 }
@@ -30,6 +30,7 @@
     }
     img.itmImage {
         max-width: 250px;
+        max-height: 150px;
     }
     th.productName, th.productImage {
         min-width: 300px;
@@ -38,17 +39,23 @@
         font-weight: 700;
         color: green;
     }
+    h2.addItm {
+        margin: 0 0 20px 0px;
+        display: inline-block;
+        padding: 0 0 0 0px;
+        text-decoration: underline;
+    }
 
 </style>
 
 
-<h2>HTML Table</h2>
+<h2 class="addItm"><a href="/order/sallerRequest">@T("Saller.Add.Items")</a></h2>
 
 <table>
     <tr>
-        <th class="productName">Name</th>
-        <th class="productPrice">Price</th>
-        <th class="productImage">Image</th>
+        <th class="productName">@T("Saller.Product.Name")</th>
+        <th class="productPrice">@T("Saller.Product.Price")</th>
+        <th class="productImage">@T("Saller.Product.Image")</th>
     </tr>
     @{
         foreach (var itm in Model)
