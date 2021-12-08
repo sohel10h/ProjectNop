@@ -99,18 +99,31 @@
                        },
                        ColumnCollection = new List<ColumnProperty>
                         {
-                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.Name))
+                           new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.Id))
                             {
-                                Title = T("Admin.SallerItem.Fields.Name").Text
+                                Title = T("Admin.SallerItem.Fields.Id").Text
                             },
                             new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ProductName))
                             {
                                 Title = T("Admin.SallerItem.Fields.ProductName").Text
                             },
+                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ProductPrice))
+                            {
+                                Title = T("Admin.SallerItem.Fields.ProductPrice").Text
+                            },
                             new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ProductDescription))
                             {
                                 Title = T("Admin.SallerItem.Fields.ProductDescription").Text
+                            },
+                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ProductStatus))
+                            {
+                                Title = T("Admin.SallerItem.Fields.ProductStatus").Text
+                            },
+                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ImageString))
+                            {
+                                Title = T("Admin.SallerItem.Fields.ImageString").Text
                             }
+                            
                         }
                    })
                     </div>

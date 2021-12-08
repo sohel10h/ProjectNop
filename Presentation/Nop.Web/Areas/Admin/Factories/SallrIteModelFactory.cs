@@ -108,9 +108,9 @@ namespace Nop.Web.Areas.Admin.Factories
                 throw new ArgumentNullException(nameof(searchModel));
 
             //get SallerItems
-            var SallerItems = await _SallerItemService.GetAllSallerItemsListAsync();
+            var sallerItems = await _SallerItemService.GetAllSallerItemsListAsync();
 
-            var pagedSallerItems = SallerItems.ToPagedList(searchModel);
+            var pagedSallerItems = sallerItems.ToPagedList(searchModel);
 
 
             var model = new SallerItemListModel().PrepareToGrid(searchModel, pagedSallerItems, () =>
@@ -123,8 +123,14 @@ namespace Nop.Web.Areas.Admin.Factories
                         ID = item.ID.ToString(),
                         Name = item.ProductName,
                         ProductPrice=item.ProductPrice.ToString(),
-                        ProductStatus=item.ProductStatus
-
+                        ProductStatus=item.ProductStatus,
+                        ProductDescription=item.ProductDescription,
+                        ProductName= item.ProductName,
+                        CustomProperties =null,
+                        CustomerId=item.CustomerId,
+                        Address="",
+                        Id=item.Id,
+                        ImageString=item.ImageString
 
                     };
                     return SallerItemModel;
