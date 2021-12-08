@@ -1292,3 +1292,6 @@ D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Ca
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Order\sallerRequest.cshtml.g.cs
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Contract\List.cshtml.g.cs
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Order\SalerPanel.cshtml.g.cs
+D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Customer\UnApprovedCareer.cshtml.g.cs
+D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Customer\SallerInfo.cshtml.g.cs
+D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Customer\OTP.cshtml.g.cs

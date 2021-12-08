@@ -15,6 +15,7 @@ using Nop.Core.Domain.Gdpr;
 using Nop.Core.Domain.Localization;
 using Nop.Core.Domain.Media;
 using Nop.Core.Domain.Messages;
+using Nop.Core.Domain.OTP;
 using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Events;
@@ -35,6 +36,7 @@ using Nop.Services.Logging;
 using Nop.Services.Media;
 using Nop.Services.Messages;
 using Nop.Services.Orders;
+using Nop.Services.OTP;
 using Nop.Services.Tax;
 using Nop.Web.Extensions;
 using Nop.Web.Factories;
@@ -95,6 +97,8 @@ namespace Nop.Web.Controllers
         private readonly MultiFactorAuthenticationSettings _multiFactorAuthenticationSettings;
         private readonly StoreInformationSettings _storeInformationSettings;
         private readonly TaxSettings _taxSettings;
+        private readonly IOTPService _otpService;
+
 
         #endregion
 
@@ -143,6 +147,7 @@ namespace Nop.Web.Controllers
             MediaSettings mediaSettings,
             MultiFactorAuthenticationSettings multiFactorAuthenticationSettings,
             StoreInformationSettings storeInformationSettings,
+            IOTPService otpService,
             TaxSettings taxSettings)
         {
             _addressSettings = addressSettings;
@@ -189,6 +194,7 @@ namespace Nop.Web.Controllers
             _multiFactorAuthenticationSettings = multiFactorAuthenticationSettings;
             _storeInformationSettings = storeInformationSettings;
             _taxSettings = taxSettings;
+            _otpService = otpService;
         }
 
         #endregion
@@ -806,15 +812,16 @@ namespace Nop.Web.Controllers
                 ValidateRequiredConsents(consents, form);
             }
 
-            if (ModelState.IsValid)
+            if (!string.IsNullOrWhiteSpace(model.Username) && !string.IsNullOrWhiteSpace(model.Password))
             {
                 var customerUserName = model.Username?.Trim();
                 var customerEmail = model.Email?.Trim();
 
-                var isApproved = _customerSettings.UserRegistrationType == UserRegistrationType.Standard;
+                //var isApproved = _customerSettings.UserRegistrationType == UserRegistrationType.Standard;
+                var isApproved = false;
                 var registrationRequest = new CustomerRegistrationRequest(customer,
                     customerEmail,
-                    _customerSettings.UsernamesEnabled ? customerUserName : customerEmail,
+                    customerUserName,
                     model.Password,
                     _customerSettings.DefaultPasswordFormat,
                     (await _storeContext.GetCurrentStoreAsync()).Id,
@@ -823,21 +830,21 @@ namespace Nop.Web.Controllers
                 if (registrationResult.Success)
                 {
                     //properties
-                    if (_dateTimeSettings.AllowCustomersToSetTimeZone)
-                    {
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.TimeZoneIdAttribute, model.TimeZoneId);
-                    }
+                    //if (_dateTimeSettings.AllowCustomersToSetTimeZone)
+                    //{
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.TimeZoneIdAttribute, model.TimeZoneId);
+                    //}
                     //VAT number
-                    if (_taxSettings.EuVatEnabled)
-                    {
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.VatNumberAttribute, model.VatNumber);
+                    //if (_taxSettings.EuVatEnabled)
+                    //{
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.VatNumberAttribute, model.VatNumber);
 
-                        var (vatNumberStatus, _, vatAddress) = await _taxService.GetVatNumberStatusAsync(model.VatNumber);
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.VatNumberStatusIdAttribute, (int)vatNumberStatus);
-                        //send VAT number admin notification
-                        if (!string.IsNullOrEmpty(model.VatNumber) && _taxSettings.EuVatEmailAdminWhenNewVatSubmitted)
-                            await _workflowMessageService.SendNewVatSubmittedStoreOwnerNotificationAsync(customer, model.VatNumber, vatAddress, _localizationSettings.DefaultAdminLanguageId);
-                    }
+                    //    var (vatNumberStatus, _, vatAddress) = await _taxService.GetVatNumberStatusAsync(model.VatNumber);
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.VatNumberStatusIdAttribute, (int)vatNumberStatus);
+                    //    //send VAT number admin notification
+                    //    if (!string.IsNullOrEmpty(model.VatNumber) && _taxSettings.EuVatEmailAdminWhenNewVatSubmitted)
+                    //        await _workflowMessageService.SendNewVatSubmittedStoreOwnerNotificationAsync(customer, model.VatNumber, vatAddress, _localizationSettings.DefaultAdminLanguageId);
+                    //}
 
                     //form fields
                     if (_customerSettings.GenderEnabled)
@@ -846,114 +853,116 @@ namespace Nop.Web.Controllers
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FirstNameAttribute, model.FirstName);
                     if (_customerSettings.LastNameEnabled)
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.LastNameAttribute, model.LastName);
-                    if (_customerSettings.DateOfBirthEnabled)
-                    {
-                        var dateOfBirth = model.ParseDateOfBirth();
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.DateOfBirthAttribute, dateOfBirth);
-                    }
-                    if (_customerSettings.CompanyEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CompanyAttribute, model.Company);
-                    if (_customerSettings.StreetAddressEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StreetAddressAttribute, model.StreetAddress);
-                    if (_customerSettings.StreetAddress2Enabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StreetAddress2Attribute, model.StreetAddress2);
-                    if (_customerSettings.ZipPostalCodeEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.ZipPostalCodeAttribute, model.ZipPostalCode);
-                    if (_customerSettings.CityEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CityAttribute, model.City);
-                    if (_customerSettings.CountyEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CountyAttribute, model.County);
-                    if (_customerSettings.CountryEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CountryIdAttribute, model.CountryId);
-                    if (_customerSettings.CountryEnabled && _customerSettings.StateProvinceEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StateProvinceIdAttribute,
-                            model.StateProvinceId);
+                    //if (_customerSettings.DateOfBirthEnabled)
+                    //{
+                    //    var dateOfBirth = model.ParseDateOfBirth();
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.DateOfBirthAttribute, dateOfBirth);
+                    //}
+                    //if (_customerSettings.CompanyEnabled)
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CompanyAttribute, model.Company);
+                    //if (_customerSettings.StreetAddressEnabled)
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StreetAddressAttribute, model.StreetAddress);
+                    //if (_customerSettings.StreetAddress2Enabled)
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StreetAddress2Attribute, model.StreetAddress2);
+                    //if (_customerSettings.ZipPostalCodeEnabled)
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.ZipPostalCodeAttribute, model.ZipPostalCode);
+                    //if (_customerSettings.CityEnabled)
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CityAttribute, model.City);
+                    //if (_customerSettings.CountyEnabled)
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CountyAttribute, model.County);
+                    //if (_customerSettings.CountryEnabled)
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CountryIdAttribute, model.CountryId);
+                    //if (_customerSettings.CountryEnabled && _customerSettings.StateProvinceEnabled)
+                    //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StateProvinceIdAttribute,
+                    //        model.StateProvinceId);
                     if (_customerSettings.PhoneEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.PhoneAttribute, model.Phone);
-                    if (_customerSettings.FaxEnabled)
-                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FaxAttribute, model.Fax);
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.PhoneAttribute, model.Username);
+                //if (_customerSettings.FaxEnabled)
+                //    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FaxAttribute, model.Fax);
 
-                    //newsletter
-                    if (_customerSettings.NewsletterEnabled)
-                    {
-                        var isNewsletterActive = _customerSettings.UserRegistrationType != UserRegistrationType.EmailValidation;
+                //newsletter
 
-                        //save newsletter value
-                        var newsletter = await _newsLetterSubscriptionService.GetNewsLetterSubscriptionByEmailAndStoreIdAsync(customerEmail, (await _storeContext.GetCurrentStoreAsync()).Id);
-                        if (newsletter != null)
-                        {
-                            if (model.Newsletter)
-                            {
-                                newsletter.Active = isNewsletterActive;
-                                await _newsLetterSubscriptionService.UpdateNewsLetterSubscriptionAsync(newsletter);
+                #region comment code
+                //if (_customerSettings.NewsletterEnabled)
+                //{
+                //    var isNewsletterActive = _customerSettings.UserRegistrationType != UserRegistrationType.EmailValidation;
 
-                                //GDPR
-                                if (_gdprSettings.GdprEnabled && _gdprSettings.LogNewsletterConsent)
-                                {
-                                    await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ConsentAgree, await _localizationService.GetResourceAsync("Gdpr.Consent.Newsletter"));
-                                }
-                            }
-                            //else
-                            //{
-                            //When registering, not checking the newsletter check box should not take an existing email address off of the subscription list.
-                            //_newsLetterSubscriptionService.DeleteNewsLetterSubscription(newsletter);
-                            //}
-                        }
-                        else
-                        {
-                            if (model.Newsletter)
-                            {
-                                await _newsLetterSubscriptionService.InsertNewsLetterSubscriptionAsync(new NewsLetterSubscription
-                                {
-                                    NewsLetterSubscriptionGuid = Guid.NewGuid(),
-                                    Email = customerEmail,
-                                    Active = isNewsletterActive,
-                                    StoreId = (await _storeContext.GetCurrentStoreAsync()).Id,
-                                    CreatedOnUtc = DateTime.UtcNow
-                                });
+                //    //save newsletter value
+                //    var newsletter = await _newsLetterSubscriptionService.GetNewsLetterSubscriptionByEmailAndStoreIdAsync(customerEmail, (await _storeContext.GetCurrentStoreAsync()).Id);
+                //    if (newsletter != null)
+                //    {
+                //        if (model.Newsletter)
+                //        {
+                //            newsletter.Active = isNewsletterActive;
+                //            await _newsLetterSubscriptionService.UpdateNewsLetterSubscriptionAsync(newsletter);
 
-                                //GDPR
-                                if (_gdprSettings.GdprEnabled && _gdprSettings.LogNewsletterConsent)
-                                {
-                                    await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ConsentAgree, await _localizationService.GetResourceAsync("Gdpr.Consent.Newsletter"));
-                                }
-                            }
-                        }
-                    }
+                //            //GDPR
+                //            if (_gdprSettings.GdprEnabled && _gdprSettings.LogNewsletterConsent)
+                //            {
+                //                await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ConsentAgree, await _localizationService.GetResourceAsync("Gdpr.Consent.Newsletter"));
+                //            }
+                //        }
+                //        //else
+                //        //{
+                //        //When registering, not checking the newsletter check box should not take an existing email address off of the subscription list.
+                //        //_newsLetterSubscriptionService.DeleteNewsLetterSubscription(newsletter);
+                //        //}
+                //    }
+                //    else
+                //    {
+                //        if (model.Newsletter)
+                //        {
+                //            await _newsLetterSubscriptionService.InsertNewsLetterSubscriptionAsync(new NewsLetterSubscription
+                //            {
+                //                NewsLetterSubscriptionGuid = Guid.NewGuid(),
+                //                Email = customerEmail,
+                //                Active = isNewsletterActive,
+                //                StoreId = (await _storeContext.GetCurrentStoreAsync()).Id,
+                //                CreatedOnUtc = DateTime.UtcNow
+                //            });
 
-                    if (_customerSettings.AcceptPrivacyPolicyEnabled)
-                    {
-                        //privacy policy is required
-                        //GDPR
-                        if (_gdprSettings.GdprEnabled && _gdprSettings.LogPrivacyPolicyConsent)
-                        {
-                            await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ConsentAgree, await _localizationService.GetResourceAsync("Gdpr.Consent.PrivacyPolicy"));
-                        }
-                    }
+                //            //GDPR
+                //            if (_gdprSettings.GdprEnabled && _gdprSettings.LogNewsletterConsent)
+                //            {
+                //                await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ConsentAgree, await _localizationService.GetResourceAsync("Gdpr.Consent.Newsletter"));
+                //            }
+                //        }
+                //    }
+                //}
 
-                    //GDPR
-                    if (_gdprSettings.GdprEnabled)
-                    {
-                        var consents = (await _gdprService.GetAllConsentsAsync()).Where(consent => consent.DisplayDuringRegistration).ToList();
-                        foreach (var consent in consents)
-                        {
-                            var controlId = $"consent{consent.Id}";
-                            var cbConsent = form[controlId];
-                            if (!StringValues.IsNullOrEmpty(cbConsent) && cbConsent.ToString().Equals("on"))
-                            {
-                                //agree
-                                await _gdprService.InsertLogAsync(customer, consent.Id, GdprRequestType.ConsentAgree, consent.Message);
-                            }
-                            else
-                            {
-                                //disagree
-                                await _gdprService.InsertLogAsync(customer, consent.Id, GdprRequestType.ConsentDisagree, consent.Message);
-                            }
-                        }
-                    }
+                //if (_customerSettings.AcceptPrivacyPolicyEnabled)
+                //{
+                //    //privacy policy is required
+                //    //GDPR
+                //    if (_gdprSettings.GdprEnabled && _gdprSettings.LogPrivacyPolicyConsent)
+                //    {
+                //        await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ConsentAgree, await _localizationService.GetResourceAsync("Gdpr.Consent.PrivacyPolicy"));
+                //    }
+                //}
 
-                    //save customer attributes
-                    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CustomCustomerAttributes, customerAttributesXml);
+                ////GDPR
+                //if (_gdprSettings.GdprEnabled)
+                //{
+                //    var consents = (await _gdprService.GetAllConsentsAsync()).Where(consent => consent.DisplayDuringRegistration).ToList();
+                //    foreach (var consent in consents)
+                //    {
+                //        var controlId = $"consent{consent.Id}";
+                //        var cbConsent = form[controlId];
+                //        if (!StringValues.IsNullOrEmpty(cbConsent) && cbConsent.ToString().Equals("on"))
+                //        {
+                //            //agree
+                //            await _gdprService.InsertLogAsync(customer, consent.Id, GdprRequestType.ConsentAgree, consent.Message);
+                //        }
+                //        else
+                //        {
+                //            //disagree
+                //            await _gdprService.InsertLogAsync(customer, consent.Id, GdprRequestType.ConsentDisagree, consent.Message);
+                //        }
+                //    }
+                //}
+                #endregion
+                //save customer attributes
+                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CustomCustomerAttributes, customerAttributesXml);
 
                     //insert default address (if possible)
                     var defaultAddress = new Address
@@ -974,7 +983,7 @@ namespace Nop.Web.Controllers
                         Address2 = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.StreetAddress2Attribute),
                         ZipPostalCode = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.ZipPostalCodeAttribute),
                         PhoneNumber = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.PhoneAttribute),
-                        FaxNumber = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.FaxAttribute),
+                        //FaxNumber = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.FaxAttribute),
                         CreatedOnUtc = customer.CreatedOnUtc
                     };
                     if (await _addressService.IsAddressValidAsync(defaultAddress))
@@ -1020,13 +1029,24 @@ namespace Nop.Web.Controllers
 
                         case UserRegistrationType.Standard:
                             //send customer welcome message
-                            await _workflowMessageService.SendCustomerWelcomeMessageAsync(customer, (await _workContext.GetWorkingLanguageAsync()).Id);
+                            Random generator = new Random();
+                            String r = generator.Next(0, 1000000).ToString("D6");
+                            var otp = new OTPInfo();
+                            otp.CustomerId = customer.Id;
+                            otp.MobileNumber = customer.Username;
+                            otp.CreateOn = DateTime.Now;
+                            otp.OTPString = r;
+                            await _otpService.CreateAndSendOtp(otp);
+
+                            //await _workflowMessageService.SendCustomerWelcomeMessageAsync(customer, (await _workContext.GetWorkingLanguageAsync()).Id);
 
                             //raise event       
                             await _eventPublisher.PublishAsync(new CustomerActivatedEvent(customer));
 
-                            returnUrl = Url.RouteUrl("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl });
-                            return await _customerRegistrationService.SignInCustomerAsync(customer, returnUrl, true);
+                            //returnUrl = Url.RouteUrl("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl, otp.MobileNumber });
+                            //return await _customerRegistrationService.SignInCustomerAsync(customer, returnUrl, true);
+
+                            return RedirectToAction("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl, otp.MobileNumber });
 
                         default:
                             return RedirectToRoute("Homepage");
@@ -1044,15 +1064,36 @@ namespace Nop.Web.Controllers
             return View(model);
         }
 
+
+        public virtual async Task<IActionResult> ValidateOTP(RegisterResultModel model) 
+        {
+           var currentCustomer = await _customerService.GetCustomerByUsernameAsync(model.MobileNumber);
+           var otpresult= await _otpService.GetOtp(currentCustomer.Id, model.MobileNumber, model.OtpString);
+            if (otpresult != null && currentCustomer!=null) 
+            {
+                if (!currentCustomer.Active) 
+                {
+                    currentCustomer.Active = true;
+                    await _customerService.UpdateCustomerAsync(currentCustomer);
+                }
+                return await _customerRegistrationService.SignInCustomerAsync(currentCustomer, "/", true);
+            }
+            else 
+            {
+                return RedirectToAction("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, model.ReturnUrl, model.MobileNumber });
+            }
+        }
+
         //available even when navigation is not allowed
         [CheckAccessPublicStore(true)]
         /// <returns>A task that represents the asynchronous operation</returns>
-        public virtual async Task<IActionResult> RegisterResult(int resultId, string returnUrl)
+        public virtual async Task<IActionResult> RegisterResult(int resultId, string returnUrl,string mobilenumber)
         {
             if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
                 returnUrl = Url.RouteUrl("Homepage");
 
             var model = await _customerModelFactory.PrepareRegisterResultModelAsync(resultId, returnUrl);
+            model.MobileNumber = mobilenumber;
             return View(model);
         }
 
@@ -1155,6 +1196,11 @@ namespace Nop.Web.Controllers
 
             return View(model);
         }
+
+
+
+
+
 
         [HttpPost]
         /// <returns>A task that represents the asynchronous operation</returns>
@@ -1975,12 +2021,237 @@ namespace Nop.Web.Controllers
 
         public virtual async Task<IActionResult> Career()
         {
+            var customer =await _workContext.GetCurrentCustomerAsync();
+            if (customer.CustomerStatus == CustomerStatus.RequestedForCareerApproved)
+            {
+                return Redirect("/order/SaleFromCareer");
+            }
+            else if (customer.CustomerStatus == CustomerStatus.RequestedForCareer) 
+            {
+                return Redirect("/Customer/UnApprovedCareer");
+            }
+            return View();
+        }
 
+        public IActionResult UnApprovedCareer()
+        {
             return View();
         }
 
 
-        public virtual async Task<IActionResult> Sales()
+
+        public virtual async Task<IActionResult> SallerInfo()
+        {
+            if (!await _customerService.IsRegisteredAsync(await _workContext.GetCurrentCustomerAsync()))
+                return Challenge();
+
+            var model = new CustomerInfoModel();
+            model = await _customerModelFactory.PrepareCustomerInfoModelAsync(model, await _workContext.GetCurrentCustomerAsync(), false);
+
+            return View(model);
+        }
+
+
+
+
+
+
+        [HttpPost]
+        /// <returns>A task that represents the asynchronous operation</returns>
+        public virtual async Task<IActionResult> SallerInfo(CustomerInfoModel model, IFormCollection form)
+        {
+            if (!await _customerService.IsRegisteredAsync(await _workContext.GetCurrentCustomerAsync()))
+                return Challenge();
+
+            var oldCustomerModel = new CustomerInfoModel();
+
+            var customer = await _workContext.GetCurrentCustomerAsync();
+
+            //get customer info model before changes for gdpr log
+            if (_gdprSettings.GdprEnabled & _gdprSettings.LogUserProfileChanges)
+                oldCustomerModel = await _customerModelFactory.PrepareCustomerInfoModelAsync(oldCustomerModel, customer, false);
+
+            //custom customer attributes
+            var customerAttributesXml = await ParseCustomCustomerAttributesAsync(form);
+            var customerAttributeWarnings = await _customerAttributeParser.GetAttributeWarningsAsync(customerAttributesXml);
+            foreach (var error in customerAttributeWarnings)
+            {
+                ModelState.AddModelError("", error);
+            }
+
+            //GDPR
+            if (_gdprSettings.GdprEnabled)
+            {
+                var consents = (await _gdprService
+                    .GetAllConsentsAsync()).Where(consent => consent.DisplayOnCustomerInfoPage && consent.IsRequired).ToList();
+
+                ValidateRequiredConsents(consents, form);
+            }
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    //username 
+                    customer.CustomerStatusId = model.CustomerStatusId = 10;
+                    await _customerService.UpdateCustomerAsync(customer);
+                    if (_customerSettings.UsernamesEnabled && _customerSettings.AllowUsersToChangeUsernames)
+                    {
+                        var userName = model.Username.Trim();
+                        if (!customer.Username.Equals(userName, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            //change username
+                            await _customerRegistrationService.SetUsernameAsync(customer, userName);
+
+                            //re-authenticate
+                            //do not authenticate users in impersonation mode
+                            if (_workContext.OriginalCustomerIfImpersonated == null)
+                                await _authenticationService.SignInAsync(customer, true);
+                        }
+                    }
+                    //email
+                    var email = model.Email.Trim();
+                    if (!customer.Email.Equals(email, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        //change email
+                        var requireValidation = _customerSettings.UserRegistrationType == UserRegistrationType.EmailValidation;
+                        await _customerRegistrationService.SetEmailAsync(customer, email, requireValidation);
+
+                        //do not authenticate users in impersonation mode
+                        if (_workContext.OriginalCustomerIfImpersonated == null)
+                        {
+                            //re-authenticate (if usernames are disabled)
+                            if (!_customerSettings.UsernamesEnabled && !requireValidation)
+                                await _authenticationService.SignInAsync(customer, true);
+                        }
+                    }
+
+                    //properties
+                    if (_dateTimeSettings.AllowCustomersToSetTimeZone)
+                    {
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.TimeZoneIdAttribute,
+                            model.TimeZoneId);
+                    }
+                    //VAT number
+                    if (_taxSettings.EuVatEnabled)
+                    {
+                        var prevVatNumber = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.VatNumberAttribute);
+
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.VatNumberAttribute,
+                            model.VatNumber);
+                        if (prevVatNumber != model.VatNumber)
+                        {
+                            var (vatNumberStatus, _, vatAddress) = await _taxService.GetVatNumberStatusAsync(model.VatNumber);
+                            await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.VatNumberStatusIdAttribute, (int)vatNumberStatus);
+                            //send VAT number admin notification
+                            if (!string.IsNullOrEmpty(model.VatNumber) && _taxSettings.EuVatEmailAdminWhenNewVatSubmitted)
+                                await _workflowMessageService.SendNewVatSubmittedStoreOwnerNotificationAsync(customer,
+                                    model.VatNumber, vatAddress, _localizationSettings.DefaultAdminLanguageId);
+                        }
+                    }
+
+                    //form fields
+                    if (_customerSettings.GenderEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.GenderAttribute, model.Gender);
+                    if (_customerSettings.FirstNameEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FirstNameAttribute, model.FirstName);
+                    if (_customerSettings.LastNameEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.LastNameAttribute, model.LastName);
+                    if (_customerSettings.DateOfBirthEnabled)
+                    {
+                        var dateOfBirth = model.ParseDateOfBirth();
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.DateOfBirthAttribute, dateOfBirth);
+                    }
+                    if (_customerSettings.CompanyEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CompanyAttribute, model.Company);
+                    if (_customerSettings.StreetAddressEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StreetAddressAttribute, model.StreetAddress);
+                    if (_customerSettings.StreetAddress2Enabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StreetAddress2Attribute, model.StreetAddress2);
+                    if (_customerSettings.ZipPostalCodeEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.ZipPostalCodeAttribute, model.ZipPostalCode);
+                    if (_customerSettings.CityEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CityAttribute, model.City);
+                    if (_customerSettings.CountyEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CountyAttribute, model.County);
+                    if (_customerSettings.CountryEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CountryIdAttribute, model.CountryId);
+                    if (_customerSettings.CountryEnabled && _customerSettings.StateProvinceEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.StateProvinceIdAttribute, model.StateProvinceId);
+                    if (_customerSettings.PhoneEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.PhoneAttribute, model.Phone);
+                    if (_customerSettings.FaxEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FaxAttribute, model.Fax);
+
+                    //await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.CustomerStatusId, model.CustomerStatusId);
+
+                    //newsletter
+                    if (_customerSettings.NewsletterEnabled)
+                    {
+                        //save newsletter value
+                        var newsletter = await _newsLetterSubscriptionService.GetNewsLetterSubscriptionByEmailAndStoreIdAsync(customer.Email, (await _storeContext.GetCurrentStoreAsync()).Id);
+                        if (newsletter != null)
+                        {
+                            if (model.Newsletter)
+                            {
+                                newsletter.Active = true;
+                                await _newsLetterSubscriptionService.UpdateNewsLetterSubscriptionAsync(newsletter);
+                            }
+                            else
+                            {
+                                await _newsLetterSubscriptionService.DeleteNewsLetterSubscriptionAsync(newsletter);
+                            }
+                        }
+                        else
+                        {
+                            if (model.Newsletter)
+                            {
+                                await _newsLetterSubscriptionService.InsertNewsLetterSubscriptionAsync(new NewsLetterSubscription
+                                {
+                                    NewsLetterSubscriptionGuid = Guid.NewGuid(),
+                                    Email = customer.Email,
+                                    Active = true,
+                                    StoreId = (await _storeContext.GetCurrentStoreAsync()).Id,
+                                    CreatedOnUtc = DateTime.UtcNow
+                                });
+                            }
+                        }
+                    }
+
+                    if (_forumSettings.ForumsEnabled && _forumSettings.SignaturesEnabled)
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.SignatureAttribute, model.Signature);
+
+                    //save customer attributes
+                    await _genericAttributeService.SaveAttributeAsync(await _workContext.GetCurrentCustomerAsync(),
+                        NopCustomerDefaults.CustomCustomerAttributes, customerAttributesXml);
+
+                    //GDPR
+                    if (_gdprSettings.GdprEnabled)
+                        await LogGdprAsync(customer, oldCustomerModel, model, form);
+
+                    return RedirectToRoute("CustomerInfo");
+                }
+            }
+            catch (Exception exc)
+            {
+                ModelState.AddModelError("", exc.Message);
+            }
+
+            //If we got this far, something failed, redisplay form
+            model = await _customerModelFactory.PrepareCustomerInfoModelAsync(model, customer, true, customerAttributesXml);
+
+            return View(model);
+        }
+
+
+
+
+
+
+
+
+
+        public IActionResult Sales()
         {
 
             return View();

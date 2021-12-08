@@ -327,6 +327,7 @@ namespace Nop.Web.Controllers
             await _addressService.InsertAddressAsync(shippingAddress);
             await _addressService.InsertAddressAsync(billingAddress);
 
+
             var customer = await _workContext.GetCurrentCustomerAsync();
             var order = new Order();
             order.BillingAddressId = billingAddress.Id;
