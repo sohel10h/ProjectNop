@@ -24,8 +24,30 @@ namespace Nop.Web.Areas.Admin.Models.SallerItem
         [NopResourceDisplayName("Admin.SallerItem.Fields.ImageString")]
         public string ImageString { get; set; }
         [NopResourceDisplayName("Admin.SallerItem.Fields.ProductStatus")]
-        public bool ProductStatus { get; set; }
+        public int ProductStatus { get; set; }
         [NopResourceDisplayName("Admin.SallerItem.Fields.ProductDescription")]
         public string ProductDescription { get; set; }
+    }
+    public partial record SallerItemLocalizedModel : ILocalizedLocaleModel
+    {
+        public int LanguageId { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.SallerItem.Fields.Title")]
+        public string Title { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.SallerItem.Fields.Body")]
+        public string Body { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.SallerItem.Fields.MetaKeywords")]
+        public string MetaKeywords { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.SallerItem.Fields.MetaDescription")]
+        public string MetaDescription { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.SallerItem.Fields.MetaTitle")]
+        public string MetaTitle { get; set; }
+
+        [NopResourceDisplayName("Admin.ContentManagement.SallerItem.Fields.SeName")]
+        public string SeName { get; set; }
     }
 }
