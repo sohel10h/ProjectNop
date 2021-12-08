@@ -1518,3 +1518,4 @@ D:\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\
 D:\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.dll
 D:\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\ref\Nop.Plugin.Shipping.FixedByWeightByTotal.dll
 D:\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.pdb
+D:\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Debug\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj.AssemblyReference.cache

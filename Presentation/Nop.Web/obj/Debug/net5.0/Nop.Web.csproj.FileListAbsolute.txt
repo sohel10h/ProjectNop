@@ -2587,3 +2587,6 @@ D:\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\ref\Nop.Web.dll
 D:\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.pdb
 D:\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
 D:\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\SallerItem\Index.cshtml.g.cs
+D:\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Customer\OTP.cshtml.g.cs
+D:\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Customer\SallerInfo.cshtml.g.cs
+D:\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Customer\UnApprovedCareer.cshtml.g.cs

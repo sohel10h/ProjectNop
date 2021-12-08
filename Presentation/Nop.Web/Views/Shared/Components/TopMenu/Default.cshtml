@@ -303,16 +303,164 @@
     .top-menu {
         display: block !important;
     }
-    @@media all and (max-width: 769px) {
-    .header-lower {
-        width: 100%;
-        display: grid;
-    }
-        .header-logo {
+    @@media (max-width: 1000px){
 
+        .search-box {
+            display: block;
+            text-align: left;
+            vertical-align: middle;
+            margin: 0px;
+            padding: 0px;
+            max-width: 100%;
+        }
+
+        a.ico-login {
+            padding: 7px 0px 0px 0px;
+        }
+
+        .header-links ul {
+            font-size: 0;
+            display: flex;
+            width: 220px;
+        }
+
+        .search-box form {
+            display: block;
+            float: left;
+            border-radius: 5px;
+            border: 2px solid #eee;
+            width: 100%;
+        }
+
+        .search-box input.search-box-text {
+            float: left;
+            margin: 0 -1px 0 0;
+            width: 85%;
+            border: none;
+            border-right: 3px solid #eee;
+        }
+
+        button.button-1.search-box-button {
+            width: 50px;
+            background: url(../images/search.png);
+            background-repeat: no-repeat;
+            background-size: 35px;
+            background-origin: content-box;
+            padding: 0px 0px 0px 0px;
+        }
+
+        .header-links {
+            margin: 10px auto;
+            padding: 0px 0px 0px 2px !important;
+        }
+
+        div#login, div#Tracking, .search-box.store-search-box .language-selector, .header-links {
+            display: block;
+            padding: 25px;
+            height: auto;
+            float: left;
+        }
+
+        .category-grid.home-page-category-grid.slider, .see_more {
+            display: inline-table;
+            float: left;
+        }
+
+        #topcartlink {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+            background-color: #f6f6f6;
+            padding: 5px 10px;
+        }
+
+        .language-selector {
+            padding: 11px 0 0 0px !important;
+        }
+    }
+    @@media all and (max-width: 769px){
+        .header-lower {
+            width: 100%;
+            display: grid;
+        }
+
+        .header-logo {
             margin: auto;
         }
-}
+
+        .search-box {
+            display: block;
+            text-align: left;
+            vertical-align: middle;
+            margin: 0px;
+            padding: 0px;
+            max-width: 100%;
+        }
+
+        a.ico-login {
+            padding: 7px 0px 0px 0px;
+        }
+
+        .header-links ul {
+            font-size: 0;
+            display: flex;
+            width: 220px;
+        }
+
+        .search-box form {
+            display: block;
+            float: left;
+            border-radius: 5px;
+            border: 2px solid #eee;
+            width: 100%;
+        }
+
+        .search-box input.search-box-text {
+            float: left;
+            margin: 0 -1px 0 0;
+            width: 85%;
+            border: none;
+            border-right: 3px solid #eee;
+        }
+
+        button.button-1.search-box-button {
+            width: 50px;
+            background: url(../images/search.png);
+            background-repeat: no-repeat;
+            background-size: 35px;
+            background-origin: content-box;
+            padding: 0px 0px 0px 0px;
+        }
+
+        .header-links {
+            margin: 10px auto;
+            padding: 0px 0px 0px 2px !important;
+        }
+
+        div#login, div#Tracking, .search-box.store-search-box .language-selector, .header-links {
+            display: block;
+            padding: 25px;
+            height: auto;
+            float: left;
+        }
+
+        .category-grid.home-page-category-grid.slider, .see_more {
+            display: inline-table;
+            float: left;
+        }
+
+        #topcartlink {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+            background-color: #f6f6f6;
+            padding: 5px 10px;
+        }
+
+        .language-selector {
+            padding: 11px 0 0 0px !important;
+        }
+    }
     table {
         font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
