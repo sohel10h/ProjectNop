@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Nop.Core.Domain.Catalog;
 using Nop.Web.Framework.Models;
 using Nop.Web.Models.Media;
@@ -13,6 +14,7 @@ namespace Nop.Web.Models.Catalog
             DefaultPictureModel = new PictureModel();
             ProductSpecificationModel = new ProductSpecificationModel();
             ReviewOverviewModel = new ProductReviewOverviewModel();
+            ProductAttributes = new List<ProductDetailsModel.ProductAttributeModel>();
         }
 
         public string Name { get; set; }
@@ -38,7 +40,8 @@ namespace Nop.Web.Models.Catalog
         //price
         public ProductReviewOverviewModel ReviewOverviewModel { get; set; }
 
-		#region Nested Classes
+        #region Nested Classes
+        public IList<ProductDetailsModel.ProductAttributeModel> ProductAttributes { get; set; }
 
         public partial record ProductPriceModel : BaseNopModel
         {

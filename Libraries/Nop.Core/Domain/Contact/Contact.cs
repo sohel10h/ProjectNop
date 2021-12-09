@@ -27,6 +27,10 @@ namespace Nop.Core.Domain.Contacts
         public int StoreId { get; set; }
         public DateTime VisitDate { get; set; }
         public int Status { get; set; }
+        public string NIDNumber { get; set; }
+        public string Product { get; set; }
+
+
         public bool SubjectToAcl { get; set; }
         public bool LimitedToStores { get; set; }
     }

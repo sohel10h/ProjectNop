@@ -20,7 +20,7 @@ namespace Nop.Core.Domain.Customers
 
         RequestedForSaller= 30,
 
-        RequestedForSallerApproved = 20,
+        RequestedForSallerApproved = 40,
 
         /// <summary>
         /// Cancelled

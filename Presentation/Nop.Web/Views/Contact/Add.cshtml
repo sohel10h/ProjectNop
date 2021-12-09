@@ -1,4 +1,5 @@
-﻿@model Nop.Core.Domain.Contacts.Contact
+﻿@model ContactModel
+@using Nop.Web.Models.Contact;
 @{
     Layout = "_ColumnsOne";
 
@@ -33,55 +34,42 @@
                         <nop-required />
                         <span asp-validation-for="Name"></span>
                     </div>
-                    <div class="inputs">
-                        <label asp-for="Email" asp-postfix=":"></label>
-                        <input asp-for="Email" placeholder="@T("Contact.Email.Hint")" class="email" />
-                        <nop-required />
-                        <span asp-validation-for="Email"></span>
-                    </div>
-                    @*<div class="inputs">
-                        <label asp-for="Address" asp-postfix=":"></label>
-                        <input asp-for="Address" placeholder="@T("Contact.Address.Hint")" class="email" />
-                        <nop-required />
-                        <span asp-validation-for="Address"></span>
-                    </div>
+
                     <div class="inputs">
                         <label asp-for="Phone" asp-postfix=":"></label>
                         <input asp-for="Phone" placeholder="@T("Contact.Phone.Hint")" class="email" />
                         <nop-required />
                         <span asp-validation-for="Phone"></span>
-                    </div>*@
-                    <div class="inputs">
-                        <label asp-for="Subject" asp-postfix=":"></label>
-                        <input asp-for="Subject" placeholder="@T("Contact.Subject.Hint")" class="email" />
-                        <nop-required />
-                        <span asp-validation-for="Subject"></span>
                     </div>
+
+                    <div class="inputs">
+                        <label asp-for="NIDNumber" asp-postfix=":"></label>
+                        <input asp-for="NIDNumber" placeholder="@T("Contact.NIDNumber.Hint")" class="email" />
+                        <nop-required />
+                        <span asp-validation-for="NIDNumber"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="Address" asp-postfix=":"></label>
+                        <input asp-for="Address" placeholder="@T("Contact.Address.Hint")" class="email" />
+                        <nop-required />
+                        <span asp-validation-for="Address"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="Product" asp-postfix=":"></label>
+                        <input asp-for="Product" placeholder="@T("Contact.Product.Hint")" class="email" />
+                        <nop-required />
+                        <span asp-validation-for="Product"></span>
+                    </div>
+
                     <div class="inputs">
                         <label asp-for="Message" asp-postfix=":"></label>
                         <textarea asp-for="Message" placeholder="@T("Contact.Message.Hint")"></textarea>
                         <nop-required />
                         <span asp-validation-for="Message"></span>
                     </div>
-                    @*@if (Model.SubjectEnabled)
-        {
-            <div class="inputs">
-                <label asp-for="Subject" asp-postfix=":"></label>
-                <input asp-for="Subject" placeholder="@T("ContactUs.Subject.Hint")" class="subject" />
-                <nop-required />
-                <span asp-validation-for="Subject"></span>
-            </div>
-        }
-        <div class="inputs">
-            <label asp-for="Enquiry" asp-postfix=":"></label>
-            <textarea asp-for="Enquiry" placeholder="@T("ContactUs.Enquiry.Hint")" class="enquiry"></textarea>
-            <nop-required />
-            <span asp-validation-for="Enquiry"></span>
-        </div>
-        @if (Model.DisplayCaptcha)
-        {
-            <nop-captcha />
-        }*@
+
                 </div>
             </div>
             <div class="buttons">

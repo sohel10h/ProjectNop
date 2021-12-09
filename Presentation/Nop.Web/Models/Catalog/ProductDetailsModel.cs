@@ -316,6 +316,8 @@ namespace Nop.Web.Models.Catalog
             public bool CustomerEntersQty { get; set; }
 
             public int Quantity { get; set; }
+            public decimal Cost { get; set; }
+
         }
 
         public partial record ProductEstimateShippingModel : EstimateShippingModel

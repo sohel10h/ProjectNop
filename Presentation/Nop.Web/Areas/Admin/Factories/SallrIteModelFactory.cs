@@ -130,7 +130,7 @@ namespace Nop.Web.Areas.Admin.Factories
                         CustomerId=item.CustomerId,
                         Address="",
                         Id=item.Id,
-                        ImageString=item.ImageString
+                        ImageString= "/images/thumbs/" + item.ImageString
 
                     };
                     return SallerItemModel;

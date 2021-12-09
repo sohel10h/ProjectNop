@@ -1,7 +1,7 @@
-﻿@model Nop.Web.Areas.Admin.Models.SallerItem.SallerItemSearchModel
+﻿@model  SallerItemSearchModel
 @inject Nop.Services.Saller.ISallerService sallerItemService
 @using Nop.Web.Framework.Models.AdminAreaTour
-
+@using Nop.Web.Areas.Admin.Models.SallerItem;
 @{
     //page title
     ViewBag.PageTitle = T("Admin.SallerItem").Text;
@@ -50,15 +50,7 @@
 
                         <div class="search-body @*@(hideSearchBlock ? "closed" : "")*@">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group row" @(Model.HideStoresList ? Html.Raw("style=\"display:none\"") : null)>
-                                        <div class="col-md-4">
-                                            <nop-label asp-for="SearchStoreId" />
-                                        </div>
-                                        <div class="col-md-8">
-                                            <nop-select asp-for="SearchStoreId" asp-items="Model.AvailableStores" />
-                                        </div>
-                                    </div>
+                                <div class="col-md-6">                                  
                                     <div class="form-group row">
                                         <div class="col-md-4">
                                             <nop-label asp-for="SearchKeywords" />
@@ -88,7 +80,7 @@
                         @await Html.PartialAsync("Table", new DataTablesModel
                    {
                        Name = "saller-item-grid",
-                       RowIdBasedOnField = nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.Name),
+                       RowIdBasedOnField = nameof( SallerItemModel.Name),
                        UrlRead = new DataUrl("List", "SallerItem", null),
                        SearchButtonId = "search-topics",
                        Length = Model.PageSize,
@@ -99,30 +91,32 @@
                        },
                        ColumnCollection = new List<ColumnProperty>
                         {
-                           new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.Id))
+                           new ColumnProperty(nameof( SallerItemModel.Id))
                             {
                                 Title = T("Admin.SallerItem.Fields.Id").Text
                             },
-                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ProductName))
+                            new ColumnProperty(nameof( SallerItemModel.ProductName))
                             {
                                 Title = T("Admin.SallerItem.Fields.ProductName").Text
                             },
-                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ProductPrice))
+                            new ColumnProperty(nameof( SallerItemModel.ProductPrice))
                             {
                                 Title = T("Admin.SallerItem.Fields.ProductPrice").Text
                             },
-                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ProductDescription))
+                            new ColumnProperty(nameof( SallerItemModel.ProductDescription))
                             {
                                 Title = T("Admin.SallerItem.Fields.ProductDescription").Text
                             },
-                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ProductStatus))
+                            new ColumnProperty(nameof( SallerItemModel.ProductStatus))
                             {
                                 Title = T("Admin.SallerItem.Fields.ProductStatus").Text
                             },
-                            new ColumnProperty(nameof(Nop.Web.Areas.Admin.Models.SallerItem.SallerItemModel.ImageString))
+                            new ColumnProperty(nameof(SallerItemModel.ImageString))
                             {
-                                Title = T("Admin.SallerItem.Fields.ImageString").Text
-                            }
+                                Title = T("Admin.Catalog.Products.Fields.PictureThumbnailUrl").Text,
+                                Width = "100",
+                                Render = new RenderPicture()
+                            },
                             
                         }
                    })
@@ -138,3 +132,12 @@
         return '<a href="@Url.Content("~/Admin/Topic/Edit/")' + data + '@(editQueryString)" class="btn btn-default"><i class="fas fa-pencil-alt"></i>@T("Admin.Common.Edit").Text</a>';
     }
 </script>
+
+
+
+
+<style>
+    td img {
+        max-width: 150px;
+    }
+</style>

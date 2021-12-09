@@ -1012,6 +1012,52 @@ namespace Nop.Web.Factories
             return model;
         }
 
+
+        protected virtual async Task<IList<ProductDetailsModel.ProductAttributeModel>> PrepareProductAttributeModelsForSearchAsync(Product product, ShoppingCartItem updatecartitem=null)
+        {
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            var model = new List<ProductDetailsModel.ProductAttributeModel>();
+
+            var productAttributeMapping = await _productAttributeService.GetProductAttributeMappingsByProductIdAsync(product.Id);
+            foreach (var attribute in productAttributeMapping)
+            {
+                var productAttrubute = await _productAttributeService.GetProductAttributeByIdAsync(attribute.ProductAttributeId);
+
+                var attributeModel = new ProductDetailsModel.ProductAttributeModel
+                {
+                    Id = attribute.Id,
+                    Name = await _localizationService.GetLocalizedAsync(productAttrubute, x => x.Name),
+                    AttributeControlType = attribute.AttributeControlType,
+                };
+                if (attribute.ShouldHaveValues())
+                {
+                    //values
+                    var attributeValues = await _productAttributeService.GetProductAttributeValuesAsync(attribute.Id);
+                    foreach (var attributeValue in attributeValues)
+                    {
+                        var valueModel = new ProductDetailsModel.ProductAttributeValueModel
+                        {
+                            Id = attributeValue.Id,
+                            Name = await _localizationService.GetLocalizedAsync(attributeValue, x => x.Name),
+                            ColorSquaresRgb = attributeValue.ColorSquaresRgb, //used with "Color squares" attribute type
+                            IsPreSelected = attributeValue.IsPreSelected,
+                            CustomerEntersQty = attributeValue.CustomerEntersQty,
+                            Quantity = attributeValue.Quantity,
+                            Cost = attributeValue.Cost
+                        };
+                        attributeModel.Values.Add(valueModel);
+                    }
+                }
+                model.Add(attributeModel);
+            }
+
+            return model;
+        }
+
+
+
         /// <summary>
         /// Prepare the product tier price models
         /// </summary>
@@ -1283,6 +1329,8 @@ namespace Nop.Web.Factories
                 {
                     model.ProductPrice = await PrepareProductOverviewPriceModelAsync(product, forceRedirectionAfterAddingToCart);
                 }
+
+                model.ProductAttributes = await PrepareProductAttributeModelsForSearchAsync(product);
 
                 //picture
                 if (preparePictureModel)

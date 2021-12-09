@@ -15571,28 +15571,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zhdru\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Asus\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "4.4.0",
     "restore": {
-      "projectUniqueName": "D:\\ProjectNop\\Tests\\Nop.Tests\\Nop.Tests.csproj",
+      "projectUniqueName": "D:\\Personal works\\new clone\\Tests\\Nop.Tests\\Nop.Tests.csproj",
       "projectName": "Nop.Tests",
-      "projectPath": "D:\\ProjectNop\\Tests\\Nop.Tests\\Nop.Tests.csproj",
-      "packagesPath": "C:\\Users\\zhdru\\.nuget\\packages\\",
-      "outputPath": "D:\\ProjectNop\\Tests\\Nop.Tests\\obj\\",
+      "projectPath": "D:\\Personal works\\new clone\\Tests\\Nop.Tests\\Nop.Tests.csproj",
+      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+      "outputPath": "D:\\Personal works\\new clone\\Tests\\Nop.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\zhdru\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -15605,17 +15601,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-              "projectPath": "D:\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
+            "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+              "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj"
             },
-            "D:\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
-              "projectPath": "D:\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj"
+            "D:\\Personal works\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+              "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj"
             },
-            "D:\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-              "projectPath": "D:\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+            "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+              "projectPath": "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
             },
-            "D:\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj": {
-              "projectPath": "D:\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj"
+            "D:\\Personal works\\new clone\\Presentation\\Nop.Web\\Nop.Web.csproj": {
+              "projectPath": "D:\\Personal works\\new clone\\Presentation\\Nop.Web\\Nop.Web.csproj"
             }
           }
         }
@@ -15672,7 +15668,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

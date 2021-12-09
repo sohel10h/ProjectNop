@@ -42,17 +42,32 @@ namespace Nop.Web.Controllers
         }
         public virtual async Task<IActionResult> Add()
         {
-            var model = new Contact();
+            var model = new ContactModel();
             return View(model);
         }
 
         [HttpPost]
         [ValidateCaptcha]
-        public virtual async Task<IActionResult> Add(Contact model, bool captchaValid)
+        public virtual async Task<IActionResult> Add(ContactModel model, bool captchaValid)
         {
-            model.Type = (int)ContactType.Contact;
-            await _contactService.InsertContactAsync(model);
-            return View(model);
+            if (ModelState.IsValid)
+            {
+                var contact = new Contact();
+                contact.Name = model.Name;
+                contact.Address = model.Address;
+                contact.Phone = model.Phone;
+                contact.Message = model.Message;
+                contact.Product = model.Product;
+                contact.NIDNumber = model.NIDNumber;
+                contact.Type = (int)ContactType.Contact;
+                await _contactService.InsertContactAsync(contact);
+                return Redirect("Add");
+            }
+            else {
+                return View(model);
+            
+            }
+
         }
         //Appoinments
         public async Task<IActionResult> Appoinments()

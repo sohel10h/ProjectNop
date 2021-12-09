@@ -437,7 +437,7 @@ namespace Nop.Web.Controllers
 
             var showLinkToResultSearch = _catalogSettings.ShowLinkToAllResultInSearchAutoComplete && (products.TotalCount > productNumber);
 
-            var models = (await _productModelFactory.PrepareProductOverviewModelsForCarrerAsync(products, true, _catalogSettings.ShowProductImagesInSearchAutoComplete, _mediaSettings.AutoCompleteSearchThumbPictureSize)).ToList();
+            var models = (await _productModelFactory.PrepareProductOverviewModelsForCarrerAsync(products, true, false, _mediaSettings.AutoCompleteSearchThumbPictureSize,true)).ToList();
             var result = (from p in models
                           select new
                           {
@@ -446,7 +446,8 @@ namespace Nop.Web.Controllers
                               producturl = Url.RouteUrl("Product", new { SeName = p.SeName }),
                               productpictureurl = p.DefaultPictureModel.ImageUrl,
                               showlinktoresultsearch = showLinkToResultSearch,
-                              price = p.WholesalePrice
+                              price = p.WholesalePrice,
+                              ProductAttributes = p.ProductAttributes
                           })
                 .ToList();
             return Json(result);
