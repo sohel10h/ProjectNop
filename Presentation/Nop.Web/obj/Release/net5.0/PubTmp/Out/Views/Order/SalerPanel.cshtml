@@ -1,0 +1,73 @@
+﻿
+@model List<SallerItem>
+@using Nop.Core.Domain.SallerItems
+
+@{
+    Layout = "_ColumnsOne";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Saller.Panel").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-shipment-details-page");
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    img.itmImage {
+        max-width: 250px;
+        max-height: 150px;
+    }
+    th.productName, th.productImage {
+        min-width: 300px;
+    }
+    td.productPrice {
+        font-weight: 700;
+        color: green;
+    }
+    h2.addItm {
+        margin: 0 0 20px 0px;
+        display: inline-block;
+        padding: 0 0 0 0px;
+        text-decoration: underline;
+    }
+
+</style>
+
+
+<h2 class="addItm"><a href="/order/sallerRequest">@T("Saller.Add.Items")</a></h2>
+
+<table>
+    <tr>
+        <th class="productName">@T("Saller.Product.Name")</th>
+        <th class="productPrice">@T("Saller.Product.Price")</th>
+        <th class="productImage">@T("Saller.Product.Image")</th>
+    </tr>
+    @{
+        foreach (var itm in Model)
+        {
+            <tr>
+                <td  class="productName">@itm.ProductName</td>
+                <td class="productPrice">@itm.ProductPrice</td>
+                <td class="productImage"> <img class="itmImage" src="/images/thumbs/@itm.ImageString" />    </td>
+            </tr>
+        }
+    }
+</table>
+
+
+

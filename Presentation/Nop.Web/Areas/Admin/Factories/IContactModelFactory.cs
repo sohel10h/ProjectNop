@@ -27,7 +27,7 @@ namespace Nop.Web.Areas.Admin.Factories
         /// A task that represents the asynchronous operation
         /// The task result contains the opic list model
         /// </returns>
-        Task<ContactListModel> PrepareContactListModelAsync(ContactSearchModel searchModel);
+        Task<ContactListModel> PrepareContactListModelAsync(ContactSearchModel searchModel,int type = 2);
 
         /// <summary>
         /// Prepare Contact model

@@ -580,7 +580,6 @@ D:\Personal works\new clone\Libraries\Nop.Core\bin\Release\net5.0\refs\System.Xm
 D:\Personal works\new clone\Libraries\Nop.Core\bin\Release\net5.0\refs\System.Xml.XPath.dll
 D:\Personal works\new clone\Libraries\Nop.Core\bin\Release\net5.0\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\new clone\Libraries\Nop.Core\bin\Release\net5.0\refs\WindowsBase.dll
-D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.csproj.AssemblyReference.cache
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.AssemblyInfoInputs.cache
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.AssemblyInfo.cs
@@ -588,3 +587,4 @@ D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.cspro
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.dll
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\ref\Nop.Core.dll
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.pdb
+D:\Personal works\new clone\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.csproj.AssemblyReference.cache

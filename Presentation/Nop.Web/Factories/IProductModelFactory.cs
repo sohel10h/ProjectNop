@@ -44,6 +44,12 @@ namespace Nop.Web.Factories
             bool preparePriceModel = true, bool preparePictureModel = true,
             int? productThumbPictureSize = null, bool prepareSpecificationAttributes = false,
             bool forceRedirectionAfterAddingToCart = false);
+
+
+        Task<IEnumerable<ProductOverviewModel>> PrepareProductOverviewModelsForMakeAnOrderAsync(IEnumerable<Product> products,
+                bool preparePriceModel = true, bool preparePictureModel = true,
+                int? productThumbPictureSize = null, bool prepareSpecificationAttributes = false,
+                bool forceRedirectionAfterAddingToCart = false);
         /// <summary>
         /// Prepare the product combination models
         /// </summary>

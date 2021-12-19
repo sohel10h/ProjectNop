@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Nop.Core;
@@ -246,6 +247,12 @@ namespace Nop.Web.Factories
                         ZipPostalCode = pickupAddress.ZipPostalCode
                     };
                 }
+
+                if (!string.IsNullOrWhiteSpace(order.MakeAnOrderJson))
+                {
+                    model.MakeAnOrders = Newtonsoft.Json.JsonConvert.DeserializeObject<List<MakeAnOrder>>(order.MakeAnOrderJson);
+                }
+
 
                 model.ShippingMethod = order.ShippingMethod;
 

@@ -49,15 +49,7 @@ namespace Nop.Services.Contacts
 
         public async Task<IPagedList<Contact>> GetAllContactsAsync(int type = 0,int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            if (type>0)
-            {
-                return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c=>c.Type.Equals(type)); }, pageIndex, pageSize);
-            }
-            else
-            {
-                return await _contactRepository.GetAllPagedAsync(async query => { return query; }, pageIndex, pageSize);
-            }
-            
+            return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c => c.Type.Equals(type)).OrderByDescending(o => o.CreatedOnUtc); }, pageIndex, pageSize);    
         }
 
         //public virtual async Task<IList<Contact>> GetAllContactsAsync(int type = 0, int pageIndex = 0, int pageSize = int.MaxValue)
@@ -95,6 +87,7 @@ namespace Nop.Services.Contacts
 
         public virtual async Task InsertContactAsync(Contact contact)
         {
+            contact.CreatedOnUtc= DateTime.Now;
             await _contactRepository.InsertAsync(contact);
         }
 

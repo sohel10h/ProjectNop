@@ -47,6 +47,16 @@ namespace Nop.Web.Areas.Admin.Models.Contact
         public DateTime VisitDate { get; set; }
         [NopResourceDisplayName("Admin.Contact.Fields.Status")]
         public int Status { get; set; }
+
+
+
+        [NopResourceDisplayName("Contact.Fields.NIDNumber")]
+        public string NIDNumber { get; set; }
+
+
+        [NopResourceDisplayName("Contact.Fields.Product")]
+        public string Product { get; set; }
+
         public IList<int> SelectedStoreIds { get; set; }
         public IList<SelectListItem> AvailableStores { get; set; }
     }

@@ -57,7 +57,11 @@
                 <a id="fcb-btn">
                     <div class="fcb-cross-icons" style="display: block;">
                         <div class="fcb-marque-icons">
-                            <span class="fcb-icon icon-fcb_chat"></span><i class="fa fa-whatsapp icons_chat" aria-hidden="true" ></i> <i class="fab fa-facebook-messenger icons_chat" aria-hidden="true"  ></i><i class="fas fa-mobile icons_chat" aria-hidden="true" ></i> 
+                            <span class="fcb-icon icon-fcb_chat"></span><i class="fa fa-whatsapp icons_chat" aria-hidden="true" ></i> <i class="fab fa-facebook-messenger icons_chat" aria-hidden="true"  ></i>
+                            
+                            
+                            @*<i class="fas fa-mobile icons_chat" aria-hidden="true" ></i>*@ 
+
                             <style>
                                 @@keyframes cf4FadeInOut {
                                     0% {
@@ -94,7 +98,8 @@
             </div><div class="fcb-menus-container fcb-scale-transition" id="social_content" style="display:none">
             <a href="https://wa.me/+880 1707555280" target="__blank" class="fcb-menus" id="0"> <span class="fcb-media-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></span> <span class="fcb-media-name">Whatsapp</span> </a>
             <a href="https://m.me/meemwatertechnology.ltd" target="__blank" class="fcb-menus" id="1"> <span class="fcb-media-icon">  <i class="fab fa-facebook-messenger"></i></span> <span class="fcb-media-name">Facebook</span> </a>
-            <a href="tel:+880 1707555280" target="__blank" class="fcb-menus" id="8"> <span class="fcb-media-icon"><i class="fas fa-mobile"></i></span> <span class="fcb-media-name">Call Now</span> </a></div><div class="fcb-callback fcb-scale-transition fcb-scale-out" style="display:none;"><div class="fcb-close-icon"> <img class="fcb-img" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://meemwater.com/wp-content/plugins/floating-contact-buttons/assets/images/fcb_close.png"><noscript><img class="fcb-img" src="https://meemwater.com/wp-content/plugins/floating-contact-buttons/assets/images/fcb_close.png"></noscript></div><div class="fcb-callback-details"><div id="fcb-loader-wrapper"><div class="fcb-loader-ring"></div></div><div class="fcb-callback-text"> <span class="fcb-callback-message">Please enter your phone number and we will call you back soon</span></div><div class="fcb-callback-form"><form method="post"> <input name="phone_num" id="fcb-phn-num" class="fcb-message-callback" required="required" type="tel" data-mask="000-00-000-00-00" placeholder="+XXX-XX-XXX-XX-XX" autocomplete="off" maxlength="16"> <input id="fcb-callback-submit" type="submit" value="Submit"></form></div></div><div id="fcb-success-msg"><h2>Thank you</h2><p>We will call you back soon</p></div><div id="fcb-error-msg"> <span class="fcb-alert">Please enter valid phone number</span></div></div>
+            @*<a href="tel:+880 1707555280" target="__blank" class="fcb-menus" id="8"> <span class="fcb-media-icon"><i class="fas fa-mobile"></i></span> <span class="fcb-media-name">Call Now</span> </a>*@
+                </div><div class="fcb-callback fcb-scale-transition fcb-scale-out" style="display:none;"><div class="fcb-close-icon"> <img class="fcb-img" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://meemwater.com/wp-content/plugins/floating-contact-buttons/assets/images/fcb_close.png"><noscript><img class="fcb-img" src="https://meemwater.com/wp-content/plugins/floating-contact-buttons/assets/images/fcb_close.png"></noscript></div><div class="fcb-callback-details"><div id="fcb-loader-wrapper"><div class="fcb-loader-ring"></div></div><div class="fcb-callback-text"> <span class="fcb-callback-message">Please enter your phone number and we will call you back soon</span></div><div class="fcb-callback-form"><form method="post"> <input name="phone_num" id="fcb-phn-num" class="fcb-message-callback" required="required" type="tel" data-mask="000-00-000-00-00" placeholder="+XXX-XX-XXX-XX-XX" autocomplete="off" maxlength="16"> <input id="fcb-callback-submit" type="submit" value="Submit"></form></div></div><div id="fcb-success-msg"><h2>Thank you</h2><p>We will call you back soon</p></div><div id="fcb-error-msg"> <span class="fcb-alert">Please enter valid phone number</span></div></div>
         </div>
         <style type="text/css">
             i.fa, i.fab, i.fas {
@@ -128,6 +133,7 @@
                 width: 70px;
                 height: 70px;
                 z-index: 9999;
+                bottom: 15%;
             }
 
             .fcb-main-button {
@@ -346,6 +352,20 @@
         <script asp-location="Footer">
             $(document).ready(function ()
             {
+                $(window).scroll(function (event) {
+                    var scroll = $(window).scrollTop();
+                    if (scroll > 190) {
+                        $(".footer").show();
+                    }
+                    else
+                    {
+                        $(".footer").hide();
+                    }
+                });
+
+
+
+
                 var count = 0;
                 setInterval(function ()
                 {

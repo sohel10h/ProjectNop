@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "_ColumnsTwo";
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+    Html.AppendPageCssClassParts("html-account-page");
+    Html.AppendPageCssClassParts("html-address-list-page");
+}
+
+@section left
+{
+    @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId =-1 })
+}
+
+<div class="tracking_container">
+    <form action="" method="post">
+
+
+        <div class="tracking_dv">
+            <div class="tracking_input">
+                <h1>@T("Enter.Tracking.Number")</h1>
+                <input type="text" name="trackingId" placeholder="@T("Tracking.Number.placeholder")" class="tracking-number" />
+                <br />
+                <input type="submit" class="trackingSubmit" value="Submit" />
+            </div>
+        </div>
+    </form>
+</div>
+@if (ViewBag.TrackingException != null && ViewBag.TrackingException == true)
+{
+    <h1 class="error">@T("Tracking.Exception")</h1>
+}
+
+<style>
+    .tracking_dv {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+
+    input.tracking-number {
+        width: 50%;
+        border-radius: 5px;
+        border: 2px solid black;
+    }
+
+    input.trackingSubmit {
+        margin: 10px 0px 0 0;
+        width: 100px;
+        border: 1px solid #978f8f;
+        border-radius: 5px;
+        height: 40px;
+    }
+    h1.error {
+        color: red;
+        text-align: center;
+    }
+</style>

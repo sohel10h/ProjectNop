@@ -45,51 +45,28 @@ namespace Nop.Web.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index(bool showtour = false)
         {
-            //prepare model
             var model = await _contactModelFactory.PrepareContactSearchModelAsync(new ContactSearchModel());
-
-            //show configuration tour
-            //if (showtour)
-            //{
-            //    var hideCard = await _genericAttributeService.GetAttributeAsync<bool>(await _workContext.GetCurrentCustomerAsync(), NopCustomerDefaults.HideConfigurationStepsAttribute);
-
-            //    var closeCard = await _genericAttributeService.GetAttributeAsync<bool>(await _workContext.GetCurrentCustomerAsync(), NopCustomerDefaults.CloseConfigurationStepsAttribute);
-
-            //    if (!hideCard && !closeCard)
-            //        ViewBag.ShowTour = true;
-            //}
-
             return View(model);
         }
         [HttpPost]
         /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task<IActionResult> List(ContactSearchModel searchModel)
         {
-            //var model = await _contactService.GetAllContactsAsync((int)ContactType.Contact);
-            //return Json(model);
-            //if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageTopics))
-            //    return await AccessDeniedDataTablesJson();
-
-            //prepare model
-
-            try
-            {
                 var model = await _contactModelFactory.PrepareContactListModelAsync(searchModel);
                 return Json(model);
-            }
-            catch (Exception exc) 
-            { 
-            
-            
-            }
-
-            return Json("");
-
         }
         public async Task<IActionResult> Appoinments()
         {
-            return View();
+            var model = await _contactModelFactory.PrepareContactSearchModelAsync(new ContactSearchModel());
+            return View(model);
+        }
 
+        [HttpPost]
+        /// <returns>A task that represents the asynchronous operation</returns>
+        public virtual async Task<IActionResult> Appoinments(ContactSearchModel searchModel)
+        {
+            var model = await _contactModelFactory.PrepareContactListModelAsync(searchModel,1);
+            return Json(model);
         }
     }
 }

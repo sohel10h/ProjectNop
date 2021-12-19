@@ -1313,15 +1313,8 @@ namespace Nop.Web.Factories
                 {
                     Id = product.Id,
                     Name = await _localizationService.GetLocalizedAsync(product, x => x.Name),
-                    ShortDescription = await _localizationService.GetLocalizedAsync(product, x => x.ShortDescription),
-                    FullDescription = await _localizationService.GetLocalizedAsync(product, x => x.FullDescription),
-                    SeName = await _urlRecordService.GetSeNameAsync(product),
                     Sku = product.Sku,
-                    ProductType = product.ProductType,
                     WholesalePrice=product.WholesalePrice,                    
-                    MarkAsNew = product.MarkAsNew &&
-                        (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow) &&
-                        (!product.MarkAsNewEndDateTimeUtc.HasValue || product.MarkAsNewEndDateTimeUtc.Value > DateTime.UtcNow)
                 };
 
                 //price
@@ -1332,20 +1325,6 @@ namespace Nop.Web.Factories
 
                 model.ProductAttributes = await PrepareProductAttributeModelsForSearchAsync(product);
 
-                //picture
-                if (preparePictureModel)
-                {
-                    model.DefaultPictureModel = await PrepareProductOverviewPictureModelAsync(product, productThumbPictureSize);
-                }
-
-                //specs
-                if (prepareSpecificationAttributes)
-                {
-                    model.ProductSpecificationModel = await PrepareProductSpecificationModelAsync(product);
-                }
-
-                //reviews
-                model.ReviewOverviewModel = await PrepareProductReviewOverviewModelAsync(product);
 
                 models.Add(model);
             }
@@ -1354,6 +1333,156 @@ namespace Nop.Web.Factories
         }
 
 
+
+
+        protected virtual async Task<IList<ProductDetailsModel.ProductAttributeModel>> PrepareProductAttributeModelsForMakeAnOrderAsync(Product product, ShoppingCartItem updatecartitem=null)
+        {
+            if (product == null)
+                throw new ArgumentNullException(nameof(product));
+
+            var model = new List<ProductDetailsModel.ProductAttributeModel>();
+
+            var productAttributeMapping = await _productAttributeService.GetProductAttributeMappingsByProductIdAsync(product.Id);
+            foreach (var attribute in productAttributeMapping)
+            {
+                var productAttrubute = await _productAttributeService.GetProductAttributeByIdAsync(attribute.ProductAttributeId);
+
+                var attributeModel = new ProductDetailsModel.ProductAttributeModel
+                {
+                    Id = attribute.Id,
+                    ProductId = product.Id,
+                    ProductAttributeId = attribute.ProductAttributeId,
+                    Name = await _localizationService.GetLocalizedAsync(productAttrubute, x => x.Name),
+                    Description = await _localizationService.GetLocalizedAsync(productAttrubute, x => x.Description),
+                    TextPrompt = await _localizationService.GetLocalizedAsync(attribute, x => x.TextPrompt),
+                    IsRequired = attribute.IsRequired,
+                    AttributeControlType = attribute.AttributeControlType,
+                    DefaultValue = updatecartitem != null ? null : await _localizationService.GetLocalizedAsync(attribute, x => x.DefaultValue),
+                    HasCondition = !string.IsNullOrEmpty(attribute.ConditionAttributeXml)
+                };
+                if (!string.IsNullOrEmpty(attribute.ValidationFileAllowedExtensions))
+                {
+                    attributeModel.AllowedFileExtensions = attribute.ValidationFileAllowedExtensions
+                        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .ToList();
+                }
+
+                if (attribute.ShouldHaveValues())
+                {
+                    //values
+                    var attributeValues = await _productAttributeService.GetProductAttributeValuesAsync(attribute.Id);
+                    foreach (var attributeValue in attributeValues)
+                    {
+                        var valueModel = new ProductDetailsModel.ProductAttributeValueModel
+                        {
+                            Id = attributeValue.Id,
+                            Name = await _localizationService.GetLocalizedAsync(attributeValue, x => x.Name),
+                            ColorSquaresRgb = attributeValue.ColorSquaresRgb, //used with "Color squares" attribute type
+                            IsPreSelected = attributeValue.IsPreSelected,
+                            CustomerEntersQty = attributeValue.CustomerEntersQty,
+                            Quantity = attributeValue.Quantity
+                        };
+                        attributeModel.Values.Add(valueModel);
+
+                        //display price if allowed
+                        if (await _permissionService.AuthorizeAsync(StandardPermissionProvider.DisplayPrices))
+                        {
+                            var customer = updatecartitem?.CustomerId is null ? await _workContext.GetCurrentCustomerAsync() : await _customerService.GetCustomerByIdAsync(updatecartitem.CustomerId);
+
+                            var attributeValuePriceAdjustment = await _priceCalculationService.GetProductAttributeValuePriceAdjustmentAsync(product, attributeValue, customer);
+                            var (priceAdjustmentBase, _) = await _taxService.GetProductPriceAsync(product, attributeValuePriceAdjustment);
+                            var priceAdjustment = await _currencyService.ConvertFromPrimaryStoreCurrencyAsync(priceAdjustmentBase, await _workContext.GetWorkingCurrencyAsync());
+
+                            if (attributeValue.PriceAdjustmentUsePercentage)
+                            {
+                                var priceAdjustmentStr = attributeValue.PriceAdjustment.ToString("G29");
+                                if (attributeValue.PriceAdjustment > decimal.Zero)
+                                    valueModel.PriceAdjustment = "+";
+                                valueModel.PriceAdjustment += priceAdjustmentStr + "%";
+                            }
+                            else
+                            {
+                                if (priceAdjustmentBase > decimal.Zero)
+                                    valueModel.PriceAdjustment = "+" + await _priceFormatter.FormatPriceAsync(priceAdjustment, false, false);
+                                else if (priceAdjustmentBase < decimal.Zero)
+                                    valueModel.PriceAdjustment = "-" + await _priceFormatter.FormatPriceAsync(-priceAdjustment, false, false);
+                            }
+
+                            valueModel.PriceAdjustmentValue = priceAdjustment;
+                        }
+
+                        //"image square" picture (with with "image squares" attribute type only)
+                        if (attributeValue.ImageSquaresPictureId > 0)
+                        {
+                            var productAttributeImageSquarePictureCacheKey = _staticCacheManager.PrepareKeyForDefaultCache(NopModelCacheDefaults.ProductAttributeImageSquarePictureModelKey
+                                , attributeValue.ImageSquaresPictureId,
+                                    _webHelper.IsCurrentConnectionSecured(),
+                                    await _storeContext.GetCurrentStoreAsync());
+                            valueModel.ImageSquaresPictureModel = await _staticCacheManager.GetAsync(productAttributeImageSquarePictureCacheKey, async () =>
+                            {
+                                var imageSquaresPicture = await _pictureService.GetPictureByIdAsync(attributeValue.ImageSquaresPictureId);
+                                string fullSizeImageUrl, imageUrl;
+                                (imageUrl, imageSquaresPicture) = await _pictureService.GetPictureUrlAsync(imageSquaresPicture, _mediaSettings.ImageSquarePictureSize);
+                                (fullSizeImageUrl, imageSquaresPicture) = await _pictureService.GetPictureUrlAsync(imageSquaresPicture);
+
+                                if (imageSquaresPicture != null)
+                                {
+                                    return new PictureModel
+                                    {
+                                        FullSizeImageUrl = fullSizeImageUrl,
+                                        ImageUrl = imageUrl
+                                    };
+                                }
+
+                                return new PictureModel();
+                            });
+                        }
+
+                        //picture of a product attribute value
+                        valueModel.PictureId = attributeValue.PictureId;
+                    }
+                }
+
+                model.Add(attributeModel);
+            }
+
+            return model;
+        }
+
+
+        public virtual async Task<IEnumerable<ProductOverviewModel>> PrepareProductOverviewModelsForMakeAnOrderAsync(IEnumerable<Product> products,
+                bool preparePriceModel = true, bool preparePictureModel = true,
+                int? productThumbPictureSize = null, bool prepareSpecificationAttributes = false,
+                bool forceRedirectionAfterAddingToCart = false)
+        {
+            if (products == null)
+                throw new ArgumentNullException(nameof(products));
+
+            var models = new List<ProductOverviewModel>();
+            foreach (var product in products)
+            {
+                var model = new ProductOverviewModel
+                {
+                    Id = product.Id,
+                    Name = await _localizationService.GetLocalizedAsync(product, x => x.Name),
+                    Sku = product.Sku,
+                    WholesalePrice = product.WholesalePrice,
+                };
+
+                //price
+                if (preparePriceModel)
+                {
+                    model.ProductPrice = await PrepareProductOverviewPriceModelAsync(product, forceRedirectionAfterAddingToCart);
+                }
+
+                model.ProductAttributes = await PrepareProductAttributeModelsForMakeAnOrderAsync(product);
+
+
+                models.Add(model);
+            }
+
+            return models;
+        }
 
 
         /// <summary>

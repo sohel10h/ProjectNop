@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Primitives;
 using Nop.Core;
 using Nop.Core.Domain;
@@ -1556,6 +1557,7 @@ namespace Nop.Web.Controllers
 
                 return RedirectToRoute("CustomerAddresses");
             }
+            IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors).ToList();
 
             //If we got this far, something failed, redisplay form
             await _addressModelFactory.PrepareAddressModelAsync(model.Address,

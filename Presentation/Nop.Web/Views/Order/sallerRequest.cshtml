@@ -46,7 +46,7 @@
     <div class="addmoreLine">
         <span>@T("ADD.MORE.LINE")</span>
     </div>
-    <button id="upload_order">Make Order</button>
+    <button id="upload_order">@T("Vendor.Submit")r</button>
 
 
 </form>
@@ -168,5 +168,12 @@
     .header_container .product_name_dv {
         width: 300px;
         text-align: center;
+    }
+    .product_name_dv.container_info, .pproduct_quantity_dv.container_info {
+        display: inline-block;
+        width: 49%;
+    }
+    .product_name_dv.container_info input, .pproduct_quantity_dv.container_info input {       
+        width:98%;
     }
 </style>

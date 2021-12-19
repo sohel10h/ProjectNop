@@ -2,6 +2,11 @@
 
 /*********** CSS RESET **********/
 
+@font-face {
+    font-family: myFont;
+    src: url(/wwwroot/EncodeSans-Regular.ttf);
+}
+@import url('https://www.fontify.me/wf/1e6b054bebc65767084f30b7ae3c89e8');
 
 * {
     margin: 0;
@@ -75,8 +80,9 @@ body {
     max-width: 100%;
     overflow-x: hidden;
     background-color: #fff;
-    font: normal 14px Arial, Helvetica, sans-serif;
     color: #777;
+    font: normal 14px Arial, Helvetica, sans-serif;
+    font-family: myFont !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -110,7 +116,7 @@ textarea, select {
 
 input, textarea, select, button {
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: myFont;
     color: #777;
 }
 
@@ -136,6 +142,7 @@ textarea {
 
 .master-wrapper-content {
     width: 100% !important;
+    margin-bottom: 150px !important;
 }
 
 
@@ -1021,8 +1028,9 @@ label, label + * {
 .search-box form {
     display: inline-block;
     float: left;
-    border-radius: 5px;
-    border: 2px solid #eee;
+    border-radius: 25px;
+    border: 2px solid #807979;
+    overflow: hidden;
 }
 
 .header-links {
@@ -1057,9 +1065,9 @@ div#login, div#Tracking, .search-box.store-search-box .language-selector, .heade
 .search-box input.search-box-text {
     float: left;
     margin: 0 -1px 0 0;
-    width: 500px;
+    width: 600px;
     border: none;
-    border-right: 3px solid #eee;
+    outline: none;
 }
 
 .search-box .search-box-button {
@@ -1156,9 +1164,9 @@ button.button-1.search-box-button {
 .footer .footer_div {
     display: inline-block;
     margin: auto;
-    width: 30%;
+    min-width: 150px;
     padding: 20px 0px 20px 1px;
-
+    font-size: 15px;
 }
 
 .footer {
@@ -1170,6 +1178,7 @@ button.button-1.search-box-button {
     width: 100%;
     min-height:100px;
     display:none;
+    z-index:10;
 }
 
 .footer-upper {

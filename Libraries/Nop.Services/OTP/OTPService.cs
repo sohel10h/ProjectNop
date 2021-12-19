@@ -56,10 +56,20 @@ namespace Nop.Services.OTP
             HttpWebResponse response = null;
             try
             {
-                String userid = "canviador"; //Your Login ID
-                String password = "CSHWZBGR"; //Your Password
-                String number = otp.MobileNumber; //Recipient Phone Number multiple number must be separated by comma
-                String message = System.Uri.EscapeUriString("ALLAH IS ONE"); //do not use single quotation (') in the message to avoid forbidden result
+                string userid = "canviador";
+                string password = "CSHWZBGR";
+                string number = otp.MobileNumber;
+                string message = string.Empty;
+                try 
+                {
+                    var resource = await _localizationService.GetResourceAsync("OTP.Message");
+                    message= String.Format(resource, otp.OTPString);
+                }
+                catch 
+                {
+                    message = "Your OTP is: " + otp.OTPString;
+                }
+                message = System.Uri.EscapeUriString(message);
                 String url = "http://66.45.237.70/api.php?username=" + userid + "&password=" + password + "&number=" + number + "&message=" + message;
                 request = WebRequest.Create(url);
 

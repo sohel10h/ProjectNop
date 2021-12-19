@@ -592,7 +592,6 @@ D:\Personal works\new clone\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountrySta
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\refs\System.Xml.XPath.dll
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\refs\WindowsBase.dll
-D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Release\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj.AssemblyReference.cache
 D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Release\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Release\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.AssemblyInfoInputs.cache
 D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Release\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.AssemblyInfo.cs

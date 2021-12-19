@@ -20,6 +20,7 @@ namespace Nop.Web.Models.Order
             PickupAddress = new AddressModel();
 
             CustomValues = new Dictionary<string, object>();
+            MakeAnOrders = new List<MakeAnOrder>();
         }
 
         public bool PrintMode { get; set; }
@@ -78,7 +79,8 @@ namespace Nop.Web.Models.Order
         public IList<OrderNote> OrderNotes { get; set; }
 
         public bool ShowVendorName { get; set; }
-        
+
+        public List<MakeAnOrder> MakeAnOrders { get; set; }
 
         #region Nested Classes
 

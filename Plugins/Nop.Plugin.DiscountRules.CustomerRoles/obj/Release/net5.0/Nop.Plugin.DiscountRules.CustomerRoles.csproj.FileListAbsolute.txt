@@ -589,7 +589,6 @@ D:\Personal works\new clone\Presentation\Nop.Web\Plugins\DiscountRules.CustomerR
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\refs\System.Xml.XPath.dll
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\refs\WindowsBase.dll
-D:\Personal works\new clone\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Release\net5.0\Nop.Plugin.DiscountRules.CustomerRoles.csproj.AssemblyReference.cache
 D:\Personal works\new clone\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Release\net5.0\Nop.Plugin.DiscountRules.CustomerRoles.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\new clone\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Release\net5.0\Nop.Plugin.DiscountRules.CustomerRoles.AssemblyInfoInputs.cache
 D:\Personal works\new clone\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Release\net5.0\Nop.Plugin.DiscountRules.CustomerRoles.AssemblyInfo.cs

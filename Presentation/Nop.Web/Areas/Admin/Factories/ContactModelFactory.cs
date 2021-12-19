@@ -102,13 +102,13 @@ namespace Nop.Web.Areas.Admin.Factories
         /// A task that represents the asynchronous operation
         /// The task result contains the opic list model
         /// </returns>
-        public virtual async Task<ContactListModel> PrepareContactListModelAsync(ContactSearchModel searchModel)
+        public virtual async Task<ContactListModel> PrepareContactListModelAsync(ContactSearchModel searchModel, int type=2)
         {
             if (searchModel == null)
                 throw new ArgumentNullException(nameof(searchModel));
 
             //get Contacts
-            var Contacts = await _ContactService.GetAllContactsAsync();
+            var Contacts = await _ContactService.GetAllContactsAsync(type: type);
 
             var pagedContacts = Contacts.ToPagedList(searchModel);
 
@@ -122,8 +122,14 @@ namespace Nop.Web.Areas.Admin.Factories
                     {
                         ID = topic.ID,
                         Name = topic.Name,
-                        Email = topic.Email,
-                        Phone = topic.Phone
+                        Phone = topic.Phone,
+                        Address = topic.Address,
+                        Message = topic.Message,
+                        NIDNumber= topic.NIDNumber,
+                        Product= topic.Product,
+                        Email= topic.Email,
+                        CreatedOnUtc= topic.CreatedOnUtc,
+                        VisitDate=topic.VisitDate
                     };
                     return ContactModel;
                 });

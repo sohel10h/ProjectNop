@@ -1296,3 +1296,4 @@ D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.RazorT
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.Views.pdb
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.csproj.CopyComplete
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
+D:\Personal works\new clone\Presentation\Nop.Web\obj\Debug\net5.0\Razor\Views\Order\Tracking.cshtml.g.cs

@@ -593,7 +593,6 @@ D:\Personal works\new clone\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleA
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\refs\System.Xml.XPath.dll
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\refs\WindowsBase.dll
-D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj.AssemblyReference.cache
 D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.AssemblyInfoInputs.cache
 D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.AssemblyInfo.cs
@@ -602,3 +601,4 @@ D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticat
 D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.dll
 D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\ref\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.dll
 D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.pdb
+D:\Personal works\new clone\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj.AssemblyReference.cache

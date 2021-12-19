@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Nop.Core.Domain.Contacts;
 using Nop.Services.Contacts;
 using Nop.Web.Areas.Admin.Controllers;
@@ -76,18 +77,28 @@ namespace Nop.Web.Controllers
             return View("Appoinments", model);
 
         }
-        public virtual async Task<IActionResult> AddAppoinment()
+        public virtual  IActionResult AddAppoinment()
         {
-            var model = new Contact();
+            var model = new ContactModel();
+            model.VisitDate = DateTime.Now.Date;
             return View(model);
         }
         [HttpPost]
         [ValidateCaptcha]
-        public virtual async Task<IActionResult> AddAppoinment(Contact model, bool captchaValid)
+        public virtual async Task<IActionResult> AddAppoinment(ContactModel model, bool captchaValid)
         {
-            model.Type = (int)ContactType.Appoinment;
-            await _contactService.InsertContactAsync(model);
-            return View(model);
+                var contact = new Contact();
+                contact.Name = model.Name;
+                contact.Address = model.Address;
+                contact.Phone = model.Phone;
+                contact.Message = model.Message;
+                contact.Product = model.Product;
+                contact.NIDNumber = model.NIDNumber;
+                contact.VisitDate = model.VisitDate;
+                contact.Email = model.Email;
+                contact.Type = (int)ContactType.Appoinment;
+                await _contactService.InsertContactAsync(contact);
+                return Redirect("/Contact/Appoinments");
         }
 
     }

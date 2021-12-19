@@ -454,6 +454,50 @@ namespace Nop.Web.Controllers
         }
 
 
+
+
+        public virtual async Task<IActionResult> SearchTermAutoCompleteForMakeAnOrder(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return Content("");
+
+            term = term.Trim();
+
+            if (string.IsNullOrWhiteSpace(term) || term.Length < _catalogSettings.ProductSearchTermMinimumLength)
+                return Content("");
+
+            //products
+            var productNumber = _catalogSettings.ProductSearchAutoCompleteNumberOfProducts > 0 ?
+                _catalogSettings.ProductSearchAutoCompleteNumberOfProducts : 10;
+
+            var products = await _productService.SearchProductsAsync(0,
+                storeId: (await _storeContext.GetCurrentStoreAsync()).Id,
+                keywords: term,
+                languageId: (await _workContext.GetWorkingLanguageAsync()).Id,
+                visibleIndividuallyOnly: true,
+                pageSize: productNumber);
+
+            var showLinkToResultSearch = _catalogSettings.ShowLinkToAllResultInSearchAutoComplete && (products.TotalCount > productNumber);
+
+            var models = (await _productModelFactory.PrepareProductOverviewModelsForMakeAnOrderAsync(products, true, false, _mediaSettings.AutoCompleteSearchThumbPictureSize, true)).ToList();
+            var result = (from p in models
+                          select new
+                          {
+                              id = p.Id,
+                              label = p.Name,
+                              producturl = Url.RouteUrl("Product", new { SeName = p.SeName }),
+                              productpictureurl = p.DefaultPictureModel.ImageUrl,
+                              showlinktoresultsearch = showLinkToResultSearch,
+                              price = p.ProductPrice,
+                              ProductAttributes = p.ProductAttributes
+                          })
+                .ToList();
+            return Json(result);
+        }
+
+
+
+
         //ignore SEO friendly URLs checks
         [CheckLanguageSeoCode(true)]
         /// <returns>A task that represents the asynchronous operation</returns>

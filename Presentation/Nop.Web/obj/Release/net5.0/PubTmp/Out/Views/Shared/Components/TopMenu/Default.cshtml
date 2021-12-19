@@ -1,0 +1,836 @@
+﻿@model TopMenuModel
+<style>
+    .d-none{
+        display:none !important;
+    }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    #whole-flex {
+        position: absolute;
+        flex-direction: column;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -10;
+    }
+
+    /* NavBar */
+    .sidenav {
+        max-width: 380px;
+        width: 85%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        height: 100%;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        background-color: white;
+        transform-origin: left center;
+        transform: translateX(-380px);
+    }
+
+    .sidenavHeader {
+        color: white;
+        font-weight: bold;
+        background-color: rgb(35, 47, 62);
+        padding: 10px 0px 10px 30px;
+        font-size: 23px;
+    }
+
+    .sidenavContentHeader {
+        margin-top: 5px;
+        padding: 15px 0px 15px 25px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .sidenavContent {
+        padding: 15px 0px 15px 25px;
+    }
+
+        .sidenavContent:hover {
+            background-color: #eaeded;
+        }
+
+    hr {
+        height: 1px;
+        border: 0;
+        color: gray;
+        background-color: gray;
+        margin: 0px auto;
+    }
+
+    .sidenavRow {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0px 20px;
+    }
+
+        .sidenavRow:hover {
+            background-color: #eaeded;
+        }
+
+            .sidenavRow:hover i {
+                color: #111111 !important;
+            }
+
+    #closeBtn {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-left: 390px;
+        color: white;
+        font-size: 50px;
+        cursor: pointer;
+        z-index: 75;
+        transform: translateY(-5px);
+        transition: visibility 0.5s;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        text-decoration: none;
+        color: black;
+    }
+
+    /* animation */
+    @@keyframes collapse {
+        0% {
+            z-index: 100;
+            transform: translateX(0px);
+        }
+
+        100% {
+            transform: translateX(-380px);
+        }
+    }
+
+    @@keyframes expand {
+        0% {
+            z-index: 100;
+            transform: translateX(-380px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
+
+    @@keyframes show {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @@keyframes hide {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    /* Overlay */
+    #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Dropdown */
+    .sidenavContainer hr {
+        width: 85%;
+    }
+
+    .sidenavRowDropdown {
+        display: flex;
+        width: 100%;
+        justify-content: start;
+        align-items: center;
+        padding: 15px 25px 15px 25px;
+        cursor: pointer;
+    }
+
+        .sidenavRowDropdown:hover {
+            background-color: #eaeded;
+        }
+
+            .sidenavRowDropdown:hover i {
+                color: #111111 !important;
+            }
+
+    .sidenavContainer {
+        display: none;
+        height: 0px;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: center top;
+    }
+
+    @@keyframes expandDropDown {
+        0% {
+            transform: scaleY(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scaleY(1);
+            opacity: 1;
+        }
+    }
+
+    @@keyframes collapseDropDown {
+        0% {
+            transform: scaleY(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scaleY(0);
+            opacity: 0;
+        }
+    }
+
+    /* Container part */
+    #main-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    @@keyframes mainAway {
+        0% {
+            transform: translateX(0px);
+        }
+
+        100% {
+            transform: translateX(-380px);
+        }
+    }
+
+    @@keyframes mainBack {
+        0% {
+            transform: translateX(-380px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
+
+    #sub-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        background-color: white;
+        transform: translateX(380px);
+    }
+
+    @@keyframes subBack {
+        0% {
+            transform: translateX(380px);
+        }
+
+        100% {
+            transform: translateX(0px);
+        }
+    }
+
+    @@keyframes subPush {
+        0% {
+            transform: translateX(0px);
+        }
+
+        100% {
+            transform: translateX(380px);
+        }
+    }
+
+    #mainMenu {
+        padding: 0px 10px;
+        font-weight: bold;
+    }
+
+        #mainMenu:hover {
+            background-color: #eaeded;
+            cursor: pointer;
+        }
+
+    i.fa, i.fab, i.fas {
+        font-size: 30px !important;
+        padding: 0px;
+    }
+    .header-menu {
+        position: inherit;
+        z-index: 1;
+        width: 92.5% !important;
+        margin: 0 auto 10px;
+        min-height: 50px;
+    }
+    .top-menu {
+        display: block !important;
+    }
+    @@media (max-width: 1000px){
+
+        .search-box {
+            display: block;
+            text-align: left;
+            vertical-align: middle;
+            margin: 0px;
+            padding: 0px;
+            max-width: 100%;
+        }
+
+        a.ico-login {
+            padding: 7px 0px 0px 0px;
+        }
+
+        .header-links ul {
+            font-size: 0;
+            display: flex;
+            width: 220px;
+        }
+
+        .search-box form {
+            display: block;
+            float: left;
+            border-radius: 5px;
+            border: 2px solid #eee;
+            width: 100%;
+        }
+
+        .search-box input.search-box-text {
+            float: left;
+            margin: 0 -1px 0 0;
+            width: 85%;
+            border: none;
+            border-right: 3px solid #eee;
+        }
+
+        button.button-1.search-box-button {
+            width: 50px;
+            background: url(../images/search.png);
+            background-repeat: no-repeat;
+            background-size: 35px;
+            background-origin: content-box;
+            padding: 0px 0px 0px 0px;
+        }
+
+        .header-links {
+            margin: 10px auto;
+            padding: 0px 0px 0px 2px !important;
+        }
+
+        div#login, div#Tracking, .search-box.store-search-box .language-selector, .header-links {
+            display: block;
+            padding: 25px;
+            height: auto;
+            float: left;
+        }
+
+        .category-grid.home-page-category-grid.slider, .see_more {
+            display: inline-table;
+            float: left;
+        }
+
+        #topcartlink {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+            background-color: #f6f6f6;
+            padding: 5px 10px;
+        }
+
+        .language-selector {
+            padding: 11px 0 0 0px !important;
+        }
+    }
+    @@media all and (max-width: 769px){
+        .header-lower {
+            width: 100%;
+            display: grid;
+        }
+
+        .header-logo {
+            margin: auto;
+        }
+
+        .search-box {
+            display: block;
+            text-align: left;
+            vertical-align: middle;
+            margin: 0px;
+            padding: 0px;
+            max-width: 100%;
+        }
+
+        a.ico-login {
+            padding: 7px 0px 0px 0px;
+        }
+
+        .header-links ul {
+            font-size: 0;
+            display: flex;
+            width: 220px;
+        }
+
+        .search-box form {
+            display: block;
+            float: left;
+            border-radius: 5px;
+            border: 2px solid #eee;
+            width: 100%;
+        }
+
+        .search-box input.search-box-text {
+            float: left;
+            margin: 0 -1px 0 0;
+            width: 85%;
+            border: none;
+            border-right: 3px solid #eee;
+        }
+
+        button.button-1.search-box-button {
+            width: 50px;
+            background: url(../images/search.png);
+            background-repeat: no-repeat;
+            background-size: 35px;
+            background-origin: content-box;
+            padding: 0px 0px 0px 0px;
+        }
+
+        .header-links {
+            margin: 10px auto;
+            padding: 0px 0px 0px 2px !important;
+        }
+
+        div#login, div#Tracking, .search-box.store-search-box .language-selector, .header-links {
+            display: block;
+            padding: 25px;
+            height: auto;
+            float: left;
+        }
+
+        .category-grid.home-page-category-grid.slider, .see_more {
+            display: inline-table;
+            float: left;
+        }
+
+        #topcartlink {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+            background-color: #f6f6f6;
+            padding: 5px 10px;
+        }
+
+        .language-selector {
+            padding: 11px 0 0 0px !important;
+        }
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+    .button {
+        font-size: 16px;
+        letter-spacing: 2px;
+        font-weight: 400 !important;
+        background-color: #04aa6d;
+        color: #fff;
+        padding: 10px 15px;
+        margin: auto;
+        text-align: center;
+        display: inline-block !important;
+        text-decoration: none;
+        border: 0px;
+        width: max-content;
+        cursor: pointer;
+        transition: all 0.3s 0s ease-in-out;
+        color: white !important;
+    }
+        .button:hover {
+            transform: scale(1.04, 1);
+            background-color: rgb(216, 10, 27);
+            text-decoration: none;
+        }
+
+    /* add extra functionality in button*/
+
+
+    /*button sizes*/
+    .btn_sm {
+        padding: 17px 40px !important;
+    }
+
+    .btn_md {
+        padding: 20px 50px !important;
+    }
+
+    .btn_lg {
+        padding: 23px 60px !important;
+    }
+
+
+    /*make your button block level*/
+    .btn_block {
+        width: 100% !important;
+        padding: 22px 30px !important;
+    }
+    .inputs {
+        text-align: left;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        width: 75%;
+    }
+</style>
+
+@functions {
+    async Task CategoryLine(TopMenuModel.CategoryLineModel lineModel)
+    {
+        <div class="sidenavRow">
+            <a href="@Url.RouteUrl("Category", new { SeName = lineModel.Category.SeName })" style="margin: 10px; width: 100% !important;">
+                <div>
+
+                    @lineModel.Category.Name
+                    @if (lineModel.Category.NumberOfProducts.HasValue)
+                    {
+
+                        @T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
+
+                    }
+
+                </div>
+            </a>
+            <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+        </div>
+        //subcategories
+        var subCategories = lineModel.ResponsiveMobileMenu ?
+        //responsive (all categories)
+        lineModel.Category.SubCategories :
+        //standard design (only categories with "IncludeInTopMenu")
+        lineModel.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+
+        var levelClass = "";
+        if (lineModel.Level == 0)
+        {
+            levelClass = "first-level";
+        }
+        if (subCategories.Count > 0)
+        {
+            <ul class="d-none sublist @levelClass">
+                <li class="sublist-item">
+                    @foreach (var subCategory in subCategories)
+                    {
+                        var categoryLineModel = new TopMenuModel.CategoryLineModel
+                        {
+                            Category = subCategory,
+                            Level = lineModel.Level + 1,
+                            ResponsiveMobileMenu = lineModel.ResponsiveMobileMenu
+                        };
+                        await CategoryLine(categoryLineModel);
+                    }
+                </li>
+            </ul>
+        }
+        
+    }
+}
+
+
+@{
+    var rootCategoriesResponsive = Model.Categories.ToList();
+    //name it "Categories" if we have only categories. Otherwise, "Menu"
+    var responsiveMenuTitle = Model.HasOnlyCategories ? T("Categories") : T("Menu");
+}
+<!-- partial:index.partial.html -->
+<div id="overlay" onclick="closeNav()"></div>
+
+<div id="closeBtn" onclick="closeNav()">&times;</div>
+<div class="sidenav" id="mySidenav">
+    <div class="sidenavHeader">
+        <i class="fas fa-user-circle"></i> Hello, Sign In
+    </div>
+    <!--Below SideNavHeader-->
+    <div id="main-container">
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuBefore })
+        @if (Model.DisplayHomepageMenuItem)
+        {
+            <a href="@Url.RouteUrl("Homepage")" style="margin: 10px; width: 100% !important;">
+                <div class="sidenavRow">
+                    <div>@T("Homepage")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"  ></i>
+                </div>
+            </a>
+        }
+        @if (!Model.UseAjaxMenu)
+        {
+            @foreach (var category in rootCategoriesResponsive)
+            {
+                <div class="main-cat">
+                    @{
+                        var categoryLineModel = new TopMenuModel.CategoryLineModel
+                        {
+                            Category = category,
+                            ResponsiveMobileMenu = true
+                        };
+                        await CategoryLine(categoryLineModel);
+                    }
+                </div>
+            }
+
+        }
+
+        @foreach (var topic in Model.Topics)
+        {
+            <a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })" >
+                <div class="sidenavRow">
+                    <div>@topic.Name</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
+        }
+
+        @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+        {
+            <a href="@Url.RouteUrl("NewProducts")">
+                <div class="sidenavRow">
+                    <div>@T("Products.NewProducts")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
+        }
+        @if (Model.DisplayProductSearchMenuItem)
+        {
+            <a href="@Url.RouteUrl("ProductSearch")">
+                <div class="sidenavRow">
+                    <div>@T("Search")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
+        }
+        @if (Model.DisplayCustomerInfoMenuItem)
+        {
+            <a href="@Url.RouteUrl("CustomerInfo")">
+                <div class="sidenavRow">
+                    <div>@T("Account.MyAccount")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
+        }
+        @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
+        {
+            <a href="@Url.RouteUrl("Blog")">
+                <div class="sidenavRow">
+                    <div>@T("Blog")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
+        }
+        @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
+        {
+            <a href="@Url.RouteUrl("Boards")">
+                <div class="sidenavRow">
+                    <div>@T("Forum.Forums")</div>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
+        }
+        @if (Model.DisplayContactUsMenuItem)
+        {
+            <a href="@Url.RouteUrl("ContactUs")">
+                <div class="sidenavRow">
+                    <div>@T("ContactUs")</div>
+                    <i class="fas fa-chevron-right click-icon click-icon" style="color: #8e9090" ></i>
+                </div>
+            </a>
+        }
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.MobHeaderMenuAfter })
+
+    </div>
+    <!--End of first container-->
+
+    <div id="sub-container">
+        <div id="mainMenu">
+            <i class="fas fa-chevron-left" style="color: #8e9090"></i> MAIN MENU
+        </div>
+        <hr />
+        <div id="sub-container-content">
+            <!-- <div class="sidenavContentHeader">Prime Video</div>
+            <a href="#"><div class="sidenavContent">All Videos</div></a> -->
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    function openNav() {
+        document.getElementById("mySidenav").style.animation = "expand 0.3s forwards";
+        //closeBtn
+        document.getElementById("closeBtn").style.display = "block";
+        document.getElementById("closeBtn").style.animation = "show 0.3s";
+        //Overlay
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("overlay").style.animation = "show 0.3s";
+
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.animation = "collapse 0.3s forwards";
+        //closeBtn
+        document.getElementById("closeBtn").style.animation = "hide 0.3s";
+        //Overlay
+        document.getElementById("overlay").style.animation = "hide 0.3s";
+
+        setTimeout(() => {
+            document.getElementById("closeBtn").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            //Reset Menus
+            document.getElementById("main-container").style.animation = "";
+            document.getElementById("main-container").style.transform = "translateX(0px)";
+            document.getElementById("sub-container").style.animation = "";
+            document.getElementById("sub-container").style.transform = "translateX(380px)";
+        }, 300)
+    }
+
+    let firstDropdownOpen = false;
+
+    function firstDropDown() {
+        firstDropdownOpen = !firstDropdownOpen;
+        if (firstDropdownOpen) {
+            document.querySelector("#firstDropDown i").setAttribute("class", "fas fa-chevron-up");
+            document.querySelector("#firstDropDown div").innerHTML = "See Less";
+            //Handle Container
+            document.getElementById("firstContainer").style.display = "block";
+            document.getElementById("firstContainer").style.animation = "expandDropDown 0.3s forwards";
+            document.getElementById("firstContainer").style.transition = "height 0.3s";
+            document.getElementById("firstContainer").style.height = "410px";
+        } else {
+            document.querySelector("#firstDropDown i").setAttribute("class", "fas fa-chevron-down");
+            document.querySelector("#firstDropDown div").innerHTML = "See More";
+            //Handle Container
+            document.getElementById("firstContainer").style.animation = "collapseDropDown 0.2s forwards";
+            document.getElementById("firstContainer").style.transition = "height 0.2s";
+            document.getElementById("firstContainer").style.height = "0px";
+            setTimeout(() => {
+                document.getElementById("firstContainer").style.display = "none";
+            }, 200)
+
+        }
+    }
+
+    let secondDropDownOpen = false;
+
+    function secondDropDown() {
+        secondDropDownOpen = !secondDropDownOpen;
+
+        if (secondDropDownOpen) {
+            document.querySelector("#secondDropDown i").setAttribute("class", "fas fa-chevron-up");
+            document.querySelector("#secondDropDown div").innerHTML = "See Less";
+            //Handle Container
+            document.getElementById("secondContainer").style.display = "block";
+            document.getElementById("secondContainer").style.animation = "expandDropDown 0.3s forwards";
+            document.getElementById("secondContainer").style.transition = "height 0.3s";
+            document.getElementById("secondContainer").style.height = "260px";
+        } else {
+            document.querySelector("#secondDropDown i").setAttribute("class", "fas fa-chevron-down");
+            document.querySelector("#secondDropDown div").innerHTML = "See More";
+            //Handle Container
+            document.getElementById("secondContainer").style.animation = "collapseDropDown 0.3s forwards";
+            document.getElementById("secondContainer").style.transition = "height 0.3s";
+            document.getElementById("secondContainer").style.height = "0px";
+            setTimeout(() => {
+                document.getElementById("secondContainer").style.display = "none";
+            }, 300)
+
+        }
+    }
+
+
+    //subNavContent
+    $(document).ready(function () {
+        $(".sublist-item").each(function (index) {
+            if ($(this).children("ul").length === 0) {
+                $(this).children(".sidenavRow").children(".click-icon").addClass("d-none");
+            }
+        });
+        $(".main-cat").each(function (index) {
+            if ($(this).children("ul").length === 0) {
+                $(this).children(".sidenavRow").children(".click-icon").addClass("d-none");
+            }
+        });
+        $(".click-icon").click(function () {
+            if ($(this).parent().parent().children('ul').length) {
+                document.getElementById("main-container").style.animation = "mainAway 0.3s forwards";
+                document.getElementById("sub-container").style.animation = "subBack 0.3s forwards";
+                var x = $(this).parent().parent().children('ul').html();
+                $("#sub-container-content").append(x);
+                $("#sub-container-content").children(".sublist").toggleClass("d-none");
+               
+            }
+        });
+        $("#mainMenu").click(function () {
+            document.getElementById("main-container").style.animation = "mainBack 0.3s forwards";
+            document.getElementById("sub-container").style.animation = "subPush 0.3s forwards";
+            $("#sub-container-content").html("");
+            //$(".sublist").toggleClass("d-none");
+        });
+    });
+</script>
+<!-- partial -->
