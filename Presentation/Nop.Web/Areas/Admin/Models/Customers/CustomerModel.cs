@@ -244,6 +244,32 @@ namespace Nop.Web.Areas.Admin.Models.Customers
 
         public string AvatarUrl { get; internal set; }
 
+
+        [NopResourceDisplayName("Account.Fields.FatherName")]
+        public string FatherName { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.EducationalQualification")]
+        public string EducationalQualification { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.Age")]
+        public string Age { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.Village")]
+        public string Village { get; set; }
+
+
+        [NopResourceDisplayName("Account.Fields.Upazila")]
+        public string Upazila { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.Thana")]
+        public string Thana { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.District")]
+        public string District { get; set; }
+
+
+
+
         public CustomerAddressSearchModel CustomerAddressSearchModel { get; set; }
 
         public CustomerOrderSearchModel CustomerOrderSearchModel { get; set; }

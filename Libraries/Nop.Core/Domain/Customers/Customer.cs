@@ -141,5 +141,24 @@ namespace Nop.Core.Domain.Customers
         /// Gets or sets the shipping address identifier
         /// </summary>
         public int? ShippingAddressId { get; set; }
+
+
+        public string FatherName { get; set; }
+
+        public string EducationalQualification { get; set; }
+
+        public string Age { get; set; }
+
+        public string Village { get; set; }
+
+
+        public string Upazila { get; set; }
+
+        public string Thana { get; set; }
+
+        public string District { get; set; }
+
+
+
     }
 }

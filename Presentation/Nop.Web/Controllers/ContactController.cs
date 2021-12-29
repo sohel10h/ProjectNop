@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Nop.Core;
 using Nop.Core.Domain.Contacts;
 using Nop.Services.Contacts;
 using Nop.Web.Areas.Admin.Controllers;
@@ -18,6 +19,8 @@ namespace Nop.Web.Controllers
         #region Fields
 
         private readonly IContactService _contactService;
+        private readonly IWorkContext _workContext;
+
         //private readonly IContactModelFactory _contactModelFactory;
 
         #endregion
@@ -25,11 +28,13 @@ namespace Nop.Web.Controllers
         #region Constructors
 
         public ContactController(
-            IContactService contactService
+            IContactService contactService,
+            IWorkContext workContext
             //IContactModelFactory contactModelFactory
             )
         {
             this._contactService = contactService;
+            _workContext = workContext;
             //this._contactModelFactory = contactModelFactory;
         }
 
@@ -37,7 +42,7 @@ namespace Nop.Web.Controllers
         //Contacts
         public async Task<IActionResult> Index()
         {
-            var model = await _contactService.GetAllContactsAsync((int)ContactType.Contact);
+            var model = await _contactService.GetAllContactsAsync(type:(int)ContactType.Contact);
             return View("Index", model);
 
         }
@@ -73,9 +78,9 @@ namespace Nop.Web.Controllers
         //Appoinments
         public async Task<IActionResult> Appoinments()
         {
-            var model = await _contactService.GetAllContactsAsync((int)ContactType.Appoinment);
+            var customer = await _workContext.GetCurrentCustomerAsync();
+            var model = await _contactService.GetAllContactsAsync(customerId: customer.Id, type: (int)ContactType.Appoinment);
             return View("Appoinments", model);
-
         }
         public virtual  IActionResult AddAppoinment()
         {
@@ -87,6 +92,7 @@ namespace Nop.Web.Controllers
         [ValidateCaptcha]
         public virtual async Task<IActionResult> AddAppoinment(ContactModel model, bool captchaValid)
         {
+                var customer = await _workContext.GetCurrentCustomerAsync();
                 var contact = new Contact();
                 contact.Name = model.Name;
                 contact.Address = model.Address;
@@ -96,6 +102,7 @@ namespace Nop.Web.Controllers
                 contact.NIDNumber = model.NIDNumber;
                 contact.VisitDate = model.VisitDate;
                 contact.Email = model.Email;
+                contact.CustomerId = customer.Id;
                 contact.Type = (int)ContactType.Appoinment;
                 await _contactService.InsertContactAsync(contact);
                 return Redirect("/Contact/Appoinments");

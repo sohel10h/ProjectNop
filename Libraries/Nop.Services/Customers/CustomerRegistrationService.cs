@@ -477,8 +477,8 @@ namespace Nop.Services.Customers
             newEmail = newEmail.Trim();
             var oldEmail = customer.Email;
 
-            if (!CommonHelper.IsValidEmail(newEmail))
-                throw new NopException(await _localizationService.GetResourceAsync("Account.EmailUsernameErrors.NewEmailIsNotValid"));
+            //if (!CommonHelper.IsValidEmail(newEmail))
+            //    throw new NopException(await _localizationService.GetResourceAsync("Account.EmailUsernameErrors.NewEmailIsNotValid"));
 
             if (newEmail.Length > 100)
                 throw new NopException(await _localizationService.GetResourceAsync("Account.EmailUsernameErrors.EmailTooLong"));

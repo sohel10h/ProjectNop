@@ -325,8 +325,11 @@ namespace Nop.Web.Controllers
         [HttpPost]
         public virtual async Task<IActionResult> MakeAnOrder(IFormCollection colletion)
         {
-            List<MakeAnOrder> orders = await GetOrderInfos(colletion);
-            var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(orders);
+            List<MakeAnOrder> orders = await GetOrderInfos(colletion,true);
+            var otherProducts = orders.Where(p => p.Id <= 0).ToList();
+            var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(otherProducts);
+
+            var ShippingNewAddress= colletion["ShippingNewAddress.Same"].ToString();
             var shippingAddress = GetAddress(colletion, "Shipping");
             var billingAddress = GetAddress(colletion, "Billing");
             await _addressService.InsertAddressAsync(shippingAddress);
@@ -402,11 +405,22 @@ namespace Nop.Web.Controllers
                 var name = colletion[namekey].ToString();
                 if (!string.IsNullOrEmpty(name))
                 {
-                    var quantity = Convert.ToInt32(colletion["quantity" + i]);
+                    int quantity = 1;
+                    try 
+                    {
+                        Convert.ToInt32(colletion["quantity" + i]);
+                    }
+                    catch { }
                     decimal price= decimal.Zero;
                     if (isCareer) 
                     {
-                        price = Convert.ToDecimal(colletion["price" + i]);
+                        try 
+                        {
+                            price = Convert.ToDecimal(colletion["price" + i]);
+                        }
+                        catch{}
+
+                       
                     }
                     var image = colletion.Files.GetFile("image" + i);
                     string fileName = string.Empty;
@@ -421,9 +435,17 @@ namespace Nop.Web.Controllers
                         }
                         await _pictureService.SaveMakeAnOrderThumbAsync(fileName, image.ContentType, fileBytes);
                     }
+
+                    int id = 0;
+                    try 
+                    {
+                        id = Convert.ToInt32(colletion["id" + i]);
+                    }
+                    catch { }
+
                     orders.Add(new Models.Order.MakeAnOrder
                     {
-                        Id = Convert.ToInt32(colletion["id" + i]),
+                        Id = id,
                         AttrName = colletion["attrName" + i].ToString(),
                         Name = name,
                         Quantity = quantity,
@@ -554,10 +576,12 @@ namespace Nop.Web.Controllers
                 TempData["AddressRequired"] = true;
                 return Redirect("/customer/addressadd");
             }
+            var shippingAddress = GetAddress(colletion, "Shipping");
+            await _addressService.InsertAddressAsync(shippingAddress);
 
             var order = new Order();
             order.BillingAddressId = addresses[0].Id;
-            order.ShippingAddressId = addresses[0].Id;
+            order.ShippingAddressId = shippingAddress.Id;
             order.ShippingStatus = Core.Domain.Shipping.ShippingStatus.NotYetShipped;
             order.PaymentStatus = Core.Domain.Payments.PaymentStatus.Pending;
             order.OrderStatus = OrderStatus.Pending;

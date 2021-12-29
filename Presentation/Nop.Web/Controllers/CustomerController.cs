@@ -99,6 +99,7 @@ namespace Nop.Web.Controllers
         private readonly StoreInformationSettings _storeInformationSettings;
         private readonly TaxSettings _taxSettings;
         private readonly IOTPService _otpService;
+        private readonly IWebHelper _webHelper;
 
 
         #endregion
@@ -149,6 +150,7 @@ namespace Nop.Web.Controllers
             MultiFactorAuthenticationSettings multiFactorAuthenticationSettings,
             StoreInformationSettings storeInformationSettings,
             IOTPService otpService,
+            IWebHelper webHelper,
             TaxSettings taxSettings)
         {
             _addressSettings = addressSettings;
@@ -196,6 +198,7 @@ namespace Nop.Web.Controllers
             _storeInformationSettings = storeInformationSettings;
             _taxSettings = taxSettings;
             _otpService = otpService;
+            _webHelper = webHelper;
         }
 
         #endregion
@@ -1194,7 +1197,19 @@ namespace Nop.Web.Controllers
 
             var model = new CustomerInfoModel();
             model = await _customerModelFactory.PrepareCustomerInfoModelAsync(model, await _workContext.GetCurrentCustomerAsync(), false);
-
+            var customerStatus = _webHelper.QueryString<int>("status");
+            if (customerStatus > 0)
+            {
+                TempData["customerStatus"] = customerStatus;
+            }
+            else 
+            {
+                TempData["customerStatus"] = null;
+            }
+            var customer = await _workContext.GetCurrentCustomerAsync();
+            model.AvatarUrl = await _pictureService.GetPictureUrlAsync(
+                await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.AvatarPictureIdAttribute),
+                _mediaSettings.AvatarPictureSize,false);
             return View(model);
         }
 
@@ -1205,7 +1220,7 @@ namespace Nop.Web.Controllers
 
         [HttpPost]
         /// <returns>A task that represents the asynchronous operation</returns>
-        public virtual async Task<IActionResult> Info(CustomerInfoModel model, IFormCollection form)
+        public virtual async Task<IActionResult> Info(CustomerInfoModel model, IFormCollection form, IFormFile uploadedFile)
         {
             if (!await _customerService.IsRegisteredAsync(await _workContext.GetCurrentCustomerAsync()))
                 return Challenge();
@@ -1231,7 +1246,6 @@ namespace Nop.Web.Controllers
             {
                 var consents = (await _gdprService
                     .GetAllConsentsAsync()).Where(consent => consent.DisplayOnCustomerInfoPage && consent.IsRequired).ToList();
-
                 ValidateRequiredConsents(consents, form);
             }
 
@@ -1240,7 +1254,26 @@ namespace Nop.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     //username 
-                    customer.CustomerStatusId = model.CustomerStatusId = 10;
+                    var customerStatus = TempData["customerStatus"];
+                    if (customer.CustomerStatus == CustomerStatus.Customer && customerStatus!=null) 
+                    {
+                        var cStatus = 0;
+                        try 
+                        {
+                            cStatus = Convert.ToInt32(TempData["customerStatus"].ToString());      
+                        }
+                        catch { }
+                        customer.CustomerStatusId = model.CustomerStatusId = cStatus;
+                    }
+
+                    customer.Village = model.Village;
+                    customer.FatherName = model.FatherName;
+                    customer.EducationalQualification = model.EducationalQualification;
+                    customer.Age = model.Age;
+                    customer.Upazila = model.Upazila;
+                    customer.Thana = model.Thana;
+                    customer.District = model.District;
+
                     await _customerService.UpdateCustomerAsync(customer);
                     if (_customerSettings.UsernamesEnabled && _customerSettings.AllowUsersToChangeUsernames)
                     {
@@ -1257,7 +1290,12 @@ namespace Nop.Web.Controllers
                         }
                     }
                     //email
-                    var email = model.Email.Trim();
+                    var email = string.Empty;
+                    if (!string.IsNullOrEmpty(model.Email)) 
+                    {
+
+                        email = model.Email.Trim();
+                    }
                     if (!customer.Email.Equals(email, StringComparison.InvariantCultureIgnoreCase))
                     {
                         //change email
@@ -1272,6 +1310,25 @@ namespace Nop.Web.Controllers
                                 await _authenticationService.SignInAsync(customer, true);
                         }
                     }
+
+                    if (uploadedFile != null && !string.IsNullOrEmpty(uploadedFile.FileName))
+                    {
+                        var avatarMaxSize = _customerSettings.AvatarMaximumSizeBytes;
+                        if (uploadedFile.Length > avatarMaxSize)
+                            throw new NopException(string.Format(await _localizationService.GetResourceAsync("Account.Avatar.MaximumUploadedFileSize"), avatarMaxSize));
+
+                        var customerPictureBinary = await _downloadService.GetDownloadBitsAsync(uploadedFile);
+                        var customerAvatar = await _pictureService.InsertPictureAsync(customerPictureBinary, uploadedFile.ContentType, null);
+
+                        var customerAvatarId = 0;
+                        if (customerAvatar != null)
+                            customerAvatarId = customerAvatar.Id;
+
+                        await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.AvatarPictureIdAttribute, customerAvatarId);
+                    }
+
+
+
 
                     //properties
                     if (_dateTimeSettings.AllowCustomersToSetTimeZone)
@@ -1764,8 +1821,11 @@ namespace Nop.Web.Controllers
                             throw new NopException(string.Format(await _localizationService.GetResourceAsync("Account.Avatar.MaximumUploadedFileSize"), avatarMaxSize));
 
                         var customerPictureBinary = await _downloadService.GetDownloadBitsAsync(uploadedFile);
-                        if (customerAvatar != null)
+                        if (customerAvatar != null) 
+                        {
+                            await _pictureService.DeletePictureAsync(customerAvatar);
                             customerAvatar = await _pictureService.UpdatePictureAsync(customerAvatar.Id, customerPictureBinary, uploadedFile.ContentType, null);
+                        }
                         else
                             customerAvatar = await _pictureService.InsertPictureAsync(customerPictureBinary, uploadedFile.ContentType, null);
                     }
@@ -2028,9 +2088,13 @@ namespace Nop.Web.Controllers
             {
                 return Redirect("/order/SaleFromCareer");
             }
-            else if (customer.CustomerStatus == CustomerStatus.RequestedForCareer) 
+            else if (customer.CustomerStatus == CustomerStatus.RequestedForCareer)
             {
                 return Redirect("/Customer/UnApprovedCareer");
+            }
+            else 
+            {
+                return Redirect("/customer/info?status=10");
             }
             return View();
         }

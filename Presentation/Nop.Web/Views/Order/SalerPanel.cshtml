@@ -51,23 +51,29 @@
 
 <h2 class="addItm"><a href="/order/sallerRequest">@T("Saller.Add.Items")</a></h2>
 
-<table>
-    <tr>
-        <th class="productName">@T("Saller.Product.Name")</th>
-        <th class="productPrice">@T("Saller.Product.Price")</th>
-        <th class="productImage">@T("Saller.Product.Image")</th>
-    </tr>
-    @{
-        foreach (var itm in Model)
-        {
-            <tr>
-                <td  class="productName">@itm.ProductName</td>
-                <td class="productPrice">@itm.ProductPrice</td>
-                <td class="productImage"> <img class="itmImage" src="/images/thumbs/@itm.ImageString" />    </td>
-            </tr>
+
+<div class="overflow_div">
+    <table>
+        <tr>
+            <th class="productName">@T("Saller.Product.Name")</th>
+            <th class="productPrice">@T("Saller.Product.Price")</th>
+            <th class="productImage">@T("Saller.Product.Image")</th>
+        </tr>
+        @{
+            foreach (var itm in Model)
+            {
+                <tr>
+                    <td class="productName">@itm.ProductName</td>
+                    <td class="productPrice">@itm.ProductPrice</td>
+                    <td class="productImage"> <img class="itmImage" src="/images/thumbs/@itm.ImageString" />    </td>
+                </tr>
+            }
         }
-    }
-</table>
+    </table>
+
+</div>
+
+
 
 
 

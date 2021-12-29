@@ -48,7 +48,7 @@ namespace Nop.Services.Contacts
         Task<IList<Contact>> GetAllContactsListAsync();
         Task<IPagedList<Contact>> GetAllContactsAsync(int type = 0, int pageIndex = 0, int pageSize = int.MaxValue);
 
-
+        Task<IPagedList<Contact>> GetAllContactsAsync(int customerId, int type = 0, int pageIndex = 0, int pageSize = int.MaxValue);
 
         /// <summary>
         /// Inserts a contact post

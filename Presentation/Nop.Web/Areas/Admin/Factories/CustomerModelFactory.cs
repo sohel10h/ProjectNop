@@ -711,6 +711,14 @@ namespace Nop.Web.Areas.Admin.Factories
                     model.DisplayRegisteredInStore = model.Id > 0 && !string.IsNullOrEmpty(model.RegisteredInStore) &&
                         (await _storeService.GetAllStoresAsync()).Select(x => x.Id).Count() > 1;
 
+                    model.FatherName = customer.FatherName;
+                    model.Village = customer.Village;
+                    model.EducationalQualification = customer.EducationalQualification;
+                    model.Age = customer.Age;
+                    model.Upazila = customer.Upazila;
+                    model.Thana = customer.Thana;
+                    model.District = customer.District;
+
                     //prepare model affiliate
                     var affiliate = await _affiliateService.GetAffiliateByIdAsync(customer.AffiliateId);
                     if (affiliate != null)

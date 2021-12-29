@@ -22,12 +22,12 @@ namespace Nop.Web.Validators.Common
             RuleFor(x => x.LastName)
                 .NotEmpty()
                 .WithMessageAwait(localizationService.GetResourceAsync("Address.Fields.LastName.Required"));
-            RuleFor(x => x.Email)
-                .NotEmpty()
-                .WithMessageAwait(localizationService.GetResourceAsync("Address.Fields.Email.Required"));
-            RuleFor(x => x.Email)
-                .EmailAddress()
-                .WithMessageAwait(localizationService.GetResourceAsync("Common.WrongEmail"));
+            //RuleFor(x => x.Email)
+            //    .NotEmpty()
+            //    .WithMessageAwait(localizationService.GetResourceAsync("Address.Fields.Email.Required"));
+            //RuleFor(x => x.Email)
+            //    .EmailAddress()
+            //    .WithMessageAwait(localizationService.GetResourceAsync("Common.WrongEmail"));
             if (addressSettings.CountryEnabled)
             {
                 RuleFor(x => x.CountryId)

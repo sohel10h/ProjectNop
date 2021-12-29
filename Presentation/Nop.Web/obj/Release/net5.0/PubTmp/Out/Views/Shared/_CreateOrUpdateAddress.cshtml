@@ -15,9 +15,10 @@
         <span asp-validation-for="LastName"></span>
     </div>
     <div class="inputs">
+        As sunnah Foundation
         <label asp-for="Email" asp-postfix=":"></label>
         <input asp-for="Email" />
-        <nop-required />
+        @*<nop-required />*@
         <span asp-validation-for="Email"></span>
     </div>
     @if (Model.CompanyEnabled)

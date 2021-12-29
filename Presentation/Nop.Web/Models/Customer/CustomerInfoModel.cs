@@ -111,6 +111,32 @@ namespace Nop.Web.Models.Customer
         public int StateProvinceId { get; set; }
         public IList<SelectListItem> AvailableStates { get; set; }
 
+
+        public string AvatarUrl { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.FatherName")]
+        public string FatherName { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.EducationalQualification")]
+        public string EducationalQualification { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.Age")]
+        public string Age { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.Village")]
+        public string Village { get; set; }
+
+
+        [NopResourceDisplayName("Account.Fields.Upazila")]
+        public string Upazila { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.Thana")]
+        public string Thana { get; set; }
+
+        [NopResourceDisplayName("Account.Fields.District")]
+        public string District { get; set; }
+
+
         public bool PhoneEnabled { get; set; }
         public bool PhoneRequired { get; set; }
         [DataType(DataType.PhoneNumber)]

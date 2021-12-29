@@ -8,7 +8,7 @@
 }
 
 <form asp-controller="order" asp-action="SaleFromCareer" method="post" enctype="multipart/form-data" id="category-form">
-    <input type="hidden" id="lineItem" value="2"  name="lineItem"/>
+    <input type="hidden" id="lineItem" value="2" name="lineItem" />
 
     <div class="download_link">
         <a download="" href="/images/thumbs/@ViewBag.CarrerSelePdfLocation">@T("Download.RateSheet")</a>
@@ -16,50 +16,137 @@
 
     <div id="make_an_order">
         <div class="mnoContainer">
+            <div class="cross"><i class="far fa-times-circle"></i></div>
             <input type="hidden" value="0" class="productid" name="id0" />
+            <input type="hidden" value="0" class="productPrice" />
             <input type="hidden" value="0" class="price" name="price0" />
             <input type="hidden" value="" class="attrName" name="attrName0" />
             <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name0" /></div>
             <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity0" min="1" value="1" class="product_qty" /></div>
-            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span><select name="attr0" class="product_attr"><option>@T("Select.An.Option")</option></select></div>
+            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span> <div class="atter_append">     </div> </div>
             <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description0"></textarea></div>
             <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div>
             <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image0" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
         </div>
 
         <div class="mnoContainer">
+            <div class="cross"><i class="far fa-times-circle"></i></div>
             <input type="hidden" value="0" class="productid" name="id1" />
+            <input type="hidden" value="0" class="productPrice" />
             <input type="hidden" value="0" class="price" name="price1" />
             <input type="hidden" value="" class="attrName" name="attrName1" />
             <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name1" /></div>
-            <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.Name")" name="quantity1" min="1" value="1" class="product_qty" /></div>
-            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span><select name="attr1" class="product_attr"><option>@T("Select.An.Option")</option></select></div>
-            <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Name")" name="description1"></textarea></div>
+            <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity1" min="1" value="1" class="product_qty" /></div>
+            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span> <div class="atter_append">     </div> </div>
+            <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description1"></textarea></div>
             <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div>
             <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image1" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
         </div>
 
         <div class="mnoContainer">
+            <div class="cross"><i class="far fa-times-circle"></i></div>
             <input type="hidden" value="0" class="productid" name="id2" />
+            <input type="hidden" value="0" class="productPrice" />
             <input type="hidden" value="0" class="price" name="price2" />
             <input type="hidden" value="" class="attrName" name="attrName2" />
             <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name2" /></div>
-            <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.Name")" name="quantity2" min="1" value="1" class="product_qty" /></div>
-            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span><select name="attr2" class="product_attr"><option>@T("Select.An.Option")</option></select></div>
-            <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Name")" name="description2"></textarea></div>
+            <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity2" min="1" value="1" class="product_qty" /></div>
+            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span> <div class="atter_append">     </div> </div>
+            <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description2"></textarea></div>
             <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div>
             <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image2" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
         </div>
     </div>
 
+
     <div class="addmoreLine">
         <span>@T("ADD.MORE.LINE")</span>
     </div>
+
+
+
+    <div class="billing_shipping_info">
+        <div class="section new-Shipping-address" id="payment-new-make_order" style="">
+            <div class="billing_shipping_text">@T("Make.An.Order.Shipping.Text")</div>
+            <div class="inputs" style=" text-align: left; width: 38%;">
+            </div>
+
+
+
+            <div class="">
+                <input class="address-id" type="hidden" data-val="true" data-val-required="The Id field is required." id="ShippingNewAddress_Id" name="ShippingNewAddress.Id" value="0">
+                <div class="edit-address">
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_FirstName">First name:</label>
+                        <input type="text" data-val="true" data-val-required="First name is required." id="ShippingNewAddress_FirstName" name="ShippingNewAddress.FirstName">
+                        <span class="required">*</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.FirstName" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_LastName">Last name:</label>
+                        <input type="text" data-val="true" data-val-required="Last name is required." id="ShippingNewAddress_LastName" name="ShippingNewAddress.LastName">
+                        <span class="required">*</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.LastName" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_Email">Email:</label>
+                        <input type="email" data-val="true" data-val-email="Wrong email" id="ShippingNewAddress_Email" name="ShippingNewAddress.Email">
+                    </div>
+
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_City">City:</label>
+                        <input type="text" data-val="true" data-val-required="City is required" id="ShippingNewAddress_City" name="ShippingNewAddress.City">
+                        <span class="required">*</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.City" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_Address1">Address 1:</label>
+                        <input type="text" data-val="true" data-val-required="Street address is required" id="ShippingNewAddress_Address1" name="ShippingNewAddress.Address1">
+                        <span class="required">*</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.Address1" data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_PhoneNumber">Phone number:</label>
+                        <input type="tel" data-val="true" data-val-required="Phone is required" id="ShippingNewAddress_PhoneNumber" name="ShippingNewAddress.PhoneNumber">
+                        <span class="required">*</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.PhoneNumber" data-valmsg-replace="true"></span>
+                    </div>
+
+
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_CountryId">Country:</label>
+                        <select data-trigger="country-select" data-url="/country/getstatesbycountryid"
+                                data-stateprovince="#ShippingNewAddress_StateProvinceId"
+                                data-loading="#states-loading-progress" data-val="true"
+                                data-val-required="Country is required."
+                                id="ShippingNewAddress_CountryId"
+                                name="ShippingNewAddress.CountryId">
+                            <option value="0">Select country</option>
+                            <option value="19">Bangladesh</option>
+
+                        </select>
+                        <span class="required">*</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.CountryId" data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_StateProvinceId">State / province:</label>
+                        <select data-trigger="state-select" id="ShippingNewAddress_StateProvinceId" name="ShippingNewAddress.StateProvinceId">
+                            <option value="0">Select state</option>
+                        </select>
+                        <span id="states-loading-progress" style="display: none;" class="please-wait">Wait...</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.StateProvinceId" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <button id="upload_order">@T("Saller.Submit")</button>
 </form>
-
-
-
 
 <script asp-location="Footer">
 
@@ -72,48 +159,52 @@
         minLength:3,
         select: function (event, ui)
         {
+            $(this).parents(".mnoContainer").find(".atter_append").html('');
             debugger;
             console.log(ui);
             var dropdown = [];
-            debugger;
             if (ui.item.ProductAttributes.length > 0)
             {
                 $(this).parents(".mnoContainer").find(".product_attr").html("");
                 for (let attr of ui.item.ProductAttributes)
                 {
                     var name = attr.Name;
-                    $(this).parents(".mnoContainer").find(".product_attr").append('<option value="' + ui.item.price + '">@T("Select.Attribute") </option>');
+                    console.log(name);
+                    //$(this).parents(".mnoContainer").find(".product_attr").append('<option value="' + ui.item.price + '">@T("Select.Attribute") </option>');
                     if (attr.Values.length > 0)
                     {
+                        debugger;
+                        var atterHtml = '<select name="attr1" class="product_attr"><option value="0"> Select ' + name + '</option>';
                         for (let val of attr.Values)
                         {
-                            var attrName = name + "(" + val.Name + ')';
+                            //var attrName = name + "(" + val.Name + ')';
                             var price = val.Cost;
-                            $(this).parents(".mnoContainer").find(".product_attr").append('<option value="' + price+'">' + attrName+' </option>');
+                            atterHtml += '<option value="' + price + '">' + val.Name + ' </option>';
+                            //$(this).parents(".mnoContainer").find(".product_attr").append('<option value="' + price+'">' + attrName+' </option>');
                         }
+                        atterHtml += '</select>';
+                        $(this).parents(".mnoContainer").find(".atter_append").append(atterHtml);
                     }
                 }
             }
-            debugger;
             console.log(dropdown);
             var id = $(this).attr("name").replace("name", '');
             $('input.productid[name="id' + id + '"]').val(ui.item.id);
             $(this).parents(".mnoContainer").find(".product_price").html(ui.item.price);
             $(this).parents(".mnoContainer").find(".price").val(ui.item.price);
+            $(this).parents(".mnoContainer").find(".productPrice").val(ui.item.price);
+
+
+
             $(this).val(ui.item.label);
             $(this).parents(".mnoContainer").find(".pproduct_img_dv").css("display", "none");
             $(this).parents(".mnoContainer").find(".product_des_dv").css("display", "none");
             $(this).parents(".mnoContainer").find(".Product_price_div.container_info").css("display", "block");
             $(this).parents(".mnoContainer").find(".product_attr_dv.container_info").css("display", "block");
-
-
-
-
             return false;
         },
     });
     });
-
 
 
     $(".addmoreLine span").click(function ()
@@ -121,34 +212,113 @@
         currentLine++;
         $("#lineItem").val(currentLine)
         //var html = '<div class="mnoContainer"> <input type="hidden" class="productid" value="0" name="id' + currentLine + '"> <input type="hidden" value="0" class="price" name="price' + currentLine + '" /><div class="product_name_dv"><span class="title">@T("Sale.Product.Name")</span> <input type="text" class="product_name ui-autocomplete-input" name="name' + currentLine + '" autocomplete="off"><span class="product_price"></span></div> <div class="pproduct_quantity_dv"><span class="title">@T("Sale.Product.QTY") </span> <input type="number" name="quantity' + currentLine + '" min="1" value="1" class="product_qty"></div>            <div class="product_attr_dv"><span class="title">@T("Sale.Product.Attr") </span><select name="attr' + currentLine + '" class="product_attr"></select></div><div class="pproduct_img_dv"><span class="title">@T("Sale.Product.Image") </span> <input name="image' + currentLine +'" type="file" accept="image/png, image/jpeg" class="product_img"></div> </div>';
-        var html = '<div class="mnoContainer"> <input type="hidden" value="0" class="productid" name="id' + currentLine + '" /> <input type="hidden" value="0" class="price" name="price' + currentLine + '" /> <input type="hidden" value="" class="attrName" name="attrName' + currentLine + '" /> <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name' + currentLine + '" /></div> <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity' + currentLine + '" min="1" value="1" class="product_qty" /></div> <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span><select name="attr' + currentLine + '" class="product_attr"><option>@T("Select.An.Option")</option></select></div> <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description' + currentLine + '"></textarea></div> <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div> <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image' + currentLine + '" type="file" accept="image/png, image/jpeg" class="product_img" /></div> </div>';
+        var html = '<div class="mnoContainer"><div class="cross"><i class="far fa-times-circle"></i></div> <input type="hidden" value="0" class="productid" name="id' + currentLine + '" /> <input type="hidden" value="0" class="productPrice" /> <input type="hidden" value="0" class="price" name="price' + currentLine + '" /> <input type="hidden" value="" class="attrName" name="attrName' + currentLine + '" /> <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name' + currentLine + '" /></div> <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity' + currentLine + '" min="1" value="1" class="product_qty" /></div> <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span> <div class="atter_append">     </div> </div> <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description' + currentLine + '"></textarea></div> <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div> <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image' + currentLine + '" type="file" accept="image/png, image/jpeg" class="product_img" /></div> </div>';
         $("div#make_an_order").append(html);
 
     });
 
 
-    $("select.product_attr").change(function ()
+    $(document).on("change", "select.product_attr", function ()
     {
-        var price = $(this).val();
-        var text = $(this).find('option:selected').text();
-        var index = $(this).find('option:selected').index();
-        if (index > 0) {
-        }
-        else
+        debugger;
+        var self = this;
+        var attrName = "";
+        if ($(this).hasClass('error_dv'))
         {
-            $(this).parents(".mnoContainer").find(".attrName").val("");
+            $(this).removeClass('error_dv');
         }
+        var price = parseInt($(this).parents(".mnoContainer").find(".productPrice").val());
+        var attrList= $(this).parents(".mnoContainer").find(".atter_append select");
+        attrList.each(function (index)
+        {
+            debugger;
+            var selectedPrice = parseInt($(this).find('option:selected').val());
+            if (selectedPrice != NaN && selectedPrice != 0)
+            {
+                price += selectedPrice;
+                attrName += $(this).find('option:selected').text() + "</br>";
+            }
+        });
+        debugger;
+        $(self).parents(".mnoContainer").find(".product_price").html(price);
+        $(self).parents(".mnoContainer").find(".price").val(price);
+        $(self).parents(".mnoContainer").find(".attrName").val(attrName);
+    });
 
-        $(this).parents(".mnoContainer").find(".product_price").html(price);
-        $(this).parents(".mnoContainer").find(".price").val(price);
+
+    $("button#upload_order").click(function (e) {
+        debugger;
+        e.preventDefault();
+        var attrList = $("select.product_attr");
+        var foundBlank = false;
+        attrList.each(function (index)
+        {
+            debugger;
+            var selected_index = $(this).prop('selectedIndex');
+            if (selected_index == 0) {
+                $(this).addClass("error_dv");
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(this).offset().top
+                });
+                foundBlank = true;
+                return false;
+            }
+        });
+        debugger;
+        if (foundBlank == false)
+        {
+            $("#category-form").submit();
+        }
+        //$("#category-form").submit();
+
+    });
+
+    $(document).on("click", ".cross", function () {
+        $(this).parents(".mnoContainer").find(".atter_append").html("");
+        $(this).parents(".mnoContainer").find("input").val("");
+        $(this).parents(".mnoContainer").find(".product_attr_dv.container_info").css("display", "none");
+        $(this).parents(".mnoContainer").find(".Product_price_div.container_info").css("display", "none");
+
+        $(this).parents(".mnoContainer").find(".product_price").html("");
+
+        $(this).parents(".mnoContainer").find(".pproduct_img_dv").css("display", "block");
+        $(this).parents(".mnoContainer").find(".product_des_dv").css("display", "block");
     });
 
 </script>
 
-
-
 <style>
-
+    .billing_shipping_text {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 800;
+    }
+    .error_dv {
+        background-color: red;
+        color: white;
+    }
+    span.itm_number {
+        display: block;
+        padding: 3px 0 0 10px;
+        font-size: 20px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        background-color: green;
+        font-weight: bold;
+        color: white;
+    }
+    .cross {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        right: 0;
+        border-radius: 100%;
+        text-align: center;
+        font-size: 48px;
+        color: red;
+        cursor: pointer;
+    }
     span.title.dontBlock {
         display: initial;
         padding-right: 19px;
@@ -158,8 +328,8 @@
     }
     textarea.productDec {
         max-width: 100%;
-        min-width: 100%;
-        min-height: 100px;
+        height: 40px !important;
+        min-height: 30px;
     }
     span.title {
         font-size: 15px;
@@ -207,6 +377,7 @@
         margin: 10px auto 35px auto;
         border-bottom: 1px solid #beb5b5;
         padding-bottom: 8px;
+       
     }
 
     button#upload_order {
@@ -236,6 +407,7 @@
         border-radius: 5px;
         background-color: #eee;
         box-shadow: 0px 0px 5px 2px #b6adad;
+        position: relative;
     }
 
     .header_container .pproduct_img_dv, .header_container .pproduct_quantity_dv {
@@ -248,18 +420,53 @@
         text-align: center;
     }
 
-    select.product_attr, input.product_qty, input.product_name, textarea.productDec {
-        width: 50%;
+    input.product_qty, input.product_name, textarea.productDec {
+        width: 46%;
         border-radius: 5px;
         height: 35px;
     }
-
+    select.product_attr {
+        width:50%;
+        display:block;
+        margin-top:10px;
+        border-radius:5px;
+    }
     .product_name_dv.container_info, .pproduct_quantity_dv.container_info {
         display: inline-block;
         width: 49%;
     }
 
-        .product_name_dv.container_info input, .pproduct_quantity_dv.container_info input {
-            width: 98%;
+    .product_name_dv.container_info input, .pproduct_quantity_dv.container_info input {
+        width: 98%;
+    }
+
+
+    @@media all and (max-width: 1000px) {
+        select.product_attr, input.product_qty, input.product_name, textarea.productDec {
+            width: 100%;
+            border-radius: 5px;
+            height: 35px;
         }
+
+        .mnoContainer {
+            width: 100% !important;
+        }
+        .cross {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: 6px;
+            border-radius: 100%;
+            text-align: center;
+            font-size: 35px;
+            color: red;
+            cursor: pointer;
+        }
+    }
+
+
+
+
+
+
 </style>

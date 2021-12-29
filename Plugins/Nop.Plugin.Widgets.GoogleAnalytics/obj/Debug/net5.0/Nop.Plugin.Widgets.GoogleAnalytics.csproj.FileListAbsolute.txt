@@ -1494,7 +1494,6 @@ D:\Personal works\new clone\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\refs\System.Xml.XPath.dll
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\new clone\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\refs\WindowsBase.dll
-D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\net5.0\Nop.Plugin.Widgets.GoogleAnalytics.csproj.AssemblyReference.cache
 D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\net5.0\Nop.Plugin.Widgets.GoogleAnalytics.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\net5.0\Nop.Plugin.Widgets.GoogleAnalytics.AssemblyInfoInputs.cache
 D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\net5.0\Nop.Plugin.Widgets.GoogleAnalytics.AssemblyInfo.cs
@@ -1503,3 +1502,4 @@ D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug
 D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\net5.0\Nop.Plugin.Widgets.GoogleAnalytics.dll
 D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\net5.0\ref\Nop.Plugin.Widgets.GoogleAnalytics.dll
 D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\net5.0\Nop.Plugin.Widgets.GoogleAnalytics.pdb
+D:\Personal works\new clone\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\net5.0\Nop.Plugin.Widgets.GoogleAnalytics.csproj.AssemblyReference.cache

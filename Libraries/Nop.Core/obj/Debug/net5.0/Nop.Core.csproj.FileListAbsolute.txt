@@ -1472,7 +1472,6 @@ D:\Personal works\new clone\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.dll
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Debug\net5.0\ref\Nop.Core.dll
 D:\Personal works\new clone\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.pdb
-D:\Personal works\new clone\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.AssemblyReference.cache
 D:\ProjectNop\Libraries\Nop.Core\bin\Debug\net5.0\Nop.Core.deps.json
 D:\ProjectNop\Libraries\Nop.Core\bin\Debug\net5.0\Nop.Core.dll
 D:\ProjectNop\Libraries\Nop.Core\bin\Debug\net5.0\ref\Nop.Core.dll
@@ -1767,3 +1766,4 @@ D:\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.CoreCompileInp
 D:\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.dll
 D:\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\ref\Nop.Core.dll
 D:\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.pdb
+D:\Personal works\new clone\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.AssemblyReference.cache

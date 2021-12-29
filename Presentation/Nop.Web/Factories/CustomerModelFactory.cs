@@ -240,6 +240,15 @@ namespace Nop.Web.Factories
 
                 model.Email = customer.Email;
                 model.Username = customer.Username;
+
+                model.FatherName = customer.FatherName;
+                model.Village = customer.Village;
+                model.EducationalQualification = customer.EducationalQualification;
+                model.Age = customer.Age;
+                model.Upazila = customer.Upazila;
+                model.Thana = customer.Thana;
+                model.District = customer.District;
+
             }
             else
             {

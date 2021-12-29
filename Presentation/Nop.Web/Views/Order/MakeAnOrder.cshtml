@@ -14,37 +14,47 @@
 
     <div id="make_an_order">
         <div class="mnoContainer">
+            @*<span class="itm_number">1</span>*@
+            <div class="cross"><i class="far fa-times-circle"></i></div>
             <input type="hidden" value="0" class="productid" name="id0" />
+            <input type="hidden" value="0" class="productPrice" />
             <input type="hidden" value="0" class="price" name="price0" />
             <input type="hidden" value="" class="attrName" name="attrName0" />
             <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name0" /></div>
             <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity0" min="1" value="1" class="product_qty" /></div>
-            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span><select name="attr0" class="product_attr"><option>@T("Select.An.Option")</option></select></div>
+            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span> <div class="atter_append">     </div> </div>
             <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description0"></textarea></div>
             <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div>
             <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image0" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
         </div>
 
         <div class="mnoContainer">
+            @*<span class="itm_number">2</span>*@
+
+            <div class="cross"><i class="far fa-times-circle"></i></div>
             <input type="hidden" value="0" class="productid" name="id1" />
+            <input type="hidden" value="0" class="productPrice" />
             <input type="hidden" value="0" class="price" name="price1" />
             <input type="hidden" value="" class="attrName" name="attrName1" />
             <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name1" /></div>
-            <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.Name")" name="quantity1" min="1" value="1" class="product_qty" /></div>
-            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span><select name="attr1" class="product_attr"><option>@T("Select.An.Option")</option></select></div>
-            <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Name")" name="description1"></textarea></div>
+            <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity1" min="1" value="1" class="product_qty" /></div>
+            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span> <div class="atter_append">     </div> </div>
+            <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description1"></textarea></div>
             <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div>
             <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image1" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
         </div>
 
         <div class="mnoContainer">
+            @*<span class="itm_number">3</span>*@
+            <div class="cross"><i class="far fa-times-circle"></i></div>
             <input type="hidden" value="0" class="productid" name="id2" />
+            <input type="hidden" value="0" class="productPrice" />
             <input type="hidden" value="0" class="price" name="price2" />
             <input type="hidden" value="" class="attrName" name="attrName2" />
             <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name2" /></div>
-            <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.Name")" name="quantity2" min="1" value="1" class="product_qty" /></div>
-            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span><select name="attr2" class="product_attr"><option>@T("Select.An.Option")</option></select></div>
-            <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Name")" name="description2"></textarea></div>
+            <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity2" min="1" value="1" class="product_qty" /></div>
+            <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span> <div class="atter_append">     </div> </div>
+            <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description2"></textarea></div>
             <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div>
             <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image2" type="file" accept="image/png, image/jpeg" class="product_img" /></div>
         </div>
@@ -54,10 +64,17 @@
         <span>@T("ADD.MORE.LINE")</span>
     </div>
 
-
     <div class="billing_shipping_info">
         <div class="section new-billing-address" id="billing-new-make_order" style="">
             <div class="billing_shipping_text">@T("Make.An.Order.Billing.Text")</div>
+
+            <div class="inputs" style=" width: 56%;">
+                <label for="BillingNewAddress_FirstName">Is Same Address</label>
+                @Html.CheckBox("SameShippingAddress")
+            </div>
+            
+
+            @*<input type="checkbox" id="ShippingNewAddress_same" name="ShippingNewAddress.Same">*@
             <div class="">
                 <input class="address-id" type="hidden" data-val="true" data-val-required="The Id field is required." id="BillingNewAddress_Id" name="BillingNewAddress.Id" value="0">
                 <div class="edit-address">
@@ -84,7 +101,6 @@
                         }
                     }
 
-
                     <div class="inputs">
                         <label for="BillingNewAddress_FirstName">First name:</label>
                         <input type="text" data-val="true" data-val-required="First name is required." id="BillingNewAddress_FirstName" name="BillingNewAddress.FirstName" value="@FirstName">
@@ -99,284 +115,9 @@
                     </div>
                     <div class="inputs">
                         <label for="BillingNewAddress_Email">Email:</label>
-                        <input type="email" data-val="true" data-val-email="Wrong email" data-val-required="Email is required." id="BillingNewAddress_Email" name="BillingNewAddress.Email" value="@Email">
-                        <span class="required">*</span>
-                        <span class="field-validation-valid" data-valmsg-for="BillingNewAddress.Email" data-valmsg-replace="true"></span>
+                        <input type="email" data-val="true" data-val-email="Wrong email" id="BillingNewAddress_Email" name="BillingNewAddress.Email" value="@Email">
                     </div>
 
-                    <div class="inputs">
-                        <label for="BillingNewAddress_CountryId">Country:</label>
-                        <select data-trigger="country-select"
-                                data-url="/country/getstatesbycountryid"
-                                data-stateprovince="#BillingNewAddress_StateProvinceId"
-                                data-loading="#states-loading-progress"
-                                data-val="true"
-                                data-val-required="Country is required."
-                                id="BillingNewAddress_CountryId"
-                                name="BillingNewAddress.CountryId">
-                            <option value="0">Select country</option>
-                            <option value="237">United States of America</option>
-                            <option value="1">Afghanistan</option>
-                            <option value="2">Åland Islands</option>
-                            <option value="3">Albania</option>
-                            <option value="4">Algeria</option>
-                            <option value="5">American Samoa</option>
-                            <option value="6">Andorra</option>
-                            <option value="7">Angola</option>
-                            <option value="8">Anguilla</option>
-                            <option value="9">Antarctica</option>
-                            <option value="10">Antigua and Barbuda</option>
-                            <option value="11">Argentina</option>
-                            <option value="12">Armenia</option>
-                            <option value="13">Aruba</option>
-                            <option value="14">Australia</option>
-                            <option value="15">Austria</option>
-                            <option value="16">Azerbaijan</option>
-                            <option value="17">Bahamas</option>
-                            <option value="18">Bahrain</option>
-                            <option value="19" selected>Bangladesh</option>
-                            <option value="20">Barbados</option>
-                            <option value="21">Belarus</option>
-                            <option value="22">Belgium</option>
-                            <option value="23">Belize</option>
-                            <option value="24">Benin</option>
-                            <option value="25">Bermuda</option>
-                            <option value="26">Bhutan</option>
-                            <option value="27">Bolivia (Plurinational State of)</option>
-                            <option value="28">Bonaire, Sint Eustatius and Saba</option>
-                            <option value="29">Bosnia and Herzegovina</option>
-                            <option value="30">Botswana</option>
-                            <option value="31">Bouvet Island</option>
-                            <option value="32">Brazil</option>
-                            <option value="33">British Indian Ocean Territory</option>
-                            <option value="34">Brunei Darussalam</option>
-                            <option value="35">Bulgaria</option>
-                            <option value="36">Burkina Faso</option>
-                            <option value="37">Burundi</option>
-                            <option value="38">Cabo Verde</option>
-                            <option value="39">Cambodia</option>
-                            <option value="40">Cameroon</option>
-                            <option value="41">Canada</option>
-                            <option value="42">Cayman Islands</option>
-                            <option value="43">Central African Republic</option>
-                            <option value="44">Chad</option>
-                            <option value="45">Chile</option>
-                            <option value="46">China</option>
-                            <option value="47">Christmas Island</option>
-                            <option value="48">Cocos (Keeling) Islands</option>
-                            <option value="49">Colombia</option>
-                            <option value="50">Comoros</option>
-                            <option value="51">Congo</option>
-                            <option value="52">Congo (Democratic Republic of the)</option>
-                            <option value="53">Cook Islands</option>
-                            <option value="54">Costa Rica</option>
-                            <option value="55">Côte d'Ivoire</option>
-                            <option value="56">Croatia</option>
-                            <option value="57">Cuba</option>
-                            <option value="58">Curaçao</option>
-                            <option value="59">Cyprus</option>
-                            <option value="60">Czechia</option>
-                            <option value="61">Denmark</option>
-                            <option value="62">Djibouti</option>
-                            <option value="63">Dominica</option>
-                            <option value="64">Dominican Republic</option>
-                            <option value="65">Ecuador</option>
-                            <option value="66">Egypt</option>
-                            <option value="67">El Salvador</option>
-                            <option value="68">Equatorial Guinea</option>
-                            <option value="69">Eritrea</option>
-                            <option value="70">Estonia</option>
-                            <option value="71">Eswatini</option>
-                            <option value="72">Ethiopia</option>
-                            <option value="73">Falkland Islands (Malvinas)</option>
-                            <option value="74">Faroe Islands</option>
-                            <option value="75">Fiji</option>
-                            <option value="76">Finland</option>
-                            <option value="77">France</option>
-                            <option value="78">French Guiana</option>
-                            <option value="79">French Polynesia</option>
-                            <option value="80">French Southern Territories</option>
-                            <option value="81">Gabon</option>
-                            <option value="82">Gambia</option>
-                            <option value="83">Georgia</option>
-                            <option value="84">Germany</option>
-                            <option value="85">Ghana</option>
-                            <option value="86">Gibraltar</option>
-                            <option value="87">Greece</option>
-                            <option value="88">Greenland</option>
-                            <option value="89">Grenada</option>
-                            <option value="90">Guadeloupe</option>
-                            <option value="91">Guam</option>
-                            <option value="92">Guatemala</option>
-                            <option value="93">Guernsey</option>
-                            <option value="94">Guinea</option>
-                            <option value="95">Guinea-Bissau</option>
-                            <option value="96">Guyana</option>
-                            <option value="97">Haiti</option>
-                            <option value="98">Heard Island and McDonald Islands</option>
-                            <option value="99">Holy See</option>
-                            <option value="100">Honduras</option>
-                            <option value="101">Hong Kong</option>
-                            <option value="102">Hungary</option>
-                            <option value="103">Iceland</option>
-                            <option value="104">India</option>
-                            <option value="105">Indonesia</option>
-                            <option value="106">Iran (Islamic Republic of)</option>
-                            <option value="107">Iraq</option>
-                            <option value="108">Ireland</option>
-                            <option value="109">Isle of Man</option>
-                            <option value="110">Israel</option>
-                            <option value="111">Italy</option>
-                            <option value="112">Jamaica</option>
-                            <option value="113">Japan</option>
-                            <option value="114">Jersey</option>
-                            <option value="115">Jordan</option>
-                            <option value="116">Kazakhstan</option>
-                            <option value="117">Kenya</option>
-                            <option value="118">Kiribati</option>
-                            <option value="119">Korea (Democratic People's Republic of)</option>
-                            <option value="120">Korea (Republic of)</option>
-                            <option value="121">Kuwait</option>
-                            <option value="122">Kyrgyzstan</option>
-                            <option value="123">Lao People's Democratic Republic</option>
-                            <option value="124">Latvia</option>
-                            <option value="125">Lebanon</option>
-                            <option value="126">Lesotho</option>
-                            <option value="127">Liberia</option>
-                            <option value="128">Libya</option>
-                            <option value="129">Liechtenstein</option>
-                            <option value="130">Lithuania</option>
-                            <option value="131">Luxembourg</option>
-                            <option value="132">Macao</option>
-                            <option value="134">Madagascar</option>
-                            <option value="135">Malawi</option>
-                            <option value="136">Malaysia</option>
-                            <option value="137">Maldives</option>
-                            <option value="138">Mali</option>
-                            <option value="139">Malta</option>
-                            <option value="140">Marshall Islands</option>
-                            <option value="141">Martinique</option>
-                            <option value="142">Mauritania</option>
-                            <option value="143">Mauritius</option>
-                            <option value="144">Mayotte</option>
-                            <option value="145">Mexico</option>
-                            <option value="146">Micronesia (Federated States of)</option>
-                            <option value="147">Moldova (Republic of)</option>
-                            <option value="148">Monaco</option>
-                            <option value="149">Mongolia</option>
-                            <option value="150">Montenegro</option>
-                            <option value="151">Montserrat</option>
-                            <option value="152">Morocco</option>
-                            <option value="153">Mozambique</option>
-                            <option value="154">Myanmar</option>
-                            <option value="155">Namibia</option>
-                            <option value="156">Nauru</option>
-                            <option value="157">Nepal</option>
-                            <option value="158">Netherlands</option>
-                            <option value="159">New Caledonia</option>
-                            <option value="160">New Zealand</option>
-                            <option value="161">Nicaragua</option>
-                            <option value="162">Niger</option>
-                            <option value="163">Nigeria</option>
-                            <option value="164">Niue</option>
-                            <option value="165">Norfolk Island</option>
-                            <option value="133">North Macedonia</option>
-                            <option value="166">Northern Mariana Islands</option>
-                            <option value="167">Norway</option>
-                            <option value="168">Oman</option>
-                            <option value="169">Pakistan</option>
-                            <option value="170">Palau</option>
-                            <option value="171">Palestine, State of</option>
-                            <option value="172">Panama</option>
-                            <option value="173">Papua New Guinea</option>
-                            <option value="174">Paraguay</option>
-                            <option value="175">Peru</option>
-                            <option value="176">Philippines</option>
-                            <option value="177">Pitcairn</option>
-                            <option value="178">Poland</option>
-                            <option value="179">Portugal</option>
-                            <option value="180">Puerto Rico</option>
-                            <option value="181">Qatar</option>
-                            <option value="182">Réunion</option>
-                            <option value="183">Romania</option>
-                            <option value="184">Russian Federation</option>
-                            <option value="185">Rwanda</option>
-                            <option value="186">Saint Barthélemy</option>
-                            <option value="187">Saint Helena, Ascension and Tristan da Cunha</option>
-                            <option value="188">Saint Kitts and Nevis</option>
-                            <option value="189">Saint Lucia</option>
-                            <option value="190">Saint Martin (French part)</option>
-                            <option value="191">Saint Pierre and Miquelon</option>
-                            <option value="192">Saint Vincent and the Grenadines</option>
-                            <option value="193">Samoa</option>
-                            <option value="194">San Marino</option>
-                            <option value="195">Sao Tome and Principe</option>
-                            <option value="196">Saudi Arabia</option>
-                            <option value="197">Senegal</option>
-                            <option value="198">Serbia</option>
-                            <option value="199">Seychelles</option>
-                            <option value="200">Sierra Leone</option>
-                            <option value="201">Singapore</option>
-                            <option value="202">Sint Maarten (Dutch part)</option>
-                            <option value="203">Slovakia</option>
-                            <option value="204">Slovenia</option>
-                            <option value="205">Solomon Islands</option>
-                            <option value="206">Somalia</option>
-                            <option value="207">South Africa</option>
-                            <option value="208">South Georgia and the South Sandwich Islands</option>
-                            <option value="209">South Sudan</option>
-                            <option value="210">Spain</option>
-                            <option value="211">Sri Lanka</option>
-                            <option value="212">Sudan</option>
-                            <option value="213">Suriname</option>
-                            <option value="214">Svalbard and Jan Mayen</option>
-                            <option value="215">Sweden</option>
-                            <option value="216">Switzerland</option>
-                            <option value="217">Syrian Arab Republic</option>
-                            <option value="218">Taiwan, Province of China</option>
-                            <option value="219">Tajikistan</option>
-                            <option value="220">Tanzania, United Republic of</option>
-                            <option value="221">Thailand</option>
-                            <option value="222">Timor-Leste</option>
-                            <option value="223">Togo</option>
-                            <option value="224">Tokelau</option>
-                            <option value="225">Tonga</option>
-                            <option value="226">Trinidad and Tobago</option>
-                            <option value="227">Tunisia</option>
-                            <option value="228">Turkey</option>
-                            <option value="229">Turkmenistan</option>
-                            <option value="230">Turks and Caicos Islands</option>
-                            <option value="231">Tuvalu</option>
-                            <option value="232">Uganda</option>
-                            <option value="233">Ukraine</option>
-                            <option value="234">United Arab Emirates</option>
-                            <option value="235">United Kingdom of Great Britain and Northern Ireland</option>
-                            <option value="236">United States Minor Outlying Islands</option>
-                            <option value="238">Uruguay</option>
-                            <option value="239">Uzbekistan</option>
-                            <option value="240">Vanuatu</option>
-                            <option value="241">Venezuela (Bolivarian Republic of)</option>
-                            <option value="242">Viet Nam</option>
-                            <option value="243">Virgin Islands (British)</option>
-                            <option value="244">Virgin Islands (U.S.)</option>
-                            <option value="245">Wallis and Futuna</option>
-                            <option value="246">Western Sahara</option>
-                            <option value="247">Yemen</option>
-                            <option value="248">Zambia</option>
-                            <option value="249">Zimbabwe</option>
-                        </select>
-                        <span class="required">*</span>
-                        <span class="field-validation-valid" data-valmsg-for="BillingNewAddress.CountryId" data-valmsg-replace="true"></span>
-                    </div>
-
-                    <div class="inputs">
-                        <label for="BillingNewAddress_StateProvinceId">State / province:</label>
-                        <select data-trigger="state-select" id="BillingNewAddress_StateProvinceId" name="BillingNewAddress.StateProvinceId">
-                            <option value="0">Select state</option>
-                        </select>
-                        <span id="states-loading-progress" style="display: none;" class="please-wait">Wait...</span>
-                        <span class="field-validation-valid" data-valmsg-for="BillingNewAddress.StateProvinceId" data-valmsg-replace="true"></span>
-                    </div>
                     <div class="inputs">
                         <label for="BillingNewAddress_City">City:</label>
                         <input type="text" data-val="true" data-val-required="City is required" id="BillingNewAddress_City" name="BillingNewAddress.City" value="@City">
@@ -397,12 +138,41 @@
                         <span class="field-validation-valid" data-valmsg-for="BillingNewAddress.PhoneNumber" data-valmsg-replace="true"></span>
                     </div>
 
+                    <div class="inputs">
+                        <label for="BillingNewAddress_CountryId">Country:</label>
+                        <select data-trigger="country-select"
+                                data-url="/country/getstatesbycountryid"
+                                data-stateprovince="#BillingNewAddress_StateProvinceId"
+                                data-loading="#states-loading-progress"
+                                data-val="true"
+                                data-val-required="Country is required."
+                                id="BillingNewAddress_CountryId"
+                                name="BillingNewAddress.CountryId">
+                            <option value="0">Select country</option>
+                            <option value="19">Bangladesh</option>
+                        </select>
+                        <span class="required">*</span>
+                        <span class="field-validation-valid" data-valmsg-for="BillingNewAddress.CountryId" data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label for="BillingNewAddress_StateProvinceId">State / province:</label>
+                        <select data-trigger="state-select" id="BillingNewAddress_StateProvinceId" name="BillingNewAddress.StateProvinceId">
+                            <option value="0">Select state</option>
+                        </select>
+                        <span id="states-loading-progress" style="display: none;" class="please-wait">Wait...</span>
+                        <span class="field-validation-valid" data-valmsg-for="BillingNewAddress.StateProvinceId" data-valmsg-replace="true"></span>
+                    </div>
+
                 </div>
             </div>
         </div>
 
         <div class="section new-Shipping-address" id="payment-new-make_order" style="">
             <div class="billing_shipping_text">@T("Make.An.Order.Shipping.Text")</div>
+            <div class="inputs" style=" text-align: left; width: 38%;">              
+            </div>
+
 
             @{
                 FirstName = string.Empty;
@@ -445,281 +215,7 @@
                     </div>
                     <div class="inputs">
                         <label for="ShippingNewAddress_Email">Email:</label>
-                        <input type="email" data-val="true" data-val-email="Wrong email" data-val-required="Email is required." id="ShippingNewAddress_Email" name="ShippingNewAddress.Email" value="@Email">
-                        <span class="required">*</span>
-                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.Email" data-valmsg-replace="true"></span>
-                    </div>
-
-                    <div class="inputs">
-                        <label for="ShippingNewAddress_CountryId">Country:</label>
-                        <select data-trigger="country-select" data-url="/country/getstatesbycountryid"
-                                data-stateprovince="#ShippingNewAddress_StateProvinceId"
-                                data-loading="#states-loading-progress" data-val="true"
-                                data-val-required="Country is required."
-                                id="ShippingNewAddress_CountryId"
-                                name="ShippingNewAddress.CountryId">
-                            <option value="0">Select country</option>
-                            <option value="237">United States of America</option>
-                            <option value="1">Afghanistan</option>
-                            <option value="2">Åland Islands</option>
-                            <option value="3">Albania</option>
-                            <option value="4">Algeria</option>
-                            <option value="5">American Samoa</option>
-                            <option value="6">Andorra</option>
-                            <option value="7">Angola</option>
-                            <option value="8">Anguilla</option>
-                            <option value="9">Antarctica</option>
-                            <option value="10">Antigua and Barbuda</option>
-                            <option value="11">Argentina</option>
-                            <option value="12">Armenia</option>
-                            <option value="13">Aruba</option>
-                            <option value="14">Australia</option>
-                            <option value="15">Austria</option>
-                            <option value="16">Azerbaijan</option>
-                            <option value="17">Bahamas</option>
-                            <option value="18">Bahrain</option>
-                            <option value="19" selected>Bangladesh</option>
-                            <option value="20">Barbados</option>
-                            <option value="21">Belarus</option>
-                            <option value="22">Belgium</option>
-                            <option value="23">Belize</option>
-                            <option value="24">Benin</option>
-                            <option value="25">Bermuda</option>
-                            <option value="26">Bhutan</option>
-                            <option value="27">Bolivia (Plurinational State of)</option>
-                            <option value="28">Bonaire, Sint Eustatius and Saba</option>
-                            <option value="29">Bosnia and Herzegovina</option>
-                            <option value="30">Botswana</option>
-                            <option value="31">Bouvet Island</option>
-                            <option value="32">Brazil</option>
-                            <option value="33">British Indian Ocean Territory</option>
-                            <option value="34">Brunei Darussalam</option>
-                            <option value="35">Bulgaria</option>
-                            <option value="36">Burkina Faso</option>
-                            <option value="37">Burundi</option>
-                            <option value="38">Cabo Verde</option>
-                            <option value="39">Cambodia</option>
-                            <option value="40">Cameroon</option>
-                            <option value="41">Canada</option>
-                            <option value="42">Cayman Islands</option>
-                            <option value="43">Central African Republic</option>
-                            <option value="44">Chad</option>
-                            <option value="45">Chile</option>
-                            <option value="46">China</option>
-                            <option value="47">Christmas Island</option>
-                            <option value="48">Cocos (Keeling) Islands</option>
-                            <option value="49">Colombia</option>
-                            <option value="50">Comoros</option>
-                            <option value="51">Congo</option>
-                            <option value="52">Congo (Democratic Republic of the)</option>
-                            <option value="53">Cook Islands</option>
-                            <option value="54">Costa Rica</option>
-                            <option value="55">Côte d'Ivoire</option>
-                            <option value="56">Croatia</option>
-                            <option value="57">Cuba</option>
-                            <option value="58">Curaçao</option>
-                            <option value="59">Cyprus</option>
-                            <option value="60">Czechia</option>
-                            <option value="61">Denmark</option>
-                            <option value="62">Djibouti</option>
-                            <option value="63">Dominica</option>
-                            <option value="64">Dominican Republic</option>
-                            <option value="65">Ecuador</option>
-                            <option value="66">Egypt</option>
-                            <option value="67">El Salvador</option>
-                            <option value="68">Equatorial Guinea</option>
-                            <option value="69">Eritrea</option>
-                            <option value="70">Estonia</option>
-                            <option value="71">Eswatini</option>
-                            <option value="72">Ethiopia</option>
-                            <option value="73">Falkland Islands (Malvinas)</option>
-                            <option value="74">Faroe Islands</option>
-                            <option value="75">Fiji</option>
-                            <option value="76">Finland</option>
-                            <option value="77">France</option>
-                            <option value="78">French Guiana</option>
-                            <option value="79">French Polynesia</option>
-                            <option value="80">French Southern Territories</option>
-                            <option value="81">Gabon</option>
-                            <option value="82">Gambia</option>
-                            <option value="83">Georgia</option>
-                            <option value="84">Germany</option>
-                            <option value="85">Ghana</option>
-                            <option value="86">Gibraltar</option>
-                            <option value="87">Greece</option>
-                            <option value="88">Greenland</option>
-                            <option value="89">Grenada</option>
-                            <option value="90">Guadeloupe</option>
-                            <option value="91">Guam</option>
-                            <option value="92">Guatemala</option>
-                            <option value="93">Guernsey</option>
-                            <option value="94">Guinea</option>
-                            <option value="95">Guinea-Bissau</option>
-                            <option value="96">Guyana</option>
-                            <option value="97">Haiti</option>
-                            <option value="98">Heard Island and McDonald Islands</option>
-                            <option value="99">Holy See</option>
-                            <option value="100">Honduras</option>
-                            <option value="101">Hong Kong</option>
-                            <option value="102">Hungary</option>
-                            <option value="103">Iceland</option>
-                            <option value="104">India</option>
-                            <option value="105">Indonesia</option>
-                            <option value="106">Iran (Islamic Republic of)</option>
-                            <option value="107">Iraq</option>
-                            <option value="108">Ireland</option>
-                            <option value="109">Isle of Man</option>
-                            <option value="110">Israel</option>
-                            <option value="111">Italy</option>
-                            <option value="112">Jamaica</option>
-                            <option value="113">Japan</option>
-                            <option value="114">Jersey</option>
-                            <option value="115">Jordan</option>
-                            <option value="116">Kazakhstan</option>
-                            <option value="117">Kenya</option>
-                            <option value="118">Kiribati</option>
-                            <option value="119">Korea (Democratic People's Republic of)</option>
-                            <option value="120">Korea (Republic of)</option>
-                            <option value="121">Kuwait</option>
-                            <option value="122">Kyrgyzstan</option>
-                            <option value="123">Lao People's Democratic Republic</option>
-                            <option value="124">Latvia</option>
-                            <option value="125">Lebanon</option>
-                            <option value="126">Lesotho</option>
-                            <option value="127">Liberia</option>
-                            <option value="128">Libya</option>
-                            <option value="129">Liechtenstein</option>
-                            <option value="130">Lithuania</option>
-                            <option value="131">Luxembourg</option>
-                            <option value="132">Macao</option>
-                            <option value="134">Madagascar</option>
-                            <option value="135">Malawi</option>
-                            <option value="136">Malaysia</option>
-                            <option value="137">Maldives</option>
-                            <option value="138">Mali</option>
-                            <option value="139">Malta</option>
-                            <option value="140">Marshall Islands</option>
-                            <option value="141">Martinique</option>
-                            <option value="142">Mauritania</option>
-                            <option value="143">Mauritius</option>
-                            <option value="144">Mayotte</option>
-                            <option value="145">Mexico</option>
-                            <option value="146">Micronesia (Federated States of)</option>
-                            <option value="147">Moldova (Republic of)</option>
-                            <option value="148">Monaco</option>
-                            <option value="149">Mongolia</option>
-                            <option value="150">Montenegro</option>
-                            <option value="151">Montserrat</option>
-                            <option value="152">Morocco</option>
-                            <option value="153">Mozambique</option>
-                            <option value="154">Myanmar</option>
-                            <option value="155">Namibia</option>
-                            <option value="156">Nauru</option>
-                            <option value="157">Nepal</option>
-                            <option value="158">Netherlands</option>
-                            <option value="159">New Caledonia</option>
-                            <option value="160">New Zealand</option>
-                            <option value="161">Nicaragua</option>
-                            <option value="162">Niger</option>
-                            <option value="163">Nigeria</option>
-                            <option value="164">Niue</option>
-                            <option value="165">Norfolk Island</option>
-                            <option value="133">North Macedonia</option>
-                            <option value="166">Northern Mariana Islands</option>
-                            <option value="167">Norway</option>
-                            <option value="168">Oman</option>
-                            <option value="169">Pakistan</option>
-                            <option value="170">Palau</option>
-                            <option value="171">Palestine, State of</option>
-                            <option value="172">Panama</option>
-                            <option value="173">Papua New Guinea</option>
-                            <option value="174">Paraguay</option>
-                            <option value="175">Peru</option>
-                            <option value="176">Philippines</option>
-                            <option value="177">Pitcairn</option>
-                            <option value="178">Poland</option>
-                            <option value="179">Portugal</option>
-                            <option value="180">Puerto Rico</option>
-                            <option value="181">Qatar</option>
-                            <option value="182">Réunion</option>
-                            <option value="183">Romania</option>
-                            <option value="184">Russian Federation</option>
-                            <option value="185">Rwanda</option>
-                            <option value="186">Saint Barthélemy</option>
-                            <option value="187">Saint Helena, Ascension and Tristan da Cunha</option>
-                            <option value="188">Saint Kitts and Nevis</option>
-                            <option value="189">Saint Lucia</option>
-                            <option value="190">Saint Martin (French part)</option>
-                            <option value="191">Saint Pierre and Miquelon</option>
-                            <option value="192">Saint Vincent and the Grenadines</option>
-                            <option value="193">Samoa</option>
-                            <option value="194">San Marino</option>
-                            <option value="195">Sao Tome and Principe</option>
-                            <option value="196">Saudi Arabia</option>
-                            <option value="197">Senegal</option>
-                            <option value="198">Serbia</option>
-                            <option value="199">Seychelles</option>
-                            <option value="200">Sierra Leone</option>
-                            <option value="201">Singapore</option>
-                            <option value="202">Sint Maarten (Dutch part)</option>
-                            <option value="203">Slovakia</option>
-                            <option value="204">Slovenia</option>
-                            <option value="205">Solomon Islands</option>
-                            <option value="206">Somalia</option>
-                            <option value="207">South Africa</option>
-                            <option value="208">South Georgia and the South Sandwich Islands</option>
-                            <option value="209">South Sudan</option>
-                            <option value="210">Spain</option>
-                            <option value="211">Sri Lanka</option>
-                            <option value="212">Sudan</option>
-                            <option value="213">Suriname</option>
-                            <option value="214">Svalbard and Jan Mayen</option>
-                            <option value="215">Sweden</option>
-                            <option value="216">Switzerland</option>
-                            <option value="217">Syrian Arab Republic</option>
-                            <option value="218">Taiwan, Province of China</option>
-                            <option value="219">Tajikistan</option>
-                            <option value="220">Tanzania, United Republic of</option>
-                            <option value="221">Thailand</option>
-                            <option value="222">Timor-Leste</option>
-                            <option value="223">Togo</option>
-                            <option value="224">Tokelau</option>
-                            <option value="225">Tonga</option>
-                            <option value="226">Trinidad and Tobago</option>
-                            <option value="227">Tunisia</option>
-                            <option value="228">Turkey</option>
-                            <option value="229">Turkmenistan</option>
-                            <option value="230">Turks and Caicos Islands</option>
-                            <option value="231">Tuvalu</option>
-                            <option value="232">Uganda</option>
-                            <option value="233">Ukraine</option>
-                            <option value="234">United Arab Emirates</option>
-                            <option value="235">United Kingdom of Great Britain and Northern Ireland</option>
-                            <option value="236">United States Minor Outlying Islands</option>
-                            <option value="238">Uruguay</option>
-                            <option value="239">Uzbekistan</option>
-                            <option value="240">Vanuatu</option>
-                            <option value="241">Venezuela (Bolivarian Republic of)</option>
-                            <option value="242">Viet Nam</option>
-                            <option value="243">Virgin Islands (British)</option>
-                            <option value="244">Virgin Islands (U.S.)</option>
-                            <option value="245">Wallis and Futuna</option>
-                            <option value="246">Western Sahara</option>
-                            <option value="247">Yemen</option>
-                            <option value="248">Zambia</option>
-                            <option value="249">Zimbabwe</option>
-                        </select>
-                        <span class="required">*</span>
-                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.CountryId" data-valmsg-replace="true"></span>
-                    </div>
-
-                    <div class="inputs">
-                        <label for="ShippingNewAddress_StateProvinceId">State / province:</label>
-                        <select data-trigger="state-select" id="ShippingNewAddress_StateProvinceId" name="ShippingNewAddress.StateProvinceId">
-                            <option value="0">Select state</option>
-                        </select>
-                        <span id="states-loading-progress" style="display: none;" class="please-wait">Wait...</span>
-                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.StateProvinceId" data-valmsg-replace="true"></span>
+                        <input type="email" data-val="true" data-val-email="Wrong email"  id="ShippingNewAddress_Email" name="ShippingNewAddress.Email" value="@Email">
                     </div>
 
                     <div class="inputs">
@@ -741,14 +237,36 @@
                         <span class="required">*</span>
                         <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.PhoneNumber" data-valmsg-replace="true"></span>
                     </div>
+
+
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_CountryId">Country:</label>
+                        <select data-trigger="country-select" data-url="/country/getstatesbycountryid"
+                                data-stateprovince="#ShippingNewAddress_StateProvinceId"
+                                data-loading="#states-loading-progress" data-val="true"
+                                data-val-required="Country is required."
+                                id="ShippingNewAddress_CountryId"
+                                name="ShippingNewAddress.CountryId">
+                            <option value="0">Select country</option>
+                            <option value="19">Bangladesh</option>
+
+                        </select>
+                        <span class="required">*</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.CountryId" data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label for="ShippingNewAddress_StateProvinceId">State / province:</label>
+                        <select data-trigger="state-select" id="ShippingNewAddress_StateProvinceId" name="ShippingNewAddress.StateProvinceId">
+                            <option value="0">Select state</option>
+                        </select>
+                        <span id="states-loading-progress" style="display: none;" class="please-wait">Wait...</span>
+                        <span class="field-validation-valid" data-valmsg-for="ShippingNewAddress.StateProvinceId" data-valmsg-replace="true"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-
 
     <button id="upload_order">Make Order</button>
 </form>
@@ -763,11 +281,13 @@
     $('body').on('focus', '.product_name', function (e)
     {
         $(this).autocomplete({
-            source: '/Catalog/SearchTermAutoCompleteForMakeAnOrder',
+        source: '/Catalog/SearchTermAutoCompleteForMakeAnOrder',
         minLength:3,
         select: function (event, ui)
         {
+            $(this).parents(".mnoContainer").find(".atter_append").html('');
             debugger;
+            console.log(ui);
             var dropdown = [];
             var productPrice = ui.item.price.PriceValue;
             if (ui.item.ProductAttributes.length > 0)
@@ -776,26 +296,28 @@
                 for (let attr of ui.item.ProductAttributes)
                 {
                     var name = attr.Name;
-                    $(this).parents(".mnoContainer").find(".product_attr").append('<option value="' + ui.item.price + '">@T("Select.Attribute") </option>');
                     if (attr.Values.length > 0)
                     {
+                        debugger;
+                        var atterHtml = '<select name="attr1" class="product_attr"><option value="0"> Select ' + name + '</option>';
                         for (let val of attr.Values)
                         {
-                            debugger;
-                            var attrName = name + "(" + val.Name + ')';
-                            var price = productPrice + val.PriceAdjustmentValue;
-                            $(this).parents(".mnoContainer").find(".product_attr").append('<option value="' + price+'">' + attrName+' </option>');
+                            var price = val.PriceAdjustmentValue;
+                            atterHtml += '<option value="' + price + '">' + val.Name + ' </option>';
                         }
+                        atterHtml += '</select>';
+                        $(this).parents(".mnoContainer").find(".atter_append").append(atterHtml);
                     }
                 }
             }
-
-
-            console.log(ui);
+            console.log(dropdown);
             var id = $(this).attr("name").replace("name", '');
             $('input.productid[name="id' + id + '"]').val(ui.item.id);
             $(this).parents(".mnoContainer").find(".product_price").html(ui.item.price.Price);
-            $(this).parents(".mnoContainer").find(".price").val(productPrice);
+            $(this).parents(".mnoContainer").find(".price").val(ui.item.price.Price);
+            $(this).parents(".mnoContainer").find(".productPrice").val(ui.item.price.Price);
+
+
             $(this).val(ui.item.label);
             $(this).parents(".mnoContainer").find(".pproduct_img_dv").css("display", "none");
             $(this).parents(".mnoContainer").find(".product_des_dv").css("display", "none");
@@ -807,38 +329,182 @@
     });
 
 
-
     $(".addmoreLine span").click(function ()
     {
         currentLine++;
         $("#lineItem").val(currentLine)
-        var html = '<div class="mnoContainer"> <input type="hidden" value="0" class="productid" name="id' + currentLine + '" /> <input type="hidden" value="0" class="price" name="price' + currentLine + '" /> <input type="hidden" value="" class="attrName" name="attrName' + currentLine + '" /> <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name' + currentLine + '" /></div> <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity' + currentLine + '" min="1" value="1" class="product_qty" /></div> <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span><select name="attr' + currentLine + '" class="product_attr"><option>@T("Select.An.Option")</option></select></div> <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description' + currentLine + '"></textarea></div> <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div> <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image' + currentLine + '" type="file" accept="image/png, image/jpeg" class="product_img" /></div> </div>';
+        var html = '<div class="mnoContainer"> <div class="cross"><i class="far fa-times-circle"></i></div> <input type="hidden" value="0" class="productid" name="id' + currentLine + '" /> <input type="hidden" value="0" class="productPrice" /> <input type="hidden" value="0" class="price" name="price' + currentLine + '" /> <input type="hidden" value="" class="attrName" name="attrName' + currentLine + '" /> <div class="product_name_dv container_info"><span class="title">@T("Sale.Product.Name") </span>  <input type="text" placeholder="@T("Sale.Product.Name")" class="product_name" name="name' + currentLine + '" /></div> <div class="pproduct_quantity_dv container_info"><span class="title">@T("Sale.Product.QTY")</span> <input type="number" placeholder="@T("Sale.Product.QTY")" name="quantity' + currentLine + '" min="1" value="1" class="product_qty" /></div> <div class="product_attr_dv container_info"><span class="title">@T("Sale.Product.Attr")</span> <div class="atter_append">     </div> </div> <div class="product_des_dv container_info"><span class="title">@T("Sale.Product.Description")</span><textarea class="productDec" placeholder="@T("Sale.Product.Description")" name="description' + currentLine + '"></textarea></div> <div class="Product_price_div container_info"><span class="title dontBlock">@T("Sale.Product.Price") </span> <span class="product_price">@T("Amount.Zero")</span></div> <div class="pproduct_img_dv container_info"><span class="title dontBlock">@T("Sale.Product.Image")</span> <input name="image' + currentLine + '" type="file" accept="image/png, image/jpeg" class="product_img" /></div> </div>';
         $("div#make_an_order").append(html);
 
     });
 
 
-    $("select.product_attr").change(function ()
+    $(document).on("change", "select.product_attr", function ()
     {
-        var price = $(this).val();
-        var text = $(this).find('option:selected').text();
-        var index = $(this).find('option:selected').index();
-        if (index > 0) {
+        debugger;
+        var self = this;
+        var attrName = "";
+        if ($(this).hasClass('error_dv'))
+        {
+            $(this).removeClass('error_dv');
+        }
+        var price = parseInt($(this).parents(".mnoContainer").find(".productPrice").val());
+        var attrList= $(this).parents(".mnoContainer").find(".atter_append select");
+        attrList.each(function (index)
+        {
+            debugger;
+            var selectedPrice = parseInt($(this).find('option:selected').val());
+            if (selectedPrice != NaN && selectedPrice != 0)
+            {
+                price += selectedPrice;
+                attrName += $(this).find('option:selected').text() + "</br>";
+            }
+        });
+        debugger;
+        $(self).parents(".mnoContainer").find(".product_price").html(price);
+        $(self).parents(".mnoContainer").find(".price").val(price);
+        $(self).parents(".mnoContainer").find(".attrName").val(attrName);
+    });
+
+
+
+    $("button#upload_order").click(function (e) {
+        debugger;
+        e.preventDefault();
+        var attrList = $("select.product_attr");
+        var foundBlank = false;
+        attrList.each(function (index)
+        {
+            debugger;
+            var selected_index = $(this).prop('selectedIndex');
+            if (selected_index == 0) {
+                $(this).addClass("error_dv");
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(this).offset().top
+                });
+                foundBlank = true;
+                return false;
+            }
+        });
+        debugger;
+        if (foundBlank == false)
+        {
+            $("#category-form").submit();
+        }
+
+    });
+
+
+
+    $(document).on("click", ".cross", function () {
+        $(this).parents(".mnoContainer").find(".atter_append").html("");
+        $(this).parents(".mnoContainer").find("input").val("");
+        $(this).parents(".mnoContainer").find(".product_attr_dv.container_info").css("display", "none");
+        $(this).parents(".mnoContainer").find(".Product_price_div.container_info").css("display", "none");
+
+        $(this).parents(".mnoContainer").find(".product_price").html("");
+
+        $(this).parents(".mnoContainer").find(".pproduct_img_dv").css("display", "block");
+        $(this).parents(".mnoContainer").find(".product_des_dv").css("display", "block");
+    });
+
+    $("input#SameShippingAddress").change(function () {
+        debugger;
+        if (this.checked)
+        {            
+            $("input#ShippingNewAddress_FirstName").val($("input#BillingNewAddress_FirstName").val());
+            $("input#ShippingNewAddress_LastName").val($("input#BillingNewAddress_LastName").val());
+            $("input#ShippingNewAddress_Email").val($("input#BillingNewAddress_Email").val());
+            $("input#ShippingNewAddress_City").val($("input#BillingNewAddress_City").val());
+            $("input#ShippingNewAddress_Address1").val($("input#BillingNewAddress_Address1").val());
+            $("input#ShippingNewAddress_PhoneNumber").val($("input#BillingNewAddress_PhoneNumber").val());
+            $("select#ShippingNewAddress_CountryId").val($("select#BillingNewAddress_CountryId").val());
+            $("div#payment-new-make_order").hide();
+
+            $(".billing_shipping_info input").attr("data-val", "false");
+
         }
         else
         {
-            $(this).parents(".mnoContainer").find(".attrName").val("");
-        }
+            $("div#payment-new-make_order").show();
+            $(".billing_shipping_info input").attr("data-val", "true");
 
-        $(this).parents(".mnoContainer").find(".product_price").html(price);
-        $(this).parents(".mnoContainer").find(".price").val(price);
+        }
     });
 
+    $("input#BillingNewAddress_FirstName").blur(function () {
+        if ($('input#SameShippingAddress').is(':checked')) {
+            $("input#ShippingNewAddress_FirstName").val($("input#BillingNewAddress_FirstName").val());
+        }
+    });
+
+
+    $("input#BillingNewAddress_LastName").blur(function () {
+        if ($('input#SameShippingAddress').is(':checked')) {
+            $("input#ShippingNewAddress_LastName").val($("input#BillingNewAddress_LastName").val());
+        }
+    });
+
+    $("input#BillingNewAddress_Email").blur(function () {
+        if ($('input#SameShippingAddress').is(':checked')) {
+            $("input#ShippingNewAddress_Email").val($("input#BillingNewAddress_Email").val());
+        }
+    });
+    $("input#BillingNewAddress_City").blur(function () {
+        if ($('input#SameShippingAddress').is(':checked')) {
+            $("input#ShippingNewAddress_City").val($("input#BillingNewAddress_City").val());
+        }
+    });
+    $("input#BillingNewAddress_Address1").blur(function () {
+        if ($('input#SameShippingAddress').is(':checked')) {
+            $("input#ShippingNewAddress_Address1").val($("input#BillingNewAddress_Address1").val());
+        }
+    });
+    $("input#BillingNewAddress_PhoneNumber").blur(function () {
+        if ($('input#SameShippingAddress').is(':checked')) {
+            $("input#ShippingNewAddress_PhoneNumber").val($("input#BillingNewAddress_PhoneNumber").val());
+        }
+    });
+    $("select#BillingNewAddress_CountryId").blur(function () {
+        if ($('input#SameShippingAddress').is(':checked')) {
+            $("select#ShippingNewAddress_CountryId").val($("select#BillingNewAddress_CountryId").val());
+        }
+    });
 </script>
 
 
 
+
+
+
 <style>
+
+    .error_dv {
+        background-color: red;
+        color: white;
+    }
+    span.itm_number {
+        display: block;
+        padding: 3px 0 0 10px;
+        font-size: 20px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        background-color: green;
+        font-weight: bold;
+        color: white;
+    }
+    .cross {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        right: 0;
+        border-radius: 100%;
+        text-align: center;
+        font-size: 48px;
+        color: red;
+        cursor: pointer;
+    }
 
     span.title.dontBlock {
         display: initial;
@@ -851,8 +517,8 @@
 
     textarea.productDec {
         max-width: 100%;
-        min-width: 100%;
-        min-height: 100px;
+        height: 40px !important;
+        min-height: 30px;
     }
 
     span.title {
@@ -914,9 +580,8 @@
 
     .product_name_dv, .pproduct_quantity_dv, .pproduct_img_dv, .product_attr_dv, .container_info {
         display: block;
-        padding: 10px 30px 0px 10px;
+        padding: 0px 30px 0px 10px;
     }
-
 
 
     input.product_qty {
@@ -932,6 +597,7 @@
         border-radius: 5px;
         background-color: #eee;
         box-shadow: 0px 0px 5px 2px #b6adad;
+        position: relative;
     }
 
     .header_container .pproduct_img_dv, .header_container .pproduct_quantity_dv {
@@ -944,14 +610,26 @@
         text-align: center;
     }
 
-    select.product_attr, input.product_qty, input.product_name, textarea.productDec {
-        width: 50%;
+    input.product_qty, input.product_name, textarea.productDec {
+        width: 46%;
         border-radius: 5px;
         height: 35px;
     }
-    div#billing-new-make_order, div#payment-new-make_order {
+
+    select.product_attr {
+        width: 50%;
+        display: block;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .product_name_dv.container_info, .pproduct_quantity_dv.container_info {
         display: inline-block;
-        width: 45%;
+        width: 49%;
+    }
+
+    .product_name_dv.container_info input, .pproduct_quantity_dv.container_info input {
+        width: 98%;
     }
     .billing_shipping_text {
         text-align: center;
@@ -959,4 +637,37 @@
         font-size: 20px;
         font-weight: 700;
     }
+    div#billing-new-make_order, div#payment-new-make_order {
+        display: inline-block;
+        width: 45%;
+    }
+
+    @@media all and (max-width: 1000px) {
+        div#billing-new-make_order, div#payment-new-make_order {
+            display: inline-block;
+            width: 100% !important;
+        }
+
+        select.product_attr, input.product_qty, input.product_name, textarea.productDec {
+            width: 100%;
+            border-radius: 5px;
+            height: 35px;
+        }
+
+        .mnoContainer {
+            width: 100% !important;
+        }
+
+        .cross {
+            width: 30px;
+            height: 30px;
+            right: 6px;
+            font-size: 35px;
+        }
+    }
 </style>
+
+
+
+
+

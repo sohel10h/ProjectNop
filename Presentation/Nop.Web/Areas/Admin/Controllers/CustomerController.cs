@@ -579,6 +579,13 @@ namespace Nop.Web.Areas.Admin.Controllers
                     customer.AdminComment = model.AdminComment;
                     customer.IsTaxExempt = model.IsTaxExempt;
 
+                    customer.Village = model.Village;
+                    customer.FatherName = model.FatherName;
+                    customer.EducationalQualification = model.EducationalQualification;
+                    customer.Age = model.Age;
+                    customer.Upazila = model.Upazila;
+                    customer.Thana = model.Thana;
+                    customer.District = model.District;
                     //prevent deactivation of the last active administrator
                     if (!await _customerService.IsAdminAsync(customer) || model.Active || await SecondAdminAccountExistsAsync(customer))
                         customer.Active = model.Active;

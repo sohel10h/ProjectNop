@@ -7,7 +7,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(calc(-300px * @((Model.Count/2))));
+                transform: translateX(calc(-600px));
             }
         }
         @@keyframes scroll {
@@ -15,7 +15,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(calc(-300px * @((Model.Count/2))));
+                transform: translateX(calc(-600px));
             }
         }
         .slider {
@@ -88,6 +88,7 @@
                                 <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl" title="@item.PictureModel.Title" />
                             </a>
                         </div>
+                        <h2 class="title"><a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.Name"> @item.Name </a></h2>
                     </div>
                 </div>
             }

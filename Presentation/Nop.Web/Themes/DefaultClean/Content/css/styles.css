@@ -74,7 +74,9 @@ script {
 
 /*********** GLOBAL STYLES **********/
 
-
+li.openNav {
+    cursor: pointer;
+}
 
 body {
     max-width: 100%;
@@ -142,7 +144,7 @@ textarea {
 
 .master-wrapper-content {
     width: 100% !important;
-    margin-bottom: 150px !important;
+    margin-bottom: 250px !important;
 }
 
 
@@ -903,7 +905,7 @@ label, label + * {
 
 .header {
     position: relative;
-    z-index: 0;
+    z-index: 100;
     width: 95%;
     margin: auto;
     text-align: center;
@@ -8060,7 +8062,7 @@ pre {
 
     .header-menu > ul {
         display: block !important; /* prevents toggle display:none on resize */
-        font-size: 0;
+        font-size: 17px;
         text-align:left;
     }
 
@@ -8847,3 +8849,5 @@ pre {
         max-width: 100%;
     }
 }
+
+

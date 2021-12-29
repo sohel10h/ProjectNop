@@ -21,7 +21,7 @@
         <h1>@T("Account.MyAccount") - @T("Account.CustomerInfo")</h1>
     </div>
     <div class="page-body">
-        <form asp-route="CustomerInfo" method="post">
+        <form asp-route="CustomerInfo" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="message-error"></div>
             <div class="fieldset">
                 <div class="title">
@@ -92,7 +92,7 @@
                     <div class="inputs">
                         <label asp-for="Email" asp-postfix=":"></label>
                         <input asp-for="Email" />
-                        <nop-required />
+                        @*<nop-required />*@
                         <span asp-validation-for="Email"></span>
                     </div>
                     @if (!string.IsNullOrEmpty(Model.EmailToRevalidate))
@@ -130,6 +130,87 @@
                     }
                 </div>
             </div>
+
+
+
+            <div class="page account-page avatar-page">
+                <div class="page-title">
+                    <h1>@T("Account.MyAccount") - @T("Account.Avatar")</h1>
+                </div>
+                <div class="page-body">
+                    <div asp-validation-summary="ModelOnly" class="message-error"></div>
+                    <div class="fieldset">
+                        @if (!string.IsNullOrEmpty(Model.AvatarUrl))
+                        {
+                            <div class="image">
+                                <img src="@(Model.AvatarUrl)" alt="avatar" />
+                            </div>
+                        }
+                        <input name="uploadedFile" type="file" />
+                    </div>
+                    <div class="info">
+                        @T("Account.Avatar.UploadRules")
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="fieldset">
+                <div class="title">
+                    <strong>@T("Account.CompanyDetails")</strong>
+                </div>
+
+
+
+                <div class="form-fields">
+                    <div class="inputs">
+                        <label asp-for="FatherName" asp-postfix=":"></label>
+                        <input asp-for="FatherName" />
+                        <span asp-validation-for="FatherName"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="EducationalQualification" asp-postfix=":"></label>
+                        <input asp-for="EducationalQualification" />
+                        <span asp-validation-for="EducationalQualification"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="Age" asp-postfix=":"></label>
+                        <input asp-for="Age" />
+                        <span asp-validation-for="Age"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="Village" asp-postfix=":"></label>
+                        <input asp-for="Village" />
+                        <span asp-validation-for="Village"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="Upazila" asp-postfix=":"></label>
+                        <input asp-for="Upazila" />
+                        <span asp-validation-for="Upazila"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="Thana" asp-postfix=":"></label>
+                        <input asp-for="Thana" />
+                        <span asp-validation-for="Thana"></span>
+                    </div>
+
+                    <div class="inputs">
+                        <label asp-for="District" asp-postfix=":"></label>
+                        <input asp-for="District" />
+                        <span asp-validation-for="District"></span>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
             @if (Model.CompanyEnabled || Model.DisplayVatNumber)
             {
                 <div class="fieldset">
@@ -164,11 +245,11 @@
                 </div>
             }
             @if (Model.StreetAddressEnabled ||
-        Model.StreetAddress2Enabled ||
-        Model.ZipPostalCodeEnabled ||
-        Model.CityEnabled ||
-        Model.CountyEnabled ||
-        Model.CountryEnabled)
+      Model.StreetAddress2Enabled ||
+      Model.ZipPostalCodeEnabled ||
+      Model.CityEnabled ||
+      Model.CountyEnabled ||
+      Model.CountryEnabled)
             {
                 <div class="fieldset">
                     <div class="title">
@@ -179,7 +260,7 @@
                         {
                             <div class="inputs">
                                 <label asp-for="StreetAddress" asp-postfix=":"></label>
-                                <input asp-for="StreetAddress" />
+                                <textarea asp-for="StreetAddress"></textarea>
                                 @if (Model.StreetAddressRequired)
                                 {
                                     <nop-required />
@@ -304,24 +385,24 @@
             @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0)
             {
                 @*<div class="fieldset">
-                    <div class="title">
-                        <strong>@T("Account.Options")</strong>
-                    </div>
-                    <div class="form-fields">
-                        @if (Model.NewsletterEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="Newsletter" asp-postfix=":"></label>
-                                <input asp-for="Newsletter" />
-                                <span asp-validation-for="Newsletter"></span>
-                            </div>
-                        }
-                        @if (Model.CustomerAttributes.Count > 0)
-                        {
-                            @await Html.PartialAsync("_CustomerAttributes", Model.CustomerAttributes)
-                        }
-                    </div>
-                </div>*@
+                <div class="title">
+                    <strong>@T("Account.Options")</strong>
+                </div>
+                <div class="form-fields">
+                    @if (Model.NewsletterEnabled)
+                    {
+                        <div class="inputs">
+                            <label asp-for="Newsletter" asp-postfix=":"></label>
+                            <input asp-for="Newsletter" />
+                            <span asp-validation-for="Newsletter"></span>
+                        </div>
+                    }
+                    @if (Model.CustomerAttributes.Count > 0)
+                    {
+                        @await Html.PartialAsync("_CustomerAttributes", Model.CustomerAttributes)
+                    }
+                </div>
+            </div>*@
             }
             @if (Model.AllowCustomersToSetTimeZone || Model.SignatureEnabled)
             {
@@ -461,6 +542,22 @@
     </div>
 </div>
 
+
+
+
+<style>
+
+    .avatar-page .fieldset {
+        width: 20%;
+        margin: auto;
+    }
+    .avatar-page .info {
+        color: #444;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+</style>
 <script asp-location="Footer">
     function removeexternalassociation(itemId) {
         if (confirm('@T("Common.AreYouSure")')) {

@@ -1,8 +1,9 @@
 ﻿@model TopMenuModel
 <style>
-    .d-none{
-        display:none !important;
+    .d-none {
+        display: none !important;
     }
+
     * {
         box-sizing: border-box;
         margin: 0;
@@ -292,17 +293,20 @@
         font-size: 30px !important;
         padding: 0px;
     }
+
     .header-menu {
-        position: relative;
-        z-index: 1;
+        position: initial;
+        z-index: 0;
         width: 92.5% !important;
         margin: 0 auto 10px;
         min-height: 50px;
     }
+
     .top-menu {
         display: block !important;
     }
-    @@media (max-width: 1000px){
+
+    @@media (max-width: 1000px) {
 
         .search-box {
             display: block;
@@ -377,7 +381,8 @@
             padding: 11px 0 0 0px !important;
         }
     }
-    @@media all and (max-width: 769px){
+
+    @@media all and (max-width: 769px) {
         .header-lower {
             width: 100%;
             display: grid;
@@ -460,6 +465,7 @@
             padding: 11px 0 0 0px !important;
         }
     }
+
     table {
         border-collapse: collapse;
         width: 100%;
@@ -485,6 +491,7 @@
         background-color: #04AA6D;
         color: white;
     }
+
     .button {
         font-size: 16px;
         letter-spacing: 2px;
@@ -502,6 +509,7 @@
         transition: all 0.3s 0s ease-in-out;
         color: white !important;
     }
+
         .button:hover {
             transform: scale(1.04, 1);
             background-color: rgb(216, 10, 27);
@@ -530,6 +538,7 @@
         width: 100% !important;
         padding: 22px 30px !important;
     }
+
     .inputs {
         text-align: left;
         display: flex;
@@ -550,14 +559,11 @@
                     @lineModel.Category.Name
                     @if (lineModel.Category.NumberOfProducts.HasValue)
                     {
-
                         @T("Categories.TotalProducts", lineModel.Category.NumberOfProducts.Value)
-
                     }
-
                 </div>
             </a>
-            <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+            <i class="fas fa-chevron-right click-icon" style="color: #8e9090"></i>
         </div>
         //subcategories
         var subCategories = lineModel.ResponsiveMobileMenu ?
@@ -588,7 +594,7 @@
                 </li>
             </ul>
         }
-        
+
     }
 }
 
@@ -604,7 +610,6 @@
 <div id="closeBtn" onclick="closeNav()">&times;</div>
 <div class="sidenav" id="mySidenav">
     <div class="sidenavHeader">
-        <i class="fas fa-user-circle"></i> Hello, Sign In
     </div>
     <!--Below SideNavHeader-->
     <div id="main-container">
@@ -614,7 +619,7 @@
             <a href="@Url.RouteUrl("Homepage")" style="margin: 10px; width: 100% !important;">
                 <div class="sidenavRow">
                     <div>@T("Homepage")</div>
-                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"  ></i>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"></i>
                 </div>
             </a>
         }
@@ -638,10 +643,10 @@
 
         @foreach (var topic in Model.Topics)
         {
-            <a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })" >
+            <a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">
                 <div class="sidenavRow">
                     <div>@topic.Name</div>
-                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"></i>
                 </div>
             </a>
         }
@@ -651,7 +656,7 @@
             <a href="@Url.RouteUrl("NewProducts")">
                 <div class="sidenavRow">
                     <div>@T("Products.NewProducts")</div>
-                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"></i>
                 </div>
             </a>
         }
@@ -660,7 +665,7 @@
             <a href="@Url.RouteUrl("ProductSearch")">
                 <div class="sidenavRow">
                     <div>@T("Search")</div>
-                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"></i>
                 </div>
             </a>
         }
@@ -669,7 +674,7 @@
             <a href="@Url.RouteUrl("CustomerInfo")">
                 <div class="sidenavRow">
                     <div>@T("Account.MyAccount")</div>
-                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"></i>
                 </div>
             </a>
         }
@@ -678,7 +683,7 @@
             <a href="@Url.RouteUrl("Blog")">
                 <div class="sidenavRow">
                     <div>@T("Blog")</div>
-                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"></i>
                 </div>
             </a>
         }
@@ -687,7 +692,7 @@
             <a href="@Url.RouteUrl("Boards")">
                 <div class="sidenavRow">
                     <div>@T("Forum.Forums")</div>
-                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090" ></i>
+                    <i class="fas fa-chevron-right click-icon" style="color: #8e9090"></i>
                 </div>
             </a>
         }
@@ -696,7 +701,7 @@
             <a href="@Url.RouteUrl("ContactUs")">
                 <div class="sidenavRow">
                     <div>@T("ContactUs")</div>
-                    <i class="fas fa-chevron-right click-icon click-icon" style="color: #8e9090" ></i>
+                    <i class="fas fa-chevron-right click-icon click-icon" style="color: #8e9090"></i>
                 </div>
             </a>
         }
@@ -718,9 +723,12 @@
 </div>
 
 
-<script>
+@*<script asp-location="Footer">
 
     function openNav() {
+
+        $(".master-wrapper-content").addClass("zind");
+
         document.getElementById("mySidenav").style.animation = "expand 0.3s forwards";
         //closeBtn
         document.getElementById("closeBtn").style.display = "block";
@@ -728,6 +736,8 @@
         //Overlay
         document.getElementById("overlay").style.display = "block";
         document.getElementById("overlay").style.animation = "show 0.3s";
+
+
 
     }
 
@@ -747,6 +757,9 @@
             document.getElementById("sub-container").style.animation = "";
             document.getElementById("sub-container").style.transform = "translateX(380px)";
         }, 300)
+
+        $(".master-wrapper-content").removeClass("zind");
+
     }
 
     let firstDropdownOpen = false;
@@ -822,7 +835,7 @@
                 var x = $(this).parent().parent().children('ul').html();
                 $("#sub-container-content").append(x);
                 $("#sub-container-content").children(".sublist").toggleClass("d-none");
-               
+
             }
         });
         $("#mainMenu").click(function () {
@@ -832,5 +845,152 @@
             //$(".sublist").toggleClass("d-none");
         });
     });
+</script>*@
+
+
+
+
+
+
+<script asp-location="Footer">
+
+    function openNav() {
+        $(".master-wrapper-content").addClass("zind");
+        document.getElementById("mySidenav").style.animation = "expand 0.3s forwards";
+        //closeBtn
+        document.getElementById("closeBtn").style.display = "block";
+        document.getElementById("closeBtn").style.animation = "show 0.3s";
+        //Overlay
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("overlay").style.animation = "show 0.3s";
+
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.animation = "collapse 0.3s forwards";
+        //closeBtn
+        document.getElementById("closeBtn").style.animation = "hide 0.3s";
+        //Overlay
+        document.getElementById("overlay").style.animation = "hide 0.3s";
+
+        setTimeout(() => {
+            document.getElementById("closeBtn").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            //Reset Menus
+            document.getElementById("main-container").style.animation = "";
+            document.getElementById("main-container").style.transform = "translateX(0px)";
+            document.getElementById("sub-container").style.animation = "";
+            document.getElementById("sub-container").style.transform = "translateX(380px)";
+        }, 300)
+        $(".master-wrapper-content").removeClass("zind");
+
+    }
+
+    let firstDropdownOpen = false;
+
+    function firstDropDown() {
+        firstDropdownOpen = !firstDropdownOpen;
+        if (firstDropdownOpen) {
+            document.querySelector("#firstDropDown i").setAttribute("class", "fas fa-chevron-up");
+            document.querySelector("#firstDropDown div").innerHTML = "See Less";
+            //Handle Container
+            document.getElementById("firstContainer").style.display = "block";
+            document.getElementById("firstContainer").style.animation = "expandDropDown 0.3s forwards";
+            document.getElementById("firstContainer").style.transition = "height 0.3s";
+            document.getElementById("firstContainer").style.height = "410px";
+        } else {
+            document.querySelector("#firstDropDown i").setAttribute("class", "fas fa-chevron-down");
+            document.querySelector("#firstDropDown div").innerHTML = "See More";
+            //Handle Container
+            document.getElementById("firstContainer").style.animation = "collapseDropDown 0.2s forwards";
+            document.getElementById("firstContainer").style.transition = "height 0.2s";
+            document.getElementById("firstContainer").style.height = "0px";
+            setTimeout(() => {
+                document.getElementById("firstContainer").style.display = "none";
+            }, 200)
+
+        }
+    }
+
+    let secondDropDownOpen = false;
+
+    function secondDropDown() {
+        secondDropDownOpen = !secondDropDownOpen;
+
+        if (secondDropDownOpen) {
+            document.querySelector("#secondDropDown i").setAttribute("class", "fas fa-chevron-up");
+            document.querySelector("#secondDropDown div").innerHTML = "See Less";
+            //Handle Container
+            document.getElementById("secondContainer").style.display = "block";
+            document.getElementById("secondContainer").style.animation = "expandDropDown 0.3s forwards";
+            document.getElementById("secondContainer").style.transition = "height 0.3s";
+            document.getElementById("secondContainer").style.height = "260px";
+        } else {
+            document.querySelector("#secondDropDown i").setAttribute("class", "fas fa-chevron-down");
+            document.querySelector("#secondDropDown div").innerHTML = "See More";
+            //Handle Container
+            document.getElementById("secondContainer").style.animation = "collapseDropDown 0.3s forwards";
+            document.getElementById("secondContainer").style.transition = "height 0.3s";
+            document.getElementById("secondContainer").style.height = "0px";
+            setTimeout(() => {
+                document.getElementById("secondContainer").style.display = "none";
+            }, 300)
+
+        }
+    }
+
+
+    $(document).ready(function () {
+     
+        $(".sidenavRow").each(function (index) {
+            if ($(this).parent().children("ul").length === 0) {
+                $(this).children(".click-icon").addClass("d-none");
+            }
+            if ($(this).next("ul").length === 0) {
+                $(this).children(".click-icon").addClass("d-none");
+            }
+        });
+        $(document).on("click", ".click-icon", function () {
+            $("#sub-container-content").html("");
+            if ($(this).parent().parent().children('ul').length) {
+                document.getElementById("main-container").style.animation = "mainAway 0.3s forwards";
+                document.getElementById("sub-container").style.animation = "subBack 0.3s forwards";
+                var x = $(this).parent().parent().children('ul').html();
+                $("#sub-container-content").append(x);
+                $("#sub-container-content").children(".sublist").toggleClass("d-none");
+            }
+            if ($(this).parent().next("ul").length) {
+                $("#sub-container-content").html("");
+                var x = $(this).parent().next('ul').html();
+                $("#sub-container-content").append(x);
+                $("#sub-container-content").children(".sublist").toggleClass("d-none");
+            }
+        });
+        $(document).on("click", "#mainMenu", function () {
+            document.getElementById("main-container").style.animation = "mainBack 0.3s forwards";
+            document.getElementById("sub-container").style.animation = "subPush 0.3s forwards";
+            $("#sub-container-content").html("");
+            //$(".sublist").toggleClass("d-none");
+        });
+    });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- partial -->

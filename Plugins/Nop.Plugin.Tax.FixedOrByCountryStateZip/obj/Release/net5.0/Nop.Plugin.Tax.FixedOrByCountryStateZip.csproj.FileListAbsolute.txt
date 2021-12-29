@@ -600,3 +600,4 @@ D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\
 D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Release\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.dll
 D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Release\net5.0\ref\Nop.Plugin.Tax.FixedOrByCountryStateZip.dll
 D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Release\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.pdb
+D:\Personal works\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Release\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj.AssemblyReference.cache

@@ -52,6 +52,13 @@ namespace Nop.Services.Contacts
             return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c => c.Type.Equals(type)).OrderByDescending(o => o.CreatedOnUtc); }, pageIndex, pageSize);    
         }
 
+
+        public async Task<IPagedList<Contact>> GetAllContactsAsync(int customerId, int type = 0, int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c => c.Type==type  && c.CustomerId==customerId).OrderByDescending(o => o.CreatedOnUtc); }, pageIndex, pageSize);
+        }
+
+
         //public virtual async Task<IList<Contact>> GetAllContactsAsync(int type = 0, int pageIndex = 0, int pageSize = int.MaxValue)
         //{
         //    var contact = await _contactRepository.GetAllAsync();
