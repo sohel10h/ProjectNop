@@ -627,6 +627,107 @@ namespace Nop.Web.Controllers
         }
 
 
+
+        [HttpPost]
+        public virtual async Task<IActionResult> SaleFromCareerFromMobile([FromBody] MakeAnOrderMobileList context) 
+        {
+            MakeAnOrderResult model = new MakeAnOrderResult();
+            try 
+            {
+                var makeAnOrders = context.Orders;
+                if (!makeAnOrders.Any()) 
+                {
+                    model.Result = false;
+                    model.Message = "minimum one product required";
+                    return Ok(model);
+                }
+                var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(makeAnOrders.Where(o => o.Id == 0).ToList());
+                var customer = await _customerService.GetCustomerByIdAsync(context.CustomerId);
+                if (customer == null) 
+                {
+                    model.Result = false;
+                    model.Message = "Customer Not Found";
+                    return Ok(model);
+                }
+                var addresses = await _customerService.GetAddressesByCustomerIdAsync(customer.Id);
+                if (!addresses.Any())
+                {
+                    model.Result = false;
+                    model.Message = "Customer Address Not Found";
+                    return Ok(model);
+                }
+                var order = new Order();
+
+                var addressId = 0;
+                if (context.AddressId > 0)
+                {
+                    addressId = context.AddressId;
+                }
+                else 
+                {
+                    Address address = new Address();
+                    address.FirstName = context.FirstName;
+                    address.LastName = context.LastName;
+                    address.Email = context.Email;
+                    address.City = context.City;
+                    address.Address1 = context.Address1;
+                    address.PhoneNumber = context.PhoneNumber;
+                    await _addressService.InsertAddressAsync(address);
+                    addressId = address.Id;
+                }
+                order.BillingAddressId = addressId;
+                order.ShippingAddressId = addressId;
+
+                order.ShippingStatus = Core.Domain.Shipping.ShippingStatus.NotYetShipped;
+                order.PaymentStatus = Core.Domain.Payments.PaymentStatus.Pending;
+                order.OrderStatus = OrderStatus.Pending;
+                order.CustomerId = customer.Id;
+                order.OrderGuid = Guid.NewGuid();
+                order.MakeAnOrderJson = ordersJson;
+                order.CustomOrderNumber = _customNumberFormatter.GenerateOrderCustomNumber(order);
+                var orderTotal = makeAnOrders.Where(c => c.Id > 0).ToList().Sum(p => p.Price);
+                order.OrderTotal = orderTotal;
+                order.OrderSubtotalExclTax = orderTotal;
+                order.OrderSubtotalInclTax = orderTotal;
+                order.CreatedOnUtc = DateTime.Now;
+                order.CurrencyRate = 1;
+                order.CustomerTaxDisplayType = TaxDisplayType.ExcludingTax;
+                await _orderService.InsertOrderAsync(order);
+
+                order.CustomOrderNumber = _customNumberFormatter.GenerateOrderCustomNumber(order);
+                await _orderService.UpdateOrderAsync(order);
+
+                var ownProducts = makeAnOrders.Where(c => c.Id > 0).ToList();
+                if (ownProducts != null && ownProducts.Any())
+                {
+                    foreach (var product in ownProducts)
+                    {
+                        OrderItem itm = new OrderItem();
+                        itm.OrderId = order.Id;
+                        itm.PriceExclTax = product.Price * product.Quantity;
+                        itm.PriceInclTax = product.Price * product.Quantity;
+                        itm.UnitPriceInclTax = product.Price;
+                        itm.UnitPriceExclTax = product.Price;
+                        itm.Quantity = product.Quantity;
+                        itm.ProductId = product.Id;
+                        itm.AttributeDescription = product.AttrName;
+                        await _orderService.InsertOrderItemAsync(itm);
+                    }
+                }
+                model.Result = true;
+                model.OrderId = order.Id;
+                model.Message = "Order Placed Successfully";
+            }
+            catch (Exception ex) 
+            {
+                model.Result = false;
+                model.Message = ex.Message;
+            }
+            return Ok(model);
+        }
+
+
+
         public virtual async Task<IActionResult> sallerRequest()
         {
             if (!await _customerService.IsRegisteredAsync(await _workContext.GetCurrentCustomerAsync()))
@@ -646,6 +747,21 @@ namespace Nop.Web.Controllers
             }
             return Redirect("/order/sallerRequest");
         }
+
+
+        [HttpGet]
+        public virtual async Task<ActionResult> GetCustomerAddress(int customerId) 
+        {
+            var address= await _customerService.GetAddressesByCustomerIdAsync(customerId);
+            return Json(address.Select(c => new 
+            { 
+                Id=c.Id,
+                Name= c.FirstName+"  "+c.LastName+"  "+ c.Address1            
+            }));
+        }
+
+
+
 
         #endregion
     }

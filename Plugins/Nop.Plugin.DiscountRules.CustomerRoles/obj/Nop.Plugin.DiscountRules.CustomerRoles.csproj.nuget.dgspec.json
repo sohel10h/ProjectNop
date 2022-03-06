@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Personal works\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj": {}
+    "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj": {}
   },
   "projects": {
-    "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+    "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj",
         "projectName": "Nop.Core",
-        "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\obj\\",
+        "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -119,24 +119,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Personal works\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+    "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal works\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj",
         "projectName": "Nop.Data",
-        "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Data\\obj\\",
+        "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -150,8 +150,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj"
               }
             }
           }
@@ -210,24 +210,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Personal works\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+    "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal works\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj",
         "projectName": "Nop.Services",
-        "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Services\\obj\\",
+        "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -241,11 +241,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj"
               },
-              "D:\\Personal works\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj": {
-                "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj"
+              "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+                "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj"
               }
             }
           }
@@ -312,24 +312,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Personal works\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj": {
+    "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal works\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj",
+        "projectUniqueName": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj",
         "projectName": "Nop.Plugin.DiscountRules.CustomerRoles",
-        "projectPath": "D:\\Personal works\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal works\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\obj\\",
+        "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -343,8 +343,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-                "projectPath": "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+              "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+                "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
               }
             }
           }
@@ -373,24 +373,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+    "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
+        "projectUniqueName": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
         "projectName": "Nop.Web.Framework",
-        "projectPath": "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\obj\\",
+        "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -404,14 +404,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj"
               },
-              "D:\\Personal works\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj": {
-                "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj"
+              "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+                "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Data\\Nop.Data.csproj"
               },
-              "D:\\Personal works\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj": {
-                "projectPath": "D:\\Personal works\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj"
+              "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+                "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Services\\Nop.Services.csproj"
               }
             }
           }
@@ -458,7 +458,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

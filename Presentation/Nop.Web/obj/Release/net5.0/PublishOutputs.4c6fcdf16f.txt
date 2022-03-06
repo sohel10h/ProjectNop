@@ -3478,6 +3478,7 @@ D:\Personal works\new clone\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\w
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000805_120.jpeg
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000806_120.jpeg
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000807_120.jpeg
+D:\Personal works\new clone\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000808_120.jpeg
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000863_hand-tools.jpeg
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000863_hand-tools_450.jpeg
 D:\Personal works\new clone\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000864_power-tools.jpeg

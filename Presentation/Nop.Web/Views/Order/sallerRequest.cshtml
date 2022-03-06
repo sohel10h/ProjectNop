@@ -156,7 +156,7 @@
         margin: 10px auto 10px auto;
         padding-bottom: 10px;
         border-radius: 5px;
-        border: 1px solid #ed18e6;
+        border: 1px solid black;
     }
 
     .header_container .pproduct_img_dv, .header_container .pproduct_quantity_dv, .product_description_dv {
@@ -176,4 +176,27 @@
     .product_name_dv.container_info input, .pproduct_quantity_dv.container_info input {       
         width:98%;
     }
+
+
+    @@media all and (max-width: 1000px) {
+        .product_name_dv, .pproduct_quantity_dv, .pproduct_img_dv {
+
+            width: 100%;
+        }
+
+        .header_container .pproduct_img_dv, .header_container .pproduct_quantity_dv, .product_description_dv {
+            width: 100%;
+            display: inline-block;
+            padding: 10px 30px 0px 10px;
+        }
+
+        input.product_desc {
+            width: 100%;
+        }
+    }
+
+
+
+
+
 </style>

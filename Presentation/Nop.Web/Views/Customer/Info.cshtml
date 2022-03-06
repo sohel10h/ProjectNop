@@ -17,16 +17,16 @@
 }*@
 
 <div class="page account-page customer-info-page">
-    <div class="page-title">
+    @*<div class="page-title">
         <h1>@T("Account.MyAccount") - @T("Account.CustomerInfo")</h1>
-    </div>
+    </div>*@
     <div class="page-body">
         <form asp-route="CustomerInfo" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="message-error"></div>
             <div class="fieldset">
-                <div class="title">
+                @*<div class="title">
                     <strong>@T("Account.YourPersonalDetails")</strong>
-                </div>
+                </div>*@
                 <div class="form-fields">
                     @if (Model.GenderEnabled)
                     {
@@ -135,7 +135,7 @@
 
             <div class="page account-page avatar-page">
                 <div class="page-title">
-                    <h1>@T("Account.MyAccount") - @T("Account.Avatar")</h1>
+                    <h1>@T("Account.Avatar")</h1>
                 </div>
                 <div class="page-body">
                     <div asp-validation-summary="ModelOnly" class="message-error"></div>
@@ -157,11 +157,8 @@
 
             <div class="fieldset">
                 <div class="title">
-                    <strong>@T("Account.CompanyDetails")</strong>
+                    <strong>@T("Account.General.Info")</strong>
                 </div>
-
-
-
                 <div class="form-fields">
                     <div class="inputs">
                         <label asp-for="FatherName" asp-postfix=":"></label>

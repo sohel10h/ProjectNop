@@ -505,6 +505,76 @@ namespace Nop.Web.Controllers
             return View(model);
         }
 
+
+
+
+
+        //[HttpPost]
+        public virtual async Task<IActionResult> MobileLogin(string username, string password)
+        {
+            var model = new MobileLogin();
+            if (ModelState.IsValid)
+            {
+                var loginResult = await _customerRegistrationService.ValidateCustomerAsync(username, password);
+                switch (loginResult)
+                {
+                    case CustomerLoginResults.Successful:
+                        {
+                            model.Result = true;
+                            model.Customer= _customerSettings.UsernamesEnabled
+                                ? await _customerService.GetCustomerByUsernameAsync(username)
+                                : await _customerService.GetCustomerByEmailAsync(username);
+                            return Json(model);
+                        }
+                    case CustomerLoginResults.CustomerNotExist:
+                        model.Result = false;
+                        model.ErrorResult= await _localizationService.GetResourceAsync("Account.Login.WrongCredentials.CustomerNotExist");
+                        break;
+                    case CustomerLoginResults.Deleted:
+                        model.Result = false;
+                        model.ErrorResult = await _localizationService.GetResourceAsync("Account.Login.WrongCredentials.Deleted");
+                        break;
+                    case CustomerLoginResults.NotActive:
+                        model.Result = false;
+                        model.ErrorResult = await _localizationService.GetResourceAsync("Account.Login.WrongCredentials.NotActive");
+                        break;
+                    case CustomerLoginResults.NotRegistered:
+                        model.Result = false;
+                        model.ErrorResult = await _localizationService.GetResourceAsync("Account.Login.WrongCredentials.NotRegistered");
+                        break;
+                    case CustomerLoginResults.LockedOut:
+                        model.Result = false;
+                        model.ErrorResult = await _localizationService.GetResourceAsync("Account.Login.WrongCredentials.LockedOut");
+                        break;
+                    case CustomerLoginResults.WrongPassword:
+                    default:
+                        model.Result = false;
+                        model.ErrorResult = await _localizationService.GetResourceAsync("Account.Login.WrongCredentials");
+                        break;
+                }
+            }
+            return Json(model);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /// <summary>
         /// The entry point for injecting a plugin component of type "MultiFactorAuth"
         /// </summary>
@@ -1240,7 +1310,6 @@ namespace Nop.Web.Controllers
             {
                 ModelState.AddModelError("", error);
             }
-
             //GDPR
             if (_gdprSettings.GdprEnabled)
             {
@@ -1248,7 +1317,6 @@ namespace Nop.Web.Controllers
                     .GetAllConsentsAsync()).Where(consent => consent.DisplayOnCustomerInfoPage && consent.IsRequired).ToList();
                 ValidateRequiredConsents(consents, form);
             }
-
             try
             {
                 if (ModelState.IsValid)
@@ -2328,4 +2396,14 @@ namespace Nop.Web.Controllers
 
         #endregion
     }
+}
+
+
+
+
+public class MobileLogin 
+{
+    public bool Result { get; set; }
+    public Customer Customer { get; set; }
+    public string ErrorResult { get; set; }
 }

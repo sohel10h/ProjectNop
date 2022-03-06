@@ -437,7 +437,7 @@ namespace Nop.Web.Controllers
 
             var showLinkToResultSearch = _catalogSettings.ShowLinkToAllResultInSearchAutoComplete && (products.TotalCount > productNumber);
 
-            var models = (await _productModelFactory.PrepareProductOverviewModelsForCarrerAsync(products, true, false, _mediaSettings.AutoCompleteSearchThumbPictureSize,true)).ToList();
+            var models = (await _productModelFactory.PrepareProductOverviewModelsForCarrerAsync(products, true, true, _mediaSettings.AutoCompleteSearchThumbPictureSize,true)).ToList();
             var result = (from p in models
                           select new
                           {

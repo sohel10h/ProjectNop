@@ -1323,6 +1323,11 @@ namespace Nop.Web.Factories
                     model.ProductPrice = await PrepareProductOverviewPriceModelAsync(product, forceRedirectionAfterAddingToCart);
                 }
 
+                if (preparePictureModel)
+                {
+                    model.DefaultPictureModel = await PrepareProductOverviewPictureModelAsync(product, productThumbPictureSize);
+                }
+
                 model.ProductAttributes = await PrepareProductAttributeModelsForSearchAsync(product);
 
 

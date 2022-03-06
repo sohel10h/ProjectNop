@@ -8257,6 +8257,7 @@
       "path": "system.componentmodel.primitives/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8295,6 +8296,7 @@
       "path": "system.componentmodel.typeconverter/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -13366,23 +13368,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Asus\\.nuget\\packages\\": {},
+    "C:\\Users\\Sohel Rana\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Personal works\\new clone\\Plugins\\Nop.Plugin.Widgets.NivoSlider\\Nop.Plugin.Widgets.NivoSlider.csproj",
+      "projectUniqueName": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Widgets.NivoSlider\\Nop.Plugin.Widgets.NivoSlider.csproj",
       "projectName": "Nop.Plugin.Widgets.NivoSlider",
-      "projectPath": "D:\\Personal works\\new clone\\Plugins\\Nop.Plugin.Widgets.NivoSlider\\Nop.Plugin.Widgets.NivoSlider.csproj",
-      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "D:\\Personal works\\new clone\\Plugins\\Nop.Plugin.Widgets.NivoSlider\\obj\\",
+      "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Widgets.NivoSlider\\Nop.Plugin.Widgets.NivoSlider.csproj",
+      "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Widgets.NivoSlider\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13396,8 +13398,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-              "projectPath": "D:\\Personal works\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+            "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+              "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
             }
           }
         }
@@ -13426,7 +13428,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }
