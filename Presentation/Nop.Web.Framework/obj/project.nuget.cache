@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/C2awKpiR/zmwMqDmLnqSVbm/+LzwcxrTjouhE/mBDx7F3IbVcvCrjeJr8hNnFEnIbMrkgapI6roWkoB77YUeg==",
+  "dgSpecHash": "Qn9fiJklCtBMuSRKUSuYy1c7kUMYxZl0mr/1eflpE1if3T0J1lyv0NES4pf54ZheAiqthzoPPZMIw0XZ/H2XgA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

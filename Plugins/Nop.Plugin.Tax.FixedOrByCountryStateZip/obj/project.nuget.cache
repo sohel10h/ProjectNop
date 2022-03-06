@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "unvAnnpjmjj1LjvtR1TVJVeBSf5hnpukbEGSBwxLxVONTy968p9cnGPYj58VDB9xevSNY2VQ8J1z7JDnuCuRnA==",
+  "dgSpecHash": "ap6AmDQvzS1SBvrSuHxq3CuTl0HWk/PJIaz0Sc4kRSQXnDHm+oPMtXCr5QhjulOwBbzDqMbPSg7f/tGJu+MIiw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Tax.FixedOrByCountryStateZip\\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Tax.FixedOrByCountryStateZip\\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

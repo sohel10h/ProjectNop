@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y7QgHq8KT5poHD0855OqWVPkoJOT+3ap1tWm5PgmbFFelH6XD8ZAdjfL5P5/s/IEedc4OgyItFFkNquKUPdd8g==",
+  "dgSpecHash": "4Q+gaf05BwApQaik+n+/+Ca7G+BMWm8GVL2ue0G7D6pYb6/o48cwN0UjBsyWyu8YMpL5W4bP7fwSUiK6WL7hew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Pickup.PickupInStore\\Nop.Plugin.Pickup.PickupInStore.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Pickup.PickupInStore\\Nop.Plugin.Pickup.PickupInStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

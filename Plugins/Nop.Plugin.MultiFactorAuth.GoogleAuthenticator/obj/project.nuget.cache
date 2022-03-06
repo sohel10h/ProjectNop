@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RtpUQT22clobQdyznW70o6U8J8mCGSheOzhpnAh0S3bWU9dpys2eu4XmMImf01iwqBRPsYrOYouyH3+Plygj2g==",
+  "dgSpecHash": "1PdDYXcZIiporY8fQaxKkbyiIH+i6v+YggwWU4wrTBj4PhZenSWVOxqsP0YJCMq/1PyWXo59jyIiWfFAe6gJHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

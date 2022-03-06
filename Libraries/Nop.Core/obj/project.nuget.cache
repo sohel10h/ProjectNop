@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AdDLl7AuySgUiq5wdrzhYtgxFQUYOKClpAqSuI49XUq6fYWguTQkdtsmX1jXTQjNl0Mh1/WLJBQl8EHGULZU8Q==",
+  "dgSpecHash": "JV4kg9TKU52GmlpWh6F1NWiZQURD+tCxQgqv34FtoMUFhu1uoOKEitnnwXqTSHfKW0AgtHZtBgvFbe75JcSD4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Libraries\\Nop.Core\\Nop.Core.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.1.0\\autofac.extensions.dependencyinjection.7.1.0.nupkg.sha512",

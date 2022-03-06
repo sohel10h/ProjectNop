@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d7hNVVW64wgJ8r3JMdIeMtgdVyufYGz/idCm/Z2prVwKyY86rnTjFYsSOBzQoUxh9gknivGgBtx8nBbyOvG3yw==",
+  "dgSpecHash": "giAHx6vIT47yJdd0P3KqDCCTxEWG0L2HE/jRuz3/UoxjJcecPPZZZ38i23/sO4mkQ3GercNDXGdOZXJkrHNPXQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Widgets.NivoSlider\\Nop.Plugin.Widgets.NivoSlider.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Widgets.NivoSlider\\Nop.Plugin.Widgets.NivoSlider.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

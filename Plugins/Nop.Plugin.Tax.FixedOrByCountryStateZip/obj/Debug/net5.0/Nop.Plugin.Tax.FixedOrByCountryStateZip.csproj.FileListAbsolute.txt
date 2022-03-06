@@ -1806,3 +1806,4 @@ C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountrySta
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\net5.0\ref\Nop.Plugin.Tax.FixedOrByCountryStateZip.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\net5.0\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj.AssemblyReference.cache

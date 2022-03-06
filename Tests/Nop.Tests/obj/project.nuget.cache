@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5sIjD7GVeCKWCASt5kEWyONDgey9yE3n5jdKlabEGu97CDWU8qbSN/WoejKIRjJdFGgj5ClXDqfRU5cuQ8bGGg==",
+  "dgSpecHash": "WlHWv1plFtBASLegsRevENE0bV77653uUwj3PzgmAHqWAzXrUm3jhEeOeLZ7E/6h+K0fjmKER/1cQW1/BNpT7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Tests\\Nop.Tests\\Nop.Tests.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Tests\\Nop.Tests\\Nop.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

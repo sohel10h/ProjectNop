@@ -1794,3 +1794,4 @@ C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\D
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Debug\net5.0\Nop.Plugin.Widgets.AccessiBe.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Debug\net5.0\ref\Nop.Plugin.Widgets.AccessiBe.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Debug\net5.0\Nop.Plugin.Widgets.AccessiBe.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Debug\net5.0\Nop.Plugin.Widgets.AccessiBe.csproj.AssemblyReference.cache

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xSehlJp/hnISK2n736Oe2gqdm8+n9Huk4LVcdotjAVJnX7LGSQgmX7dBtXw3Fh22CKhQhyzv5zIxe0k19Ienlw==",
+  "dgSpecHash": "Xp2YTkibVPUnorJq228ju+/wOFNU+s228R08aQE8/cldyKGkY5NMHtu/n48UnjSmvAi3bxr/jYpM7cizkQWgBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Misc.Sendinblue\\Nop.Plugin.Misc.Sendinblue.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Misc.Sendinblue\\Nop.Plugin.Misc.Sendinblue.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",

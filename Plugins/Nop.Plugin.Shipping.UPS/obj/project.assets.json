@@ -13374,11 +13374,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Shipping.UPS\\Nop.Plugin.Shipping.UPS.csproj",
+      "projectUniqueName": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.UPS\\Nop.Plugin.Shipping.UPS.csproj",
       "projectName": "Nop.Plugin.Shipping.UPS",
-      "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Shipping.UPS\\Nop.Plugin.Shipping.UPS.csproj",
+      "projectPath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.UPS\\Nop.Plugin.Shipping.UPS.csproj",
       "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.Shipping.UPS\\obj\\",
+      "outputPath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.UPS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13398,8 +13398,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-              "projectPath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+            "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+              "projectPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
             }
           }
         }

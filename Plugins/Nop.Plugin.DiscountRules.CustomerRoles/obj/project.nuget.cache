@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uLJnNI9pERC/I30s3FE6lwRpXf88LfjHsxxIeLJzgqX8IFJ0i0S2ckdKxlK0EnPNv/6Jt/4NcEdRpPnVpAsm4g==",
+  "dgSpecHash": "/dvyIw3j6Fc2AAuAoe20h42gcbiTOL0H3i5tV0MUcTNHSqVWtwjANMevA+BizV9EgvT9V+mdnfk2CiQ0cVqHMw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sohel Rana\\Desktop\\new clone\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj",
+  "projectFilePath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.DiscountRules.CustomerRoles\\Nop.Plugin.DiscountRules.CustomerRoles.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\Sohel Rana\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
