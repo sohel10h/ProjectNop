@@ -343,6 +343,31 @@ namespace Nop.Services.Catalog
             return result;
         }
 
+        public virtual async Task<IList<Category>> GetAllCustomerCategorysAsync(Customer customer) 
+        {
+            List<int> SelectedCategoryIds = null;
+            if (!string.IsNullOrWhiteSpace(customer.SelectedCategorys))
+            {
+                SelectedCategoryIds = customer.SelectedCategorys.Split(',').Select(Int32.Parse).ToList();
+            }
+            else{return new List<Category>();}
+
+            var categories = await _categoryRepository.GetAllAsync(query =>
+            {
+                return from c in query
+                       orderby c.DisplayOrder, c.Id
+                       where c.Published &&
+                             !c.Deleted &&
+                             SelectedCategoryIds.Contains(c.Id)
+                       select c;
+            });
+            return categories;
+
+        }
+
+
+
+
         /// <summary>
         /// Get category identifiers to which a discount is applied
         /// </summary>

@@ -633,6 +633,55 @@ namespace Nop.Web.Factories
             return model;
         }
 
+
+
+        public virtual async Task<List<CategorySimpleModel>> PrepareCustomerModelsAsync(int cusId)
+        {
+            var customer = await _customerService.GetCustomerByIdAsync(cusId);      
+            var customerCategories = await _categoryService.GetAllCustomerCategorysAsync(customer);
+            var model = new List<CategorySimpleModel>();
+
+            foreach (var category in customerCategories) 
+            {
+                //model.AddRange(await PrepareCategorySimpleModelsAsync(cat.Id));
+
+                var categoryModel = new CategorySimpleModel
+                {
+                    Id = category.Id,
+                    Name = await _localizationService.GetLocalizedAsync(category, x => x.Name),
+                    SeName = await _urlRecordService.GetSeNameAsync(category),
+                    IncludeInTopMenu = category.IncludeInTopMenu
+                };
+
+                //number of products in each category
+                if (_catalogSettings.ShowCategoryProductNumber)
+                {
+                    var categoryIds = new List<int> { category.Id };
+                    //include subcategories
+                    if (_catalogSettings.ShowCategoryProductNumberIncludingSubcategories)
+                        categoryIds.AddRange(
+                            await _categoryService.GetChildCategoryIdsAsync(category.Id, (await _storeContext.GetCurrentStoreAsync()).Id));
+
+                    categoryModel.NumberOfProducts =
+                        await _productService.GetNumberOfProductsInCategoryAsync(categoryIds, (await _storeContext.GetCurrentStoreAsync()).Id);
+                }
+
+               
+                    var subCategories = await PrepareCategorySimpleModelsAsync(category.Id);
+                    categoryModel.SubCategories.AddRange(subCategories);
+               
+
+                categoryModel.HaveSubCategories = categoryModel.SubCategories.Count > 0 &
+                    categoryModel.SubCategories.Any(x => x.IncludeInTopMenu);
+
+                model.Add(categoryModel);
+
+
+
+            }
+            return model;
+        }
+
         /// <summary>
         /// Prepare root categories for menu
         /// </summary>
@@ -784,7 +833,47 @@ namespace Nop.Web.Factories
 
             return model;
         }
-        
+
+
+
+        public virtual async Task<CatalogProductsModel> PrepareCustomerProductsModelAsync(int cusId,CatalogProductsCommand command)
+        {
+            if (command == null)
+                throw new ArgumentNullException(nameof(command));
+
+            var model = new CatalogProductsModel
+            {
+            };
+            var currentStore = await _storeContext.GetCurrentStoreAsync();
+
+
+            var customer = await _customerService.GetCustomerByIdAsync(cusId);
+            if (customer == null)
+            {
+                throw new Exception("Customer Not Found");
+            }
+            List<int> SelectedCategoryIds = null;
+            if (!string.IsNullOrWhiteSpace(customer.SelectedCategorys))
+            {
+                SelectedCategoryIds = customer.SelectedCategorys.Split(',').Select(Int32.Parse).ToList();
+            }
+
+            //products
+            var products = await _productService.SearchProductsAsync(
+                command.PageNumber - 1,
+                command.PageSize,
+                categoryIds: SelectedCategoryIds,
+                visibleIndividuallyOnly: true,
+                orderBy: ProductSortingEnum.Position);
+
+            await PrepareCatalogProductsAsync(model, products);
+
+            return model;
+        }
+
+
+
+
         /// <summary>
         /// Prepare category (simple) models
         /// </summary>
@@ -801,7 +890,7 @@ namespace Nop.Web.Factories
             var store = await _storeContext.GetCurrentStoreAsync();
             var cacheKey = _staticCacheManager.PrepareKeyForDefaultCache(NopModelCacheDefaults.CategoryAllModelKey,
                 language, customerRoleIds, store);
-
+                                                                                                                       
             return await _staticCacheManager.GetAsync(cacheKey, async () => await PrepareCategorySimpleModelsAsync(0));
         }
 

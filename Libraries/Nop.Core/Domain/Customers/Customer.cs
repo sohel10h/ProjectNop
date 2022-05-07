@@ -158,7 +158,7 @@ namespace Nop.Core.Domain.Customers
 
         public string District { get; set; }
 
-
+        public string SelectedCategorys { get; set; }
 
     }
 }

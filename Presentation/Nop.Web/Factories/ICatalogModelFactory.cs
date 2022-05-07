@@ -62,6 +62,7 @@ namespace Nop.Web.Factories
         /// </returns>
         Task<List<CategoryModel>> PrepareHomepageCategoryModelsAsync();
 
+        Task<List<CategorySimpleModel>> PrepareCustomerModelsAsync(int cusId);
         /// <summary>
         /// Prepare root categories for menu
         /// </summary>
@@ -92,6 +93,7 @@ namespace Nop.Web.Factories
         /// </returns>
         Task<CatalogProductsModel> PrepareCategoryProductsModelAsync(Category category, CatalogProductsCommand command);
 
+        Task<CatalogProductsModel> PrepareCustomerProductsModelAsync(int cusId, CatalogProductsCommand command);
         /// <summary>
         /// Prepare category (simple) models
         /// </summary>

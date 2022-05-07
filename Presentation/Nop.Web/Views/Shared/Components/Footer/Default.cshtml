@@ -5,7 +5,7 @@
 
 @inject IWorkContext workContext
 
-<div class="footer">
+@*<div class="footer">
 
     <div class="footer_div">
         <a href="@Url.RouteUrl("MakeAnOrder")">@T("Make.A.Order")</a>
@@ -28,7 +28,7 @@
 
 
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.Footer })
-</div>
+</div>*@
 <script asp-location="Footer">
     $(document).ready(function () {
         $('.footer-block .title').on('click', function () {

@@ -307,10 +307,8 @@ namespace Nop.Web.Areas.Admin.Controllers
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageCustomers))
                 return AccessDeniedView();
-
             //prepare model
             var model = await _customerModelFactory.PrepareCustomerModelAsync(new CustomerModel(), null);
-
             return View(model);
         }
 
@@ -373,6 +371,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 customer.CreatedOnUtc = DateTime.UtcNow;
                 customer.LastActivityDateUtc = DateTime.UtcNow;
                 customer.RegisteredInStoreId = (await _storeContext.GetCurrentStoreAsync()).Id;
+                customer.SelectedCategorys = string.Join(",", model.SelectedCategoryIds);
 
                 await _customerService.InsertCustomerAsync(customer);
 
@@ -578,7 +577,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 {
                     customer.AdminComment = model.AdminComment;
                     customer.IsTaxExempt = model.IsTaxExempt;
-
+                    customer.SelectedCategorys = string.Join(",", model.SelectedCategoryIds);
                     customer.Village = model.Village;
                     customer.FatherName = model.FatherName;
                     customer.EducationalQualification = model.EducationalQualification;

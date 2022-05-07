@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Nop.Core;
@@ -8,6 +10,7 @@ using Nop.Core.Domain.Media;
 using Nop.Core.Domain.Vendors;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
+using Nop.Services.Customers;
 using Nop.Services.Localization;
 using Nop.Services.Logging;
 using Nop.Services.Security;
@@ -43,6 +46,7 @@ namespace Nop.Web.Controllers
         private readonly IWorkContext _workContext;
         private readonly MediaSettings _mediaSettings;
         private readonly VendorSettings _vendorSettings;
+        private readonly ICustomerService _customerService;
 
         #endregion
 
@@ -66,6 +70,7 @@ namespace Nop.Web.Controllers
             IWebHelper webHelper,
             IWorkContext workContext,
             MediaSettings mediaSettings,
+            ICustomerService customerService,
             VendorSettings vendorSettings)
         {
             _catalogSettings = catalogSettings;
@@ -87,6 +92,7 @@ namespace Nop.Web.Controllers
             _workContext = workContext;
             _mediaSettings = mediaSettings;
             _vendorSettings = vendorSettings;
+            _customerService = customerService;
         }
 
         #endregion
@@ -123,6 +129,18 @@ namespace Nop.Web.Controllers
             return View(templateViewPath, model);
         }
 
+
+
+        public virtual async Task<IActionResult> CategoryForMobile(int categoryId)
+        {
+            var category = await _categoryService.GetCategoryByIdAsync(categoryId);
+            CatalogProductsCommand command = new CatalogProductsCommand();
+            var model = await _catalogModelFactory.PrepareCategoryModelAsync(category, command);
+            //template
+            return Ok(model);
+        }
+
+
         //ignore SEO friendly URLs checks
         [CheckLanguageSeoCode(true)]
         /// <returns>A task that represents the asynchronous operation</returns>
@@ -138,13 +156,47 @@ namespace Nop.Web.Controllers
             return PartialView("_ProductsInGridOrLines", model);
         }
 
+
+
+
+        [CheckLanguageSeoCode(true)]
+        /// <returns>A task that represents the asynchronous operation</returns>
+        public virtual async Task<IActionResult> GetCategoryProductsForMobile(int categoryId, CatalogProductsCommand command)
+        {
+            //CatalogProductsCommand command = new CatalogProductsCommand();
+            //command.PageIndex
+            //command.PageNumber = 0;
+            //command.PageSize = 0;
+            //command.TotalItems = 0;
+            //command.TotalPages = 0;
+            var category = await _categoryService.GetCategoryByIdAsync(categoryId);
+            if (!await CheckCategoryAvailabilityAsync(category))
+                return NotFound();
+            var model = await _catalogModelFactory.PrepareCategoryProductsModelAsync(category, command);
+            return Json(model);
+        }
+
+
+        public virtual async Task<IActionResult> CustomerProductsMobile(int cusId, CatalogProductsCommand command)
+        {
+            //CatalogProductsCommand command = new CatalogProductsCommand();
+            //command.PageIndex
+            //command.PageNumber = 0;
+            //command.PageSize = 0;
+            //command.TotalItems = 0;
+            //command.TotalPages = 0;
+
+            var model = await _catalogModelFactory.PrepareCustomerProductsModelAsync(cusId, command);
+            return Json(model);
+        }
+
+
         [HttpPost]
         [IgnoreAntiforgeryToken]
         /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task<IActionResult> GetCatalogRoot()
         {
             var model = await _catalogModelFactory.PrepareRootCategoriesAsync();
-
             return Json(model);
         }
 
@@ -154,7 +206,6 @@ namespace Nop.Web.Controllers
         public virtual async Task<IActionResult> GetCatalogSubCategories(int id)
         {
             var model = await _catalogModelFactory.PrepareSubCategoriesAsync(id);
-
             return Json(model);
         }
 
@@ -428,6 +479,8 @@ namespace Nop.Web.Controllers
             var productNumber = _catalogSettings.ProductSearchAutoCompleteNumberOfProducts > 0 ?
                 _catalogSettings.ProductSearchAutoCompleteNumberOfProducts : 10;
 
+         
+
             var products = await _productService.SearchProductsAsync(0,
                 storeId: (await _storeContext.GetCurrentStoreAsync()).Id,
                 keywords: term,
@@ -453,6 +506,138 @@ namespace Nop.Web.Controllers
             return Json(result);
         }
 
+        [CheckLanguageSeoCode(true)]
+        /// <returns>A task that represents the asynchronous operation</returns>
+        public virtual async Task<IActionResult> SearchTermAutoCompleteForCarrerV2(string term, int cusId)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return Content("");
+
+            term = term.Trim();
+
+            if (string.IsNullOrWhiteSpace(term) || term.Length < _catalogSettings.ProductSearchTermMinimumLength)
+                return Content("");
+
+            //products
+            var productNumber = _catalogSettings.ProductSearchAutoCompleteNumberOfProducts > 0 ?
+                _catalogSettings.ProductSearchAutoCompleteNumberOfProducts : 10;
+
+            var customer = await _customerService.GetCustomerByIdAsync(cusId);
+            if (customer == null)
+            {
+                throw new Exception("Customer Not Found");
+            }
+            List<int> SelectedCategoryIds = null;
+            if (!string.IsNullOrWhiteSpace(customer.SelectedCategorys))
+            {
+                SelectedCategoryIds = customer.SelectedCategorys.Split(',').Select(Int32.Parse).ToList();
+            }
+
+            var products = await _productService.SearchProductsAsync(0,
+                storeId: (await _storeContext.GetCurrentStoreAsync()).Id,
+                keywords: term,
+                categoryIds: SelectedCategoryIds,
+                languageId: (await _workContext.GetWorkingLanguageAsync()).Id,
+                visibleIndividuallyOnly: true,
+                pageSize: productNumber);
+
+            var showLinkToResultSearch = _catalogSettings.ShowLinkToAllResultInSearchAutoComplete && (products.TotalCount > productNumber);
+
+            var models = (await _productModelFactory.PrepareProductOverviewModelsForCarrerAsync(products, true, true, _mediaSettings.AutoCompleteSearchThumbPictureSize, true)).ToList();
+            var result = (from p in models
+                          select new
+                          {
+                              id = p.Id,
+                              label = p.Name,
+                              producturl = Url.RouteUrl("Product", new { SeName = p.SeName }),
+                              productpictureurl = p.DefaultPictureModel.ImageUrl,
+                              showlinktoresultsearch = showLinkToResultSearch,
+                              price = p.WholesalePrice,
+                              ProductAttributes = p.ProductAttributes
+                          })
+                .ToList();
+            return Json(result);
+        }
+
+
+        public virtual async Task<IActionResult>ProductForCarrer(int productId)
+        {
+            var products = new List<Product>();
+            var product=await _productService.GetProductByIdAsync(productId);
+            if (product == null) 
+            {
+                return Json("");
+            }
+            products.Add(product);
+            var models = (await _productModelFactory.PrepareProductOverviewModelsForCarrerAsync(products, true, true, 300, true)).ToList();
+            var result = (from p in models
+                          select new
+                          {
+                              id = p.Id,
+                              label = p.Name,
+                              producturl = Url.RouteUrl("Product", new { SeName = p.SeName }),
+                              productpictureurl = p.DefaultPictureModel.ImageUrl,
+                              price = p.WholesalePrice,
+                              ProductAttributes = p.ProductAttributes
+                          })
+                .ToList();
+            return Json(result);
+        }
+
+
+
+        [CheckLanguageSeoCode(true)]
+        /// <returns>A task that represents the asynchronous operation</returns>
+        public virtual async Task<IActionResult> SearchTermAutoCompleteForCarrerForWeb(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return Content("");
+
+            term = term.Trim();
+
+            if (string.IsNullOrWhiteSpace(term) || term.Length < _catalogSettings.ProductSearchTermMinimumLength)
+                return Content("");
+
+            //products
+            var productNumber = _catalogSettings.ProductSearchAutoCompleteNumberOfProducts > 0 ?
+                _catalogSettings.ProductSearchAutoCompleteNumberOfProducts : 10;
+
+            var customer = await _workContext.GetCurrentCustomerAsync();
+            if (customer == null)
+            {
+                throw new Exception("Customer Not Found");
+            }
+            List<int> SelectedCategoryIds = null;
+            if (!string.IsNullOrWhiteSpace(customer.SelectedCategorys))
+            {
+                SelectedCategoryIds = customer.SelectedCategorys.Split(',').Select(Int32.Parse).ToList();
+            }
+
+            var products = await _productService.SearchProductsAsync(0,
+                storeId: (await _storeContext.GetCurrentStoreAsync()).Id,
+                keywords: term,
+                categoryIds: SelectedCategoryIds,
+                languageId: (await _workContext.GetWorkingLanguageAsync()).Id,
+                visibleIndividuallyOnly: true,
+                pageSize: productNumber);
+
+            var showLinkToResultSearch = _catalogSettings.ShowLinkToAllResultInSearchAutoComplete && (products.TotalCount > productNumber);
+
+            var models = (await _productModelFactory.PrepareProductOverviewModelsForCarrerAsync(products, true, true, _mediaSettings.AutoCompleteSearchThumbPictureSize, true)).ToList();
+            var result = (from p in models
+                          select new
+                          {
+                              id = p.Id,
+                              label = p.Name,
+                              producturl = Url.RouteUrl("Product", new { SeName = p.SeName }),
+                              productpictureurl = p.DefaultPictureModel.ImageUrl,
+                              showlinktoresultsearch = showLinkToResultSearch,
+                              price = p.WholesalePrice,
+                              ProductAttributes = p.ProductAttributes
+                          })
+                .ToList();
+            return Json(result);
+        }
 
 
 

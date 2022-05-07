@@ -711,6 +711,11 @@ namespace Nop.Web.Areas.Admin.Factories
                     model.DisplayRegisteredInStore = model.Id > 0 && !string.IsNullOrEmpty(model.RegisteredInStore) &&
                         (await _storeService.GetAllStoresAsync()).Select(x => x.Id).Count() > 1;
 
+                    if (!string.IsNullOrWhiteSpace(customer.SelectedCategorys)) 
+                    {
+                        model.SelectedCategoryIds = customer.SelectedCategorys.Split(',').Select(Int32.Parse).ToList();
+                    }
+
                     model.FatherName = customer.FatherName;
                     model.Village = customer.Village;
                     model.EducationalQualification = customer.EducationalQualification;
@@ -788,6 +793,13 @@ namespace Nop.Web.Areas.Admin.Factories
             //prepare available vendors
             await _baseAdminModelFactory.PrepareVendorsAsync(model.AvailableVendors,
                 defaultItemText: await _localizationService.GetResourceAsync("Admin.Customers.Customers.Fields.Vendor.None"));
+
+            await _baseAdminModelFactory.PrepareCategoriesAsync(model.AvailableCategories, false);
+            foreach (var categoryItem in model.AvailableCategories)
+            {
+                categoryItem.Selected = int.TryParse(categoryItem.Value, out var categoryId)
+                    && model.SelectedCategoryIds.Contains(categoryId);
+            }
 
             //prepare model customer attributes
             await PrepareCustomerAttributeModelsAsync(model.CustomerAttributes, customer);

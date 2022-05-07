@@ -78,6 +78,9 @@ namespace Nop.Services.Catalog
         /// </returns>
         Task<IList<Category>> GetAllCategoriesDisplayedOnHomepageAsync(bool showHidden = false);
 
+
+        Task<IList<Category>> GetAllCustomerCategorysAsync(Customer customer);
+
         /// <summary>
         /// Get category identifiers to which a discount is applied
         /// </summary>

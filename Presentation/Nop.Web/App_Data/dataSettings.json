@@ -1,5 +1,5 @@
 ﻿{
-  "DataConnectionString": "server=database-1.ciudsuyivirp.ap-south-1.rds.amazonaws.com;database=productiondb;allowuservariables=True;user id=salahuddin1757;password=salahuddin123#",
+  "DataConnectionString": "server=127.0.0.1;database=productiondb;allowuservariables=True;user id=root;password=sohel123#",
   "DataProvider": "mysql",
   "SQLCommandTimeout": null,
   "RawDataSettings": {}

@@ -24,6 +24,9 @@ namespace Nop.Web.Areas.Admin.Models.Customers
             SelectedCustomerRoleIds = new List<int>();
             AvailableCustomerRoles = new List<SelectListItem>();
 
+            SelectedCategoryIds = new List<int>();
+            AvailableCategories = new List<SelectListItem>();
+
             AvailableCountries = new List<SelectListItem>();
             AvailableStates = new List<SelectListItem>();
             AvailableVendors = new List<SelectListItem>();
@@ -268,7 +271,9 @@ namespace Nop.Web.Areas.Admin.Models.Customers
         public string District { get; set; }
 
 
-
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.Categories")]
+        public IList<int> SelectedCategoryIds { get; set; }
+        public IList<SelectListItem> AvailableCategories { get; set; }
 
         public CustomerAddressSearchModel CustomerAddressSearchModel { get; set; }
 

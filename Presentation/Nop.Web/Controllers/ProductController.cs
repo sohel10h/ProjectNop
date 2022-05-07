@@ -233,6 +233,89 @@ namespace Nop.Web.Controllers
             return View(productTemplateViewPath, model);
         }
 
+
+
+        public virtual async Task<IActionResult> ProductDetailsForMobile(int productId)
+        {
+            var product = await _productService.GetProductByIdAsync(productId);
+            if (product == null || product.Deleted)
+                return Ok();
+
+            //var notAvailable =
+            //    //published?
+            //    (!product.Published && !_catalogSettings.AllowViewUnpublishedProductPage) ||
+            //    //ACL (access control list) 
+            //    !await _aclService.AuthorizeAsync(product) ||
+            //    //Store mapping
+            //    !await _storeMappingService.AuthorizeAsync(product) ||
+            //    //availability dates
+            //    !_productService.ProductIsAvailable(product);
+            //Check whether the current user has a "Manage products" permission (usually a store owner)
+            //We should allows him (her) to use "Preview" functionality
+            //var hasAdminAccess = await _permissionService.AuthorizeAsync(StandardPermissionProvider.AccessAdminPanel) && await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProducts);
+            //if (notAvailable && !hasAdminAccess)
+            //    return InvokeHttp404();
+
+            ////visible individually?
+            //if (!product.VisibleIndividually)
+            //{
+            //    //is this one an associated products?
+            //    var parentGroupedProduct = await _productService.GetProductByIdAsync(product.ParentGroupedProductId);
+            //    if (parentGroupedProduct == null)
+            //        return RedirectToRoute("Homepage");
+
+            //    return RedirectToRoutePermanent("Product", new { SeName = await _urlRecordService.GetSeNameAsync(parentGroupedProduct) });
+            //}
+
+            //update existing shopping cart or wishlist  item?
+            ShoppingCartItem updatecartitem = null;
+            //if (_shoppingCartSettings.AllowCartItemEditing && updatecartitemid > 0)
+            //{
+            //    var cart = await _shoppingCartService.GetShoppingCartAsync(await _workContext.GetCurrentCustomerAsync(), storeId: (await _storeContext.GetCurrentStoreAsync()).Id);
+            //    updatecartitem = cart.FirstOrDefault(x => x.Id == updatecartitemid);
+            //    //not found?
+            //    if (updatecartitem == null)
+            //    {
+            //        return RedirectToRoute("Product", new { SeName = await _urlRecordService.GetSeNameAsync(product) });
+            //    }
+            //    //is it this product?
+            //    if (product.Id != updatecartitem.ProductId)
+            //    {
+            //        return RedirectToRoute("Product", new { SeName = await _urlRecordService.GetSeNameAsync(product) });
+            //    }
+            //}
+
+            //save as recently viewed
+            //await _recentlyViewedProductsService.AddProductToRecentlyViewedListAsync(product.Id);
+
+            //display "edit" (manage) link
+            //if (await _permissionService.AuthorizeAsync(StandardPermissionProvider.AccessAdminPanel) &&
+            //    await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageProducts))
+            //{
+            //    //a vendor should have access only to his products
+            //    if (await _workContext.GetCurrentVendorAsync() == null || (await _workContext.GetCurrentVendorAsync()).Id == product.VendorId)
+            //    {
+            //        DisplayEditLink(Url.Action("Edit", "Product", new { id = product.Id, area = AreaNames.Admin }));
+            //    }
+            //}
+
+            //activity log
+            //await _customerActivityService.InsertActivityAsync("PublicStore.ViewProduct",
+            //    string.Format(await _localizationService.GetResourceAsync("ActivityLog.PublicStore.ViewProduct"), product.Name), product);
+
+            //model
+            var model = await _productModelFactory.PrepareProductDetailsModelAsync(product, updatecartitem, false);
+            //template
+            //var productTemplateViewPath = await _productModelFactory.PrepareProductTemplateViewPathAsync(product);
+
+            return Ok( model);
+        }
+
+
+
+
+
+
         [HttpPost]
         /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task<IActionResult> EstimateShipping([FromQuery] ProductDetailsModel.ProductEstimateShippingModel model, IFormCollection form)
