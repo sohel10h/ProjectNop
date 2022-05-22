@@ -1263,6 +1263,7 @@ namespace Nop.Web.Factories
                     FullDescription = await _localizationService.GetLocalizedAsync(product, x => x.FullDescription),
                     SeName = await _urlRecordService.GetSeNameAsync(product),
                     Sku = product.Sku,
+                    WholesalePrice=product.WholesalePrice,
                     ProductType = product.ProductType,
                     MarkAsNew = product.MarkAsNew &&
                         (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow) &&

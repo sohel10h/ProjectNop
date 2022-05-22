@@ -1803,3 +1803,4 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debu
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalStandard.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\net5.0\ref\Nop.Plugin.Payments.PayPalStandard.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalStandard.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalStandard.csproj.AssemblyReference.cache

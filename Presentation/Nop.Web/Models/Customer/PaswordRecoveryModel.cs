@@ -6,8 +6,8 @@ namespace Nop.Web.Models.Customer
 {
     public partial record PasswordRecoveryModel : BaseNopModel
     {
-        [DataType(DataType.EmailAddress)]
-        [NopResourceDisplayName("Account.PasswordRecovery.Email")]
+        //[DataType(DataType.EmailAddress)]
+        //[NopResourceDisplayName("Account.PasswordRecovery.Email")]
         public string Email { get; set; }
 
         public string Result { get; set; }

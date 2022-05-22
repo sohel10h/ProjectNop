@@ -1794,3 +1794,4 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\net5.0\Nop.Plugin.DiscountRules.CustomerRoles.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\net5.0\ref\Nop.Plugin.DiscountRules.CustomerRoles.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\net5.0\Nop.Plugin.DiscountRules.CustomerRoles.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\net5.0\Nop.Plugin.DiscountRules.CustomerRoles.csproj.AssemblyReference.cache

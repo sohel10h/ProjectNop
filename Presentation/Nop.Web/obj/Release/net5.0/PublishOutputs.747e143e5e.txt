@@ -1119,6 +1119,8 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000939_15pcs-carbide-router-bits-set-tolsen-brand.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000939_15pcs-carbide-router-bits-set-tolsen-brand_415.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000939_15pcs-carbide-router-bits-set-tolsen-brand_50.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001036_a4-copy-office-paper-a4-size-paper-500-sheets-double-a-brand.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001036_a4-copy-office-paper-a4-size-paper-500-sheets-double-a-brand_415.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001039_a4-copy-office-paper-a4-size-paper-500-sheets-sonali-branda4-_75.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001146_120.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001150_120.jpeg

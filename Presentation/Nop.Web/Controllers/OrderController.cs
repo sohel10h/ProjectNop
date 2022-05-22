@@ -658,23 +658,23 @@ namespace Nop.Web.Controllers
                 }
                 var order = new Order();
 
-                var addressId = 0;
-                if (context.AddressId > 0)
-                {
-                    addressId = context.AddressId;
-                }
-                else 
-                {
-                    Address address = new Address();
-                    address.FirstName = context.FirstName;
-                    address.LastName = context.LastName;
-                    address.Email = context.Email;
-                    address.City = context.City;
-                    address.Address1 = context.Address1;
-                    address.PhoneNumber = context.PhoneNumber;
-                    await _addressService.InsertAddressAsync(address);
-                    addressId = address.Id;
-                }
+                var addressId = addresses.FirstOrDefault().Id;
+                //if (context.AddressId > 0)
+                //{
+                //    addressId = context.AddressId;
+                //}
+                //else 
+                //{
+                //    Address address = new Address();
+                //    address.FirstName = context.FirstName;
+                //    address.LastName = context.LastName;
+                //    address.Email = context.Email;
+                //    address.City = context.City;
+                //    address.Address1 = context.Address1;
+                //    address.PhoneNumber = context.PhoneNumber;
+                //    await _addressService.InsertAddressAsync(address);
+                //    addressId = address.Id;
+                //}
                 order.BillingAddressId = addressId;
                 order.ShippingAddressId = addressId;
 
