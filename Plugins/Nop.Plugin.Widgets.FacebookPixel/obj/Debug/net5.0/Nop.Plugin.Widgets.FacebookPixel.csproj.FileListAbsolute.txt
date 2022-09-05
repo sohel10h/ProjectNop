@@ -1543,6 +1543,11 @@ C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Widgets.FacebookPixel\o
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\ref\Nop.Plugin.Widgets.FacebookPixel.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.csproj.AssemblyReference.cache
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.AssemblyInfoInputs.cache
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.AssemblyInfo.cs
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.csproj.CoreCompileInputs.cache
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.Views.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.Views.pdb
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.deps.json
@@ -1843,11 +1848,6 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\refs\System.Xml.XPath.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\refs\WindowsBase.dll
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.csproj.AssemblyReference.cache
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.GeneratedMSBuildEditorConfig.editorconfig
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.AssemblyInfoInputs.cache
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.AssemblyInfo.cs
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.csproj.CoreCompileInputs.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.csproj.CopyComplete
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\ref\Nop.Plugin.Widgets.FacebookPixel.dll

@@ -593,6 +593,7 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Views\Customer\ChangePassword.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Views\Customer\CheckGiftCardBalance.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Views\Customer\ConfigureMultiFactorAuthenticationProvider.cshtml
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Views\Customer\ConfirmPassword.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Views\Customer\DownloadableProducts.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Views\Customer\EmailRevalidation.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Views\Customer\GdprTools.cshtml

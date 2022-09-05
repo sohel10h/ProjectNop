@@ -9,7 +9,7 @@ namespace Nop.Web.Validators.Customer
     {
         public PasswordRecoveryValidator(ILocalizationService localizationService)
         {
-            RuleFor(x => x.Email).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.PasswordRecovery.Email.Required"));
+            //RuleFor(x => x.Email).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.PasswordRecovery.Email.Required"));
             //RuleFor(x => x.Email).EmailAddress().WithMessageAwait(localizationService.GetResourceAsync("Common.WrongEmail"));
         }
     }

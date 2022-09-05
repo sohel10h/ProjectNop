@@ -35,7 +35,7 @@ namespace Nop.Services.OTP
         }
 
 
-        public async Task<OTPInfo> CreateAndSendOtp(OTPInfo otp)
+        public async Task<OTPInfo> CreateAndSendOtp(OTPInfo otp,bool isForgetPassword=false)
         {
             await InsertOTP(otp);
             await SendSMS(otp);
@@ -49,7 +49,7 @@ namespace Nop.Services.OTP
         }
 
 
-        public async  Task SendSMS(OTPInfo otp)
+        public async  Task SendSMS(OTPInfo otp, bool isForgetPassword = false)
         {
             string result = "";
             WebRequest request = null;
@@ -62,7 +62,15 @@ namespace Nop.Services.OTP
                 string message = string.Empty;
                 try 
                 {
-                    var resource = await _localizationService.GetResourceAsync("OTP.Message");
+                    string resource = string.Empty;
+                    if (isForgetPassword)
+                    {
+                        resource = await _localizationService.GetResourceAsync("OTP.Message");
+                    }
+                    else 
+                    {
+                        resource = await _localizationService.GetResourceAsync("OTP.Forget.Password.Message");
+                    }
                     message= String.Format(resource, otp.OTPString);
                 }
                 catch 

@@ -1538,6 +1538,11 @@ C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Payments.PayPalCommerce
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\ref\Nop.Plugin.Payments.PayPalCommerce.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.csproj.AssemblyReference.cache
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.AssemblyInfoInputs.cache
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.AssemblyInfo.cs
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.csproj.CoreCompileInputs.cache
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.Views.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.Views.pdb
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\Nop.Web.deps.json
@@ -1837,11 +1842,6 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerc
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\refs\System.Xml.XPath.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalCommerce\refs\WindowsBase.dll
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.csproj.AssemblyReference.cache
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.GeneratedMSBuildEditorConfig.editorconfig
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.AssemblyInfoInputs.cache
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.AssemblyInfo.cs
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.csproj.CoreCompileInputs.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.csproj.CopyComplete
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\Nop.Plugin.Payments.PayPalCommerce.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalCommerce\obj\Debug\net5.0\ref\Nop.Plugin.Payments.PayPalCommerce.dll

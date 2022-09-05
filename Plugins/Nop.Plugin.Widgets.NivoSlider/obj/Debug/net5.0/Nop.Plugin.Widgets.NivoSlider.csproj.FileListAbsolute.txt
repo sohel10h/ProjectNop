@@ -1956,6 +1956,7 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.NivoSlider\ref
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.NivoSlider\refs\System.Xml.XPath.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.NivoSlider\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.NivoSlider\refs\WindowsBase.dll
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.csproj.AssemblyReference.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.AssemblyInfoInputs.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.AssemblyInfo.cs
@@ -1964,4 +1965,3 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\ref\Nop.Plugin.Widgets.NivoSlider.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.pdb
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.NivoSlider\obj\Debug\net5.0\Nop.Plugin.Widgets.NivoSlider.csproj.AssemblyReference.cache

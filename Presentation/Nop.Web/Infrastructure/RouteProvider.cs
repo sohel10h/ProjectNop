@@ -139,6 +139,12 @@ namespace Nop.Web.Infrastructure
                 pattern: $"{lang}/news",
                 defaults: new { controller = "News", action = "List" });
 
+
+            endpointRouteBuilder.MapControllerRoute(name: "ConfirmPassword",
+                pattern: $"{lang}/ConfirmPassword",
+                defaults: new { controller = "customer", action = "ConfirmPassword" });
+
+
             //forum
             endpointRouteBuilder.MapControllerRoute(name: "Boards",
                 pattern: $"{lang}/boards",

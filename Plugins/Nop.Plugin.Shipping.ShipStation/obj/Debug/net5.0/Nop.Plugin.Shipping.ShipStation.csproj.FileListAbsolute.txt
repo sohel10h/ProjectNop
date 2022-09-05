@@ -1528,6 +1528,11 @@ C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Shipping.ShipStation\ob
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\ref\Nop.Plugin.Shipping.ShipStation.dll
 C:\Users\Sohel Rana\Desktop\new clone\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.csproj.AssemblyReference.cache
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.AssemblyInfoInputs.cache
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.AssemblyInfo.cs
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.csproj.CoreCompileInputs.cache
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.Views.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.Views.pdb
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.deps.json
@@ -1825,11 +1830,6 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\r
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\refs\System.Xml.XPath.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\refs\WindowsBase.dll
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.csproj.AssemblyReference.cache
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.GeneratedMSBuildEditorConfig.editorconfig
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.AssemblyInfoInputs.cache
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.AssemblyInfo.cs
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.csproj.CoreCompileInputs.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.csproj.CopyComplete
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\ref\Nop.Plugin.Shipping.ShipStation.dll

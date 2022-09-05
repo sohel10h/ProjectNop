@@ -12,6 +12,6 @@ namespace Nop.Services.OTP
         Task InsertOTP(OTPInfo otp);
         Task<OTPInfo> GetOtp(int customerId, string mobileNumber);
         Task<OTPInfo> GetOtp(int customerId, string mobileNumber, string otpString);
-        Task<OTPInfo> CreateAndSendOtp(OTPInfo otp);
+        Task<OTPInfo> CreateAndSendOtp(OTPInfo otp, bool isForgetPassword = false);
     }
 }

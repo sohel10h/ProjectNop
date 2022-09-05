@@ -495,7 +495,7 @@ namespace Nop.Web.Controllers
                         break;
                     case CustomerLoginResults.WrongPassword:
                     default:
-                        ModelState.AddModelError("", await _localizationService.GetResourceAsync("Account.Login.WrongCredentials"));
+                            ModelState.AddModelError("", await _localizationService.GetResourceAsync("Account.Login.WrongCredentials"));
                         break;
                 }
             }
@@ -692,9 +692,34 @@ namespace Nop.Web.Controllers
                 ModelState.AddModelError("", await _localizationService.GetResourceAsync("Common.WrongCaptchaMessage"));
             }
 
+            if (string.IsNullOrWhiteSpace(model.Email)) 
+            {
+                ModelState.AddModelError("", "Phone number is required");
+                model = await _customerModelFactory.PreparePasswordRecoveryModelAsync(model);
+                return View(model);
+            }
+            if (string.IsNullOrWhiteSpace(model.Password))
+            {
+                ModelState.AddModelError("", "Password is required");
+                model = await _customerModelFactory.PreparePasswordRecoveryModelAsync(model);
+                return View(model);
+            }
+            if (string.IsNullOrWhiteSpace(model.ConfirmPassword))
+            {
+                ModelState.AddModelError("", "ConfirmPassword is required");
+                model = await _customerModelFactory.PreparePasswordRecoveryModelAsync(model);
+                return View(model);
+            }
+            if (model.Password != model.ConfirmPassword)
+            {
+                ModelState.AddModelError("", "Password not matched");
+                model = await _customerModelFactory.PreparePasswordRecoveryModelAsync(model);
+                return View(model);
+            }
+
             if (ModelState.IsValid)
             {
-                var customer = await _customerService.GetCustomerByEmailAsync(model.Email.Trim());
+                var customer = await _customerService.GetCustomerByUsernameAsync(model.Email.Trim());
                 if (customer != null && customer.Active && !customer.Deleted)
                 {
                     //save token and current date
@@ -706,21 +731,71 @@ namespace Nop.Web.Controllers
                         NopCustomerDefaults.PasswordRecoveryTokenDateGeneratedAttribute, generatedDateTime);
 
                     //send email
-                    await _workflowMessageService.SendCustomerPasswordRecoveryMessageAsync(customer,
-                        (await _workContext.GetWorkingLanguageAsync()).Id);
+                    //await _workflowMessageService.SendCustomerPasswordRecoveryMessageAsync(customer,
+                    //    (await _workContext.GetWorkingLanguageAsync()).Id);
 
-                    model.Result = await _localizationService.GetResourceAsync("Account.PasswordRecovery.EmailHasBeenSent");
+                    Random generator = new Random();
+                    String r = generator.Next(0, 1000000).ToString("D6");
+                    var otp = new OTPInfo();
+                    otp.CustomerId = customer.Id;
+                    otp.MobileNumber = customer.Username;
+                    otp.CreateOn = DateTime.Now;
+                    otp.OTPString = r;
+                    await _otpService.CreateAndSendOtp(otp,true);
+                    HttpContext.Session.Set("PasswordRecoveryModel", model);
+                    return RedirectToRoute("ConfirmPassword");
                 }
                 else
                 {
                     model.Result = await _localizationService.GetResourceAsync("Account.PasswordRecovery.EmailNotFound");
                 }
             }
-
             model = await _customerModelFactory.PreparePasswordRecoveryModelAsync(model);
-
             return View(model);
         }
+
+
+        public virtual IActionResult ConfirmPassword()
+        {
+            var model = new RegisterResultModel();
+            var recoveryModel = HttpContext.Session.Get<PasswordRecoveryModel>("PasswordRecoveryModel");
+            model.MobileNumber = recoveryModel.Email;
+            return View(model);
+        }
+
+        [HttpPost]
+        public virtual async Task<IActionResult> ConfirmPassword(string OtpString)
+        {
+            var model = HttpContext.Session.Get<PasswordRecoveryModel>("PasswordRecoveryModel");
+            var customer = await _customerService.GetCustomerByUsernameAsync(model.Email);
+            var otpresult = await _otpService.GetOtp(customer.Id, model.Email, OtpString);
+            if (otpresult != null && customer != null)
+            {
+                if (!customer.Active)
+                {
+                    customer.Active = true;
+                    await _customerService.UpdateCustomerAsync(customer);
+                }
+                var response = await _customerRegistrationService
+                                    .ChangePasswordAsync(new ChangePasswordRequest(customer.Username, 
+                                    false, _customerSettings.DefaultPasswordFormat, model.Password));
+                if (!response.Success)
+                {
+                    var regMod = new RegisterResultModel();
+                    regMod.Result = string.Join(';', response.Errors);
+
+                    return View(regMod);
+                }
+                return await _customerRegistrationService.SignInCustomerAsync(customer, "/", true);
+            }
+            else
+            {
+                var regMod = new RegisterResultModel();
+                regMod.Result = "OTP is not Valid";
+                return View(regMod);
+            }
+        }
+
 
         //available even when navigation is not allowed
         [CheckAccessPublicStore(true)]
@@ -1165,11 +1240,13 @@ namespace Nop.Web.Controllers
         {
             if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
                 returnUrl = Url.RouteUrl("Homepage");
-
+                                                                                                        
             var model = await _customerModelFactory.PrepareRegisterResultModelAsync(resultId, returnUrl);
             model.MobileNumber = mobilenumber;
             return View(model);
         }
+
+
 
         [HttpPost]
         //available even when navigation is not allowed

@@ -8,6 +8,7 @@ namespace Nop.Web.Models.Customer
         public string ReturnUrl { get; set; }
         public string MobileNumber { get; set; }
         public string OtpString { get; set; }
+        public string Errors { get; set; }
 
     }
 }
