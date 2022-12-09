@@ -506,9 +506,6 @@ namespace Nop.Web.Controllers
         }
 
 
-
-
-
         //[HttpPost]
         public virtual async Task<IActionResult> MobileLogin(string username, string password)
         {
@@ -555,23 +552,6 @@ namespace Nop.Web.Controllers
             }
             return Json(model);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -778,7 +758,7 @@ namespace Nop.Web.Controllers
                 }
                 var response = await _customerRegistrationService
                                     .ChangePasswordAsync(new ChangePasswordRequest(customer.Username, 
-                                    false, _customerSettings.DefaultPasswordFormat, model.Password));
+                                    false, _customerSettings.DefaultPasswordFormat, model.Password,"",null,true));
                 if (!response.Success)
                 {
                     var regMod = new RegisterResultModel();
@@ -1359,10 +1339,6 @@ namespace Nop.Web.Controllers
                 _mediaSettings.AvatarPictureSize,false);
             return View(model);
         }
-
-
-
-
 
 
         [HttpPost]
@@ -2223,7 +2199,6 @@ namespace Nop.Web.Controllers
 
         #endregion
 
-
         #region career
 
         public virtual async Task<IActionResult> Career()
@@ -2250,7 +2225,6 @@ namespace Nop.Web.Controllers
         }
 
 
-
         public virtual async Task<IActionResult> SallerInfo()
         {
             if (!await _customerService.IsRegisteredAsync(await _workContext.GetCurrentCustomerAsync()))
@@ -2261,11 +2235,6 @@ namespace Nop.Web.Controllers
 
             return View(model);
         }
-
-
-
-
-
 
         [HttpPost]
         /// <returns>A task that represents the asynchronous operation</returns>
@@ -2453,14 +2422,6 @@ namespace Nop.Web.Controllers
 
             return View(model);
         }
-
-
-
-
-
-
-
-
 
         public IActionResult Sales()
         {

@@ -89,7 +89,7 @@ namespace Nop.Services.Contacts
 
         public Task<Contact> GetContactByIdAsync(int contactId)
         {
-            throw new NotImplementedException();
+            return _contactRepository.GetByIdAsync(contactId);
         }
 
         public virtual async Task InsertContactAsync(Contact contact)

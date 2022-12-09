@@ -30,16 +30,20 @@ namespace Nop.Web.Areas.Admin.Controllers
     {
         #region Fields
         private readonly IContactModelFactory _contactModelFactory;
+        private readonly IPermissionService _permissionService;
+        private readonly IContactService _contactService;
+
         #endregion
 
 
         public ContractController(
-            IContactModelFactory contactModelFactory
-            //IGenericAttributeService genericAttributeService,
-            //IWorkContext workContext
-            )
+            IContactModelFactory contactModelFactory,
+            IPermissionService permissionService,
+            IContactService contactService)
         {
             this._contactModelFactory = contactModelFactory;
+            this._permissionService = permissionService;
+            this._contactService = contactService;
             //this._genericAttributeService = genericAttributeService;
             //this._workContext = workContext;
         }
@@ -68,5 +72,21 @@ namespace Nop.Web.Areas.Admin.Controllers
             var model = await _contactModelFactory.PrepareContactListModelAsync(searchModel,1);
             return Json(model);
         }
+
+        public virtual async Task<IActionResult> Edit(int id)
+        {
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageCustomers))
+                return AccessDeniedView();
+            //try to get a country with the specified id
+            var contact = await _contactService.GetContactByIdAsync(id);
+            if (contact == null)
+                return RedirectToAction("List");
+            var model = await _contactModelFactory.PrepareContactModelAsync(null, contact);
+
+            return View(model);
+        }
+
+
+
     }
 }

@@ -343,7 +343,17 @@ namespace Nop.Services.Customers
                 return result;
             }
 
-            var customer = await _customerService.GetCustomerByUsernameAsync(request.Email);
+            Customer customer = null;
+            if (request.UseUserName)
+            {
+                customer = await _customerService.GetCustomerByUsernameAsync(request.Email);
+            }
+            else 
+            {
+                customer = await _customerService.GetCustomerByEmailAsync(request.Email);
+
+            }
+             
             if (customer == null)
             {
                 result.AddError(await _localizationService.GetResourceAsync("Account.ChangePassword.Errors.EmailNotFound"));

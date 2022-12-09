@@ -279,9 +279,9 @@ namespace Nop.Web.Controllers
                     customer.Active = true;
                     await _customerService.UpdateCustomerAsync(customer);
                 }
-                var response = await _customerRegistrationService
-                                    .ChangePasswordAsync(new ChangePasswordRequest(customer.Username,
-                                    false, _customerSettings.DefaultPasswordFormat, password));
+                var request = new ChangePasswordRequest(customer.Username,
+                                    false, _customerSettings.DefaultPasswordFormat, password,useUserName:true);
+                var response = await _customerRegistrationService.ChangePasswordAsync(request);
                 if (!response.Success)
                 {
                     model.Result = false;
@@ -308,7 +308,6 @@ namespace Nop.Web.Controllers
                     model.ErrorResult = "OTP not matched";
                     return Json(model);
                 }
-
             }
         }
 
@@ -356,6 +355,145 @@ namespace Nop.Web.Controllers
         }
 
 
+        //[HttpPost]
+        //public virtual async Task<IActionResult> Register(RegisterModel model, IFormCollection form)
+        //{
+        //    //check whether registration is allowed
+        //    if (_customerSettings.UserRegistrationType == UserRegistrationType.Disabled)
+        //        return Json("");
+
+
+
+        //    var customer =await _workContext.GetCurrentCustomerAsync();
+
+        //    if (!string.IsNullOrWhiteSpace(model.Username) && !string.IsNullOrWhiteSpace(model.Password))
+        //    {
+        //        var customerUserName = model.Username?.Trim();
+        //        var customerEmail = model.Email?.Trim();
+
+        //        //var isApproved = _customerSettings.UserRegistrationType == UserRegistrationType.Standard;
+        //        var isApproved = false;
+        //        var registrationRequest = new CustomerRegistrationRequest(customer,
+        //            customerEmail,
+        //            customerUserName,
+        //            model.Password,
+        //            _customerSettings.DefaultPasswordFormat,
+        //            (await _storeContext.GetCurrentStoreAsync()).Id,
+        //            isApproved);
+        //        var registrationResult = await _customerRegistrationService.RegisterCustomerAsync(registrationRequest);
+        //        if (registrationResult.Success)
+        //        {
+                   
+        //            if (_customerSettings.GenderEnabled)
+        //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.GenderAttribute, model.Gender);
+        //            if (_customerSettings.FirstNameEnabled)
+        //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FirstNameAttribute, model.FirstName);
+        //            if (_customerSettings.LastNameEnabled)
+        //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.LastNameAttribute, model.LastName);
+                    
+        //            if (_customerSettings.PhoneEnabled)
+        //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.PhoneAttribute, model.Username);
+                    
+
+        //            //insert default address (if possible)
+        //            var defaultAddress = new Address
+        //            {
+        //                FirstName = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.FirstNameAttribute),
+        //                LastName = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.LastNameAttribute),
+        //                Email = customer.Email,
+        //                Company = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.CompanyAttribute),
+        //                CountryId = await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.CountryIdAttribute) > 0
+        //                    ? (int?)await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.CountryIdAttribute)
+        //                    : null,
+        //                StateProvinceId = await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.StateProvinceIdAttribute) > 0
+        //                    ? (int?)await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.StateProvinceIdAttribute)
+        //                    : null,
+        //                County = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.CountyAttribute),
+        //                City = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.CityAttribute),
+        //                Address1 = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.StreetAddressAttribute),
+        //                Address2 = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.StreetAddress2Attribute),
+        //                ZipPostalCode = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.ZipPostalCodeAttribute),
+        //                PhoneNumber = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.PhoneAttribute),
+        //                //FaxNumber = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.FaxAttribute),
+        //                CreatedOnUtc = customer.CreatedOnUtc
+        //            };
+        //            if (await _addressService.IsAddressValidAsync(defaultAddress))
+        //            {
+        //                //some validation
+        //                if (defaultAddress.CountryId == 0)
+        //                    defaultAddress.CountryId = null;
+        //                if (defaultAddress.StateProvinceId == 0)
+        //                    defaultAddress.StateProvinceId = null;
+        //                //set default address
+        //                //customer.Addresses.Add(defaultAddress);
+
+        //                await _addressService.InsertAddressAsync(defaultAddress);
+
+        //                await _customerService.InsertCustomerAddressAsync(customer, defaultAddress);
+
+        //                customer.BillingAddressId = defaultAddress.Id;
+        //                customer.ShippingAddressId = defaultAddress.Id;
+
+        //                await _customerService.UpdateCustomerAsync(customer);
+        //            }
+
+        //            //notifications
+        //            if (_customerSettings.NotifyNewCustomerRegistration)
+        //                await _workflowMessageService.SendCustomerRegisteredNotificationMessageAsync(customer,
+        //                    _localizationSettings.DefaultAdminLanguageId);
+
+        //            //raise event       
+        //            await _eventPublisher.PublishAsync(new CustomerRegisteredEvent(customer));
+
+        //            switch (_customerSettings.UserRegistrationType)
+        //            {
+        //                case UserRegistrationType.EmailValidation:
+        //                    //email validation message
+        //                    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.AccountActivationTokenAttribute, Guid.NewGuid().ToString());
+        //                    await _workflowMessageService.SendCustomerEmailValidationMessageAsync(customer, (await _workContext.GetWorkingLanguageAsync()).Id);
+
+        //                    //result
+        //                    return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.EmailValidation, returnUrl });
+
+        //                case UserRegistrationType.AdminApproval:
+        //                    return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.AdminApproval, returnUrl });
+
+        //                case UserRegistrationType.Standard:
+        //                    //send customer welcome message
+        //                    Random generator = new Random();
+        //                    String r = generator.Next(0, 1000000).ToString("D6");
+        //                    var otp = new OTPInfo();
+        //                    otp.CustomerId = customer.Id;
+        //                    otp.MobileNumber = customer.Username;
+        //                    otp.CreateOn = DateTime.Now;
+        //                    otp.OTPString = r;
+        //                    await _otpService.CreateAndSendOtp(otp);
+
+        //                    //await _workflowMessageService.SendCustomerWelcomeMessageAsync(customer, (await _workContext.GetWorkingLanguageAsync()).Id);
+
+        //                    //raise event       
+        //                    await _eventPublisher.PublishAsync(new CustomerActivatedEvent(customer));
+
+        //                    //returnUrl = Url.RouteUrl("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl, otp.MobileNumber });
+        //                    //return await _customerRegistrationService.SignInCustomerAsync(customer, returnUrl, true);
+
+        //                    return RedirectToAction("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl, otp.MobileNumber });
+
+        //                default:
+        //                    return RedirectToRoute("Homepage");
+        //            }
+        //        }
+
+        //        //errors
+        //        foreach (var error in registrationResult.Errors)
+        //            ModelState.AddModelError("", error);
+        //    }
+
+        //    //If we got this far, something failed, redisplay form
+        //    model = await _customerModelFactory.PrepareRegisterModelAsync(model, true, customerAttributesXml);
+
+        //    return View(model);
+        //}
 
     }
 }

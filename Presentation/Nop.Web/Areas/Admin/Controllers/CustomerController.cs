@@ -512,15 +512,12 @@ namespace Nop.Web.Areas.Admin.Controllers
         {
             if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageCustomers))
                 return AccessDeniedView();
-
             //try to get a customer with the specified id
             var customer = await _customerService.GetCustomerByIdAsync(id);
             if (customer == null || customer.Deleted)
                 return RedirectToAction("List");
-
             //prepare model
             var model = await _customerModelFactory.PrepareCustomerModelAsync(null, customer);
-
             return View(model);
         }
 

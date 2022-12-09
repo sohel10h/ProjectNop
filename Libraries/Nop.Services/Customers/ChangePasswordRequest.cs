@@ -32,6 +32,7 @@ namespace Nop.Services.Customers
         /// </summary>
         public string OldPassword { get; set; }
 
+        public bool UseUserName { get; set; }
         /// <summary>
         /// Hashed password format (e.g. SHA1, SHA512)
         /// </summary>
@@ -48,7 +49,7 @@ namespace Nop.Services.Customers
         /// <param name="hashedPasswordFormat">Hashed password format</param>
         public ChangePasswordRequest(string email, bool validateRequest,
             PasswordFormat newPasswordFormat, string newPassword, string oldPassword = "",
-            string hashedPasswordFormat = null)
+            string hashedPasswordFormat = null,bool useUserName=false)
         {
             Email = email;
             ValidateRequest = validateRequest;
@@ -56,6 +57,7 @@ namespace Nop.Services.Customers
             NewPassword = newPassword;
             OldPassword = oldPassword;
             HashedPasswordFormat = hashedPasswordFormat;
+            UseUserName = useUserName;
         }
     }
 }
