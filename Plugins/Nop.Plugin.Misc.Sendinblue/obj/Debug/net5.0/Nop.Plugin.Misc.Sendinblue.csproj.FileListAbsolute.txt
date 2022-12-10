@@ -1812,7 +1812,6 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\refs\S
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\refs\System.Xml.XPath.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\refs\WindowsBase.dll
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.csproj.AssemblyReference.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.AssemblyInfoInputs.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.AssemblyInfo.cs
@@ -1821,3 +1820,4 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\ref\Nop.Plugin.Misc.Sendinblue.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.csproj.AssemblyReference.cache

@@ -8,6 +8,7 @@ using Nop.Core;
 using Nop.Core.Domain;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Common;
+using Nop.Core.Domain.Contacts;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Forums;
 using Nop.Core.Domain.Gdpr;
@@ -25,6 +26,7 @@ using Nop.Services.Authentication.External;
 using Nop.Services.Authentication.MultiFactor;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
+using Nop.Services.Contacts;
 using Nop.Services.Customers;
 using Nop.Services.Directory;
 using Nop.Services.ExportImport;
@@ -43,6 +45,7 @@ using Nop.Web.Framework;
 using Nop.Web.Framework.Controllers;
 using Nop.Web.Framework.Mvc.Filters;
 using Nop.Web.Framework.Validators;
+using Nop.Web.Models.Contact;
 using Nop.Web.Models.Customer;
 
 
@@ -97,6 +100,8 @@ namespace Nop.Web.Controllers
         private readonly TaxSettings _taxSettings;
         private readonly IOTPService _otpService;
         private readonly IWebHelper _webHelper;
+        private readonly IOrderModelFactory _orderModelFactory;
+        private readonly IContactService _contactService;
 
 
 
@@ -146,6 +151,8 @@ namespace Nop.Web.Controllers
             StoreInformationSettings storeInformationSettings,
             IOTPService otpService,
             IWebHelper webHelper,
+            IOrderModelFactory orderModelFactory,
+            IContactService contactService,
             TaxSettings taxSettings) 
         {
 
@@ -196,6 +203,9 @@ namespace Nop.Web.Controllers
             _taxSettings = taxSettings;
             _otpService = otpService;
             _webHelper = webHelper;
+            _orderModelFactory = orderModelFactory;
+            this._contactService = contactService;
+
         }
 
 
@@ -354,6 +364,94 @@ namespace Nop.Web.Controllers
            
         }
 
+        public virtual async Task<IActionResult> CustomerOrders(int id)
+        {
+            var customer = await _customerService.GetCustomerByIdAsync(id);
+            if (!await _customerService.IsRegisteredAsync(customer))
+                return Challenge();
+
+            var model = await _orderModelFactory.PrepareCustomerOrderListModelAsync(customer);
+            return Ok(model);
+        }
+
+        public virtual async Task<IActionResult> OrderDetails(int orderId,int customerId)
+        {
+            var order = await _orderService.GetOrderByIdAsync(orderId);
+            var customer = await _customerService.GetCustomerByIdAsync(customerId);
+
+            if (order == null || order.Deleted || (customerId != order.CustomerId))
+                return Challenge();
+
+            var model = await _orderModelFactory.PrepareOrderDetailsModelAsync(order);
+            return Ok(model);
+        }
+
+
+        public async Task<IActionResult> GetUserAppoinments(int customerId)
+        {     
+            var model = await _contactService.GetAllContactsAsync(customerId: customerId, type: (int)ContactType.Appoinment);
+            return Ok(model);
+        }
+
+
+        [HttpPost]
+        public virtual async Task<IActionResult> AddAppoinment(ContactModel model,int customerId)
+        {
+            if (ModelState.IsValid)
+            {
+                var contact = new Contact();
+                contact.Name = model.Name;
+                contact.Address = model.Address;
+                contact.Phone = model.Phone;
+                contact.Message = model.Message;
+                contact.Product = model.Product;
+                contact.NIDNumber = model.NIDNumber;
+                contact.VisitDate = model.VisitDate;
+                contact.Email = model.Email;
+                contact.CustomerId = customerId;
+                contact.Type = (int)ContactType.Appoinment;
+                await _contactService.InsertContactAsync(contact);
+                return Ok(new {result=true,contact= contact,message="Saved" });
+            }
+            else
+            {
+                return Ok(new { result = false, message= "model is IsValid" });
+
+            }
+        }
+
+        public async Task<IActionResult> GetUserComplain(int userId)
+        {
+            var model = await _contactService.GetAllContactsAsync(customerId: userId, type: (int)ContactType.Contact);
+            return Ok(model);
+        }
+
+
+
+        [HttpPost]
+        public virtual async Task<IActionResult> AddComplain(ContactModel model, int customerId)
+        {
+            if (ModelState.IsValid)
+            {
+                var contact = new Contact();
+                contact.Name = model.Name;
+                contact.Address = model.Address;
+                contact.Phone = model.Phone;
+                contact.Message = model.Message;
+                contact.Product = model.Product;
+                contact.CustomerId = customerId;
+                contact.NIDNumber = model.NIDNumber;
+                contact.Type = (int)ContactType.Contact;
+                await _contactService.InsertContactAsync(contact);
+                return Ok(new { result = true, contact = contact, message = "Saved" });
+            }
+            else
+            {
+                return Ok(new { result = false, message = "model is IsValid" });
+            }
+        }
+
+
 
         //[HttpPost]
         //public virtual async Task<IActionResult> Register(RegisterModel model, IFormCollection form)
@@ -383,17 +481,17 @@ namespace Nop.Web.Controllers
         //        var registrationResult = await _customerRegistrationService.RegisterCustomerAsync(registrationRequest);
         //        if (registrationResult.Success)
         //        {
-                   
+
         //            if (_customerSettings.GenderEnabled)
         //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.GenderAttribute, model.Gender);
         //            if (_customerSettings.FirstNameEnabled)
         //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FirstNameAttribute, model.FirstName);
         //            if (_customerSettings.LastNameEnabled)
         //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.LastNameAttribute, model.LastName);
-                    
+
         //            if (_customerSettings.PhoneEnabled)
         //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.PhoneAttribute, model.Username);
-                    
+
 
         //            //insert default address (if possible)
         //            var defaultAddress = new Address

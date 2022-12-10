@@ -46,7 +46,7 @@ namespace Nop.Web.Controllers
             return View("Index", model);
 
         }
-        public virtual async Task<IActionResult> Add()
+        public virtual  IActionResult Add()
         {
             var model = new ContactModel();
             return View(model);
@@ -58,12 +58,15 @@ namespace Nop.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                var customer = await _workContext.GetCurrentCustomerAsync();
+
                 var contact = new Contact();
                 contact.Name = model.Name;
                 contact.Address = model.Address;
                 contact.Phone = model.Phone;
                 contact.Message = model.Message;
                 contact.Product = model.Product;
+                contact.CustomerId = customer.Id;
                 contact.NIDNumber = model.NIDNumber;
                 contact.Type = (int)ContactType.Contact;
                 await _contactService.InsertContactAsync(contact);
@@ -73,8 +76,11 @@ namespace Nop.Web.Controllers
                 return View(model);
             
             }
-
         }
+
+
+
+
         //Appoinments
         public async Task<IActionResult> Appoinments()
         {
@@ -82,6 +88,8 @@ namespace Nop.Web.Controllers
             var model = await _contactService.GetAllContactsAsync(customerId: customer.Id, type: (int)ContactType.Appoinment);
             return View("Appoinments", model);
         }
+
+
         public virtual  IActionResult AddAppoinment()
         {
             var model = new ContactModel();

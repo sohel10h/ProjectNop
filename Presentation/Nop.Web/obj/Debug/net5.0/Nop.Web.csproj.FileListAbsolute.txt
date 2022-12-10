@@ -3130,7 +3130,6 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Core.pdb
 D:\Personal works\ProjectNop\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Data.pdb
 D:\Personal works\ProjectNop\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Services.pdb
 D:\Personal works\ProjectNop\Presentation\Nop.Web\bin\Debug\net5.0\Nop.Web.Framework.pdb
-D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.csproj.AssemblyReference.cache
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.AssemblyInfoInputs.cache
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.AssemblyInfo.cs
@@ -3896,3 +3895,4 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\ref\Nop.Web.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.pdb
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.csproj.AssemblyReference.cache

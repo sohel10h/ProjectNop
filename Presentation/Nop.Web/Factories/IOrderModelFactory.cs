@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Shipping;
 using Nop.Web.Models.Order;
@@ -18,6 +19,8 @@ namespace Nop.Web.Factories
         /// The task result contains the customer order list model
         /// </returns>
         Task<CustomerOrderListModel> PrepareCustomerOrderListModelAsync();
+
+        Task<CustomerOrderListModel> PrepareCustomerOrderListModelAsync(Customer customer);
 
         /// <summary>
         /// Prepare the order details model
