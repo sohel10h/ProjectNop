@@ -61,6 +61,7 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Common\_Maintenance.DeleteGuests.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Common\_Maintenance.ReindexDatabaseTables.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\Appoinments.cshtml
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\ContractEdit.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\Index.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\List.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Country\Create.cshtml
@@ -1125,6 +1126,8 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001039_a4-copy-office-paper-a4-size-paper-500-sheets-sonali-branda4-_75.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001146_120.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001150_120.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001177_saffron-jafran-1g_80.webp
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001187_almond-_80.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001234_pruning-shear-total-brand.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001234_pruning-shear-total-brand_415.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001276_water-pump-pliers-industrial-tolsen-brand_75.jpeg
@@ -1262,6 +1265,8 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0004517_timing-advance-processors-cobra-510n-with-wearing-cnglpg.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0004517_timing-advance-processors-cobra-510n-with-wearing-cnglpg_415.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0004535_120.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0004545_3ha-clear-cream_80.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0008888_indian-cumin-seeds-jeera-_80.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\uploaded\242228454_4375941925807242_3115972784920368423_n.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\uploaded\placeholder.txt
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\js\admin.common.js

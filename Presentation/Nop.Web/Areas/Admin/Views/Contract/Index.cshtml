@@ -81,19 +81,19 @@
                     @*<nop-doc-reference asp-string-resource="@T("Admin.Documentation.Reference.TopicsPages", Docs.TopicsPages + Utm.OnAdmin)" />*@
 
                     @await Html.PartialAsync("Table", new DataTablesModel
-                    {
-                        Name = "contact-grid",
-                        RowIdBasedOnField = nameof(ContactModel.Id),
-                        UrlRead = new DataUrl("List", "Contract", null),
-                        SearchButtonId = "search-topics",
-                        Length = Model.PageSize,
-                        LengthMenu = Model.AvailablePageSizes,
-                        Filters = new List<FilterParameter>
+               {
+                   Name = "contact-grid",
+                   RowIdBasedOnField = nameof(ContactModel.Id),
+                   UrlRead = new DataUrl("List", "Contract", null),
+                   SearchButtonId = "search-topics",
+                   Length = Model.PageSize,
+                   LengthMenu = Model.AvailablePageSizes,
+                   Filters = new List<FilterParameter>
                         {
                             new FilterParameter(nameof(Model.SearchKeywords)),
                             new FilterParameter(nameof(Model.SearchStoreId))
                         },
-                        ColumnCollection = new List<ColumnProperty>
+                   ColumnCollection = new List<ColumnProperty>
                         {
                             new ColumnProperty(nameof(ContactModel.Name))
                             {
@@ -105,41 +105,46 @@
                                 Title = T("Admin.Contact.Fields.Phone").Text,
                                 Width = "100",
                             },
-                            new ColumnProperty(nameof(ContactModel.NIDNumber))
-                            {
-                                Title = T("Admin.Contact.Fields.NIDNumber").Text,
-                                Width = "100",
+                            //new ColumnProperty(nameof(ContactModel.NIDNumber))
+                            //{
+                            //    Title = T("Admin.Contact.Fields.NIDNumber").Text,
+                            //    Width = "100",
 
-                            },
+                            //},
                             new ColumnProperty(nameof(ContactModel.Product))
                             {
                                 Title = T("Admin.Contact.Fields.Product").Text,
                                 Width = "200",
 
                             },
-                            new ColumnProperty(nameof(ContactModel.Address))
-                            {
-                                Title = T("Admin.Contact.Fields.Address").Text,
-                                Width = "200",
+                            //new ColumnProperty(nameof(ContactModel.Address))
+                            //{
+                            //    Title = T("Admin.Contact.Fields.Address").Text,
+                            //    Width = "200",
 
-                            },
-                            new ColumnProperty(nameof(ContactModel.Message))
-                            {
-                                Title = T("Admin.Contact.Fields.Message").Text,
-                                Width = "400",
+                            //},
+                            //new ColumnProperty(nameof(ContactModel.Message))
+                            //{
+                            //    Title = T("Admin.Contact.Fields.Message").Text,
+                            //    Width = "400",
 
-                            },
+                            //},
                              new ColumnProperty(nameof(ContactModel.CreatedOnUtc))
                             {
                                 Title = T("Admin.Contact.Fields.CreatedOnUtc").Text,
-                                Width = "400",
+                                Width = "200",
                                 Render = new RenderDate()
-
-
+                            },
+                            new ColumnProperty(nameof(ContactModel.ID))
+                            {
+                                Title = T("Admin.Common.Edit").Text,
+                                Width = "100",
+                                ClassName =  NopColumnClassDefaults.Button,
+                                Render = new RenderButtonEdit(new DataUrl("Contract/ContractEdit"))
                             }
 
                         }
-                    })
+               })
                 </div>
                 </div>
             </div>

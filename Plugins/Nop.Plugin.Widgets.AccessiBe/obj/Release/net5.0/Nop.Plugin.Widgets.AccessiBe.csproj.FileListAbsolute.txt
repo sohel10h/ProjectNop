@@ -896,3 +896,4 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Release\ne
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Release\net5.0\Nop.Plugin.Widgets.AccessiBe.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Release\net5.0\ref\Nop.Plugin.Widgets.AccessiBe.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Release\net5.0\Nop.Plugin.Widgets.AccessiBe.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Release\net5.0\Nop.Plugin.Widgets.AccessiBe.csproj.AssemblyReference.cache

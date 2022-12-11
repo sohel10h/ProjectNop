@@ -2597,3 +2597,4 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\Nop.Web.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\ref\Nop.Web.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\Nop.Web.pdb
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\Nop.Web.genruntimeconfig.cache
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\Razor\Areas\Admin\Views\Contract\ContractEdit.cshtml.g.cs

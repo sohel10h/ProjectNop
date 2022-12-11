@@ -22,7 +22,7 @@ using Nop.Web.Areas.Admin.Models.Topics;
 using Nop.Web.Framework.Mvc.Filters;
 using Nop.Services.Contacts;
 using Nop.Web.Areas.Admin.Models.Contact;
-
+using ContactModel = Nop.Web.Areas.Admin.Models.Contact.ContactModel;
 
 namespace Nop.Web.Areas.Admin.Controllers
 {
@@ -52,8 +52,8 @@ namespace Nop.Web.Areas.Admin.Controllers
             var model = await _contactModelFactory.PrepareContactSearchModelAsync(new ContactSearchModel());
             return View(model);
         }
+
         [HttpPost]
-        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task<IActionResult> List(ContactSearchModel searchModel)
         {
                 var model = await _contactModelFactory.PrepareContactListModelAsync(searchModel);
@@ -66,12 +66,40 @@ namespace Nop.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        /// <returns>A task that represents the asynchronous operation</returns>
         public virtual async Task<IActionResult> Appoinments(ContactSearchModel searchModel)
         {
             var model = await _contactModelFactory.PrepareContactListModelAsync(searchModel,1);
             return Json(model);
         }
+
+
+
+        public virtual async Task<IActionResult> ContractEdit(int id) 
+        {
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageCustomers))
+                return AccessDeniedView();
+            //try to get a country with the specified id
+            var contact = await _contactService.GetContactByIdAsync(id);
+            if (contact == null)
+                return RedirectToAction("Index");
+            var model = await _contactModelFactory.PrepareContactModelAsync(null, contact);
+            return View(model);
+        }
+
+
+        public virtual async Task<IActionResult> DeleteComplain(int id) 
+        {
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageCustomers))
+                return AccessDeniedView();
+            //try to get a country with the specified id
+            var contact = await _contactService.GetContactByIdAsync(id);
+            if (contact == null)
+                return RedirectToAction("Index");
+            await _contactService.DeleteContactAsync(contact);
+            return RedirectToAction("Index");
+
+        }
+
 
         public virtual async Task<IActionResult> Edit(int id)
         {
@@ -82,7 +110,6 @@ namespace Nop.Web.Areas.Admin.Controllers
             if (contact == null)
                 return RedirectToAction("List");
             var model = await _contactModelFactory.PrepareContactModelAsync(null, contact);
-
             return View(model);
         }
 

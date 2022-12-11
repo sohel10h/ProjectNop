@@ -157,7 +157,23 @@ namespace Nop.Web.Areas.Admin.Factories
                 //fill in model values from the entity
                 if (model == null)
                 {
-                    model = Contact.ToModel<ContactModel>();
+                    //model = Contact.ToModel<ContactModel>();
+
+                    model = new ContactModel
+                    {
+                        ID = Contact.ID,
+                        Name = Contact.Name,
+                        Phone = Contact.Phone,
+                        Address = Contact.Address,
+                        Message = Contact.Message,
+                        NIDNumber = Contact.NIDNumber,
+                        Product = Contact.Product,
+                        Email = Contact.Email,
+                        CreatedOnUtc = Contact.CreatedOnUtc,
+                        VisitDate = Contact.VisitDate
+                    };
+
+
                 }
 
                 //model.Url = _urlHelperFactory.GetUrlHelper(_actionContextAccessor.ActionContext)

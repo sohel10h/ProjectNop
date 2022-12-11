@@ -42,20 +42,21 @@ namespace Nop.Services.Contacts
             throw new NotImplementedException();
         }
 
-        public Task DeleteContactAsync(Contact contact)
+        public async Task DeleteContactAsync(Contact contact)
         {
-            throw new NotImplementedException();
+            contact.Deleted = true;
+            await _contactRepository.UpdateAsync(contact);
         }
 
         public async Task<IPagedList<Contact>> GetAllContactsAsync(int type = 0,int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c => c.Type.Equals(type)).OrderByDescending(o => o.CreatedOnUtc); }, pageIndex, pageSize);    
+            return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c => c.Type.Equals(type) && c.Deleted==false).OrderByDescending(o => o.CreatedOnUtc); }, pageIndex, pageSize);    
         }
 
 
         public async Task<IPagedList<Contact>> GetAllContactsAsync(int customerId, int type = 0, int pageIndex = 0, int pageSize = int.MaxValue)
         {
-            return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c => c.Type==type  && c.CustomerId==customerId).OrderByDescending(o => o.CreatedOnUtc); }, pageIndex, pageSize);
+            return await _contactRepository.GetAllPagedAsync(async query => { return query.Where(c => c.Type==type && c.Deleted == false && c.CustomerId==customerId).OrderByDescending(o => o.CreatedOnUtc); }, pageIndex, pageSize);
         }
 
 
