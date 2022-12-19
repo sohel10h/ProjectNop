@@ -197,7 +197,7 @@ namespace Nop.Web.Factories
         public virtual async Task<CustomerOrderListModel> PrepareCustomerOrderListModelAsync(Customer customer)
         {
             var model = new CustomerOrderListModel();
-            var orders = await _orderService.SearchOrdersAsync(storeId: (await _storeContext.GetCurrentStoreAsync()).Id,
+            var orders = await _orderService.SearchOrdersAsync(
                 customerId: customer.Id);
             foreach (var order in orders)
             {

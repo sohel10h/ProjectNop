@@ -13423,23 +13423,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sohel Rana\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Dizit\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj",
+      "projectUniqueName": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj",
       "projectName": "Nop.Plugin.MultiFactorAuth.GoogleAuthenticator",
-      "projectPath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj",
-      "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
-      "outputPath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\obj\\",
+      "projectPath": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj",
+      "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
+      "outputPath": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13447,14 +13443,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-              "projectPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+            "E:\\PP\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+              "projectPath": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
             }
           }
         }
@@ -13489,7 +13485,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
       }
     }
   }

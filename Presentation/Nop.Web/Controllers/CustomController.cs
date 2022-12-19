@@ -360,8 +360,7 @@ namespace Nop.Web.Controllers
                 retn.Result = false;
                 retn.ErrorResult= await _localizationService.GetResourceAsync("Account.PasswordRecovery.EmailNotFound");
                 return Json(retn);
-            }
-           
+            }           
         }
 
         public virtual async Task<IActionResult> CustomerOrders(int id)

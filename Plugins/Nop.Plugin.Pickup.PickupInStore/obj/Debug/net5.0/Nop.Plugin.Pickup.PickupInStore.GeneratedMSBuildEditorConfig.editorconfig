@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Nop.Plugin.Pickup.PickupInStore
-build_property.ProjectDir = D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\
+build_property.ProjectDir = E:\PP\ProjectNop\Plugins\Nop.Plugin.Pickup.PickupInStore\
