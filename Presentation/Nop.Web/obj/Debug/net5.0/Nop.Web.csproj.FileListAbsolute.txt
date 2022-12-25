@@ -5197,3 +5197,4 @@ E:\PP\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\ref\Nop.Web.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.pdb
 E:\PP\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.genruntimeconfig.cache
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Debug\net5.0\Nop.Web.csproj.AssemblyReference.cache
