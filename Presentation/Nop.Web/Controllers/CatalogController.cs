@@ -169,6 +169,7 @@ namespace Nop.Web.Controllers
             //command.PageSize = 0;
             //command.TotalItems = 0;
             //command.TotalPages = 0;
+            command.OrderBy = 5;
             var category = await _categoryService.GetCategoryByIdAsync(categoryId);
             if (!await CheckCategoryAvailabilityAsync(category))
                 return NotFound();
@@ -185,7 +186,7 @@ namespace Nop.Web.Controllers
             //command.PageSize = 0;
             //command.TotalItems = 0;
             //command.TotalPages = 0;
-
+            command.OrderBy = 5;
             var model = await _catalogModelFactory.PrepareCustomerProductsModelAsync(cusId, command);
             return Json(model);
         }
@@ -539,7 +540,8 @@ namespace Nop.Web.Controllers
                 categoryIds: SelectedCategoryIds,
                 languageId: (await _workContext.GetWorkingLanguageAsync()).Id,
                 visibleIndividuallyOnly: true,
-                pageSize: productNumber);
+                pageSize: productNumber,
+                orderBy:ProductSortingEnum.NameAsc);
 
             var showLinkToResultSearch = _catalogSettings.ShowLinkToAllResultInSearchAutoComplete && (products.TotalCount > productNumber);
 
@@ -578,7 +580,8 @@ namespace Nop.Web.Controllers
                               producturl = Url.RouteUrl("Product", new { SeName = p.SeName }),
                               productpictureurl = p.DefaultPictureModel.ImageUrl,
                               price = p.WholesalePrice,
-                              ProductAttributes = p.ProductAttributes
+                              ProductAttributes = p.ProductAttributes,
+                              ShortDescription = p.ShortDescription
                           })
                 .ToList();
             return Json(result);

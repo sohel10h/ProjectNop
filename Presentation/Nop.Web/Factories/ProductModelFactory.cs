@@ -1315,7 +1315,8 @@ namespace Nop.Web.Factories
                     Id = product.Id,
                     Name = await _localizationService.GetLocalizedAsync(product, x => x.Name),
                     Sku = product.Sku,
-                    WholesalePrice=product.WholesalePrice,                    
+                    WholesalePrice=product.WholesalePrice,   
+                    ShortDescription= product.ShortDescription
                 };
 
                 //price

@@ -3916,20 +3916,20 @@ D:\Personal works\ProjectNop\Tests\Nop.Tests\obj\Debug\net5.0\Nop.Tests.dll
 D:\Personal works\ProjectNop\Tests\Nop.Tests\obj\Debug\net5.0\ref\Nop.Tests.dll
 D:\Personal works\ProjectNop\Tests\Nop.Tests\obj\Debug\net5.0\Nop.Tests.pdb
 D:\Personal works\ProjectNop\Tests\Nop.Tests\obj\Debug\net5.0\Nop.Tests.genruntimeconfig.cache
-E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\testhost.exe
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\testhost.dll
-E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\NUnit3.TestAdapter.dll
-E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\NUnit3.TestAdapter.pdb
-E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.dll
-E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.api.dll
-E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.core.dll
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.Views.dll
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.Views.pdb
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.deps.json
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.runtimeconfig.json
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.runtimeconfig.dev.json
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Web.exe
+E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\testhost.exe
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.PlatformAbstractions.dll
+E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\NUnit3.TestAdapter.dll
+E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\NUnit3.TestAdapter.pdb
+E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.dll
+E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.api.dll
+E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\nunit.engine.core.dll
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Tests.deps.json
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Tests.runtimeconfig.json
 E:\PP\ProjectNop\Tests\Nop.Tests\bin\Debug\net5.0\Nop.Tests.runtimeconfig.dev.json

@@ -1834,16 +1834,16 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\n
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\ref\Nop.Plugin.Shipping.ShipStation.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.ShipStation\obj\Debug\net5.0\Nop.Plugin.Shipping.ShipStation.pdb
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\logo.png
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\plugin.json
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Views\Configure.cshtml
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Views\_ViewImports.cshtml
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.Views.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.Views.pdb
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.deps.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.runtimeconfig.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.runtimeconfig.dev.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Web.exe
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\logo.png
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\plugin.json
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Views\Configure.cshtml
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Views\_ViewImports.cshtml
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Plugin.Shipping.ShipStation.deps.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\Nop.Plugin.Shipping.ShipStation.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Shipping.ShipStation\ref\Nop.Plugin.Shipping.ShipStation.dll

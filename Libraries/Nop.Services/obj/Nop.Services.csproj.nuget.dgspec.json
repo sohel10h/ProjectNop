@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {}
+    "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {}
   },
   "projects": {
-    "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+    "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
+        "projectUniqueName": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
         "projectName": "Nop.Core",
-        "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
-        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\obj\\",
+        "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
+        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
+        "outputPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net5.0": {
@@ -119,24 +116,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+    "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
+        "projectUniqueName": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
         "projectName": "Nop.Data",
-        "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
-        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\obj\\",
+        "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
+        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
+        "outputPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -144,14 +138,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
               }
             }
           }
@@ -210,24 +204,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+    "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj",
+        "projectUniqueName": "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj",
         "projectName": "Nop.Services",
-        "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj",
-        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
-        "outputPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\obj\\",
+        "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj",
+        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
+        "outputPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -235,17 +226,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
               },
-              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
-                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj"
+              "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj"
               }
             }
           }
@@ -312,7 +303,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     }

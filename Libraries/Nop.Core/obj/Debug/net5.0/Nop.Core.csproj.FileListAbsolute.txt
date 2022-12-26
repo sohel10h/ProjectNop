@@ -2349,7 +2349,6 @@ E:\PP\ProjectNop\Libraries\Nop.Core\bin\Debug\net5.0\refs\System.Xml.XmlSerializ
 E:\PP\ProjectNop\Libraries\Nop.Core\bin\Debug\net5.0\refs\System.Xml.XPath.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\bin\Debug\net5.0\refs\System.Xml.XPath.XDocument.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\bin\Debug\net5.0\refs\WindowsBase.dll
-E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.AssemblyReference.cache
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.GeneratedMSBuildEditorConfig.editorconfig
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.AssemblyInfoInputs.cache
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.AssemblyInfo.cs
@@ -2357,3 +2356,4 @@ E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.CoreCompile
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\ref\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.pdb
+E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.AssemblyReference.cache

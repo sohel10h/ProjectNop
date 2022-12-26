@@ -1852,6 +1852,12 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\ref\Nop.Plugin.Widgets.FacebookPixel.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.FacebookPixel\obj\Debug\net5.0\Nop.Plugin.Widgets.FacebookPixel.pdb
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.Views.dll
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.Views.pdb
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.deps.json
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.runtimeconfig.json
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.runtimeconfig.dev.json
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.exe
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\logo.png
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\plugin.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Views\Configuration\Configure.cshtml
@@ -1859,12 +1865,6 @@ E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Views\Config
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Views\Configuration\Edit.cshtml
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Views\Configuration\_CreateOrUpdate.cshtml
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Views\_ViewImports.cshtml
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.Views.dll
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.Views.pdb
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.deps.json
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.runtimeconfig.json
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.runtimeconfig.dev.json
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Web.exe
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Plugin.Widgets.FacebookPixel.deps.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\Nop.Plugin.Widgets.FacebookPixel.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.FacebookPixel\ref\Nop.Plugin.Widgets.FacebookPixel.dll

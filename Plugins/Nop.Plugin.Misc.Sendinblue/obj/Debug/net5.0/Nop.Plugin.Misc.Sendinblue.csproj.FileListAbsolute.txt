@@ -1821,14 +1821,14 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\ref\Nop.Plugin.Misc.Sendinblue.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.pdb
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Debug\net5.0\Nop.Plugin.Misc.Sendinblue.csproj.AssemblyReference.cache
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\RestSharp.dll
+E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\SendinblueMarketingAutomation.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\Content\styles.css
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\logo.png
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\plugin.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\Views\Configure.cshtml
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\Views\PublicInfo.cshtml
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\Views\_ViewImports.cshtml
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\RestSharp.dll
-E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\SendinblueMarketingAutomation.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\Nop.Plugin.Misc.Sendinblue.deps.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\Nop.Plugin.Misc.Sendinblue.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\Misc.Sendinblue\ref\Nop.Plugin.Misc.Sendinblue.dll
