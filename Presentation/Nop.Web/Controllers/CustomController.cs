@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -415,7 +416,6 @@ namespace Nop.Web.Controllers
             else
             {
                 return Ok(new { result = false, message= "model is IsValid" });
-
             }
         }
 
@@ -449,6 +449,21 @@ namespace Nop.Web.Controllers
                 return Ok(new { result = false, message = "model is IsValid" });
             }
         }
+
+
+        public virtual async Task<IActionResult> CustomerInfo( int id)
+        {
+            var customer = await _customerService.GetCustomerByIdAsync(id);
+            if (!await _customerService.IsRegisteredAsync(customer))
+                return Challenge();
+            var model = new CustomerInfoModel();
+            model = await _customerModelFactory.PrepareCustomerInfoModelAsync(model, customer, false);
+            model.AvatarUrl = await _pictureService.GetPictureUrlAsync(
+                await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.AvatarPictureIdAttribute),
+                _mediaSettings.AvatarPictureSize, false);
+            return Ok(model);
+        }
+
 
 
 
