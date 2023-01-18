@@ -1179,7 +1179,7 @@ button.button-1.search-box-button {
     left: 0;
     width: 100%;
     min-height:100px;
-    display:none;
+    /*display:none;*/
     z-index:10;
 }
 

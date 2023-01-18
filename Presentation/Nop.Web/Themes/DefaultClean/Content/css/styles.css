@@ -144,7 +144,7 @@ textarea {
 
 .master-wrapper-content {
     width: 100% !important;
-    margin-bottom: 250px !important;
+    /*margin-bottom: 250px !important;*/
 }
 
 
@@ -1174,12 +1174,12 @@ button.button-1.search-box-button {
 .footer {
     background-color: #eee;
     text-align: center;
-    position: fixed;
+    /*position: fixed;*/
     bottom: 0;
     left: 0;
     width: 100%;
     min-height:100px;
-    display:none;
+    /*display:none;*/
     z-index:10;
 }
 
@@ -1904,11 +1904,12 @@ button.button-1.search-box-button {
 
     .item-box .product-box-add-to-cart-button {
         width: 60%;
-        background-color: #4ab2f1;
+        background-color: green;
         text-align: center;
         font-size: 15px;
         color: #fff;
         text-transform: uppercase;
+        border-radius: 8px;
     }
 
         .item-box .product-box-add-to-cart-button:hover,
@@ -1924,6 +1925,7 @@ button.button-1.search-box-button {
         background-position: center;
         background-repeat: no-repeat;
         font-size: 0;
+        border-radius: 7px;
     }
 
     .item-box .add-to-compare-list-button {
