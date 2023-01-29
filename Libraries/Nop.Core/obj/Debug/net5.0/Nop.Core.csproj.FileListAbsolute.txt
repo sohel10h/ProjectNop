@@ -2356,3 +2356,4 @@ E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.CoreCompile
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\ref\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.pdb
+E:\PP\ProjectNop\Libraries\Nop.Core\obj\Debug\net5.0\Nop.Core.csproj.AssemblyReference.cache
