@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\Nop.Plugin.Tax.Avalara.csproj": {}
+    "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\Nop.Plugin.Tax.Avalara.csproj": {}
   },
   "projects": {
-    "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+    "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
+        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
         "projectName": "Nop.Core",
-        "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
-        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
-        "outputPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\obj\\",
+        "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -116,21 +119,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+    "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
+        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
         "projectName": "Nop.Data",
-        "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
-        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
-        "outputPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\obj\\",
+        "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -138,14 +144,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
               }
             }
           }
@@ -204,21 +210,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+    "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj",
+        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj",
         "projectName": "Nop.Services",
-        "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj",
-        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
-        "outputPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\obj\\",
+        "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -226,17 +235,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
               },
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj"
               }
             }
           }
@@ -303,21 +312,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\Nop.Plugin.Tax.Avalara.csproj": {
+    "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\Nop.Plugin.Tax.Avalara.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\Nop.Plugin.Tax.Avalara.csproj",
+        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\Nop.Plugin.Tax.Avalara.csproj",
         "projectName": "Nop.Plugin.Tax.Avalara",
-        "projectPath": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\Nop.Plugin.Tax.Avalara.csproj",
-        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
-        "outputPath": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\obj\\",
+        "projectPath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\Nop.Plugin.Tax.Avalara.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Tax.Avalara\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -325,14 +337,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\PP\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj"
+              "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj"
               }
             }
           }
@@ -367,21 +379,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\PP\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+    "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
+        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
         "projectName": "Nop.Web.Framework",
-        "projectPath": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
-        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
-        "outputPath": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web.Framework\\obj\\",
+        "projectPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -389,20 +404,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
               },
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj"
               },
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj"
               }
             }
           }
@@ -449,21 +464,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\PP\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj": {
+    "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj": {
       "version": "4.4.0",
       "restore": {
-        "projectUniqueName": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj",
+        "projectUniqueName": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj",
         "projectName": "Nop.Web",
-        "projectPath": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj",
-        "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
-        "outputPath": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web\\obj\\",
+        "projectPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj",
+        "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -471,23 +489,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Core\\Nop.Core.csproj"
               },
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Data\\Nop.Data.csproj"
               },
-              "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj"
+              "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Libraries\\Nop.Services\\Nop.Services.csproj"
               },
-              "E:\\PP\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
-                "projectPath": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
+              "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj": {
+                "projectPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web.Framework\\Nop.Web.Framework.csproj"
               }
             }
           }
@@ -525,7 +543,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

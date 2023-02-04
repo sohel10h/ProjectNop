@@ -892,7 +892,6 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrd
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\refs\System.Xml.XPath.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\refs\WindowsBase.dll
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\Nop.Plugin.Payments.CheckMoneyOrder.csproj.AssemblyReference.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\Nop.Plugin.Payments.CheckMoneyOrder.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\Nop.Plugin.Payments.CheckMoneyOrder.AssemblyInfoInputs.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\Nop.Plugin.Payments.CheckMoneyOrder.AssemblyInfo.cs

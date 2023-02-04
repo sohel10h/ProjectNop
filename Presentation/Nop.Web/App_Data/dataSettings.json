@@ -1,5 +1,5 @@
 ﻿{
-  "DataConnectionString": "server=127.0.0.1;database=productiondb;allowuservariables=True;user id=root;password=Dizit@2022",
+  "DataConnectionString": "server=127.0.0.1;database=productiondb;allowuservariables=True;user id=root;password=sohel123#",
   "DataProvider": "mysql",
   "SQLCommandTimeout": null,
   "RawDataSettings": {}

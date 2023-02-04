@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,7 @@ using Nop.Core.Domain.Localization;
 using Nop.Core.Domain.Media;
 using Nop.Core.Domain.Messages;
 using Nop.Core.Domain.OTP;
+using Nop.Core.Domain.SallerItems;
 using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Events;
@@ -39,6 +41,7 @@ using Nop.Services.Media;
 using Nop.Services.Messages;
 using Nop.Services.Orders;
 using Nop.Services.OTP;
+using Nop.Services.Saller;
 using Nop.Services.Tax;
 using Nop.Web.Extensions;
 using Nop.Web.Factories;
@@ -103,6 +106,7 @@ namespace Nop.Web.Controllers
         private readonly IWebHelper _webHelper;
         private readonly IOrderModelFactory _orderModelFactory;
         private readonly IContactService _contactService;
+        private readonly ISallerService _sallerService;
 
 
 
@@ -154,6 +158,7 @@ namespace Nop.Web.Controllers
             IWebHelper webHelper,
             IOrderModelFactory orderModelFactory,
             IContactService contactService,
+            ISallerService sallerService,
             TaxSettings taxSettings) 
         {
 
@@ -205,6 +210,7 @@ namespace Nop.Web.Controllers
             _otpService = otpService;
             _webHelper = webHelper;
             _orderModelFactory = orderModelFactory;
+            _sallerService = sallerService;
             this._contactService = contactService;
 
         }
@@ -377,8 +383,6 @@ namespace Nop.Web.Controllers
         public virtual async Task<IActionResult> OrderDetails(int orderId,int customerId)
         {
             var order = await _orderService.GetOrderByIdAsync(orderId);
-            var customer = await _customerService.GetCustomerByIdAsync(customerId);
-
             if (order == null || order.Deleted || (customerId != order.CustomerId))
                 return Challenge();
 
@@ -469,7 +473,8 @@ namespace Nop.Web.Controllers
         [HttpPost]
         //available even when navigation is not allowed
         /// <returns>A task that represents the asynchronous operation</returns>
-        public virtual async Task<IActionResult> Register(string firstName,string email, string mobile,string password , string returnUrl)
+        public virtual async Task<IActionResult> Register(string firstName,string email, string mobile,
+                                                            string password , string returnUrl)
         {
             var result = new MobileLogin();
             RegisterModel model = new RegisterModel();
@@ -599,7 +604,6 @@ namespace Nop.Web.Controllers
                             return Json(result);
                     }
                 }
-       
                 result.Result = false;
                 result.ErrorResult= String.Join(", ", registrationResult.Errors);
 
@@ -608,146 +612,67 @@ namespace Nop.Web.Controllers
         }
 
 
-
-        //[HttpPost]
-        //public virtual async Task<IActionResult> Register(RegisterModel model, IFormCollection form)
-        //{
-        //    //check whether registration is allowed
-        //    if (_customerSettings.UserRegistrationType == UserRegistrationType.Disabled)
-        //        return Json("");
-
-
-
-        //    var customer =await _workContext.GetCurrentCustomerAsync();
-
-        //    if (!string.IsNullOrWhiteSpace(model.Username) && !string.IsNullOrWhiteSpace(model.Password))
-        //    {
-        //        var customerUserName = model.Username?.Trim();
-        //        var customerEmail = model.Email?.Trim();
-
-        //        //var isApproved = _customerSettings.UserRegistrationType == UserRegistrationType.Standard;
-        //        var isApproved = false;
-        //        var registrationRequest = new CustomerRegistrationRequest(customer,
-        //            customerEmail,
-        //            customerUserName,
-        //            model.Password,
-        //            _customerSettings.DefaultPasswordFormat,
-        //            (await _storeContext.GetCurrentStoreAsync()).Id,
-        //            isApproved);
-        //        var registrationResult = await _customerRegistrationService.RegisterCustomerAsync(registrationRequest);
-        //        if (registrationResult.Success)
-        //        {
-
-        //            if (_customerSettings.GenderEnabled)
-        //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.GenderAttribute, model.Gender);
-        //            if (_customerSettings.FirstNameEnabled)
-        //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FirstNameAttribute, model.FirstName);
-        //            if (_customerSettings.LastNameEnabled)
-        //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.LastNameAttribute, model.LastName);
-
-        //            if (_customerSettings.PhoneEnabled)
-        //                await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.PhoneAttribute, model.Username);
+        [HttpPost]
+        public virtual async Task<IActionResult> ValidateOTP(RegisterResultModel model)
+        {
+            var currentCustomer = await _customerService.GetCustomerByUsernameAsync(model.MobileNumber);
+            var otpresult = await _otpService.GetOtp(currentCustomer.Id, model.MobileNumber, model.OtpString);
+            if (otpresult != null && currentCustomer != null)
+            {
+                if (!currentCustomer.Active)
+                {
+                    currentCustomer.Active = true;
+                    await _customerService.UpdateCustomerAsync(currentCustomer);
+                }
+                model.Errors = "";
+                model.Result = "success";
+                return Json(model);
+            }
+            else
+            {
+                model.Result = "fail";
+                model.Errors = "OTP or Customer Number is not valid";
+                return Json(model);
+            }
+        }
 
 
-        //            //insert default address (if possible)
-        //            var defaultAddress = new Address
-        //            {
-        //                FirstName = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.FirstNameAttribute),
-        //                LastName = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.LastNameAttribute),
-        //                Email = customer.Email,
-        //                Company = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.CompanyAttribute),
-        //                CountryId = await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.CountryIdAttribute) > 0
-        //                    ? (int?)await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.CountryIdAttribute)
-        //                    : null,
-        //                StateProvinceId = await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.StateProvinceIdAttribute) > 0
-        //                    ? (int?)await _genericAttributeService.GetAttributeAsync<int>(customer, NopCustomerDefaults.StateProvinceIdAttribute)
-        //                    : null,
-        //                County = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.CountyAttribute),
-        //                City = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.CityAttribute),
-        //                Address1 = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.StreetAddressAttribute),
-        //                Address2 = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.StreetAddress2Attribute),
-        //                ZipPostalCode = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.ZipPostalCodeAttribute),
-        //                PhoneNumber = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.PhoneAttribute),
-        //                //FaxNumber = await _genericAttributeService.GetAttributeAsync<string>(customer, NopCustomerDefaults.FaxAttribute),
-        //                CreatedOnUtc = customer.CreatedOnUtc
-        //            };
-        //            if (await _addressService.IsAddressValidAsync(defaultAddress))
-        //            {
-        //                //some validation
-        //                if (defaultAddress.CountryId == 0)
-        //                    defaultAddress.CountryId = null;
-        //                if (defaultAddress.StateProvinceId == 0)
-        //                    defaultAddress.StateProvinceId = null;
-        //                //set default address
-        //                //customer.Addresses.Add(defaultAddress);
+        [HttpPost]
+        public virtual async Task<IActionResult> sallerRequest(SallerItem item, IFormFile image)
+        {
+            string fileName = string.Empty;
+            if (image != null)
+            {
+                byte[] fileBytes;
+                fileName = Guid.NewGuid().ToString() + image.FileName;
+                using (var ms = new MemoryStream())
+                {
+                    image.CopyTo(ms);
+                    fileBytes = ms.ToArray();
+                }
+                await _pictureService.SaveMakeAnOrderThumbAsync(fileName, image.ContentType, fileBytes);
+            }
+            item.ImageString = fileName;
+            await _sallerService.SaveSallerItem(item);
+            return Ok("Success");
+        }
 
-        //                await _addressService.InsertAddressAsync(defaultAddress);
 
-        //                await _customerService.InsertCustomerAddressAsync(customer, defaultAddress);
+        public virtual async Task<IActionResult> SalerPanel(int id)
+        {
+            var oldItems = await _sallerService.GetCustomerSallerItems(id);
+            foreach (var itm in oldItems) 
+            {
+                itm.ImageString =_webHelper.GetStoreHost(false)+ "images/thumbs/" + itm.ImageString;
+            }
 
-        //                customer.BillingAddressId = defaultAddress.Id;
-        //                customer.ShippingAddressId = defaultAddress.Id;
 
-        //                await _customerService.UpdateCustomerAsync(customer);
-        //            }
+            return Json(oldItems);
 
-        //            //notifications
-        //            if (_customerSettings.NotifyNewCustomerRegistration)
-        //                await _workflowMessageService.SendCustomerRegisteredNotificationMessageAsync(customer,
-        //                    _localizationSettings.DefaultAdminLanguageId);
+        }
 
-        //            //raise event       
-        //            await _eventPublisher.PublishAsync(new CustomerRegisteredEvent(customer));
 
-        //            switch (_customerSettings.UserRegistrationType)
-        //            {
-        //                case UserRegistrationType.EmailValidation:
-        //                    //email validation message
-        //                    await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.AccountActivationTokenAttribute, Guid.NewGuid().ToString());
-        //                    await _workflowMessageService.SendCustomerEmailValidationMessageAsync(customer, (await _workContext.GetWorkingLanguageAsync()).Id);
 
-        //                    //result
-        //                    return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.EmailValidation, returnUrl });
-
-        //                case UserRegistrationType.AdminApproval:
-        //                    return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.AdminApproval, returnUrl });
-
-        //                case UserRegistrationType.Standard:
-        //                    //send customer welcome message
-        //                    Random generator = new Random();
-        //                    String r = generator.Next(0, 1000000).ToString("D6");
-        //                    var otp = new OTPInfo();
-        //                    otp.CustomerId = customer.Id;
-        //                    otp.MobileNumber = customer.Username;
-        //                    otp.CreateOn = DateTime.Now;
-        //                    otp.OTPString = r;
-        //                    await _otpService.CreateAndSendOtp(otp);
-
-        //                    //await _workflowMessageService.SendCustomerWelcomeMessageAsync(customer, (await _workContext.GetWorkingLanguageAsync()).Id);
-
-        //                    //raise event       
-        //                    await _eventPublisher.PublishAsync(new CustomerActivatedEvent(customer));
-
-        //                    //returnUrl = Url.RouteUrl("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl, otp.MobileNumber });
-        //                    //return await _customerRegistrationService.SignInCustomerAsync(customer, returnUrl, true);
-
-        //                    return RedirectToAction("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl, otp.MobileNumber });
-
-        //                default:
-        //                    return RedirectToRoute("Homepage");
-        //            }
-        //        }
-
-        //        //errors
-        //        foreach (var error in registrationResult.Errors)
-        //            ModelState.AddModelError("", error);
-        //    }
-
-        //    //If we got this far, something failed, redisplay form
-        //    model = await _customerModelFactory.PrepareRegisterModelAsync(model, true, customerAttributesXml);
-
-        //    return View(model);
-        //}
 
     }
 }

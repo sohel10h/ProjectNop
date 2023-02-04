@@ -14408,19 +14408,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dizit\\.nuget\\packages\\": {}
+    "C:\\Users\\Sohel Rana\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.ShipStation\\Nop.Plugin.Shipping.ShipStation.csproj",
+      "projectUniqueName": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.ShipStation\\Nop.Plugin.Shipping.ShipStation.csproj",
       "projectName": "Nop.Plugin.Shipping.ShipStation",
-      "projectPath": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.ShipStation\\Nop.Plugin.Shipping.ShipStation.csproj",
-      "packagesPath": "C:\\Users\\Dizit\\.nuget\\packages\\",
-      "outputPath": "E:\\PP\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.ShipStation\\obj\\",
+      "projectPath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.ShipStation\\Nop.Plugin.Shipping.ShipStation.csproj",
+      "packagesPath": "C:\\Users\\Sohel Rana\\.nuget\\packages\\",
+      "outputPath": "D:\\Personal works\\ProjectNop\\Plugins\\Nop.Plugin.Shipping.ShipStation\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Dizit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sohel Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -14428,14 +14432,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://www.nuget.org/api/v2/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\PP\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj": {
-              "projectPath": "E:\\PP\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj"
+            "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj": {
+              "projectPath": "D:\\Personal works\\ProjectNop\\Presentation\\Nop.Web\\Nop.Web.csproj"
             }
           }
         }
@@ -14464,7 +14468,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

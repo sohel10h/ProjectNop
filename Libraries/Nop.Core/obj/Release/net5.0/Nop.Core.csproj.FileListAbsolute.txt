@@ -882,7 +882,6 @@ D:\Personal works\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.cspr
 D:\Personal works\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.dll
 D:\Personal works\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\ref\Nop.Core.dll
 D:\Personal works\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.pdb
-D:\Personal works\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.csproj.AssemblyReference.cache
 E:\PP\ProjectNop\Libraries\Nop.Core\bin\Release\net5.0\Nop.Core.deps.json
 E:\PP\ProjectNop\Libraries\Nop.Core\bin\Release\net5.0\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\bin\Release\net5.0\ref\Nop.Core.dll
@@ -1178,3 +1177,4 @@ E:\PP\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\ref\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.pdb
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.csproj.AssemblyReference.cache
+D:\Personal works\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.csproj.AssemblyReference.cache
