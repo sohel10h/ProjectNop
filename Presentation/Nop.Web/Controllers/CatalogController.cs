@@ -480,8 +480,6 @@ namespace Nop.Web.Controllers
             var productNumber = _catalogSettings.ProductSearchAutoCompleteNumberOfProducts > 0 ?
                 _catalogSettings.ProductSearchAutoCompleteNumberOfProducts : 10;
 
-         
-
             var products = await _productService.SearchProductsAsync(0,
                 storeId: (await _storeContext.GetCurrentStoreAsync()).Id,
                 keywords: term,
@@ -683,6 +681,44 @@ namespace Nop.Web.Controllers
             return Json(result);
         }
 
+
+        public virtual async Task<IActionResult> SearchTermAutoCompleteForCustomerApp(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return Content("");
+
+            term = term.Trim();
+
+            if (string.IsNullOrWhiteSpace(term) || term.Length < _catalogSettings.ProductSearchTermMinimumLength)
+                return Content("");
+
+            //products
+            var productNumber = _catalogSettings.ProductSearchAutoCompleteNumberOfProducts > 0 ?
+                _catalogSettings.ProductSearchAutoCompleteNumberOfProducts : 10;
+
+            var products = await _productService.SearchProductsAsync(0,
+                storeId: (await _storeContext.GetCurrentStoreAsync()).Id,
+                keywords: term,
+                languageId: (await _workContext.GetWorkingLanguageAsync()).Id,
+                visibleIndividuallyOnly: true,
+                pageSize: productNumber);
+
+            var showLinkToResultSearch = _catalogSettings.ShowLinkToAllResultInSearchAutoComplete && (products.TotalCount > productNumber);
+
+            var models = (await _productModelFactory.PrepareProductOverviewModelsAsync(products, true, true, _mediaSettings.AutoCompleteSearchThumbPictureSize, false)).ToList();
+            var result = (from p in models
+                          select new
+                          {
+                              id = p.Id,
+                              label = p.Name,
+                              producturl = Url.RouteUrl("Product", new { SeName = p.SeName }),
+                              productpictureurl = p.DefaultPictureModel.ImageUrl,
+                              showlinktoresultsearch = showLinkToResultSearch,
+                              price = p.ProductPrice.PriceValue,
+                          })
+                .ToList();
+            return Json(result);
+        }
 
 
 

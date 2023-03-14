@@ -87,10 +87,12 @@ namespace Nop.Services.Contacts
         //}
 
 
-        public Task<Contact> GetContactByIdAsync(int contactId)
+        public async Task<Contact> GetContactByIdAsync(int contactId)
         {
-            return _contactRepository.GetByIdAsync(contactId);
+            return await _contactRepository.GetByIdAsync(contactId);
         }
+
+
 
         public virtual async Task InsertContactAsync(Contact contact)
         {
@@ -98,9 +100,10 @@ namespace Nop.Services.Contacts
             await _contactRepository.InsertAsync(contact);
         }
 
-        public Task UpdateContactAsync(Contact contact)
+        public virtual async Task<Contact> UpdateContactAsync(Contact contact)
         {
-            throw new NotImplementedException();
+           await _contactRepository.UpdateAsync(contact);
+           return contact;
         }
     }
 }

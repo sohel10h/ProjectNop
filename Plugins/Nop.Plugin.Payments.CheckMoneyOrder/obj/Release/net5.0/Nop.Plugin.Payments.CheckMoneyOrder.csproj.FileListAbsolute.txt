@@ -1201,3 +1201,4 @@ E:\PP\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\Nop.Plugin.Payments.CheckMoneyOrder.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\ref\Nop.Plugin.Payments.CheckMoneyOrder.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\Nop.Plugin.Payments.CheckMoneyOrder.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\net5.0\Nop.Plugin.Payments.CheckMoneyOrder.csproj.AssemblyReference.cache

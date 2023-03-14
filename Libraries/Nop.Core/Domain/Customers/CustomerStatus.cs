@@ -12,11 +12,11 @@ namespace Nop.Core.Domain.Customers
         /// <summary>
         /// Processing
         /// </summary>
-        RequestedForCareer= 10,
+        RequestedForCareerWholesale= 10,
         /// <summary>
         /// Complete
         /// </summary>
-        RequestedForCareerApproved = 20,
+        RequestedForCareerApprovedWholesale = 20,
 
         RequestedForSaller= 30,
 

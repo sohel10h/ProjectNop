@@ -62,7 +62,7 @@ namespace Nop.Services.Contacts
         /// </summary>
         /// <param name="contact">Contact post</param>
         /// <returns>A task that represents the asynchronous operation</returns>
-        Task UpdateContactAsync(Contact contact);
+        Task<Contact> UpdateContactAsync(Contact contact);
 
         //TODO: migrate to an extension method
         /// <summary>

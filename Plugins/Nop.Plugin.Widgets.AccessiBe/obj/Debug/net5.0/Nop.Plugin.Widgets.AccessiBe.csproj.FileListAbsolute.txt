@@ -2086,7 +2086,6 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.AccessiBe\refs
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.AccessiBe\refs\System.Xml.XPath.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.AccessiBe\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Widgets.AccessiBe\refs\WindowsBase.dll
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Debug\net5.0\Nop.Plugin.Widgets.AccessiBe.csproj.AssemblyReference.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Debug\net5.0\Nop.Plugin.Widgets.AccessiBe.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Debug\net5.0\Nop.Plugin.Widgets.AccessiBe.AssemblyInfoInputs.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Widgets.AccessiBe\obj\Debug\net5.0\Nop.Plugin.Widgets.AccessiBe.AssemblyInfo.cs

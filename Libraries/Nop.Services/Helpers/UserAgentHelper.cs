@@ -102,6 +102,13 @@ namespace Nop.Services.Helpers
                 if (browscapXmlHelper == null)
                     return false;
 
+                var isApi = _httpContextAccessor.HttpContext.Request.Headers["IsApi"];
+
+                if (!string.IsNullOrWhiteSpace(isApi) && isApi.Count > 0) 
+                {
+                    return false;
+                }
+
                 var userAgent = _httpContextAccessor.HttpContext.Request.Headers[HeaderNames.UserAgent];
                 return !string.IsNullOrWhiteSpace(userAgent) && browscapXmlHelper.IsCrawler(userAgent);
             }

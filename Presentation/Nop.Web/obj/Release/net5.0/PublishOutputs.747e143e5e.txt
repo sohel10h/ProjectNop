@@ -62,6 +62,7 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Common\_Maintenance.ReindexDatabaseTables.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\Appoinments.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\ContractEdit.cshtml
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\Edit.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\Index.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Contract\List.cshtml
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\Areas\Admin\Views\Country\Create.cshtml
@@ -1137,6 +1138,7 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001039_a4-copy-office-paper-a4-size-paper-500-sheets-sonali-branda4-_75.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001146_120.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001150_120.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001175_mustard-seed-red-1-kg.webp
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001177_saffron-jafran-1g_80.webp
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001187_almond-.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0001187_almond-_415.jpeg
@@ -1304,9 +1306,14 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009039_pantene-hair-fall-control-shampoo-340ml.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009039_pantene-hair-fall-control-shampoo-340ml_415.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009049_scotch-tape-carton-tape-packing-tape-2inch-100-yard.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009049_scotch-tape-carton-tape-packing-tape-2inch-100-yard_100.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009049_scotch-tape-carton-tape-packing-tape-2inch-100-yard_415.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009049_scotch-tape-carton-tape-packing-tape-2inch-100-yard_550.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009049_scotch-tape-carton-tape-packing-tape-2inch-100-yard_64.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009052_scotch-tape-carton-tape-packing-tape-2inch-20-yard.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009052_scotch-tape-carton-tape-packing-tape-2inch-20-yard_415.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009052_scotch-tape-carton-tape-packing-tape-2inch-20-yard_70.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009052_scotch-tape-carton-tape-packing-tape-2inch-20-yard_80.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009054_scotch-tape-carton-tape-packing-tape-2inch-200-yard.webp
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009054_scotch-tape-carton-tape-packing-tape-2inch-200-yard_415.webp
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0009106_sdi-anti-cutter-0404_75.jpeg

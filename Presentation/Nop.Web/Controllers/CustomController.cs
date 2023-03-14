@@ -58,6 +58,7 @@ namespace Nop.Web.Controllers
     public class CustomController : BasePublicController
     {
 
+        #region Global Variable
         private readonly AddressSettings _addressSettings;
         private readonly CaptchaSettings _captchaSettings;
         private readonly CustomerSettings _customerSettings;
@@ -108,9 +109,9 @@ namespace Nop.Web.Controllers
         private readonly IContactService _contactService;
         private readonly ISallerService _sallerService;
 
+        #endregion
 
-
-
+        #region cor
         public CustomController(AddressSettings addressSettings,
             CaptchaSettings captchaSettings,
             CustomerSettings customerSettings,
@@ -215,7 +216,7 @@ namespace Nop.Web.Controllers
 
         }
 
-
+        #endregion
 
         [HttpPost]
         public virtual async Task<IActionResult> MobileLogin(string username, string password)
@@ -390,9 +391,8 @@ namespace Nop.Web.Controllers
             return Ok(model);
         }
 
-
         public async Task<IActionResult> GetUserAppoinments(int customerId)
-        {     
+        {
             var model = await _contactService.GetAllContactsAsync(customerId: customerId, type: (int)ContactType.Appoinment);
             return Ok(model);
         }
@@ -503,18 +503,18 @@ namespace Nop.Web.Controllers
                 var registrationResult = await _customerRegistrationService.RegisterCustomerAsync(registrationRequest);
                 if (registrationResult.Success)
                 {
-                    
+
                     if (_customerSettings.GenderEnabled)
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.GenderAttribute, model.Gender);
                     if (_customerSettings.FirstNameEnabled)
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.FirstNameAttribute, model.FirstName);
                     if (_customerSettings.LastNameEnabled)
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.LastNameAttribute, model.LastName);
-               
+
                     if (_customerSettings.PhoneEnabled)
                         await _genericAttributeService.SaveAttributeAsync(customer, NopCustomerDefaults.PhoneAttribute, model.Username);
-                    
-                    
+
+
 
                     //insert default address (if possible)
                     var defaultAddress = new Address
@@ -605,8 +605,12 @@ namespace Nop.Web.Controllers
                     }
                 }
                 result.Result = false;
-                result.ErrorResult= String.Join(", ", registrationResult.Errors);
+                result.ErrorResult = String.Join(", ", registrationResult.Errors);
 
+            }
+            else 
+            {
+                result.ErrorResult = "User Phone Number or Password is empty";            
             }
             return Json(result);
         }

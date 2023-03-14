@@ -2204,11 +2204,11 @@ namespace Nop.Web.Controllers
         public virtual async Task<IActionResult> Career()
         {
             var customer =await _workContext.GetCurrentCustomerAsync();
-            if (customer.CustomerStatus == CustomerStatus.RequestedForCareerApproved)
+            if (customer.CustomerStatus == CustomerStatus.RequestedForCareerApprovedWholesale)
             {
                 return Redirect("/order/SaleFromCareer");
             }
-            else if (customer.CustomerStatus == CustomerStatus.RequestedForCareer)
+            else if (customer.CustomerStatus == CustomerStatus.RequestedForCareerWholesale)
             {
                 return Redirect("/Customer/UnApprovedCareer");
             }
@@ -2216,7 +2216,6 @@ namespace Nop.Web.Controllers
             {
                 return Redirect("/customer/info?status=10");
             }
-            return View();
         }
 
         public IActionResult UnApprovedCareer()

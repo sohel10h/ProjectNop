@@ -113,6 +113,22 @@ namespace Nop.Web.Areas.Admin.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public virtual async Task<IActionResult> Edit(int id,string Product)
+        {
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageCustomers))
+                return AccessDeniedView();
+            //try to get a country with the specified id
+            var contact = await _contactService.GetContactByIdAsync(id);
+            if (contact == null)
+                return RedirectToAction("List");
+
+            contact.Product = Product;
+            await _contactService.UpdateContactAsync(contact);
+            //var model = await _contactModelFactory.PrepareContactModelAsync(null, contact);
+            return Redirect("/Admin/Contract/Edit/" + id);
+        }
+
 
 
     }

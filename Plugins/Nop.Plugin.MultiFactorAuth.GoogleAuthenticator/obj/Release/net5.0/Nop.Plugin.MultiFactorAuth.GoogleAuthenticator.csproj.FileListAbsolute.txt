@@ -903,7 +903,6 @@ D:\Personal works\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthentica
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\ref\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.dll
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.pdb
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj.AssemblyReference.cache
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\logo.png
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\plugin.json
 E:\PP\ProjectNop\Presentation\Nop.Web\Plugins\MultiFactorAuth.GoogleAuthenticator\Views\Customer\GAVefification.cshtml
@@ -1206,3 +1205,4 @@ E:\PP\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Rele
 E:\PP\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\ref\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator\obj\Release\net5.0\Nop.Plugin.MultiFactorAuth.GoogleAuthenticator.csproj.AssemblyReference.cache

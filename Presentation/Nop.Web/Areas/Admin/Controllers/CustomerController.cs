@@ -550,12 +550,12 @@ namespace Nop.Web.Areas.Admin.Controllers
             }
 
             // Ensure that valid email address is entered if Registered role is checked to avoid registered customers with empty email address
-            if (newCustomerRoles.Any() && newCustomerRoles.FirstOrDefault(c => c.SystemName == NopCustomerDefaults.RegisteredRoleName) != null &&
-                !CommonHelper.IsValidEmail(model.Email))
-            {
-                ModelState.AddModelError(string.Empty, await _localizationService.GetResourceAsync("Admin.Customers.Customers.ValidEmailRequiredRegisteredRole"));
-                _notificationService.ErrorNotification(await _localizationService.GetResourceAsync("Admin.Customers.Customers.ValidEmailRequiredRegisteredRole"));
-            }
+            //if (newCustomerRoles.Any() && newCustomerRoles.FirstOrDefault(c => c.SystemName == NopCustomerDefaults.RegisteredRoleName) != null
+            //    ! && CommonHelper.IsValidEmail(model.Email))
+            //{
+            //    ModelState.AddModelError(string.Empty, await _localizationService.GetResourceAsync("Admin.Customers.Customers.ValidEmailRequiredRegisteredRole"));
+            //    _notificationService.ErrorNotification(await _localizationService.GetResourceAsync("Admin.Customers.Customers.ValidEmailRequiredRegisteredRole"));
+            //}
 
             //custom customer attributes
             var customerAttributesXml = await ParseCustomCustomerAttributesAsync(form);

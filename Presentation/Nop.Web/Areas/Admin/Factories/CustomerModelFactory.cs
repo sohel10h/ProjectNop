@@ -956,7 +956,7 @@ namespace Nop.Web.Areas.Admin.Factories
             await _addressModelFactory.PrepareAddressModelAsync(model.Address, address);
             model.Address.FirstNameRequired = true;
             model.Address.LastNameRequired = true;
-            model.Address.EmailRequired = true;
+            model.Address.EmailRequired = false;
             model.Address.CompanyRequired = _addressSettings.CompanyRequired;
             model.Address.CityRequired = _addressSettings.CityRequired;
             model.Address.CountyRequired = _addressSettings.CountyRequired;

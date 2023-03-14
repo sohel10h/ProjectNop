@@ -3899,3 +3899,4 @@ E:\PP\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\Nop.Web.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\ref\Nop.Web.dll
 E:\PP\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\Nop.Web.pdb
 E:\PP\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\Nop.Web.genruntimeconfig.cache
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\Razor\Areas\Admin\Views\Contract\Edit.cshtml.g.cs

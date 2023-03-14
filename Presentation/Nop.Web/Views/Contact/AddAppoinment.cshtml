@@ -59,7 +59,7 @@
                     </div>
                     <div class="inputs">
                         <label asp-for="Subject" asp-postfix=":"></label>
-                        <input asp-for="Subject" placeholder="@T("Appoinment.Subject.Hint")" class="input-default" />
+                        <input asp-for="Subject" required placeholder="@T("Appoinment.Subject.Hint")" class="input-default" />
                         <nop-required />
                         <span asp-validation-for="Subject"></span>
                     </div>
