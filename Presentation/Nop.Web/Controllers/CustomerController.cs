@@ -38,6 +38,8 @@ using Nop.Services.Media;
 using Nop.Services.Messages;
 using Nop.Services.Orders;
 using Nop.Services.OTP;
+using Nop.Services.Security;
+using Nop.Services.Stores;
 using Nop.Services.Tax;
 using Nop.Web.Extensions;
 using Nop.Web.Factories;
@@ -100,6 +102,9 @@ namespace Nop.Web.Controllers
         private readonly TaxSettings _taxSettings;
         private readonly IOTPService _otpService;
         private readonly IWebHelper _webHelper;
+        private readonly IAclService _aclService;
+        private readonly IProductModelFactory _productModelFactory;
+        private readonly IStoreMappingService _storeMappingService;
 
 
         #endregion
@@ -151,7 +156,10 @@ namespace Nop.Web.Controllers
             StoreInformationSettings storeInformationSettings,
             IOTPService otpService,
             IWebHelper webHelper,
-            TaxSettings taxSettings)
+            TaxSettings taxSettings,
+            IAclService aclService,
+            IProductModelFactory productModelFactory,
+            IStoreMappingService storeMappingService)
         {
             _addressSettings = addressSettings;
             _captchaSettings = captchaSettings;
@@ -199,6 +207,12 @@ namespace Nop.Web.Controllers
             _taxSettings = taxSettings;
             _otpService = otpService;
             _webHelper = webHelper;
+            _aclService = aclService;
+            _productModelFactory = productModelFactory;
+            _storeMappingService = storeMappingService;
+
+
+
         }
 
         #endregion
@@ -2432,6 +2446,21 @@ namespace Nop.Web.Controllers
         #endregion
 
         #endregion
+
+
+
+        public async Task<IActionResult> HomePageProduct() 
+        {
+            var products = await(await _productService.GetAllProductsDisplayedOnHomepageAsync())
+             .WhereAwait(async p => await _aclService.AuthorizeAsync(p) && await _storeMappingService.AuthorizeAsync(p))
+             .Where(p => _productService.ProductIsAvailable(p))
+             .Where(p => p.VisibleIndividually).ToListAsync();
+            if (!products.Any())
+                return Json("[]");
+            var model = (await _productModelFactory.PrepareProductOverviewModelsAsync(products, true, true, null)).ToList();
+            return Json(model);
+        }
+
     }
 }
 

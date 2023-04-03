@@ -1071,6 +1071,7 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\flags\zw.png
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000020_build-your-own-computer.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000020_build-your-own-computer_300.jpeg
+D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000032_adobe-photoshop-cs4_75.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000080_0000087_61DUO0NqyyL._SX3000_.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000080_0000087_61DUO0NqyyL._SX3000__100.jpeg
 D:\Personal works\ProjectNop\Presentation\Nop.Web\obj\Release\net5.0\PubTmp\Out\wwwroot\images\thumbs\0000082_0000089_51SawtSe3JL._SX1500_.jpeg

@@ -642,7 +642,7 @@ namespace Nop.Web.Controllers
                     return Ok(model);
                 }
                 var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(makeAnOrders.Where(o => o.Id == 0).ToList());
-                var customer = await _customerService.GetCustomerByIdAsync(context.CustomerId);
+                var customer = await _customerService.GetCustomerByIdAsync(context.CustomerId.Value);
                 if (customer == null) 
                 {
                     model.Result = false;
@@ -725,6 +725,116 @@ namespace Nop.Web.Controllers
             }
             return Ok(model);
         }
+
+
+
+        [HttpPost]
+        public virtual async Task<IActionResult> PlaceOrderFromCustomerApp([FromBody] MakeAnOrderMobileList context)
+        {
+            MakeAnOrderResult model = new MakeAnOrderResult();
+            try
+            {
+                var makeAnOrders = context.Orders;
+                if (!makeAnOrders.Any())
+                {
+                    model.Result = false;
+                    model.Message = "minimum one product required";
+                    return Ok(model);
+                }
+                var ordersJson = Newtonsoft.Json.JsonConvert.SerializeObject(makeAnOrders.Where(o => o.Id == 0).ToList());
+                Customer customer = null;
+                if (context.CustomerId.HasValue)
+                {
+                    customer = await _customerService.GetCustomerByIdAsync(context.CustomerId.Value);
+                }
+                else 
+                {
+                    customer= await _workContext.GetCurrentCustomerAsync();
+                }
+
+                if (customer == null)
+                {
+                    model.Result = false;
+                    model.Message = "Customer Not Found";
+                    return Ok(model);
+                }
+                int addressId = 0;
+
+                if (context.AddressId > 0) 
+                {
+                    addressId = context.AddressId;
+                }
+                else if (!string.IsNullOrWhiteSpace(context.FirstName) && !string.IsNullOrWhiteSpace(context.PhoneNumber) && !string.IsNullOrWhiteSpace(context.Address1))
+                {
+                    Address address = new Address();
+                    address.FirstName = context.FirstName;
+                    address.LastName = context.LastName;
+                    address.Email = context.Email;
+                    address.City = context.City;
+                    address.Address1 = context.Address1;
+                    address.PhoneNumber = context.PhoneNumber;
+                    await _addressService.InsertAddressAsync(address);
+                    await _customerService.InsertCustomerAddressAsync(customer, address);
+                    addressId = address.Id;
+                }
+                else
+                {
+                    model.Result = false;
+                    model.Message = "Some problem in address";
+                    return Ok(model);
+                }
+                var order = new Order();
+                order.BillingAddressId = addressId;
+                order.ShippingAddressId = addressId;
+
+                order.ShippingStatus = Core.Domain.Shipping.ShippingStatus.NotYetShipped;
+                order.PaymentStatus = Core.Domain.Payments.PaymentStatus.Pending;
+                order.OrderStatus = OrderStatus.Pending;
+                order.CustomerId = customer.Id;
+                order.OrderGuid = Guid.NewGuid();
+                order.MakeAnOrderJson = ordersJson;
+                order.CustomOrderNumber = _customNumberFormatter.GenerateOrderCustomNumber(order);
+                var orderTotal = makeAnOrders.Where(c => c.Id > 0).ToList().Sum(p => p.Price);
+                order.OrderTotal = orderTotal;
+                order.OrderSubtotalExclTax = orderTotal;
+                order.OrderSubtotalInclTax = orderTotal;
+                order.CreatedOnUtc = DateTime.Now;
+                order.CurrencyRate = 1;
+                order.CustomerTaxDisplayType = TaxDisplayType.ExcludingTax;
+                await _orderService.InsertOrderAsync(order);
+
+                order.CustomOrderNumber = _customNumberFormatter.GenerateOrderCustomNumber(order);
+                await _orderService.UpdateOrderAsync(order);
+
+                var ownProducts = makeAnOrders.Where(c => c.Id > 0).ToList();
+                if (ownProducts != null && ownProducts.Any())
+                {
+                    foreach (var product in ownProducts)
+                    {
+                        OrderItem itm = new OrderItem();
+                        itm.OrderId = order.Id;
+                        itm.PriceExclTax = product.Price * product.Quantity;
+                        itm.PriceInclTax = product.Price * product.Quantity;
+                        itm.UnitPriceInclTax = product.Price;
+                        itm.UnitPriceExclTax = product.Price;
+                        itm.Quantity = product.Quantity;
+                        itm.ProductId = product.Id;
+                        itm.AttributeDescription = product.AttrName;
+                        await _orderService.InsertOrderItemAsync(itm);
+                    }
+                }
+                model.Result = true;
+                model.OrderId = order.Id;
+                model.Message = "Order Placed Successfully";
+            }
+            catch (Exception ex)
+            {
+                model.Result = false;
+                model.Message = ex.Message;
+            }
+            return Ok(model);
+        }
+
 
 
 

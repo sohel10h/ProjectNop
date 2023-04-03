@@ -56,8 +56,8 @@ namespace Nop.Services.OTP
             HttpWebResponse response = null;
             try
             {
-                string userid = "canviador";
-                string password = "CSHWZBGR";
+                //string userid = "canviador";
+                //string password = "CSHWZBGR";
                 string number = otp.MobileNumber;
                 string message = string.Empty;
                 try 
@@ -78,8 +78,14 @@ namespace Nop.Services.OTP
                     message = "Your OTP is: " + otp.OTPString;
                 }
                 message = System.Uri.EscapeUriString(message);
-                String url = "http://66.45.237.70/api.php?username=" + userid + "&password=" + password + "&number=" + number + "&message=" + message;
+                //String url = "http://66.45.237.70/api.php?username=" + userid + "&password=" + password + "&number=" + number + "&message=" + message;
+                string url = "http://bulksmsbd.net/api/smsapi?api_key=ZEu4oCoiSOtR0ySk4qkD&type=text&number="+ number + "&senderid=Canviador&message="+ message;
                 request = WebRequest.Create(url);
+
+
+
+
+
 
                 // Send the 'HttpWebRequest' and wait for response.
                 response =  (HttpWebResponse) (await request.GetResponseAsync());

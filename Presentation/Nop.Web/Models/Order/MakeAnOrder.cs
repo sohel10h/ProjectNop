@@ -33,7 +33,7 @@ namespace Nop.Web.Models.Order
 
     public class MakeAnOrderMobileList 
     {
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
         public List<MakeAnOrderMobile> Orders { get; set; }
 
         public int AddressId { get; set; }
