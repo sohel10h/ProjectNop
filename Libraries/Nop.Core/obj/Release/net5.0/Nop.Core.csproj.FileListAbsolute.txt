@@ -1177,4 +1177,3 @@ E:\PP\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\ref\Nop.Core.dll
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.pdb
 E:\PP\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.csproj.AssemblyReference.cache
-D:\Personal works\ProjectNop\Libraries\Nop.Core\obj\Release\net5.0\Nop.Core.csproj.AssemblyReference.cache

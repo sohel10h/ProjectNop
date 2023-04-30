@@ -1213,3 +1213,4 @@ E:\PP\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Release\net5.0\Nop.Plugi
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Release\net5.0\Nop.Plugin.Misc.Sendinblue.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Release\net5.0\ref\Nop.Plugin.Misc.Sendinblue.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Release\net5.0\Nop.Plugin.Misc.Sendinblue.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Misc.Sendinblue\obj\Release\net5.0\Nop.Plugin.Misc.Sendinblue.csproj.AssemblyReference.cache

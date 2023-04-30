@@ -912,4 +912,3 @@ E:\PP\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Release\ne
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Release\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Release\net5.0\ref\Nop.Plugin.Shipping.FixedByWeightByTotal.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Release\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.pdb
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Shipping.FixedByWeightByTotal\obj\Release\net5.0\Nop.Plugin.Shipping.FixedByWeightByTotal.csproj.AssemblyReference.cache
