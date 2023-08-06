@@ -86,7 +86,7 @@
     {
         <div class="inputs">
             <label asp-for="Address1" asp-postfix=":"></label>
-            <input asp-for="Address1" />
+            <input placeholder="House, Road, Nearest Place" asp-for="Address1" />
             @if (Model.StreetAddressRequired)
             {
                 <nop-required />
@@ -98,7 +98,7 @@
     {
         <div class="inputs">
             <label asp-for="Address2" asp-postfix=":"></label>
-            <input asp-for="Address2" />
+            <input placeholder="Village/Ward, Thana, District" asp-for="Address2" />
             @if (Model.StreetAddress2Required)
             {
                 <nop-required />

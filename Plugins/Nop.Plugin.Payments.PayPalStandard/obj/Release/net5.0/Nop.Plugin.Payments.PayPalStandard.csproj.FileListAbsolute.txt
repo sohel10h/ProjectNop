@@ -892,7 +892,6 @@ D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalStandar
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\refs\System.Xml.XPath.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\refs\System.Xml.XPath.XDocument.dll
 D:\Personal works\ProjectNop\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\refs\WindowsBase.dll
-D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\Nop.Plugin.Payments.PayPalStandard.csproj.AssemblyReference.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\Nop.Plugin.Payments.PayPalStandard.GeneratedMSBuildEditorConfig.editorconfig
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\Nop.Plugin.Payments.PayPalStandard.AssemblyInfoInputs.cache
 D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\Nop.Plugin.Payments.PayPalStandard.AssemblyInfo.cs
@@ -1202,3 +1201,4 @@ E:\PP\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\N
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\Nop.Plugin.Payments.PayPalStandard.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\ref\Nop.Plugin.Payments.PayPalStandard.dll
 E:\PP\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\Nop.Plugin.Payments.PayPalStandard.pdb
+D:\Personal works\ProjectNop\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Release\net5.0\Nop.Plugin.Payments.PayPalStandard.csproj.AssemblyReference.cache

@@ -24,6 +24,7 @@ using Nop.Web.Framework.Mvc.Filters;
 using Nop.Web.Models.Order;
 using Nop.Services.Saller;
 using Nop.Core.Domain.Tax;
+using Nop.Services.Security;
 
 namespace Nop.Web.Controllers
 {
@@ -46,6 +47,7 @@ namespace Nop.Web.Controllers
         private readonly ShoppingCartSettings _shoppingCartSettings;
         private readonly ISallerService _sallerService;
         private readonly ICustomNumberFormatter _customNumberFormatter;
+        private readonly IPermissionService _permissionService;
 
 
         #endregion
@@ -66,7 +68,8 @@ namespace Nop.Web.Controllers
             ShoppingCartSettings shoppingCartSettings,
             RewardPointsSettings rewardPointsSettings,
             ISallerService sallerService,
-            ICustomNumberFormatter customNumberFormatter
+            ICustomNumberFormatter customNumberFormatter,
+            IPermissionService permissionService
             )
         {
             _customerService = customerService;
@@ -84,6 +87,7 @@ namespace Nop.Web.Controllers
             _shoppingCartSettings = shoppingCartSettings;
             _sallerService = sallerService;
             _customNumberFormatter = customNumberFormatter;
+            _permissionService = permissionService;
         }
 
         #endregion
@@ -187,9 +191,12 @@ namespace Nop.Web.Controllers
         public virtual async Task<IActionResult> Details(int orderId)
         {
             var order = await _orderService.GetOrderByIdAsync(orderId);
-            if (order == null || order.Deleted || (await _workContext.GetCurrentCustomerAsync()).Id != order.CustomerId)
-                return Challenge();
-
+            var currentCustomer = await _workContext.GetCurrentCustomerAsync();  
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.AccessAdminPanel)) 
+            {
+                if (order == null || order.Deleted || currentCustomer.Id != order.CustomerId)
+                    return Challenge();
+            }
             var model = await _orderModelFactory.PrepareOrderDetailsModelAsync(order);
             return View(model);
         }
@@ -199,9 +206,12 @@ namespace Nop.Web.Controllers
         public virtual async Task<IActionResult> PrintOrderDetails(int orderId)
         {
             var order = await _orderService.GetOrderByIdAsync(orderId);
-            if (order == null || order.Deleted || (await _workContext.GetCurrentCustomerAsync()).Id != order.CustomerId)
-                return Challenge();
-
+            var currentCustomer = await _workContext.GetCurrentCustomerAsync();
+            if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.AccessAdminPanel))
+            {
+                if (order == null || order.Deleted || currentCustomer.Id != order.CustomerId)
+                    return Challenge();
+            }
             var model = await _orderModelFactory.PrepareOrderDetailsModelAsync(order);
             model.PrintMode = true;
 
